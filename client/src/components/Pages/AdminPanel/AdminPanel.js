@@ -2,7 +2,7 @@ import React from "react";
 
 const AdminPanel = () => {
   return (
-    <div>Welcome to admin panel</div>
+    <h1>Welcome to admin panel</h1>
   )
 };
 
