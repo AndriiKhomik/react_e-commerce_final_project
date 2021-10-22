@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const ProductItem = () => {
   return (
@@ -8,7 +8,7 @@ const ProductItem = () => {
       <div>Item</div>
       <div>Item</div>
     </>
-  )
+  );
 };
 
 export default ProductItem;

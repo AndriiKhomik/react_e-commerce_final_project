@@ -1,17 +1,17 @@
-import React from "react";
-import {Route, Switch} from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.scss';
-import Header from "../Header";
-import AdminPanel from "../Pages/AdminPanel";
-import Homepage from "../Pages/Homepage";
-import Catalogue from "../Pages/Catalogue";
-import ShoppingCart from "../Pages/ShoppingCart";
-import Contacts from "../Pages/Contacts";
-import RegistrationPage from "../Pages/RegistrationPage";
-import NotFoundPage from "../Pages/NotFoundPage";
+import Header from '../Header';
+import AdminPanel from '../Pages/AdminPanel';
+import Homepage from '../Pages/Homepage';
+import Catalogue from '../Pages/Catalogue';
+import ShoppingCart from '../Pages/ShoppingCart';
+import Contacts from '../Pages/Contacts';
+import RegistrationPage from '../Pages/RegistrationPage';
+import NotFoundPage from '../Pages/NotFoundPage';
 
-const  App = () => {
+const App = () => {
   return (
     <>
       <Header />
@@ -25,7 +25,7 @@ const  App = () => {
         <Route exact path='*' component={NotFoundPage} />
       </Switch>
     </>
-  )
+  );
 };
 
 export default App;

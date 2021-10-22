@@ -16,12 +16,7 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": "warn",
-    "arrow-body-style": [
-      "warn",
-      "as-needed",
-      {
-        "requireReturnForObjectLiteral": true
-      }
-    ]
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   }
 }
