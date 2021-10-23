@@ -1,12 +1,12 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import Homepage from "./components/Pages/Homepage";
-import Catalogue from "./components/Pages/Catalogue";
-import Contacts from "./components/Pages/Contacts";
-import AdminPanel from "./components/Pages/AdminPanel";
-import ShoppingCart from "./components/Pages/ShoppingCart";
-import RegistrationPage from "./components/Pages/RegistrationPage";
-import NotFoundPage from "./components/Pages/NotFoundPage";
+import Homepage from "./Pages/Homepage";
+import Catalogue from "./Pages/Catalogue";
+import Contacts from "./Pages/Contacts";
+import AdminPanel from "./Pages/AdminPanel";
+import ShoppingCart from "./Pages/ShoppingCart";
+import RegistrationPage from "./Pages/RegistrationPage";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 export const useRoutes = () => {
   return (
