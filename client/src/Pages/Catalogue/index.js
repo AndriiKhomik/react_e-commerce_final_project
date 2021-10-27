@@ -1,3 +1,3 @@
-import Catalogue from "./Catalogue";
+import Catalogue from './Catalogue';
 
 export default Catalogue;
