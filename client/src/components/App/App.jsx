@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 import './App.scss';
-import Header from "../Header";
-import {useRoutes} from "../../routes";
-import Footer from "../Footer";
+import Header from '../Header';
+import { useRoutes } from '../../routes';
+import Footer from '../Footer';
 
-const  App = () => {
+const App = () => {
   const routes = useRoutes();
 
   return (
@@ -14,7 +14,7 @@ const  App = () => {
       {routes}
       <Footer />
     </>
-  )
+  );
 };
 
 export default App;
