@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'CeraPro-Black';
+  src: local('CeraPro-Black'), url(./fonts/CeraPro-Black.woff) format('woff');
+  font-family: 'CeraPro-Bold';
+  src: local('CeraPro-Bold'), url(./fonts/CeraPro-Bold.woff) format('woff');
+  font-family: 'CeraPro-Regular';
+  src: local('CeraPro-Regular'), url(./fonts/CeraPro-Regular.woff) format('woff');
+}
+
+@import "styles/variables";
+@import "styles/mixins";
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -13,8 +25,14 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
+  font-family: 'CeraPro-Regular', sans-serif;
 };
 
 ol, ul {
   list-style: none;
 };
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+}

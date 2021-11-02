@@ -1,14 +1,18 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
 .header {
-  max-width: 1160px;
-  background-color: #c2c2c2;
-  height: 200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  padding: 168px 0;
+  .nav-container {
+    @include flex(space-between, center);
+  }
 
   a {
     text-decoration: none;
     color: black;
   }
+}
+.logo {
+  width: 36px;
 }
 
