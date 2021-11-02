@@ -2,3 +2,20 @@
   height: 100px;
   background-color: #628bc5;
 }
+
+.footer__upper-wrapper {
+  display: flex;
+  padding: 26px 10px 30px 10px;
+  background-color: #FFAC0C26;
+}
+
+.footer__down-wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 15px 27px 15px;
+  background-color: #FBFBFB;
+}
+
+.footer__copyright-text {
+  text-align: center;
+}

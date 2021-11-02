@@ -1,0 +1,18 @@
+.footer__contacts-item{
+    display: flex;
+    &:not(:last-child){
+        margin-right: 60px;
+    }
+}
+
+.footer__contacts-address {
+    font-style: normal;
+}
+
+.footer__contacts-link{
+    text-decoration: none; 
+}
+.footer__contacts-icon {
+    margin-right: 20px;
+}
+

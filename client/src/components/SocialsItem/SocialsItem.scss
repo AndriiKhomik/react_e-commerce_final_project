@@ -1,0 +1,15 @@
+.footer__socials-item {
+  text-align: center;  
+  border: 1px solid #FFAC0C8F;
+  border-radius: 4px; 
+      &:not(:last-child){
+        margin-right: 10px;
+    }
+}
+
+.footer__socials-link {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
