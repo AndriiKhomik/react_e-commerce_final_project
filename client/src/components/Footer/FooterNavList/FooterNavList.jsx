@@ -1,19 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { routes } from './routes';
-import './FooterNavList.scss';
+import { StyledList, StyledLink, StyledItem } from './Styles';
 
 const FooterNavList = () => {
   return (
-    <ul className='footer__nav-list'>
+    <StyledList>
       {routes.map((link) => (
-        <li key={link.id} className='footer__nav-item'>
-          <NavLink to={link.route} className='footer__nav-link'>
+        <StyledItem key={link.id}>
+          <StyledLink as={NavLink} to={link.route}>
             {link.name}
-          </NavLink>
-        </li>
+          </StyledLink>
+        </StyledItem>
       ))}
-    </ul>
+    </StyledList>
   );
 };
 

@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './FooterContactsItem.scss';
+import {
+  StyledAddress,
+  StyledItem,
+  StyledListIcon,
+  StyledLink,
+} from './Styles';
 
 const FooterContactsItem = ({ contact }) => {
   const { component, isAddress, text, link, label } = contact;
 
   return (
-    <li className='footer__contacts-item'>
-      <span className='footer__contacts-icon'>{component}</span>
+    <StyledItem>
+      <StyledListIcon>{component}</StyledListIcon>
       {isAddress ? (
-        <address className='footer__contacts-address'>{text} </address>
+        <StyledAddress>{text}</StyledAddress>
       ) : (
-        <a
-          className='footer__contacts-link'
-          href={link}
-          aria-label={label}
-          title={label}
-        >
+        <StyledLink href={link} aria-label={label} title={label}>
           {text}
-        </a>
+        </StyledLink>
       )}
-    </li>
+    </StyledItem>
   );
 };
 

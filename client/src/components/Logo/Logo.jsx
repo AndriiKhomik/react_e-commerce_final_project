@@ -1,12 +1,12 @@
 import React from 'react';
-import './Logo.scss';
+import { StyledLogoText, StyledBox } from './Style';
 
 const Logo = () => {
   return (
-    <div className='logo-wrapper'>
+    <StyledBox>
       Logo
-      <span className='logo-text'>bookstore</span>
-    </div>
+      <StyledLogoText>bookstore</StyledLogoText>
+    </StyledBox>
   );
 };
 

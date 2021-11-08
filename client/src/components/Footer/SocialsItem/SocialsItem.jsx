@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SocialsItem.scss';
+import { StyledListItem, StyledSocialLink } from './Styles';
 
 const SocialsItem = ({ social }) => {
   const { name, link, component } = social;
   return (
-    <li className='footer__socials-item'>
-      <a
-        className='footer__socials-link'
+    <StyledListItem>
+      <StyledSocialLink
         rel='nofollow'
-        title={`move to ${name} page`}
         target='blank'
+        title={`move to ${name} page`}
         href={link}
         aria-label={`move to ${name} page`}
       >
         {component}
-      </a>
-    </li>
+      </StyledSocialLink>
+    </StyledListItem>
   );
 };
 
