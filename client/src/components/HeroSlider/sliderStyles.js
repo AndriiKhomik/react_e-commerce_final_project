@@ -29,7 +29,7 @@ export const SliderWrapper = styled(Box)`
   }
 `;
 
-export const ImageWrapper = styled(Box)`
+export const StyledImageWrapper = styled(Box)`
   & img {
     width: 100%;
   }
