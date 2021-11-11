@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { styled } from '@mui/material/styles';
 import { List, Link, ListItem } from '@mui/material';
 import theme from '../FooterMain/StylesBreakpoints';
