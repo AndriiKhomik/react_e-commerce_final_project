@@ -5,7 +5,7 @@ export const StyledList = styled(List)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 215px)',
-        justifyContent: 'end',
+        justifyContent: 'center',
         columnGap: '96px',
         rowGap: '60px',
     },
