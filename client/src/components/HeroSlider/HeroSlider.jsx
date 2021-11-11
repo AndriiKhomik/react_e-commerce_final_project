@@ -5,7 +5,7 @@ import { Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/modules/pagination/pagination.scss';
 import Container from '@mui/material/Container';
-import { StyledLink, SliderWrapper, StyledImageWrapper } from './sliderStyles';
+import { StyledLink, SliderWrapper, StyledImageWrapper } from './Styles';
 import { AdaptivePicture } from './AdaptivePicture';
 import { bannersArray } from './banners';
 
