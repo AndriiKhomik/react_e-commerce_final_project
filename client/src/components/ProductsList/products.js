@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const items = [
     {
         id: 'id-1',

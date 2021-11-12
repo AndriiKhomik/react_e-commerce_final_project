@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 export const StyledListItem = styled('li')`
   position: relative;
   transition: 0.3s linear;
-  &:hover .css-1atf32g {
+  &:hover .css-1d0o2mp {
     color: #ffac0c;
   }
 `;
@@ -13,7 +13,6 @@ export const StyledLink = styled(Link)`
   width: 100%;
   text-decoration: none;
 `;
-
 
 export const StyledCardMediaWrapper = styled('div')`
   position: relative;
@@ -52,6 +51,7 @@ export const StyledCardMedia = styled('img')`
 
 export const StyledFavouriteBtnBox = styled(CardActions)`
   position: absolute;
+  z-index: 2;
   top: 15px;
   right: 8px;
   background-color: #ffffff;
@@ -65,6 +65,7 @@ export const StyledFavouriteBtn = styled(Button)`
 
 export const StyledSaleParagraph = styled('p')`
   position: absolute;
+  z-index: 2;
   top: 20px;
   left: 0;
   padding: 8px 16px;
@@ -93,7 +94,7 @@ export const StyledBookNameText = styled('p')`
   margin-bottom: 14px;
 `;
 
-export const StyledAuthorText = styled('a')`
+export const StyledAuthorText = styled('p')`
   grid-area: author;
   color: #a5a5a5;
   font-size: 16px;
@@ -103,7 +104,6 @@ export const StyledAuthorText = styled('a')`
   text-decoration: none;
   &:hover {
     color: #ffac0c;
-    text-decoration: underline;
   }
 `;
 export const StyledPriceBox = styled('div')`
