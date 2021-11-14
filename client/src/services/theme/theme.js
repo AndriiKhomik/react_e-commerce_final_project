@@ -24,6 +24,13 @@ const theme = createTheme({
       xl: 1536,
     },
   },
+  components: {
+    MuiTextField: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+  },
 });
 
 export default theme;
