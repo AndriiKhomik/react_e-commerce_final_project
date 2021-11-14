@@ -8,6 +8,12 @@ const theme = createTheme({
       light: 'rgba(255, 172, 12, 0.22)',
     },
   },
+  text: {
+    primary: '#727272',
+  },
+  background: {
+    paper: '#e5e5e5',
+  },
   typography: {
     fontSize: 14,
     fontFamily: ['CeraPro Regular', 'CeraPro Bold', 'CeraPro Black'].join(','),
