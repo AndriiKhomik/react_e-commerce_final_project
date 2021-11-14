@@ -7,12 +7,13 @@ const theme = createTheme({
       dark: '#f8a300',
       light: 'rgba(255, 172, 12, 0.22)',
     },
-  },
-  text: {
-    primary: '#727272',
-  },
-  background: {
-    paper: '#e5e5e5',
+    text: {
+      primary: '#727272',
+    },
+    background: {
+      paper: '#e5e5e5',
+      default: '#e5e5e5',
+    },
   },
   typography: {
     fontSize: 14,
