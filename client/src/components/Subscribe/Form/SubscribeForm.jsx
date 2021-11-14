@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, TextField, ThemeProvider } from '@mui/material';
 import FormTitle from './FormTitle';
 import FormDescription from './FormDescription';
-import theme from '../../../services/theme';
+import theme from '../../../services/theme/theme';
 
 const SubscribeForm = () => {
   return (
