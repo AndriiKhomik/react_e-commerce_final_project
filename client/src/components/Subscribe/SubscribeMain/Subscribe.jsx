@@ -1,13 +1,17 @@
 import React from 'react';
+import { Container, ThemeProvider } from '@mui/material';
+import theme from '../../../services/theme/theme';
 import SubscribeForm from '../Form/SubscribeForm';
 import InfoItemsList from '../InfoList/InfoItemsList';
 
 const Subscribe = () => {
   return (
-    <>
-      <InfoItemsList />
-      <SubscribeForm />;
-    </>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <InfoItemsList />
+        <SubscribeForm />;
+      </Container>
+    </ThemeProvider>
   );
 };
 

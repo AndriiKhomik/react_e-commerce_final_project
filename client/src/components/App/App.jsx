@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './App.scss';
 import Header from '../Header';
 import { useRoutes } from '../../routes';
@@ -13,7 +12,7 @@ const App = () => {
     <>
       <Header />
       {routes}
-      <Subscribe />
+        <Subscribe />
       <Footer />
     </>
   );
