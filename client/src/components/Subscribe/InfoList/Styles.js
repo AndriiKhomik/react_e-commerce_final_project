@@ -6,10 +6,12 @@ export const StyledList = styled(List)(() => ({
   [theme.breakpoints.up('xs')]: {
     display: 'flex',
     fontFamily: 'CeraPro Regular',
-    justifyContent: 'space-between',
+    paddingRight: '10px',
+    // justifyContent: 'space-between',
+    // width: '70%',
   },
-  [theme.breakpoints.up('dm')]: {},
-  [theme.breakpoints.up('lg')]: {
-    justifyContent: 'space-around',
-  },
+  // [theme.breakpoints.up('dm')]: {},
+  // [theme.breakpoints.up('lg')]: {
+  //   // justifyContent: 'start',
+  // },
 }));
