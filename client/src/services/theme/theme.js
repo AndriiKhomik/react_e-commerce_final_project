@@ -12,7 +12,7 @@ const theme = createTheme({
     primary: '#727272',
   },
   background: {
-    paper: '#E5E5E5',
+    paper: '#e5e5e5',
   },
   typography: {
     fontSize: 14,
