@@ -4,6 +4,8 @@ import theme from '../../Footer/FooterMain/StylesBreakpoints';
 
 export const StyledBox = styled(Box)(() => ({
   backgroundColor: '#fbfbfb;',
+  paddingLeft: '25px',
+  paddingRight: '25px',
   [theme.breakpoints.up('xs')]: {
     display: 'flex',
     // flexDirection: 'column',

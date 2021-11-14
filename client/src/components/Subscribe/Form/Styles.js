@@ -6,7 +6,7 @@ export const StyledBox = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   //   [theme.breakpoints.up('dm')]: {},
 }));
