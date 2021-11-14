@@ -8,11 +8,11 @@ export const StyledUpperBox = styled(Box)`
 `;
 
 export const StyledDownBox = styled(Box)(() => ({
-    backgroundColor: '#fbfbfb',
-    padding: '15px 0',
-    [theme.breakpoints.up('md')]: {
-        padding: '32px 0',
-    },
+  backgroundColor: '#fbfbfb',
+  padding: '15px 0',
+  [theme.breakpoints.up('md')]: {
+    padding: '32px 0',
+  },
 }));
 
 export const StyledUpperGrid = styled(Grid)`
@@ -20,10 +20,10 @@ export const StyledUpperGrid = styled(Grid)`
 `;
 
 export const StyledDownGrid = styled(Grid)(() => ({
-    alignItems: 'start',
-    [theme.breakpoints.up('dl')]: {
-        alignItems: 'center',
-    },
+  alignItems: 'start',
+  [theme.breakpoints.up('dl')]: {
+    alignItems: 'center',
+  },
 }));
 
 export const StyledParagraph = styled(Typography)`

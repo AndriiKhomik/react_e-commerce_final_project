@@ -1,6 +1,6 @@
 import { List } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../SubscribeMain/StylesBreakpoints';
+import theme from '../../../services/theme';
 
 export const StyledList = styled(List)(() => ({
   [theme.breakpoints.up('xs')]: {
@@ -13,5 +13,7 @@ export const StyledList = styled(List)(() => ({
   },
   [theme.breakpoints.up('lg')]: {
     justifyContent: 'space-around',
+    // fontSize: '30px',
+    // color: 'green',
   },
 }));

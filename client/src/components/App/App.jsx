@@ -13,7 +13,7 @@ const App = () => {
     <>
       <Header />
       {routes}
-      <Subscribe/>
+      <Subscribe />
       <Footer />
     </>
   );
