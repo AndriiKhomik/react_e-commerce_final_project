@@ -1,7 +1,7 @@
 import React from 'react';
 import { items } from './products';
 import { StyledList } from './Styles';
-import ProductItem from '../ProductItem';
+import ProductItem from '../ProductItem/ProductItem';
 
 const ProductsList = () => {
   const books = items.slice(0, 6);

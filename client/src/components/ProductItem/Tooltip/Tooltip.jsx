@@ -2,7 +2,7 @@ import React from 'react';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
 
-export const LightTooltip = styled(({ className, ...props }) => (
+const LightTooltip = styled(({ className, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -13,3 +13,5 @@ export const LightTooltip = styled(({ className, ...props }) => (
     fontSize: 12,
   },
 }));
+
+export default LightTooltip;
