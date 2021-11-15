@@ -1,8 +1,17 @@
 import React from 'react';
-import ProductItem from '../ProductItem';
+import { items } from './products';
+import { StyledList } from './Styles';
+import ProductItem from '../ProductItem/ProductItem';
 
 const ProductsList = () => {
-  return <ProductItem />;
+  const books = items.slice(0, 6);
+  return (
+    <StyledList>
+      {books.map((book) => (
+        <ProductItem key={book.id} book={book} />
+      ))}
+    </StyledList>
+  );
 };
 
 export default ProductsList;
