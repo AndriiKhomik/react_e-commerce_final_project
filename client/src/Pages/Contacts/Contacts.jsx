@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 const Contacts = () => {
@@ -7,3 +8,12 @@ const Contacts = () => {
 };
 
 export default Contacts;
+=======
+import React from 'react';
+
+const Contacts = () => {
+  return <h1>Contacts</h1>;
+};
+
+export default Contacts;
+>>>>>>> dev

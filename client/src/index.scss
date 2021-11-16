@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
   font-family: 'CeraPro-Black';
   src: local('CeraPro-Black'), url(./fonts/CeraPro-Black.woff) format('woff');
@@ -10,6 +11,8 @@
 @import "styles/variables";
 @import "styles/mixins";
 
+=======
+>>>>>>> dev
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,6 +26,16 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+<<<<<<< HEAD
   font-family: 'CeraPro-Regular', sans-serif;
 };
 
+=======
+  margin: 0;
+  padding: 0;
+};
+
+ol, ul {
+  list-style: none;
+};
+>>>>>>> dev

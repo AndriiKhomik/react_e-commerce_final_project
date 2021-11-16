@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Back End code for final projects of Front End groups\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DDANIT\u001b[3~ Front End groups",
   "main": "server.js",
+<<<<<<< HEAD
   "scripts": {
     "start": "cross-env NODE_ENV=production node app.js",
     "server": "nodemon app.js",
@@ -10,6 +11,19 @@
     "client: install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
     "dev": " cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
+=======
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+>>>>>>> dev
   },
   "repository": {
     "type": "git",
@@ -20,7 +34,10 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+<<<<<<< HEAD
     "cli": "^1.0.1",
+=======
+>>>>>>> dev
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
@@ -38,7 +55,14 @@
   },
   "devDependencies": {
     "concurrently": "^6.3.0",
+<<<<<<< HEAD
     "cross-env": "^7.0.3",
     "nodemon": "^1.19.1"
+=======
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "nodemon": "^1.19.1",
+    "pretty-quick": "^3.1.1"
+>>>>>>> dev
   }
 }

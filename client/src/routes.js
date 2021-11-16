@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import {Route, Switch} from "react-router-dom";
 import Homepage from "./Pages/Homepage";
@@ -7,6 +8,17 @@ import AdminPanel from "./Pages/AdminPanel";
 import ShoppingCart from "./Pages/ShoppingCart";
 import RegistrationPage from "./Pages/RegistrationPage";
 import NotFoundPage from "./Pages/NotFoundPage";
+=======
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Homepage from './Pages/Homepage';
+import Catalogue from './Pages/Catalogue';
+import Contacts from './Pages/Contacts';
+import AdminPanel from './Pages/AdminPanel';
+import ShoppingCart from './Pages/ShoppingCart';
+import RegistrationPage from './Pages/RegistrationPage';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+>>>>>>> dev
 
 export const useRoutes = () => {
   return (
@@ -19,5 +31,10 @@ export const useRoutes = () => {
       <Route exact path='/registration' component={RegistrationPage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>
+<<<<<<< HEAD
   )
 };
+=======
+  );
+};
+>>>>>>> dev
