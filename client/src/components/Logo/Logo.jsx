@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyledLogoText, StyledBox } from './Style';
+import { Link } from 'react-router-dom';
+import { StyledLogoText, StyledBox, StyledLink } from './Style';
 
 const Logo = () => {
   return (
     <StyledBox>
-      Logo
-      <StyledLogoText>bookstore</StyledLogoText>
+      <StyledLink as={Link} to='/'>
+        Logo
+        <StyledLogoText>bookstore</StyledLogoText>
+      </StyledLink>
     </StyledBox>
   );
 };
