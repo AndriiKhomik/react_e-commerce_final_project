@@ -100,6 +100,18 @@ const Navbar = () => {
                     marginRight: '20px',
                     cursor: 'pointer',
                     color: '#616161',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <NavLink exact to='/authors'>
+                    Authors
+                  </NavLink>
+                </Typography>
+                <Typography
+                  sx={{
+                    marginRight: '20px',
+                    cursor: 'pointer',
+                    color: '#616161',
                   }}
                 >
                   <NavLink exact to='/shoppingcart'>

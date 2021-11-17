@@ -52,6 +52,15 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <ListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
+              <NavLink exact to='/authors'>
+                Authors
+              </NavLink>
+            </ListItemText>
+          </ListItemIcon>
+        </ListItem>
+        <ListItem button onClick={() => setOpenDrawer(false)}>
+          <ListItemIcon>
+            <ListItemText>
               <NavLink exact to='/shoppingcart'>
                 Shopping Cart
               </NavLink>
