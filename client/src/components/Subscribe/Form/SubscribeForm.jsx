@@ -7,9 +7,7 @@ import { StyledBox } from './Styles';
 const SubscribeForm = () => {
   return (
     <StyledBox>
-      <FormTitle
-        title='Would you like to join newsletters?'
-      />
+      <FormTitle title='Would you like to join newsletters?' />
       <form>
         <TextField
           id='outlined-basic'
