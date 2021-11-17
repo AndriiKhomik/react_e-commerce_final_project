@@ -1,24 +1,45 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Badge, Button, IconButton } from '@mui/material';
+import { Badge, Button, IconButton, Box, Input } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useHistory } from 'react-router-dom';
 
 const UserBlock = ({ matches, setOpenDrawer }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [showSearchInput, setshowSearchInput] = useState(false);
 
-  // delete finction
+  const toShoppingCart = useHistory();
+
+  const redirectToCart = () => {
+    toShoppingCart.push('/shoppingcart');
+  };
+
+  const handleSearchInput = () => {
+    setshowSearchInput(!showSearchInput);
+  };
+
   const handleLogin = () => {
     setIsLoggedIn(!isLoggedIn);
   };
 
   return (
     <>
-      <IconButton>
+      {showSearchInput && (
+        <Input
+          sx={{
+            border: '1px solid grey',
+            paddingLeft: '4px',
+            borderRadius: '5px',
+          }}
+        />
+      )}
+      <Box component='form' />
+      <IconButton onClick={handleSearchInput}>
         <SearchIcon />
       </IconButton>
       {isLoggedIn && (
@@ -31,7 +52,7 @@ const UserBlock = ({ matches, setOpenDrawer }) => {
           <MenuRoundedIcon />
         </IconButton>
       ) : (
-        <IconButton>
+        <IconButton onClick={redirectToCart}>
           <Badge badgeContent={4} color='secondary' sx={{ marginRight: '8px' }}>
             <ShoppingBasketIcon color='action' />
           </Badge>

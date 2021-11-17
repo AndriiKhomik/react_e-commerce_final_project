@@ -24,7 +24,7 @@ const Navbar = () => {
     <>
       <Box
         elevation={0}
-        sx={{ backgroundColor: '#FFFFFF' }}
+        sx={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid orange' }}
         onClick={(e) => handleCloseOpenDrawer(e)}
       >
         <Toolbar>
