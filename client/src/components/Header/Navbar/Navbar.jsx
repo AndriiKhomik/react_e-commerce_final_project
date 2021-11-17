@@ -1,41 +1,19 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-  Badge,
-  Menu,
-  MenuItem,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import { Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
+
 import { Box } from '@mui/system';
 import DrawerComponent from '../Drawer';
-import logo from './logo.png';
+import Logo from '../../Logo/Logo';
+import UserBlock from '../UserBlock';
 
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('sm'));
-
-  const openMenu = Boolean(anchorEl);
-
-  const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleCloseOpenDrawer = (e) => {
-    // if (e.target !== )
     if (!e.target.classList.contains('css-i4bv87-MuiSvgIcon-root')) {
       setOpenDrawer(false);
     }
@@ -59,10 +37,8 @@ const Navbar = () => {
             }}
             component='div'
           >
-            <Box>
-              <IconButton>
-                <img src={logo} alt='logo' style={{ width: '30px' }} />
-              </IconButton>
+            <Box sx={{ fontSize: '20px' }}>
+              <Logo />
             </Box>
 
             {matches ? (
@@ -91,22 +67,11 @@ const Navbar = () => {
                   }}
                   aria-controls='basic-menu'
                   area-haspopup='true'
-                  aria-expanded={openMenu ? 'true' : undefined}
-                  onClick={handleClick}
                 >
                   <NavLink exact to='/catalogue'>
                     Catalogue
                   </NavLink>
                 </Typography>
-                <Menu
-                  id='basic-menu'
-                  anchorEl={anchorEl}
-                  open={openMenu}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleClose}>For Kids</MenuItem>
-                  <MenuItem onClick={handleClose}>Comedy</MenuItem>
-                </Menu>
                 <Typography
                   sx={{
                     marginRight: '20px',
@@ -123,6 +88,7 @@ const Navbar = () => {
                     marginRight: '20px',
                     cursor: 'pointer',
                     color: '#616161',
+                    textDecoration: 'none',
                   }}
                 >
                   <NavLink exact to='/blog'>
@@ -150,25 +116,7 @@ const Navbar = () => {
                 alignItems: 'center',
               }}
             >
-              <Button
-                sx={{ backgroundColor: '#FF4081' }}
-                disableElevation
-                variant='contained'
-              >
-                Login
-              </Button>
-
-              {matches ? (
-                <IconButton onClick={() => setOpenDrawer(true)}>
-                  <MenuRoundedIcon />
-                </IconButton>
-              ) : (
-                <IconButton>
-                  <Badge badgeContent={4} color='secondary'>
-                    <ShoppingBasketIcon color='action' />
-                  </Badge>
-                </IconButton>
-              )}
+              <UserBlock matches={matches} setOpenDrawer={setOpenDrawer} />
             </Box>
           </Box>
         </Toolbar>
