@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../../Footer/FooterMain/StylesBreakpoints';
+import theme from '../../../services/theme/theme'
 
 export const StyledBox = styled(Box)(() => ({
   backgroundColor: '#fbfbfb;',
