@@ -22,4 +22,11 @@ export const StyledSocialLink = styled(Link)`
   &:hover {
     border-color: #fd8502;
   }
+  & > .footer-icon {
+    fill: #f5a70d;
+    transition: 0.3s linear;
+  }
+  &:hover .footer-icon {
+    fill: #fd8502;
+  }
 `;

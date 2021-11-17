@@ -3,7 +3,7 @@ import React from 'react';
 import './App.scss';
 import Header from '../Header';
 import { useRoutes } from '../../routes';
-import Footer from '../Footer/FooterMain';
+import Footer from '../Footer/Footer';
 
 const App = () => {
   const routes = useRoutes();
