@@ -5,30 +5,21 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.1.0",
-<<<<<<< HEAD
     "@material-ui/core": "^4.12.3",
-=======
->>>>>>> dev
+    "@mui/icons-material": "^5.1.0",
     "@mui/material": "^5.0.4",
+    "@mui/system": "^5.1.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "node-sass": "^6.0.1",
-<<<<<<< HEAD
-=======
     "prop-types": "^15.7.2",
->>>>>>> dev
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.1",
-<<<<<<< HEAD
-    "web-vitals": "^1.1.2"
-  },
-=======
     "swiper": "^7.2.0",
     "web-vitals": "^1.1.2"
   },
@@ -38,7 +29,6 @@
       "eslint --fix"
     ]
   },
->>>>>>> dev
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -62,8 +52,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -78,6 +66,5 @@
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "pretty-quick": "^3.1.1"
->>>>>>> dev
   }
 }

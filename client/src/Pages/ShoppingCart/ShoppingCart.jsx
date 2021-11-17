@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-const ShoppingCart = () => {
-  return (
-    <h1>Shopping cart</h1>
-  )
-};
-
-export default ShoppingCart;
-=======
 import React from 'react';
 
 const ShoppingCart = () => {
@@ -16,4 +5,3 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
->>>>>>> dev

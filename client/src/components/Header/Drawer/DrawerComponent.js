@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
+} from '@mui/material';
 
-const DrawerComponent = ({openDrawer, setOpenDrawer}) => {
+const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
   return (
     <Drawer anchor='left' open={openDrawer}>
       <List>
@@ -24,6 +25,11 @@ const DrawerComponent = ({openDrawer, setOpenDrawer}) => {
       </List>
     </Drawer>
   );
+};
+
+DrawerComponent.propTypes = {
+  openDrawer: PropTypes.bool.isRequired,
+  setOpenDrawer: PropTypes.func.isRequired,
 };
 
 export default DrawerComponent;

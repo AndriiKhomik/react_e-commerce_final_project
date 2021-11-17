@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import ProductItem from "../ProductItem";
-
-const ProductsList = () => {
-  return (
-    <ProductItem />
-  )
-};
-
-export default ProductsList;
-=======
 import React from 'react';
 import { items } from './products';
 import { StyledList } from './Styles';
@@ -27,4 +15,3 @@ const ProductsList = () => {
 };
 
 export default ProductsList;
->>>>>>> dev
