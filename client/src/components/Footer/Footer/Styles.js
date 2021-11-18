@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Grid, Typography, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from './StylesBreakpoints';
