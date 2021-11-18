@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductsList from '../../components/ProductsList';
+import { RecommendedBooksList } from '../../components/ProductsList';
 
 const Catalogue = () => {
-  return <ProductsList />;
+  return <RecommendedBooksList />;
 };
 
 export default Catalogue;

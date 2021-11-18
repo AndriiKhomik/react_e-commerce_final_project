@@ -12,10 +12,10 @@ export const StyledLink = styled(Link)`
 
 export const StyledCardGrid = styled('div')`
   display: grid;
-  grid-template-rows: 18px auto;
-  grid-template-columns: auto 45px;
+  grid-template-rows: 18px 16px;
+  grid-template-columns: auto 37px;
   grid-template-areas:
-    'author . '
+    'author cart'
     'price cart';
   row-gap: 9px;
 `;

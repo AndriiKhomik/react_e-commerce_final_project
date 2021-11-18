@@ -5,7 +5,7 @@ export const StyledFavouriteBtnBox = styled(CardActions)`
   position: absolute;
   padding: 0;
   z-index: 2;
-  top: 15px;
+  top: 8px;
   right: 8px;
   background-color: #ffffff;
   border-radius: 4px;
