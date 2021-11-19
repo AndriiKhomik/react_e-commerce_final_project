@@ -1,19 +1,20 @@
 import { styled } from '@mui/material/styles';
 
-export const StyledTitle = styled('h3')(()=>({
-    color: 'red',
-    paddingTop: '18px',
-    paddingBottom: '9px',
-    fontSize: '17px',
-    lineHeight: '16px',
-    fontFamily: 'CeraPro Bold',
+export const StyledTitle = styled('h3')(() => ({
+  color: '#000',
+  paddingTop: '18px',
+  paddingBottom: '9px',
+  fontSize: '17px',
+  lineHeight: '16px',
+  fontFamily: 'CeraPro Bold',
 }));
 
-
-export const StyledText = styled('span')`
-  //   font-size: 18px;
-`;
-
+export const StyledText = styled('span')(() => ({
+  color: '#727272',
+  fontSize: '14px',
+  lineHeight: '22px',
+  fontFamily: 'CeraPro Regular',
+}));
 
 // export const StyledBox = styled(Box)(() => ({
 //     backgroundColor: '#fbfbfb;',
