@@ -16,16 +16,20 @@ const ProductSchema = new Schema(
       type: String,
       required: true
     },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: 'authors'
+    },
+    categories: {
+      type: String,
+      required: true
+    },
     currentPrice: {
       type: Number,
       required: true
     },
     previousPrice: {
       type: Number
-    },
-    categories: {
-      type: String,
-      required: true
     },
     imageUrls: [
       {
@@ -38,31 +42,63 @@ const ProductSchema = new Schema(
       required: true,
       default: 0
     },
-    color: {
+    publisher: {
       type: String
     },
-    sizes: {
-      type: String
+    shortDescription: {
+      type: String,
+      required: true,
     },
-    productUrl: {
-      type: String
+    fullDescription: {
+      type: String,
+      required: true,
     },
-    brand: {
-      type: String
+    yearOfPublishing: {
+      type: Number,
+      required: true,
     },
-    manufacturer: {
-      type: String
-    },
-    manufacturerCountry: {
-      type: String
-    },
-    seller: {
-      type: String
+    genre: {
+      type: String,
+      required: true,
     },
     date: {
       type: Date,
       default: Date.now
-    }
+    },
+    // Depands on format
+
+    numberOfPages: {
+      type: Number
+    },
+    coverType: {
+      type: String,
+    },
+    duration: {
+      type: Number
+    },
+    // format: {
+    //   type: String,
+    //   required: true,
+    //   default: 'paper'
+    // },
+    // productUrl: {
+    //   type: String
+    // },
+    // color: {
+    //   type: String
+    // },
+    // sizes: {
+    //   type: String
+    // },
+    // brand: {
+    //   type: String
+    // },
+    // manufacturerCountry: {
+    //   type: String
+    // },
+    // seller: {
+    //   type: String
+    // },
   },
   { strict: false }
 );

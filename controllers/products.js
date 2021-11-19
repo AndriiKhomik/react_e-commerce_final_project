@@ -47,6 +47,10 @@ exports.addProduct = (req, res, next) => {
   const newProduct = new Product(updatedProduct);
 
   newProduct
+    .populate("author")
+    .execPopulate();
+
+  newProduct
     .save()
     .then(product => res.json(product))
     .catch(err =>
@@ -104,7 +108,7 @@ exports.getProducts = (req, res, next) => {
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
 
-  Product.find()
+  Product.find({}).populate('author')
     .skip(startPage * perPage - perPage)
     .limit(perPage)
     .sort(sort)
@@ -119,7 +123,7 @@ exports.getProducts = (req, res, next) => {
 exports.getProductById = (req, res, next) => {
   Product.findOne({
     itemNo: req.params.itemNo
-  })
+  }).populate('author')
     .then(product => {
       if (!product) {
         res.status(400).json({
