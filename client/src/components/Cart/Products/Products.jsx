@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TableHead,
   Table,
   TableBody,
   TableContainer,
   TableRow,
+  FormControl,
+  Select,
+  MenuItem,
 } from '@mui/material';
-import { StyledTableCell, StyledTableRow } from './Styled';
+import {
+  StyledImg,
+  StyledDiv,
+  StyledTableCell,
+  StyledTableCellHead,
+  StyledTableRow,
+} from './Styled';
+import ebook from '../img/ereader.png';
+import paperBook from '../img/open-book.png';
+import audioBook from '../img/audio-book.png';
 
 // Test data
 const rows = [
@@ -24,7 +36,7 @@ const rows = [
     number: 'long number',
     name: 'Harry Potter',
     price: 15,
-    quantity: 1,
+    quantity: 2,
   },
   {
     id: 3,
@@ -37,41 +49,61 @@ const rows = [
 ];
 
 const Products = () => {
+  const [img, setImg] = useState(paperBook);
+
+  const handleChange = (value) => {
+    if (value.target.value === 1) {
+      setImg(ebook);
+    }
+    if (value.target.value === 2) {
+      setImg(paperBook);
+    }
+    if (value.target.value === 3) {
+      setImg(audioBook);
+    }
+  };
+
   return (
     <TableContainer>
       <Table sx={{ minWidth: 320 }} size='small' aria-label='a dense table'>
         <TableHead>
           <StyledTableRow>
-            <StyledTableCell sx={{ fontWeight: 700 }} align='left'>
-              Products
-            </StyledTableCell>
-            <StyledTableCell sx={{ fontWeight: 700 }} align='center'>
-              Format
-            </StyledTableCell>
-            <StyledTableCell sx={{ fontWeight: 700 }} align='center'>
-              Price
-            </StyledTableCell>
-            <StyledTableCell sx={{ fontWeight: 700 }} align='center'>
-              Quantity
-            </StyledTableCell>
-            <StyledTableCell sx={{ fontWeight: 700 }} align='center'>
-              Total
-            </StyledTableCell>
+            <StyledTableCellHead align='left'>Products</StyledTableCellHead>
+            <StyledTableCellHead align='center'>Format</StyledTableCellHead>
+            <StyledTableCellHead align='center'>Price</StyledTableCellHead>
+            <StyledTableCellHead align='center'>Quantity</StyledTableCellHead>
+            <StyledTableCellHead align='center'>Total</StyledTableCellHead>
           </StyledTableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow
-              key={row.id}
-              // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
+            <TableRow key={row.id}>
               <StyledTableCell component='th' scope='row'>
-                {row.cover}
+                {row.cover} <span>{row.number}</span>
               </StyledTableCell>
-              <StyledTableCell align='center'>{row.number}</StyledTableCell>
-              <StyledTableCell align='center'>{row.name}</StyledTableCell>
-              <StyledTableCell align='center'>{row.price}</StyledTableCell>
-              <StyledTableCell align='center'>{row.quantity}</StyledTableCell>
+              <StyledTableCell align='center'>
+                <StyledImg src={img} alt='ebook' />
+                <FormControl fullWidth>
+                  <Select
+                    defaultValue={2}
+                    onChange={handleChange}
+                    sx={{ height: '28px' }}
+                  >
+                    <MenuItem value={1}>Ebook</MenuItem>
+                    <MenuItem value={2}>Paper Book</MenuItem>
+                    <MenuItem value={3}>Audio Book</MenuItem>
+                  </Select>
+                </FormControl>
+              </StyledTableCell>
+              <StyledTableCell align='center'>${row.price}</StyledTableCell>
+              <StyledTableCell align='center'>
+                <StyledDiv>-</StyledDiv>
+                {row.quantity}
+                <StyledDiv sx={{ padding: '0 6px' }}>+</StyledDiv>
+              </StyledTableCell>
+              <StyledTableCell align='center'>
+                ${row.price * row.quantity}
+              </StyledTableCell>
             </TableRow>
           ))}
         </TableBody>

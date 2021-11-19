@@ -9,7 +9,7 @@ const ShoppingCart = () => {
   const location = useLocation();
 
   return (
-    <Container maxWidth='lg'>
+    <Container sx={{ padding: '36px 0' }} maxWidth='lg'>
       <span>{location.pathname}</span>
       <StyledBox>
         <Products />
