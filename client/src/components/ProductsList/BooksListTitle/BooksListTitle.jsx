@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from '@mui/material';
 import { StyledTitle } from './Styles';
 
 const BooksListTitle = ({ text }) => {
-  return (
-    <Container maxWidth='lg'>
-      <StyledTitle>{text}</StyledTitle>
-    </Container>
-  );
+  return <StyledTitle>{text}</StyledTitle>;
 };
 
 BooksListTitle.propTypes = {

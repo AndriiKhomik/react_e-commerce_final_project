@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { List } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../Footer/StylesBreakpoints';
+import theme from '../../../services/theme/theme';
 
 export const StyledList = styled(List)(() => ({
     [theme.breakpoints.up('xs')]: {

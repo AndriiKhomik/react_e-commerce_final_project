@@ -1,10 +1,6 @@
 import { Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const StyledListItem = styled('li')`
-  position: relative;
-`;
-
 export const StyledLink = styled(Link)`
   width: 100%;
   text-decoration: none;

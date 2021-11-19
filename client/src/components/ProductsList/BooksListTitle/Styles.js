@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import theme from '../../services/theme/theme';
+import theme from '../../../services/theme/theme';
 
 export const StyledTitle = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {

@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import theme from '../../../services/theme/theme';
 
 export const StyledCardMediaWrapper = styled('div')(() => ({
   position: 'relative',
@@ -7,12 +6,6 @@ export const StyledCardMediaWrapper = styled('div')(() => ({
   width: '100%',
   height: '100%',
   marginBottom: '20px',
-  [theme.breakpoints.up('dm')]: {
-    minHeight: '327px',
-  },
-  [theme.breakpoints.up('dl')]: {
-    minHeight: '243px',
-  },
 }));
 
 export const StyledCardMediaBox = styled('div')`
