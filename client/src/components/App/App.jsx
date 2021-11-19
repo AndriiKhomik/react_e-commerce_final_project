@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Reset } from 'styled-reset';
 import { ThemeProvider } from '@mui/material';
 import { useRoutes } from '../../routes';
 import './App.scss';
@@ -13,12 +12,11 @@ const App = () => {
 
   return (
     <>
-      {/* <Reset /> */}
       <ThemeProvider theme={theme}>
         <StyledContainer>
-          <Header />
-          {routes}
-          <Footer />
+            <Header />
+            {routes}
+            <Footer />
         </StyledContainer>
       </ThemeProvider>
     </>
