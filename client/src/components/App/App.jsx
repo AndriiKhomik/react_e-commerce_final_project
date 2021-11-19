@@ -1,4 +1,5 @@
 import React from 'react';
+import { Reset } from 'styled-reset';
 import Header from '../Header/Header';
 import { useRoutes } from '../../routes';
 import Footer from '../Footer/Footer/Footer';
@@ -8,6 +9,7 @@ const App = () => {
 
   return (
     <>
+      <Reset />
       <Header />
       {routes}
       <Footer />
