@@ -13,10 +13,10 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <StyledContainer>
-            <Header />
-            {routes}
-            <Footer />
+        <StyledContainer maxWidth='lg'>
+          <Header />
+          {routes}
+          <Footer />
         </StyledContainer>
       </ThemeProvider>
     </>

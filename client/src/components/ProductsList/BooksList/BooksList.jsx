@@ -16,7 +16,7 @@ const BooksList = ({ items, text }) => {
         <Swiper
           wrapperTag='ul'
           slidesPerView='auto'
-          spaceBetween={35}
+          spaceBetween={25}
           modules={[Navigation]}
           navigation={{ clickable: true }}
         >

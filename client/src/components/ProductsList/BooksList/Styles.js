@@ -1,9 +1,21 @@
 import { Container, List } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import theme from '../../../services/theme/theme';
 
-export const StyledContainer = styled(Container)`
-  margin-bottom: 90px;
-`;
+export const StyledContainer = styled(Container)(() => ({
+  [theme.breakpoints.up('xs')]: {
+    marginBottom: '40px',
+  },
+  [theme.breakpoints.up('sm')]: {
+    marginBottom: '50px',
+  },
+  [theme.breakpoints.up('md')]: {
+    marginBottom: '60px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    marginBottom: '90px',
+  },
+}));
 
 export const StyledSliderWrapper = styled('ul')`
   & .swiper-button-prev,
