@@ -1,19 +1,22 @@
 import React from 'react';
 import './App.scss';
 import Header from '../Header';
-import { useRoutes } from '../../routes';
 import Footer from '../Footer/Footer';
-import Subscribe from '../Subscribe/SubscribeMain/Subscribe';
+import theme from '../../services/theme/theme';
+import { StyledContainer } from './Styles';
 
 const App = () => {
   const routes = useRoutes();
 
   return (
     <>
-      <Header />
-      {routes}
-      <Subscribe />
-      <Footer />
+      <ThemeProvider theme={theme}>
+        <StyledContainer>
+            <Header />
+            {routes}
+            <Footer />
+        </StyledContainer>
+      </ThemeProvider>
     </>
   );
 };
