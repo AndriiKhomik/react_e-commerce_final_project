@@ -14,7 +14,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seed": "nodemon seed.js"
+    "seed": "nodemon seeds/seed.js"
   },
   "repository": {
     "type": "git",
