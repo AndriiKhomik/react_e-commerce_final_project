@@ -19,6 +19,7 @@ const BooksList = ({ items, text }) => {
           spaceBetween={25}
           modules={[Navigation]}
           navigation={{ clickable: true }}
+          loop
         >
           {items.map((book) => (
             <SwiperSlide tag='li' key={book.id} style={{ width: '163px' }}>
