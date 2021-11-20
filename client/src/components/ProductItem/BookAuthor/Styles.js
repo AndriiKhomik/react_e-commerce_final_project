@@ -11,7 +11,7 @@ export const StyledAuthorText = styled('p')`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 170px;
+  width: 118px;
   &:hover {
     color: #ffac0c;
     text-decoration: underline;
