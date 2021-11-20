@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
-
 import { Box } from '@mui/system';
 import DrawerComponent from '../Drawer';
 import Logo from '../../Logo/Logo';
 import UserBlock from '../UserBlock';
+import { StyledLink, StyledBox, StyledUserBox } from './Styles';
 
 const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -22,21 +22,9 @@ const Navbar = () => {
 
   return (
     <>
-      <Box
-        elevation={0}
-        sx={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid orange' }}
-        onClick={(e) => handleCloseOpenDrawer(e)}
-      >
+      <Box elevation={0} onClick={(e) => handleCloseOpenDrawer(e)}>
         <Toolbar>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              width: '100%',
-            }}
-            component='div'
-          >
+          <StyledBox>
             <Box sx={{ fontSize: '20px' }}>
               <Logo />
             </Box>
@@ -48,89 +36,37 @@ const Navbar = () => {
               />
             ) : (
               <Box sx={{ display: 'flex' }}>
-                <Typography
-                  sx={{
-                    marginRight: '20px',
-                    cursor: 'pointer',
-                    color: '#616161',
-                  }}
-                >
-                  <NavLink exact to='/'>
+                <Typography>
+                  <StyledLink as={NavLink} exact to='/'>
                     Home
-                  </NavLink>
+                  </StyledLink>
                 </Typography>
-                <Typography
-                  sx={{
-                    marginRight: '20px',
-                    cursor: 'pointer',
-                    color: '#616161',
-                  }}
-                  aria-controls='basic-menu'
-                  area-haspopup='true'
-                >
-                  <NavLink exact to='/catalogue'>
+                <Typography aria-controls='basic-menu' area-haspopup='true'>
+                  <StyledLink as={NavLink} exact to='/catalogue'>
                     Catalogue
-                  </NavLink>
+                  </StyledLink>
                 </Typography>
-                <Typography
-                  sx={{
-                    marginRight: '20px',
-                    cursor: 'pointer',
-                    color: '#616161',
-                  }}
-                >
-                  <NavLink exact to='/discounts'>
+                <Typography>
+                  <StyledLink as={NavLink} exact to='/discounts'>
                     Best Price
-                  </NavLink>
+                  </StyledLink>
                 </Typography>
-                <Typography
-                  sx={{
-                    marginRight: '20px',
-                    cursor: 'pointer',
-                    color: '#616161',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <NavLink exact to='/blog'>
+                <Typography>
+                  <StyledLink as={NavLink} exact to='/blog'>
                     Blogs
-                  </NavLink>
+                  </StyledLink>
                 </Typography>
-                <Typography
-                  sx={{
-                    marginRight: '20px',
-                    cursor: 'pointer',
-                    color: '#616161',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <NavLink exact to='/authors'>
+                <Typography>
+                  <StyledLink as={NavLink} exact to='/authors'>
                     Authors
-                  </NavLink>
-                </Typography>
-                <Typography
-                  sx={{
-                    marginRight: '20px',
-                    cursor: 'pointer',
-                    color: '#616161',
-                  }}
-                >
-                  <NavLink exact to='/shoppingcart'>
-                    Shopping Cart
-                  </NavLink>
+                  </StyledLink>
                 </Typography>
               </Box>
             )}
-
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
+            <StyledUserBox>
               <UserBlock matches={matches} setOpenDrawer={setOpenDrawer} />
-            </Box>
-          </Box>
+            </StyledUserBox>
+          </StyledBox>
         </Toolbar>
       </Box>
     </>
