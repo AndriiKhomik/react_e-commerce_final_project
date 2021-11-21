@@ -1,19 +1,19 @@
 import React from 'react';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import FormTitle from './FormTitle';
 import FormDescription from './FormDescription';
-import { StyledBox } from './Styles';
+import { StyledBox, StyledTextField } from './Styles';
 
 const SubscribeForm = () => {
   return (
     <StyledBox>
       <FormTitle title='Would you like to join newsletters?' />
       <form>
-        <TextField
+        <StyledTextField
           id='outlined-basic'
           label='enter your email address...'
           variant='outlined'
-          style={{ width: '85%' }}
+          // style={{ width: '85%' }}
         />
         <Button
           type='submit'

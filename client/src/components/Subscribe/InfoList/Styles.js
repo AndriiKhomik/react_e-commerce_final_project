@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledList = styled(List)(() => ({
-  [theme.breakpoints.up('xs')]: {
+  [theme.breakpoints.up('md')]: {
     display: 'flex',
     fontFamily: 'CeraPro Regular',
     paddingRight: '10px',

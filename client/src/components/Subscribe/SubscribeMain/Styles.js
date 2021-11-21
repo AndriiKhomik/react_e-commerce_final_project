@@ -7,7 +7,7 @@ export const StyledBox = styled(Box)(() => ({
   paddingLeft: '25px',
   paddingRight: '25px',
   paddingBottom: '24px',
-  [theme.breakpoints.up('xs')]: {
+  [theme.breakpoints.up('md')]: {
     display: 'flex',
     // flexDirection: 'column',
     fontFamily: 'CeraPro Regular',

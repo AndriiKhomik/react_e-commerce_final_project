@@ -1,9 +1,18 @@
-import { Box } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
+export const StyledTextField = styled(TextField)(() => ({
+  [theme.breakpoints.up('md')]: {
+    width: '75%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '85%',
+  },
+}));
+
 export const StyledBox = styled(Box)(() => ({
-  [theme.breakpoints.up('xs')]: {
+  [theme.breakpoints.up('lg')]: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
