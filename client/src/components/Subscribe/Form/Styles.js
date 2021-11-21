@@ -3,6 +3,15 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledTextField = styled(TextField)(() => ({
+  [theme.breakpoints.up('xs')]: {
+    width: '65%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    width: '65%',
+  },
+  [theme.breakpoints.up('dm')]: {
+    width: '70%',
+  },
   [theme.breakpoints.up('md')]: {
     width: '75%',
   },
@@ -12,20 +21,25 @@ export const StyledTextField = styled(TextField)(() => ({
 }));
 
 export const StyledBox = styled(Box)(() => ({
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up('xs')]: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
   },
-  //   [theme.breakpoints.up('dm')]: {},
 }));
 
 export const StyledTitle = styled('h3')(() => ({
-  color: '#000',
-  paddingBottom: '18px',
-  fontSize: '18px',
-  lineHeight: '16px',
-  fontFamily: 'CeraPro Bold',
+  [theme.breakpoints.up('xs')]: {
+    color: '#000',
+    paddingBottom: '18px',
+    paddingTop: '18px',
+    fontSize: '18px',
+    lineHeight: '16px',
+    fontFamily: 'CeraPro Bold',
+  },
+  [theme.breakpoints.up('sm')]: {
+    paddingTop: '0',
+  },
 }));
 
 export const StyledText = styled('span')(() => ({

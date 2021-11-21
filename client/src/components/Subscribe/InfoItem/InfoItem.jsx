@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyledTitle,StyledText} from './Styles';
+import { StyledTitle, StyledText } from './Styles';
 
 const InfoItem = ({ item }) => {
   const { component, title, text } = item;

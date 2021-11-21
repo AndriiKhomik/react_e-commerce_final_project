@@ -13,7 +13,6 @@ const SubscribeForm = () => {
           id='outlined-basic'
           label='enter your email address...'
           variant='outlined'
-          // style={{ width: '85%' }}
         />
         <Button
           type='submit'

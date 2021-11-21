@@ -1,30 +1,30 @@
 import { styled } from '@mui/material/styles';
+import theme from '../../../services/theme/theme';
 
 export const StyledTitle = styled('h3')(() => ({
   color: '#000',
   paddingTop: '18px',
   paddingBottom: '9px',
-  fontSize: '17px',
-  lineHeight: '16px',
   fontFamily: 'CeraPro Bold',
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '14px',
+    lineHeight: '14px',
+  },
+  [theme.breakpoints.up('dl')]: {
+    fontSize: '17px',
+    lineHeight: '16px',
+  },
 }));
 
 export const StyledText = styled('span')(() => ({
   color: '#727272',
-  fontSize: '14px',
-  lineHeight: '22px',
   fontFamily: 'CeraPro Regular',
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '12px',
+    lineHeight: '11px',
+  },
+  [theme.breakpoints.up('dl')]: {
+    fontSize: '14px',
+    lineHeight: '22px',
+  },
 }));
-
-// export const StyledBox = styled(Box)(() => ({
-//     backgroundColor: '#fbfbfb;',
-//     paddingLeft: '25px',
-//     paddingRight: '25px',
-//     [theme.breakpoints.up('xs')]: {
-//       display: 'flex',
-//       // flexDirection: 'column',
-//       fontFamily: 'CeraPro Regular',
-//       // justifyContent: 'space-around',
-//     },
-//     //   [theme.breakpoints.up('dm')]: {},
-//   }));
