@@ -7,14 +7,14 @@ import {
   StyledCardMedia,
 } from './Styles';
 
-import defaultimg from '../../../img/missing_image.png';
+import defaultimg from '../../../img/missing_image.jpg';
 
 const ProductImg = ({ url, name }) => {
   return (
     <LightTooltip title={name} placement='top'>
       <StyledCardMediaWrapper>
         <StyledCardMediaBox>
-          <StyledCardMedia height='327' src={url} alt={name} />
+          <StyledCardMedia height='243' src={url} alt={name} />
         </StyledCardMediaBox>
       </StyledCardMediaWrapper>
     </LightTooltip>
