@@ -1,72 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from '@mui/material';
+import { Drawer, List, ListItemIcon, ListItemText } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { StyledLink, StyledListItem } from './Styles';
 
 const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
   return (
     <Drawer anchor='left' open={openDrawer}>
       <List>
-        <ListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <NavLink exact to='/home'>
+              <StyledLink as={NavLink} exact to='/home'>
                 Home
-              </NavLink>
+              </StyledLink>
             </ListItemText>
           </ListItemIcon>
-        </ListItem>
-        <ListItem button onClick={() => setOpenDrawer(false)}>
+        </StyledListItem>
+        <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <NavLink exact to='/catalogue'>
+              <StyledLink as={NavLink} exact to='/catalogue'>
                 Catalogue
-              </NavLink>
+              </StyledLink>
             </ListItemText>
           </ListItemIcon>
-        </ListItem>
-        <ListItem button onClick={() => setOpenDrawer(false)}>
+        </StyledListItem>
+        <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <NavLink exact to='/bestprice'>
+              <StyledLink as={NavLink} exact to='/bestprice'>
                 Best Price
-              </NavLink>
+              </StyledLink>
             </ListItemText>
           </ListItemIcon>
-        </ListItem>
-        <ListItem button onClick={() => setOpenDrawer(false)}>
+        </StyledListItem>
+        <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <NavLink exact to='/blog'>
+              <StyledLink as={NavLink} exact to='/blog'>
                 Blogs
-              </NavLink>
+              </StyledLink>
             </ListItemText>
           </ListItemIcon>
-        </ListItem>
-        <ListItem button onClick={() => setOpenDrawer(false)}>
+        </StyledListItem>
+        <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <NavLink exact to='/authors'>
+              <StyledLink as={NavLink} exact to='/authors'>
                 Authors
-              </NavLink>
+              </StyledLink>
             </ListItemText>
           </ListItemIcon>
-        </ListItem>
-        <ListItem button onClick={() => setOpenDrawer(false)}>
-          <ListItemIcon>
-            <ListItemText>
-              <NavLink exact to='/shoppingcart'>
-                Shopping Cart
-              </NavLink>
-            </ListItemText>
-          </ListItemIcon>
-        </ListItem>
+        </StyledListItem>
       </List>
     </Drawer>
   );
