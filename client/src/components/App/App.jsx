@@ -17,6 +17,7 @@ const App = () => {
         <StyledContainer maxWidth='lg'>
           <Header />
           {routes}
+          <Subscribe/>
           <Footer />
         </StyledContainer>
       </ThemeProvider>
