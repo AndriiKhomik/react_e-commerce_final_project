@@ -75,7 +75,43 @@ module.exports = authorsData = [
       "Arsenic For Tea"
     ],
     "_id": "619a67d9c9a653c13ffbe3eb",
-    biography: "<p>One of Waterstones booksellers’ favourite children’s writers, Robin Stevens was born in California but grew up in Oxford, directly opposite the house where Alice in Wonderland lived. A life-long fan of detective fiction she is best known as the author of the bestselling Murder Most Unladylike Mysteries, starring dynamic duo Daisy Wells and Hazel Wong. She is also the author of The Guggenheim Mystery and the Deepdean Mini-Mysteries.</p><p>Before becoming a full-time author, Stevens worked as a bookseller at Blackwell's bookshop in Oxford,[6] and as an editor at Egmont. Stevens started writing Murder Most Unladylike as part of National Novel Writing Month in November 2010, but did not send it to agencies for two years.</p><p>Stevens has cited the Golden Age of Detective Fiction as an influence on her work – particularly the authors Agatha Christie, Ngaio Marsh, Margery Allingham, and Dorothy L. Sayers.</p>",
+    biography: "<p>One of Waterstones booksellers’ favourite children’s writers, Robin Stevens was born in California but grew up in Oxford, directly opposite the house where Alice in Wonderland lived. A life-long fan of detective fiction she is best known as the author of the bestselling Murder Most Unladylike Mysteries, starring dynamic duo Daisy Wells and Hazel Wong. She is also the author of The Guggenheim Mystery and the Deepdean Mini-Mysteries.</p><p>Before becoming a full-time author, Stevens worked as a bookseller at Blackwell's bookshop in Oxford, and as an editor at Egmont. Stevens started writing Murder Most Unladylike as part of National Novel Writing Month in November 2010, but did not send it to agencies for two years.</p><p>Stevens has cited the Golden Age of Detective Fiction as an influence on her work – particularly the authors Agatha Christie, Ngaio Marsh, Margery Allingham, and Dorothy L. Sayers.</p>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509063/authors/robin_stevens_dkuxji.jpg",
+  },
+  {
+    name: "Thomas Erikson",
+    dateOfBirth: "1965",
+    popularBooks: [
+      "Surrounded by Idiots",
+      "Surrounded by Psychopaths",
+      "Surrounded by Bad Bosses (And Lazy Employees)"
+    ],
+    "_id": "619a8c932b77b7d09028ea9a",
+    biography: "<p>Thomas Erikson is a motivator, author and public speaker. His book Surrounded by Idiots is one of the world’s best-selling non-fiction books and has been translated into over 40 languages.</p><p>His way of sharing his knowledge with his readers is by using specific storytelling and lots of humor. To achieve new skills should be easy. Therefore, he do not write in a way that is packed with numbers and details, but rather in a way that will make the reader say: Ah! I recognize that!</p><p>Thomas has devoted close to 30 years of his career to helping people communicate with each other, and along the way he´s developed practical and functional tools that facilitate both professional and private life.</p>",
+    authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637518080/authors/92128261_3097182306972488_6309033291097833472_o_ga75gt.jpg",
+  },
+  {
+    name: "Alex Horne",
+    dateOfBirth: "1978",
+    popularBooks: [
+      "Wordwatching: How to Break into the Dictionary",
+      "Taskmaster 220 Extraordinary Tasks for Ordinary People",
+      "Bring Me The Head Of The Taskmaster: 101 next-level tasks"
+    ],
+    "_id": "619a97fb06cf40de5ced4b99",
+    biography: "<p>Alex Horne (born 10 September 1978) is a British comedian. He is the host of 'The Horne Section', a live music variety show which has been broadcast on BBC Radio 4.</p><p>Horne was educated at Lancing College (Fields House, 1991–1996) and the University of Cambridge, where he was a member of Footlights.</p><p>He made his first appearance at the Edinburgh festival in 2000 with his show, 'How To Avoid Huge Ships'. His 2003 Edinburgh show, 'Making Fish Laugh' was nominated for a Perrier newcomer award. In 2004 he won a Chortle Award for Best Breakthrough Act. His shows with Tim Key have been 'Every Body Talks' and 'When In Rome', both of which featured unusually extensive use of Microsoft PowerPoint for a comic act. Horne toured Roman towns of the UK with the 'When In Rome' show in early 2006.</p>",
+    authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521382/authors/81C9_3T3tyL._SX450__zdfmco.jpg",
+  },
+  {
+    name: "Elodie Harper",
+    dateOfBirth: "1978",
+    popularBooks: [
+      "The Wolf Den",
+      "The House with the Golden Door",
+      "The Binding Song"
+    ],
+    "_id": "619a9cd662e0d8e5a0da8cae",
+    biography: "<p>Elodie Harper is a journalist and prize-winning short story writer. Her story 'Wild Swimming' won the 2016 Bazaar of Bad Dreams short story competition, which was judged by Stephen King.</p><p>She is currently a reporter at ITV News Anglia, and before that worked as a producer for Channel 4 News. Her job as a journalist has seen her join one of the most secretive wings of the Church of Scientology and cover the far right hip hop scene in Berlin, as well as crime reporting in Norfolk where her first two novels were set – The Binding Song and The Death Knock.</p><p>Elodie studied Latin poetry both in the original and in translation as part of her English Literature degree at Oxford, instilling a lifelong interest in the ancient world. The Wolf Den is the first in a trilogy of novels about the lives of women in ancient Pompeii.</p>",
+    authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637522602/authors/62a284_b33b07f109ff4613bc75cb4bd076d111_mv2_d_2143_3000_s_2_mijl7k.jpg",
   },
 ];

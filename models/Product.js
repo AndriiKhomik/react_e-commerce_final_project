@@ -31,12 +31,10 @@ const ProductSchema = new Schema(
     previousPrice: {
       type: Number
     },
-    imageUrls: [
-      {
-        type: String,
-        required: true
-      }
-    ],
+    imageUrls: [{
+      type: String,
+      required: true
+    }],
     quantity: {
       type: Number,
       required: true,
@@ -65,8 +63,6 @@ const ProductSchema = new Schema(
       type: Date,
       default: Date.now
     },
-    // Depands on format
-
     numberOfPages: {
       type: Number
     },
@@ -76,29 +72,6 @@ const ProductSchema = new Schema(
     duration: {
       type: Number
     },
-    // format: {
-    //   type: String,
-    //   required: true,
-    //   default: 'paper'
-    // },
-    // productUrl: {
-    //   type: String
-    // },
-    // color: {
-    //   type: String
-    // },
-    // sizes: {
-    //   type: String
-    // },
-    // brand: {
-    //   type: String
-    // },
-    // manufacturerCountry: {
-    //   type: String
-    // },
-    // seller: {
-    //   type: String
-    // },
   },
   { strict: false }
 );
