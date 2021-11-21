@@ -8,7 +8,8 @@ const AuthorSchema = new Schema(
       required: true
     },
     dateOfBirth: {
-      type: String
+      type: String,
+      required: true
     },
     dateOfDeath: {
       type: String
@@ -18,10 +19,12 @@ const AuthorSchema = new Schema(
       required: true
     },
     popularBooks: [{
-      type: String
+      type: String,
+      required: true
     }],
     authorUrl: {
-      type: String
+      type: String,
+      required: true
     },
     date: {
       type: Date,
