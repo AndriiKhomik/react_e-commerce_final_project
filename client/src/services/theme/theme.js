@@ -8,6 +8,7 @@ const theme = createTheme({
       light: 'rgba(255, 172, 12, 0.22)',
     },
     text: {
+      main: '#3d3d3d',
       primary: '#727272',
     },
     background: {
