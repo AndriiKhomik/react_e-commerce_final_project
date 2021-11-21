@@ -6,7 +6,7 @@ export const StyledBookNameText = styled('p')`
   transition: 0.2s linear;
   color: #000000;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 18px;
   display: -webkit-box;

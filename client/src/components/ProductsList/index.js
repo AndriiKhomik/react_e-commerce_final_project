@@ -1,3 +1,5 @@
-import ProductsList from './ProductsList';
+import RecommendedBooksList from './RecommendedBooksList';
+import SalesBooksList from './SalesBooksList';
+import RelatedBooksList from './RelatedBooksLists';
 
-export default ProductsList;
+export { RecommendedBooksList, SalesBooksList, RelatedBooksList };

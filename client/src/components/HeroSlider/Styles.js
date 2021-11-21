@@ -1,7 +1,22 @@
-import { Link } from '@mui/material';
+import { Link, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import theme from '../../services/theme/theme';
 
+export const StyledContainer = styled(Container)(() => ({
+  [theme.breakpoints.up('xs')]: {
+    marginBottom: '40px',
+  },
+  [theme.breakpoints.up('sm')]: {
+    marginBottom: '50px',
+  },
+  [theme.breakpoints.up('md')]: {
+    marginBottom: '60px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    marginBottom: '90px',
+  },
+}));
 export const StyledLink = styled(Link)`
   display: block;
 `;

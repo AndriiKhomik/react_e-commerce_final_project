@@ -4,8 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import { Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/modules/pagination/pagination.scss';
-import Container from '@mui/material/Container';
-import { StyledLink, SliderWrapper, StyledImageWrapper } from './Styles';
+import {
+  StyledLink,
+  SliderWrapper,
+  StyledImageWrapper,
+  StyledContainer,
+} from './Styles';
 import { AdaptivePicture } from './AdaptivePicture';
 import { bannersArray } from './banners';
 
@@ -23,7 +27,7 @@ export const HeroSlider = () => {
   });
 
   return (
-    <Container maxWidth='lg'>
+    <StyledContainer maxWidth='lg'>
       <SliderWrapper>
         <Swiper
           wrapperTag='ul'
@@ -37,6 +41,6 @@ export const HeroSlider = () => {
           {slides}
         </Swiper>
       </SliderWrapper>
-    </Container>
+    </StyledContainer>
   );
 };
