@@ -15,7 +15,14 @@ const SubscribeForm = () => {
           variant='outlined'
           style={{ width: '85%' }}
         />
-        <Button type='submit' variant='contained'>
+        <Button
+          type='submit'
+          variant='contained'
+          style={{ color: '#FFFFFF' }}
+          sx={{
+            fontFamily: 'CeraPro Bold',
+          }}
+        >
           Join
         </Button>
       </form>
