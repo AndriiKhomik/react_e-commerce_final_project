@@ -1,6 +1,6 @@
 import { Grid, Typography, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from './StylesBreakpoints';
+import theme from '../../../services/theme/theme';
 
 export const StyledUpperBox = styled(Box)`
   padding: 23px 0;

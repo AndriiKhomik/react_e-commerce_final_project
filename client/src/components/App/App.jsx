@@ -14,10 +14,9 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <StyledContainer>
+        <StyledContainer maxWidth='lg'>
           <Header />
           {routes}
-          <Subscribe />
           <Footer />
         </StyledContainer>
       </ThemeProvider>
