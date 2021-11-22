@@ -9,4 +9,5 @@ export const productItem = {
   publisher: 'HarperCollins',
   yearOfPublish: '2021',
   pages: '448',
+  reviews: '19',
 };

@@ -6,5 +6,4 @@ export const routes = [
     { id: '4', name: 'Shopping cart', route: '/shoppingcart' },
     { id: '5', name: 'Authors', route: '/authors' },
     { id: '6', name: 'Promotionals', route: '/promotionals' },
-    { id: '7', name: 'Registration Page', route: '/registration' },
 ];

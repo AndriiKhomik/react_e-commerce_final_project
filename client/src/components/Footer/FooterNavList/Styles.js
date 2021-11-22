@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { List, Link, ListItem } from '@mui/material';
-import theme from '../Footer/StylesBreakpoints';
+import theme from '../../../services/theme/theme';
 
 export const StyledList = styled(List)(() => ({
   display: 'grid',

@@ -1,12 +1,12 @@
 import { styled } from '@mui/material/styles';
 
-export const StyledCardMediaWrapper = styled('div')`
-  position: relative;
-  min-height: 327px;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 20px;
-`;
+export const StyledCardMediaWrapper = styled('div')(() => ({
+  position: 'relative',
+  minHeight: '243px',
+  width: '100%',
+  height: '100%',
+  marginBottom: '20px',
+}));
 
 export const StyledCardMediaBox = styled('div')`
   display: block;

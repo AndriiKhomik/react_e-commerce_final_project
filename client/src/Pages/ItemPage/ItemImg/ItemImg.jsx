@@ -6,7 +6,7 @@ import {
   StyledCardMedia,
 } from './Styles';
 
-import defaultimg from '../../../img/missing_image.png';
+import defaultimg from '../../../img/missing_image.jpg';
 
 const ItemImg = ({ img, name }) => {
   return (

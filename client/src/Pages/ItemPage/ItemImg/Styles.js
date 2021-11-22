@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 export const StyledCardMediaWrapper = styled('div')`
   position: relative;
   min-height: 491px;
+  min-width: 321px;
 `;
 
 export const StyledCardMediaBox = styled('div')`
