@@ -1,24 +1,19 @@
 import { styled } from '@mui/material/styles';
+import theme from '../../../services/theme/theme';
 
-export const StyledCardMediaWrapper = styled('div')`
-  position: relative;
-  min-height: 491px;
-  min-width: 321px;
-`;
-
-export const StyledCardMediaBox = styled('div')`
-  display: block;
-  overflow: hidden;
-  position: absolute;
-  inset: 0;
-  box-sizing: border-box;
-  margin: 0;
-`;
+export const StyledCardMediaBox = styled('div')(() => ({
+  [theme.breakpoints.up('xs')]: {
+    marginBottom: '20px',
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'block',
+    boxSizing: 'border-box',
+    margin: '0',
+  },
+}));
 
 export const StyledCardMedia = styled('img')`
-  position: absolute;
-  top: 0;
-  inset: 0;
+  height: 100%;
   padding: 0;
   margin: auto;
   display: block;

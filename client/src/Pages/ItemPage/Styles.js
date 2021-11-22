@@ -7,23 +7,24 @@ export const StyledContainer = styled(Container)(() => ({
     marginBottom: '50px',
     marginTop: '40px',
     display: 'flex',
+    flexDirection: 'column',
   },
   [theme.breakpoints.up('sm')]: {
     marginBottom: '50px',
   },
   [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
     marginBottom: '60px',
   },
-  [theme.breakpoints.up('lg')]: {},
 }));
 
 export const StyledDescription = styled(Grid)(() => ({
   [theme.breakpoints.up('xs')]: {
+    width: '100%',
+  },
+  [theme.breakpoints.up('md')]: {
     alignItems: 'center',
     marginLeft: '10%',
     width: '50%',
   },
-  [theme.breakpoints.up('sm')]: {},
-  [theme.breakpoints.up('md')]: {},
-  [theme.breakpoints.up('lg')]: {},
 }));

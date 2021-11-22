@@ -3,14 +3,14 @@ import { Link } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledPriceWrapper = styled('div')(() => ({
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('sm')]: {},
-  [theme.breakpoints.up('dm')]: {
+  [theme.breakpoints.up('xs')]: {
+    marginTop: '15px',
+  },
+  [theme.breakpoints.up('sm')]: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'baseline',
-    marginTop: '20px',
   },
+  [theme.breakpoints.up('dm')]: {},
 }));
 
 export const StyledPrice = styled('p')(() => ({
@@ -32,6 +32,7 @@ export const StyledReviews = styled(Link)(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
     color: `#3d3d3d`,
+    textDecoration: 'none',
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '15px',

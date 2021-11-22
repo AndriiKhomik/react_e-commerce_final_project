@@ -3,13 +3,10 @@ import { Link } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledTitleWrapper = styled('div')(() => ({
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('sm')]: {},
   [theme.breakpoints.up('dm')]: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'baseline',
-    // marginBottom: '20px',
   },
 }));
 

@@ -1,13 +1,9 @@
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
-export const StyledDescriptionWrapper = styled('div')(() => ({
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('sm')]: {},
-  [theme.breakpoints.up('dm')]: {
-    marginTop: '20px',
-  },
-}));
+export const StyledDescriptionWrapper = styled('div')`
+  margin-top: 15px;
+`;
 
 export const StyledDescriptionTitle = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {
