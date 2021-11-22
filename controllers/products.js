@@ -1,4 +1,6 @@
 const Product = require("../models/Product");
+const uniqueRandom = require("unique-random");
+const rand = uniqueRandom(0, 999999);
 const queryCreator = require("../commonHelpers/queryCreator");
 const filterParser = require("../commonHelpers/filterParser");
 const _ = require("lodash");
@@ -18,7 +20,8 @@ exports.addImages = (req, res, next) => {
 
 exports.addProduct = (req, res, next) => {
   const productFields = _.cloneDeep(req.body);
-
+  productFields.itemNo = rand();
+  
   try {
     productFields.name = productFields.name
       .toLowerCase()

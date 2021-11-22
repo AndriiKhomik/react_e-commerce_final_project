@@ -51,11 +51,12 @@ const ProductSchema = new Schema(
       required: true,
     },
     yearOfPublishing: {
-      type: Number,
+      type: Date,
       required: true,
     },
     genre: {
       type: String,
+      enum: ['children-literature', 'fiction', 'business-literature', 'adventures', 'non-fiction'],
       required: true,
     },
     date: {
@@ -67,6 +68,7 @@ const ProductSchema = new Schema(
     },
     coverType: {
       type: String,
+      enum: ['soft', 'hard']
     },
     duration: {
       type: Number

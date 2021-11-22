@@ -9,7 +9,7 @@ module.exports = customersData = [
     lastName: "Boiko",
     login: "boikoyv",
     email: "yulchitaiboldireva@gmail.com",
-    password: "12345",
+    password: "22admin111",
     telephone: "+380930425279",
     gender: "female",
     customerNo: rand()
