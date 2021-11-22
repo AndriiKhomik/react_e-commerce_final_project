@@ -1,7 +1,9 @@
 import React from 'react';
+import ItemImg from './ItemImg/ItemImg';
+import { productItem } from './singleBook';
 
 const ItemPage = () => {
-  return <h1>Item Page</h1>;
+  return <ItemImg img={productItem.img} name={productItem.name} />;
 };
 
 export default ItemPage;
