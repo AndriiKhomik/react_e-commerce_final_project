@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 import DrawerComponent from '../Drawer';
 import Logo from '../../Logo/Logo';
 import UserBlock from '../UserBlock';
-import { StyledLink, StyledBox, StyledUserBox } from './Styles';
+import { StyledLink, StyledBox, StyledUserBox, StyledLogoBox } from './Styles';
 
 const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -25,9 +25,9 @@ const Navbar = () => {
       <Box elevation={0} onClick={(e) => handleCloseOpenDrawer(e)}>
         <Toolbar>
           <StyledBox>
-            <Box sx={{ fontSize: '20px' }}>
+            <StyledLogoBox>
               <Logo />
-            </Box>
+            </StyledLogoBox>
 
             {matches ? (
               <DrawerComponent

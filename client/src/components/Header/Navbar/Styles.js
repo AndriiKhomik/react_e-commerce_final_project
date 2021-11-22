@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
+import theme from '../../../services/theme/theme';
 
 export const StyledBox = styled(Box)`
   display: flex;
@@ -9,6 +10,14 @@ export const StyledBox = styled(Box)`
   padding: 18px 0;
   border-bottom: 1px solid orange;
 `;
+
+export const StyledLogoBox = styled(Box)(() => ({
+  fontSize: '20px',
+  display: 'none',
+  [theme.breakpoints.up('sm')]: {
+    display: 'block',
+  },
+}));
 
 export const StyledUserBox = styled(Box)`
   display: flex;

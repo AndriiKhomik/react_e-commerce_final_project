@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Badge, IconButton, Box, Input } from '@mui/material';
+import { Badge, IconButton, Box, Input, useMediaQuery } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useHistory } from 'react-router-dom';
 import { StyledButton, StyledLoginIcon, StyledLogoutIcon } from './Styles';
+import theme from '../../../services/theme/theme';
 
 const UserBlock = ({ matches, setOpenDrawer }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [showSearchInput, setshowSearchInput] = useState(false);
 
+  const matchesButtonQuery = useMediaQuery(theme.breakpoints.up('ds'));
   const toShoppingCart = useHistory();
 
   const redirectToCart = () => {
@@ -62,7 +64,7 @@ const UserBlock = ({ matches, setOpenDrawer }) => {
           variant='contained'
           onClick={handleLogin}
         >
-          <StyledLogoutIcon />
+          {matchesButtonQuery && <StyledLogoutIcon />}
           Logout
         </StyledButton>
       ) : (
@@ -71,7 +73,7 @@ const UserBlock = ({ matches, setOpenDrawer }) => {
           variant='contained'
           onClick={handleLogin}
         >
-          <StyledLoginIcon />
+          {matchesButtonQuery && <StyledLoginIcon />}
           Login
         </StyledButton>
       )}
