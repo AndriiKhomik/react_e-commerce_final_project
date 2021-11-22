@@ -1,6 +1,7 @@
 const Author = require("../models/Author");
 const queryCreator = require("../commonHelpers/queryCreator");
 const _ = require("lodash");
+const ObjectId = require('mongodb').ObjectId;
 
 exports.addAuthor = (req, res, next) => {
   const AuthorData = _.cloneDeep(req.body);
@@ -17,7 +18,6 @@ exports.addAuthor = (req, res, next) => {
     );
 };
 
-
 exports.getAuthors = (req, res, next) => {
   Author.find()
     .then(authors => res.status(200).json(authors))
@@ -28,11 +28,9 @@ exports.getAuthors = (req, res, next) => {
     );
 };
 
-
-
 exports.getAuthorById = (req, res, next) => {
-  Product.findOne({
-    author: req.params.authorId
+  Author.findOne({
+    _id: new ObjectId(req.params.id)
   })
     .then(author => {
       if (!author) {

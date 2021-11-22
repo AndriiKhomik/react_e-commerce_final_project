@@ -20,9 +20,10 @@ router.post("/", passport.authenticate("jwt", { session: false }), addAuthor);
 // @access  Public
 router.get("/", getAuthors);
 
-module.exports = router;
 
-// @route   GET /authors/:customerId
+// @route   GET /authors/:id
 // @desc    GET existing author by id
 // @access  Public
-router.get("/authors/:authorId", getAuthorById);
+router.get("/:id", getAuthorById);
+
+module.exports = router;
