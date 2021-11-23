@@ -1,8 +1,6 @@
 const Product = require("../models/Product");
-
 const uniqueRandom = require("unique-random");
 const rand = uniqueRandom(0, 999999);
-
 const queryCreator = require("../commonHelpers/queryCreator");
 const filterParser = require("../commonHelpers/filterParser");
 const _ = require("lodash");
@@ -22,9 +20,8 @@ exports.addImages = (req, res, next) => {
 
 exports.addProduct = (req, res, next) => {
   const productFields = _.cloneDeep(req.body);
-
   productFields.itemNo = rand();
-
+  
   try {
     productFields.name = productFields.name
       .toLowerCase()
@@ -45,6 +42,10 @@ exports.addProduct = (req, res, next) => {
   const updatedProduct = queryCreator(productFields);
 
   const newProduct = new Product(updatedProduct);
+
+  newProduct
+    .populate("author")
+    .execPopulate();
 
   newProduct
     .save()
@@ -104,7 +105,7 @@ exports.getProducts = (req, res, next) => {
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
 
-  Product.find()
+  Product.find({}).populate('author')
     .skip(startPage * perPage - perPage)
     .limit(perPage)
     .sort(sort)
@@ -119,7 +120,7 @@ exports.getProducts = (req, res, next) => {
 exports.getProductById = (req, res, next) => {
   Product.findOne({
     itemNo: req.params.itemNo
-  })
+  }).populate('author')
     .then(product => {
       if (!product) {
         res.status(400).json({
