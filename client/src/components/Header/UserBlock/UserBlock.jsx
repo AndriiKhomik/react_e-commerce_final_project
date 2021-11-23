@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IconButton, Box, Input, useMediaQuery } from '@mui/material';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -13,6 +12,7 @@ import {
   StyledLogoutIcon,
 } from './Styles';
 import theme from '../../../services/theme/theme';
+import CartIcon from '../../icons/CartIcon';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -55,7 +55,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
       )}
       <IconButton onClick={redirectToCart} sx={{ marginRight: '8px' }}>
         <StyledBadge badgeContent={4} color='warning'>
-          <ShoppingBasketIcon color='action' />
+          <CartIcon color='action' fill='#727272' height='22px' width='22px' />
         </StyledBadge>
       </IconButton>
       {isLoggedIn ? (

@@ -31,7 +31,6 @@ export const StyledUserBox = styled(Box)`
 `;
 
 export const StyledLink = styled('a')(() => ({
-  fontFamily: 'CeraPro Regular',
   color: `${theme.palette.text.primary}`,
   paddingBottom: '26px',
   textDecoration: 'none',
