@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import DrawerComponent from '../Drawer';
 import Logo from '../../Logo/Logo';
 import UserBlock from '../UserBlock';
+import theme from '../../../services/theme/theme';
 import {
   StyledLink,
   StyledBox,
@@ -16,7 +17,6 @@ import {
 const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  const theme = useTheme();
   const changeMenu = useMediaQuery(theme.breakpoints.down('md'));
   const changeLogo = useMediaQuery(theme.breakpoints.down('sm'));
 
