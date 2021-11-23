@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Badge, IconButton, Box, Input, useMediaQuery } from '@mui/material';
+import { IconButton, Box, Input, useMediaQuery } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useHistory } from 'react-router-dom';
-import { StyledButton, StyledLoginIcon, StyledLogoutIcon } from './Styles';
+import {
+  StyledBadge,
+  StyledButton,
+  StyledLoginIcon,
+  StyledLogoutIcon,
+} from './Styles';
 import theme from '../../../services/theme/theme';
 
-const UserBlock = ({ matches, setOpenDrawer }) => {
+const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [showSearchInput, setshowSearchInput] = useState(false);
 
@@ -48,15 +53,10 @@ const UserBlock = ({ matches, setOpenDrawer }) => {
           <PersonOutlineIcon />
         </IconButton>
       )}
-      {matches && (
-        <IconButton onClick={() => setOpenDrawer(true)}>
-          <MenuRoundedIcon />
-        </IconButton>
-      )}
       <IconButton onClick={redirectToCart} sx={{ marginRight: '8px' }}>
-        <Badge badgeContent={4} color='warning'>
+        <StyledBadge badgeContent={4} color='warning'>
           <ShoppingBasketIcon color='action' />
-        </Badge>
+        </StyledBadge>
       </IconButton>
       {isLoggedIn ? (
         <StyledButton
@@ -64,8 +64,8 @@ const UserBlock = ({ matches, setOpenDrawer }) => {
           variant='contained'
           onClick={handleLogin}
         >
-          {matchesButtonQuery && <StyledLogoutIcon />}
-          Logout
+          <StyledLogoutIcon />
+          {matchesButtonQuery && 'Logout'}
         </StyledButton>
       ) : (
         <StyledButton
@@ -73,16 +73,21 @@ const UserBlock = ({ matches, setOpenDrawer }) => {
           variant='contained'
           onClick={handleLogin}
         >
-          {matchesButtonQuery && <StyledLoginIcon />}
-          Login
+          <StyledLoginIcon />
+          {matchesButtonQuery && 'Login'}
         </StyledButton>
+      )}
+      {changeMenu && (
+        <IconButton onClick={() => setOpenDrawer(true)}>
+          <MenuRoundedIcon />
+        </IconButton>
       )}
     </>
   );
 };
 
 UserBlock.propTypes = {
-  matches: PropTypes.bool.isRequired,
+  changeMenu: PropTypes.bool.isRequired,
   setOpenDrawer: PropTypes.func.isRequired,
 };
 
