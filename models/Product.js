@@ -16,6 +16,14 @@ const ProductSchema = new Schema(
       type: String,
       required: true
     },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: 'authors'
+    },
+    categories: {
+      type: String,
+      required: true
+    },
     currentPrice: {
       type: Number,
       required: true
@@ -23,46 +31,48 @@ const ProductSchema = new Schema(
     previousPrice: {
       type: Number
     },
-    categories: {
-      type: String,
-      required: true
-    },
-    imageUrls: [
-      {
-        type: String,
-        required: true
-      }
-    ],
+    imageUrls: [{
+      type: String
+    }],
     quantity: {
       type: Number,
       required: true,
       default: 0
     },
-    color: {
+    publisher: {
       type: String
     },
-    sizes: {
-      type: String
+    shortDescription: {
+      type: String,
+      required: true,
     },
-    productUrl: {
-      type: String
+    fullDescription: {
+      type: String,
+      required: true,
     },
-    brand: {
-      type: String
+    yearOfPublishing: {
+      type: Date,
+      required: true,
     },
-    manufacturer: {
-      type: String
-    },
-    manufacturerCountry: {
-      type: String
-    },
-    seller: {
-      type: String
+    genre: {
+      type: String,
+      enum: ['children-literature', 'fiction', 'business-literature', 'adventures', 'non-fiction'],
+      required: true,
     },
     date: {
       type: Date,
       default: Date.now
-    }
+    },
+    numberOfPages: {
+      type: Number
+    },
+    coverType: {
+      type: String,
+      enum: ['soft', 'hard']
+    },
+    duration: {
+      type: Number
+    },
   },
   { strict: false }
 );
