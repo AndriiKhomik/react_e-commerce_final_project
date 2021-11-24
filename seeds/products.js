@@ -3,7 +3,8 @@ const rand = uniqueRandom(0, 999999);
 
 module.exports = productsData = [
   {
-    name: "A puppy called sparkle",
+    name: "A puppy called Sparkle",
+    _id: "619e65cc03b90d2ed4ab122d",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637360698/books/puppy-Sparkle_wu4rji.jpg"],
     quantity: 10,
@@ -21,6 +22,7 @@ module.exports = productsData = [
   },
   {
     name: "A Foal Called Storm",
+    _id: "619e65cc03b90d2ed4ab122e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637360734/books/Foal-Storm_h4fbwh.jpg"],
     quantity: 10,
@@ -38,6 +40,7 @@ module.exports = productsData = [
   },
   {
     name: "A Deer Called Dotty",
+    _id: "619e65cc03b90d2ed4ab122f",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637360696/books/deer-Dotty_rqx2px.jpg"],
     quantity: 10,
@@ -54,6 +57,7 @@ module.exports = productsData = [
   },
   {
     name: "An Owl Called Star",
+    _id: '619d67f280e4840f67de166d',
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637360688/books/owl-Star_fdwhrc.jpg"],
     quantity: 10,
@@ -71,6 +75,7 @@ module.exports = productsData = [
   },
   {
     name: "A Donkey Called Mistletoe",
+    _id: "619e65cc03b90d2ed4ab1231",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637360644/books/donkey-Mistletoe_qkiaxk.jpg"],
     quantity: 10,
@@ -88,6 +93,7 @@ module.exports = productsData = [
   },
   {
     name: "An Otter Called Pebble",
+    _id: "619e65cc03b90d2ed4ab1232",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637361675/books/otter_euct0l.jpg"],
     quantity: 10,
@@ -104,6 +110,7 @@ module.exports = productsData = [
   },
   {
     name: "A Lamb Called Lucky",
+    _id: "619e65cc03b90d2ed4ab1233",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637361666/books/lamb-Lucky_wsv1mp.jpg"],
     quantity: 10,
@@ -120,6 +127,7 @@ module.exports = productsData = [
   },
   {
     name: "A Goat Called Willow",
+    _id: "619e65cc03b90d2ed4ab1234",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637360606/books/goat-Willow_l2e4na.jpg"],
     quantity: 10,
@@ -136,6 +144,7 @@ module.exports = productsData = [
   },
   {
     name: "Fledgling",
+    _id: "619e65cc03b90d2ed4ab1235",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637421190/books/Fledgling_jp3jcz.jpg"],
     quantity: 30,
@@ -152,6 +161,7 @@ module.exports = productsData = [
   },
   {
     name: "Fledgling",
+    _id: "619e65cc03b90d2ed4ab1236",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637421190/books/Fledgling_jp3jcz.jpg"],
     quantity: 30,
@@ -167,6 +177,7 @@ module.exports = productsData = [
   },
   {
     name: "In a Holidaze",
+    _id: "619e65cc03b90d2ed4ab1237",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637421185/books/9781982123949-l_qftkqp.jpg"],
     quantity: 30,
@@ -182,6 +193,7 @@ module.exports = productsData = [
   },
   {
     name: "In a Holidaze",
+    _id: "619e65cc03b90d2ed4ab1238",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637421185/books/9781982123949-l_qftkqp.jpg"],
     quantity: 30,
@@ -197,6 +209,7 @@ module.exports = productsData = [
   },
   {
     name: "In a Holidaze",
+    _id: "619e65cc03b90d2ed4ab1239",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637421185/books/9781982123949-l_qftkqp.jpg"],
     quantity: 30,
@@ -213,6 +226,7 @@ module.exports = productsData = [
   },
   {
     name: "The Honey-Don't List",
+    _id: "619e65cc03b90d2ed4ab123a",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637433702/books/9781982123918-l_xxz1yd.jpg"],
     quantity: 150,
@@ -228,6 +242,7 @@ module.exports = productsData = [
   },
   {
     name: "The Honey-Don't List",
+    _id: "619e65cc03b90d2ed4ab123c",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637433702/books/9781982123918-l_xxz1yd.jpg"],
     quantity: 50,
@@ -244,11 +259,12 @@ module.exports = productsData = [
   },
   {
     name: "The Honey-Don't List",
+    _id: "619e65cc03b90d2ed4ab123b",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637433702/books/9781982123918-l_xxz1yd.jpg"],
     quantity: 50,
     author: "619917e7fdd16e771992e734",
-    categories: "paper-books",
+    categories: "ebooks",
     currentPrice: 10,
     publisher: "gallery-books",
     shortDescription: "Carey Duncan has worked for home remodeling and design gurus Melissa and Rusty Tripp for nearly a decade. A country girl at heart, Carey started in their first store at sixteen, and - more than anyone would suspect - has helped them build an empire. With a new show and a book about to launch, the Tripps are on the verge of superstardom. There’s only one problem: America’s favorite couple can’t stand each other.",
@@ -256,10 +272,10 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2020"),
     genre: "fiction",
     numberOfPages: 308,
-    coverType: "hard",
   },
   {
     name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    _id: "619e65cc03b90d2ed4ab123d",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
     quantity: 50,
@@ -276,6 +292,7 @@ module.exports = productsData = [
   },
   {
     name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    _id: "619e65cc03b90d2ed4ab123e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
     quantity: 100,
@@ -291,6 +308,7 @@ module.exports = productsData = [
   },
   {
     name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    _id: "619e65cc03b90d2ed4ab123f",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
     quantity: 100,
@@ -306,6 +324,7 @@ module.exports = productsData = [
   },
   {
     name: "The Next Fifty Things that Made the Modern Economy",
+    _id: "619e65cc03b90d2ed4ab1240",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438116/books/9780349144030_rxldtg.jpg"],
     quantity: 100,
@@ -321,6 +340,7 @@ module.exports = productsData = [
   },
   {
     name: "The Next Fifty Things that Made the Modern Economy",
+    _id: "619e65cc03b90d2ed4ab1241",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438116/books/9780349144030_rxldtg.jpg"],
     quantity: 100,
@@ -336,6 +356,7 @@ module.exports = productsData = [
   },
   {
     name: "The Next Fifty Things that Made the Modern Economy",
+    _id: "619e65cc03b90d2ed4ab1242",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438116/books/9780349144030_rxldtg.jpg"],
     quantity: 100,
@@ -352,6 +373,7 @@ module.exports = productsData = [
   },
   {
     name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics",
+    _id: "619e65cc03b90d2ed4ab1243",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438819/books/41GD6oSy8PL_wbrrfa.jpg"],
     quantity: 300,
@@ -368,6 +390,7 @@ module.exports = productsData = [
   },
   {
     name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics",
+    _id: "619e65cc03b90d2ed4ab1244",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438819/books/41GD6oSy8PL_wbrrfa.jpg"],
     quantity: 300,
@@ -383,6 +406,7 @@ module.exports = productsData = [
   },
   {
     name: "Harry Potter and the Order of the Phoenix",
+    _id: "619e65cc03b90d2ed4ab1245",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637501674/books/1011963752_w919_h430_harry-potter-and_cvjdli.jpg"],
     quantity: 100,
@@ -398,6 +422,7 @@ module.exports = productsData = [
   },
   {
     name: "Harry Potter and the Order of the Phoenix",
+    _id: "619e65cc03b90d2ed4ab1246",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637501674/books/1011963752_w919_h430_harry-potter-and_cvjdli.jpg"],
     quantity: 100,
@@ -414,6 +439,7 @@ module.exports = productsData = [
   },
   {
     name: "Harry Potter and the Goblet of Fire",
+    _id: "619e65cc03b90d2ed4ab1247",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637502559/books/51Vjb2qJwzL_urpbfm.jpg"],
     quantity: 100,
@@ -430,6 +456,7 @@ module.exports = productsData = [
   },
   {
     name: "The Christmas Pig",
+    _id: "619e65cc03b90d2ed4ab1248",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637503163/books/9781444964912_gp95he.jpg"],
     quantity: 100,
@@ -446,6 +473,7 @@ module.exports = productsData = [
   },
   {
     name: "The Christmas Pig",
+    _id: "619e65cc03b90d2ed4ab1249",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637503163/books/9781444964912_gp95he.jpg"],
     quantity: 300,
@@ -461,6 +489,7 @@ module.exports = productsData = [
   },
   {
     name: "Murder Most Unladylike - A Murder Most Unladylike Mystery",
+    _id: "619e65cc03b90d2ed4ab124a",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509442/books/9780141369761_lcbbiz.jpg"],
     quantity: 100,
@@ -477,6 +506,7 @@ module.exports = productsData = [
   },
   {
     name: "Once Upon a Crime",
+    _id: "619e65cc03b90d2ed4ab124d",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509449/books/9780241419830_nbsu1p.jpg"],
     quantity: 100,
@@ -493,6 +523,7 @@ module.exports = productsData = [
   },
   {
     name: "Murder Most Unladylike - A Murder Most Unladylike Mystery",
+    _id: "619e65cc03b90d2ed4ab124c",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509442/books/9780141369761_lcbbiz.jpg"],
     quantity: 100,
@@ -508,6 +539,7 @@ module.exports = productsData = [
   },
   {
     name: "Once Upon a Crime",
+    _id: "619e65cc03b90d2ed4ab124b",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509449/books/9780241419830_nbsu1p.jpg"],
     quantity: 100,
@@ -524,6 +556,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Idiots",
+   _id: "619e65cc03b90d2ed4ab124e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519150/books/41rWzmdpuiL_lxo0h1.jpg"],
     quantity: 300,
@@ -541,6 +574,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Idiots",
+    _id: "619e65cc03b90d2ed4ab124f",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519150/books/41rWzmdpuiL_lxo0h1.jpg"],
     quantity: 100,
@@ -556,6 +590,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Idiots",
+    _id: "619e65cc03b90d2ed4ab1250",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519150/books/41rWzmdpuiL_lxo0h1.jpg"],
     quantity: 100,
@@ -571,6 +606,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Psychopaths",
+    _id: "619e65cc03b90d2ed4ab1251",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519073/books/419iPuElzCS_kmv4iu.jpg"],
     quantity: 100,
@@ -587,6 +623,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Psychopaths",
+    _id: "619e65cc03b90d2ed4ab1252",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519073/books/419iPuElzCS_kmv4iu.jpg"],
     quantity: 100,
@@ -604,6 +641,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Psychopaths",
+    _id: "619e65cc03b90d2ed4ab1253",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519073/books/419iPuElzCS_kmv4iu.jpg"],
     quantity: 300,
@@ -619,6 +657,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Bad Bosses (And Lazy Employees)",
+    _id: "619e65cc03b90d2ed4ab1254",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519065/books/41p2MHIa_tL_h0mfvp.jpg"],
     quantity: 200,
@@ -634,6 +673,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Bad Bosses (And Lazy Employees)",
+    _id: "619e65cc03b90d2ed4ab1255",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519065/books/41p2MHIa_tL_h0mfvp.jpg"],
     quantity: 200,
@@ -649,6 +689,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Bad Bosses (And Lazy Employees)",
+    _id: "619e65cc03b90d2ed4ab1256",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519065/books/41p2MHIa_tL_h0mfvp.jpg"],
     quantity: 60,
@@ -665,6 +706,7 @@ module.exports = productsData = [
   },
   {
     name: "Bring Me The Head Of The Taskmaster: 101 next-level tasks",
+    _id: "619e65cc03b90d2ed4ab1257",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521759/books/51Y4RMxbzOL._SX357_BO1_204_203_200__rtsdly.jpg"],
     quantity: 60,
@@ -681,6 +723,7 @@ module.exports = productsData = [
   },
   {
     name: "Bring Me The Head Of The Taskmaster: 101 next-level tasks",
+    _id: "619e65cc03b90d2ed4ab1258",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521759/books/51Y4RMxbzOL._SX357_BO1_204_203_200__rtsdly.jpg"],
     quantity: 60,
@@ -696,6 +739,7 @@ module.exports = productsData = [
   },
   {
     name: "Taskmaster: 220 Extraordinary Tasks for Ordinary People",
+    _id: "619e65cc03b90d2ed4ab1259",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521881/books/9781785944680_zpwrmu.jpg"],
     quantity: 60,
@@ -711,6 +755,7 @@ module.exports = productsData = [
   },
   {
     name: "Taskmaster: 220 Extraordinary Tasks for Ordinary People",
+    _id: "619e65cc03b90d2ed4ab125a",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521881/books/9781785944680_zpwrmu.jpg"],
     quantity: 60,
@@ -727,6 +772,7 @@ module.exports = productsData = [
   },
   {
     name: "The Wolf Den",
+    _id: "619e65cc03b90d2ed4ab125b",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637522801/books/9781838933555_sqmjkg.jpg"],
     quantity: 20,
@@ -743,6 +789,7 @@ module.exports = productsData = [
   },
   {
     name: "The Wolf Den",
+    _id: "619e65cc03b90d2ed4ab125c",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637522801/books/9781838933555_sqmjkg.jpg"],
     quantity: 200,
@@ -758,6 +805,7 @@ module.exports = productsData = [
   },
   {
     name: "The House with the Golden Door",
+    _id: "619e65cc03b90d2ed4ab125d",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637523116/books/9781838933579_cnsqfb.jpg"],
     quantity: 100,
@@ -775,6 +823,7 @@ module.exports = productsData = [
   },
   {
     name: "The House with the Golden Door",
+    _id: "619e65cc03b90d2ed4ab125e",
     itemNo: rand(),
     quantity: 100,
     author: "619a9cd662e0d8e5a0da8cae",
@@ -786,5 +835,39 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2021"),
     numberOfPages: 400,
     genre: "fiction"
+  },
+  {
+    name: "The Last Windwitch",
+    imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637777885/books/52848685_t3c5x8.jpg"],
+    _id: "619e81fde2818a519a0dce36",
+    itemNo: rand(),
+    quantity: 100,
+    author: "6196a420d2ece067697ac9a5",
+    categories: "ebooks",
+    currentPrice: 10,
+    publisher: "harper-Collins",
+    shortDescription: "Fans of Shannon Hale and Kelly Barnhill will delight in this charming and richly imagined middle grade fantasy debut, featuring a wicked queen, magical animals, a henchman with a golden heart, and a small girl with a great destiny.",
+    fullDescription: "<p>Many years ago, in the kingdom of Fenwood Reach, there was a powerful Windwitch who wove the seasons, keeping the land bountiful and the people happy. But then a dark magic drove her from the realm, and the world fell into chaos.</p><p>Brida is content in her small village of Oak Hollow. There, she’s plenty occupied trying to convince her fickle magic to actually do what it’s meant to in her work as a hedgewitch’s apprentice—until she accidentally catches the attention of the wicked queen.</p><p>On the run from the queen’s huntsman and her all-seeing Crow spies, Brida discovers the truth about her family, her magic, and who she is destined to be—and that she may hold the power to defeating the wicked queen and setting the kingdom right again.</p>",
+    yearOfPublishing: new Date("2021"),
+    numberOfPages: 448,
+    genre: "fiction"
+  },
+  {
+    name: "The Last Windwitch",
+    imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637777885/books/52848685_t3c5x8.jpg"],
+    _id: "619e81fde2818a519a0dce37",
+    itemNo: rand(),
+    quantity: 100,
+    author: "6196a420d2ece067697ac9a5",
+    categories: "paper-books",
+    currentPrice: 20,
+    previousPrice: 25,
+    publisher: "harper-Collins",
+    shortDescription: "Fans of Shannon Hale and Kelly Barnhill will delight in this charming and richly imagined middle grade fantasy debut, featuring a wicked queen, magical animals, a henchman with a golden heart, and a small girl with a great destiny.",
+    fullDescription: "<p>Many years ago, in the kingdom of Fenwood Reach, there was a powerful Windwitch who wove the seasons, keeping the land bountiful and the people happy. But then a dark magic drove her from the realm, and the world fell into chaos.</p><p>Brida is content in her small village of Oak Hollow. There, she’s plenty occupied trying to convince her fickle magic to actually do what it’s meant to in her work as a hedgewitch’s apprentice—until she accidentally catches the attention of the wicked queen.</p><p>On the run from the queen’s huntsman and her all-seeing Crow spies, Brida discovers the truth about her family, her magic, and who she is destined to be—and that she may hold the power to defeating the wicked queen and setting the kingdom right again.</p>",
+    yearOfPublishing: new Date("2021"),
+    numberOfPages: 448,
+    genre: "fiction",
+    coverType: "soft",
   },
 ];
