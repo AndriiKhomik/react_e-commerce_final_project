@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import * as Yup from 'yup';
 
 export const validationSchema = Yup.object().shape({
@@ -19,4 +20,9 @@ export const validationSchema = Yup.object().shape({
             'Invalid phone number format',
         )
         .required('Required field'),
+
+    comment: Yup.string().max(
+        500,
+        'The comment must be no longer than 500 characters',
+    ),
 });
