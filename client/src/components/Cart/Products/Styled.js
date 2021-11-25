@@ -8,6 +8,8 @@ export const StyledTableRow = styled(TableRow)`
 
 export const StyledTableCellHead = styled(TableCell)(() => ({
   fontWeight: 'bold',
+  fontSize: '16px',
+  color: '#3D3D3D',
   borderBottom: `1px solid ${theme.palette.primary.main}`,
   padding: '4px',
 }));
