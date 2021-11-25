@@ -9,6 +9,10 @@ exports.addAuthor = (req, res, next) => {
   const newAuthor = new Author(queryCreator(AuthorData));
 
   newAuthor
+  .populate("books")
+  .execPopulate();
+
+  newAuthor
     .save()
     .then(author => res.json(author))
     .catch(err =>
@@ -19,7 +23,7 @@ exports.addAuthor = (req, res, next) => {
 };
 
 exports.getAuthors = (req, res, next) => {
-  Author.find()
+  Author.find({}).populate('books')
     .then(authors => res.status(200).json(authors))
     .catch(err =>
       res.status(400).json({
@@ -31,7 +35,7 @@ exports.getAuthors = (req, res, next) => {
 exports.getAuthorById = (req, res, next) => {
   Author.findOne({
     _id: new ObjectId(req.params.id)
-  })
+  }).populate('books')
     .then(author => {
       if (!author) {
         res.status(400).json({

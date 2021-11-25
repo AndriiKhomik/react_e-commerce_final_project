@@ -21,6 +21,10 @@ const AuthorSchema = new Schema(
     authorUrl: {
       type: String
     },
+    books: [{
+      type: Schema.Types.ObjectId,
+      ref: 'products'
+    }],
     date: {
       type: Date,
       default: Date.now
