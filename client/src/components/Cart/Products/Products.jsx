@@ -1,28 +1,15 @@
 import React, { useState } from 'react';
+import { TableHead, Table, TableBody, useMediaQuery } from '@mui/material';
 import {
-  TableHead,
-  Table,
-  TableBody,
-  TableContainer,
-  TableRow,
-  FormControl,
-  MenuItem,
-  Box,
-  useMediaQuery,
-} from '@mui/material';
-import {
-  StyledDiv,
-  StyledSelect,
-  StyledSellTotals,
-  StyledTableCell,
   StyledTableCellHead,
+  StyledTableContainer,
   StyledTableRow,
 } from './Styled';
 import theme from '../../../services/theme/theme';
 import Ebook from '../../icons/ElBookIcon';
 import CartonBook from '../../icons/PaperBookIcon';
 import AudioBook from '../../icons/AudioBookIcon';
-import DeleteIcon from '../../icons/DeleteIcon';
+import ProductItem from '../ProductItem/ProductItem';
 
 // Test data
 const rows = [
@@ -72,45 +59,13 @@ const Products = () => {
   };
 
   const items = rows.map((row) => (
-    <TableRow key={row.id}>
-      <StyledTableCell component='th' scope='row'>
-        {row.cover} <span>{row.number}</span>
-      </StyledTableCell>
-      {collapseTableColumn && (
-        <StyledTableCell align='center'>
-          {img}
-          <FormControl fullWidth>
-            <StyledSelect defaultValue={2} onChange={handleChange}>
-              <MenuItem value={1}>Ebook</MenuItem>
-              <MenuItem value={2}>Paper Book</MenuItem>
-              <MenuItem value={3}>Audio Book</MenuItem>
-            </StyledSelect>
-          </FormControl>
-        </StyledTableCell>
-      )}
-      {collapseTableColumn && (
-        <StyledTableCell align='center'>${row.price}</StyledTableCell>
-      )}
-      <StyledTableCell align='center' sx={{ padding: '4px' }}>
-        <StyledDiv>-</StyledDiv>
-        {row.quantity}
-        <StyledDiv sx={{ padding: '0 6px' }}>+</StyledDiv>
-      </StyledTableCell>
-      <StyledSellTotals align='center'>
-        ${row.price * row.quantity}
-      </StyledSellTotals>
-      <StyledTableCell align='center'>
-        <Box sx={{ cursor: 'pointer' }}>
-          <DeleteIcon width='18px' height='18px' />
-        </Box>
-      </StyledTableCell>
-    </TableRow>
+    <ProductItem row={row} handleChange={handleChange} img={img} key={row.id} />
   ));
 
   return (
-    <TableContainer sx={{ overflowY: 'hidden' }}>
+    <StyledTableContainer>
       <Table
-        sx={{ minWidth: 320, borderCollapse: 'separate', minHeight: '100%' }}
+        sx={{ borderCollapse: 'separate' }}
         size='small'
         aria-label='a dense table'
       >
@@ -132,7 +87,7 @@ const Products = () => {
         </TableHead>
         <TableBody>{items}</TableBody>
       </Table>
-    </TableContainer>
+    </StyledTableContainer>
   );
 };
 

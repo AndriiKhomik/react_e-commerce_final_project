@@ -11,6 +11,7 @@ export const StyledBox = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 `;
 
 export const StyledTitle = styled(Typography)`
@@ -28,7 +29,19 @@ export const StyledParagraph = styled(Typography)`
 
 export const StyledTextField = styled(TextField)(() => ({
   flex: 1,
-  border: `1px solid ${theme.palette.primary.main}`,
+  borderRadius: 0,
+  '& .MuiInputBase-formControl': {
+    border: `1px solid ${theme.palette.primary.main}`,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    borderColor: '#ffffff',
+  },
+  '& .css-t0uf6-MuiFormControl-root-MuiTextField-root .MuiInputBase-formControl':
+    {
+      borderColor: 'transparent',
+    },
 }));
 
 export const StyledButton = styled(Button)(() => ({

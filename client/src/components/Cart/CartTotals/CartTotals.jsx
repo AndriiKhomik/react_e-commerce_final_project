@@ -1,10 +1,11 @@
-import { Box, TextField } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
+import OrderDetails from '../OrderDetails';
 import {
-  StyledBox,
   StyledBoxContainer,
   StyledButton,
   StyledParagraph,
+  StyledTextField,
   StyledTitle,
 } from './Styled';
 
@@ -14,7 +15,7 @@ const CartTotals = () => {
       <StyledTitle as='h4'>Cart Totals</StyledTitle>
       <StyledParagraph as='p'>Coupon Apply</StyledParagraph>
       <Box sx={{ display: 'flex', marginBottom: '30px' }}>
-        <TextField
+        <StyledTextField
           id='outlined-basic'
           variant='outlined'
           size='small'
@@ -22,19 +23,7 @@ const CartTotals = () => {
         />
         <StyledButton type='submit'>Apply</StyledButton>
       </Box>
-      <StyledBox>
-        <Box>Subtotal</Box>
-        <Box>$2,683.00</Box>
-      </StyledBox>
-      <StyledBox>
-        <Box>Shipping</Box>
-        <Box>$16.00</Box>
-      </StyledBox>
-      <Box as='span'>View shipping charge</Box>
-      <StyledBox>
-        <Box>Total</Box>
-        <Box>$2,699.00</Box>
-      </StyledBox>
+      <OrderDetails />
     </StyledBoxContainer>
   );
 };

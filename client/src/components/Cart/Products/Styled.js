@@ -1,6 +1,11 @@
-import { Select, TableCell, TableRow } from '@mui/material';
+import { Select, TableCell, TableContainer, TableRow } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
+
+export const StyledTableContainer = styled(TableContainer)`
+  overflowy: 'hidden';
+  margin-bottom: 36px;
+`;
 
 export const StyledTableRow = styled(TableRow)`
   border-bottom: 1px solid #f8a300;
@@ -17,8 +22,8 @@ export const StyledTableCellHead = styled(TableCell)(() => ({
 export const StyledTableCell = styled(TableCell)`
   border-bottom: none;
   background-color: #fbfbfb;
-  border-bottom: 4px solid white;
-  border-top: 4px solid white;
+  border-bottom: 4px solid #ffffff;
+  border-top: 4px solid #ffffff;
   span {
     font-weight: 700;
   }
