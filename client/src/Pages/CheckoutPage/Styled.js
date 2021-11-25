@@ -25,6 +25,18 @@ export const StyledDownGrid = styled(Grid)(() => ({
     },
 }));
 
+export const StyledFormGrid = styled(Grid)(() => ({
+    [theme.breakpoints.up('xs')]: {
+        marginBottom: '18px',
+    },
+    [theme.breakpoints.up('sm')]: {
+        marginBottom: '26px',
+    },
+    [theme.breakpoints.up('md')]: {
+        marginBottom: '0',
+    },
+}));
+
 export const StyledBtnGrid = styled(Grid)(() => ({
     textAlign: 'center',
     [theme.breakpoints.up('xs')]: {

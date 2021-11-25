@@ -1,19 +1,25 @@
 import React from 'react';
 import { Grid, Paper } from '@mui/material';
-import CheckoutBreadCrumbs from '../../components/CheckoutBreadCrumbs';
+import SectionTitles from '../../components/SectionTitles';
 import OrderForm from '../../components/OrderForm/OrderForm';
 import CheckoutEditBtn from '../../components/CheckoutEditBtn';
 import { RecommendedBooksList } from '../../components/ProductsList';
-import { StyledGrid, StyledDownGrid, StyledBtnGrid } from './Styled';
+import { checkoutPageTitles } from '../../components/SectionTitles/checkoutPageTitles';
+import {
+  StyledGrid,
+  StyledDownGrid,
+  StyledFormGrid,
+  StyledBtnGrid,
+} from './Styled';
 
 const CheckoutPage = () => {
   return (
     <>
-      <CheckoutBreadCrumbs />
+      <SectionTitles titles={checkoutPageTitles} />
       <StyledGrid container spacing={{ md: 5 }}>
-        <Grid item xs={12} md={7}>
+        <StyledFormGrid item xs={12} md={7}>
           <OrderForm />
-        </Grid>
+        </StyledFormGrid>
         <Grid item xs={12} md={5}>
           <div>Your order</div>
         </Grid>

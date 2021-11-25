@@ -11,6 +11,8 @@ export const StyledTitle = styled('p')(() => ({
 }));
 
 export const StyledErrorMessage = styled(ErrorMessage)(() => ({
-  fontSize: '14px',
+  position: 'absolute',
+  paddingTop: '2px',
+  fontSize: '13px',
   color: [theme.palette.primary.accent],
 }));

@@ -33,7 +33,7 @@ const OrderForm = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Grid container spacing={{ xs: 2, sm: 3 }}>
+            <Grid container spacing={{ xs: 3 }}>
               {formValues.map(({ id, name, type, placeholder, label }) => (
                 <Grid key={id} item xs={12} ds={6}>
                   <InputLabel name={name} label={label} required />
