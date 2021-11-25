@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { StyledButton } from './Styles';
 
 const FilterBtn = () => {
   return (
-    <Button type='submit' variant='contained'>
+    <StyledButton type='submit' variant='contained'>
       Filter
-    </Button>
+    </StyledButton>
   );
 };
 

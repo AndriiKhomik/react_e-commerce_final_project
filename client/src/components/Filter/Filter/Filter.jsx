@@ -1,45 +1,23 @@
 import React from 'react';
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  FormControlLabel,
-  Checkbox,
-} from '@mui/material';
+import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
 import FilterSubtitle from '../FilterSubtitle';
+import FilterList from '../FilterList/FilterList';
 import FilterRange from '../FilterRange';
 import FilterBtn from '../FilterBtn';
+import { genres } from './filterGenresValues';
+import { formats } from './filterFormatsValues';
 
 const Filter = () => {
   return (
     <>
       <SearchInput />
       <FilterSubtitle text='Genres' />
-      <List>
-        <ListItem>
-          <FormControlLabel
-            label='test'
-            labelPlacement='end'
-            control={<Checkbox />}
-          />
-          <ListItemText primary='(33)' />
-        </ListItem>
-      </List>
-      <Divider />
+      <FilterList items={genres} />
+      <StyledDivider />
       <FilterSubtitle text='Format' />
-      <List>
-        <ListItem>
-          <FormControlLabel
-            label='test1'
-            labelPlacement='end'
-            control={<Checkbox />}
-          />
-          <ListItemText primary='(33)' />
-        </ListItem>
-      </List>
-      <Divider />
+      <FilterList items={formats} />
+      <StyledDivider />
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <FilterBtn />

@@ -1,32 +1,32 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import {
-//     List,
-//     ListItem,
-//     FormControlLabel,
-//     Checkbox,
-//     ListItemText,
-// } from '@mui/material';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ListItem, FormControlLabel, ListItemText } from '@mui/material';
+import { StyledList, StyledCheckbox } from './Styles';
 
-// const FilterList = ({ items }) => {
-//     return (
-//         <List>
-//             {items.map((item) => (
-//                 <ListItem key={item.id}>
-//                     <FormControlLabel
-//                         label={item.name}
-//                         labelPlacement='end'
-//                         control={<Checkbox />}
-//                     />
-//                     <ListItemText primary='(33)' />
-//                 </ListItem>
-//             ))}
-//         </List>
-//     );
-// };
+const FilterList = ({ items }) => {
+  return (
+    <StyledList>
+      {items.map(({ id, name }) => (
+        <ListItem key={id}>
+          <FormControlLabel
+            label={name}
+            labelPlacement='end'
+            control={<StyledCheckbox/>}
+          />
+          <ListItemText primary='(33)' />
+        </ListItem>
+      ))}
+    </StyledList>
+  );
+};
 
-// FilterList.propTypes = {
-//     // text: PropTypes.string.isRequired,
-// };
+FilterList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 
-// export default FilterList;
+export default FilterList;
