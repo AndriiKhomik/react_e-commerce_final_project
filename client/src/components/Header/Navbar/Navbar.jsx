@@ -29,7 +29,11 @@ const Navbar = () => {
 
   return (
     <>
-      <Box elevation={0} onClick={(e) => handleCloseOpenDrawer(e)}>
+      <Box
+        elevation={0}
+        onClick={(e) => handleCloseOpenDrawer(e)}
+        sx={{ marginBottom: '36px' }}
+      >
         <StyledBox>
           <StyledLogoBox>{changeLogo ? 'LG' : <Logo />}</StyledLogoBox>
 
