@@ -1,7 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material';
 import { useRoutes } from '../../routes';
-import './App.scss';
 import Header from '../Header';
 import Footer from '../Footer/Footer';
 import Subscribe from '../Subscribe/SubscribeMain/Subscribe';
