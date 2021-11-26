@@ -7,4 +7,5 @@ export const StyledButton = styled(Button)(() => ({
     color: [theme.palette.text.light],
     fontSize: '16px',
     fontWeight: '700',
+    boxShadow: 'none',
 }));

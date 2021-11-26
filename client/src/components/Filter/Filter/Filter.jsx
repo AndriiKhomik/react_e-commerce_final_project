@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
 import FilterSubtitle from '../FilterSubtitle';
-import FilterList from '../FilterList/FilterList';
+import FilterList from '../FilterList';
 import FilterRange from '../FilterRange';
 import FilterBtn from '../FilterBtn';
 import { genres } from './filterGenresValues';

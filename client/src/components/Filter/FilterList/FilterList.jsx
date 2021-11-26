@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ListItem, FormControlLabel, ListItemText } from '@mui/material';
-import { StyledList, StyledCheckbox } from './Styles';
+import { StyledList } from './Styles';
+import FilterItem from '../FilterItem';
+
 
 const FilterList = ({ items }) => {
+  const [checkedItem, setCheckedItem] = useState(null);
+
+  const handleChange = (value) => {
+    setCheckedItem(value);
+  };
+
   return (
     <StyledList>
       {items.map(({ id, name }) => (
-        <ListItem key={id}>
-          <FormControlLabel
-            label={name}
-            labelPlacement='end'
-            control={<StyledCheckbox/>}
-          />
-          <ListItemText primary='(33)' />
-        </ListItem>
+        <FilterItem
+          key={id}
+          name={name}
+          onChange={handleChange}
+          checkedItem={checkedItem}
+        />
       ))}
     </StyledList>
   );

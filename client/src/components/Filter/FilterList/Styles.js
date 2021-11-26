@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { List, Checkbox } from '@mui/material';
+import { List } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledList = styled(List)(() => ({
@@ -8,8 +8,3 @@ export const StyledList = styled(List)(() => ({
     color: [theme.palette.text.main],
 }));
 
-export const StyledCheckbox = styled(Checkbox)(() => ({
-    '& .MuiSvgIcon-root': {
-        fill: [theme.palette.primary.dark],
-    },
-}));
