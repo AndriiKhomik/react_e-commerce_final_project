@@ -10,13 +10,13 @@ import ProductItem from '../../ProductItem/ProductItem';
 
 const BooksList = ({ items, text }) => {
   return (
-    <StyledContainer maxWidth='lg'>
+    <StyledContainer>
       <BooksListTitle text={text} />
       <StyledSliderWrapper>
         <Swiper
           wrapperTag='ul'
           slidesPerView='auto'
-          spaceBetween={25}
+          spaceBetween={30}
           modules={[Navigation]}
           navigation={{ clickable: true }}
           loop

@@ -1,8 +1,8 @@
-import { Container, List } from '@mui/material';
+import { Box, List } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
-export const StyledContainer = styled(Container)(() => ({
+export const StyledContainer = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
     marginBottom: '40px',
   },
