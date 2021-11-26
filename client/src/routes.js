@@ -8,6 +8,7 @@ import ShoppingCart from './Pages/ShoppingCart';
 import RegistrationPage from './Pages/RegistrationPage';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import ItemPage from './Pages/ItemPage/ItemPage';
+import CheckoutPage from './Pages/CheckoutPage';
 import Authors from './Pages/Authors';
 
 export const useRoutes = () => {
@@ -21,6 +22,7 @@ export const useRoutes = () => {
       <Route exact path='/authors' component={Authors} />
       <Route exact path='/registration' component={RegistrationPage} />
       <Route path='/products/:itemNo' component={ItemPage} />
+      <Route exact path='/checkout' component={CheckoutPage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>
   );
