@@ -1,15 +1,14 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 // import Filter from '../../components/Filter/Filter';
-import CatalogList from '../../components/CatalogList/CatalogList/CatalogList';
-import { RecommendedBooksList } from '../../components/ProductsList';
+import CatalogList from '../../components/CatalogList/CatalogList';
 import { StyledGrid, StyledFilterGrid } from './Styles';
 
 const Catalogue = () => {
   return (
     <>
       <StyledGrid container>
-        <StyledFilterGrid item md={3} sm={3} xs={0}>
+        <StyledFilterGrid item md={3} sm={3}>
           {/* <Filter /> */}
           <div> я временный фильтр 🤗</div>
         </StyledFilterGrid>
@@ -17,7 +16,6 @@ const Catalogue = () => {
           <CatalogList />
         </Grid>
       </StyledGrid>
-      <RecommendedBooksList />
     </>
   );
 };

@@ -21,7 +21,7 @@ exports.addImages = (req, res, next) => {
 exports.addProduct = (req, res, next) => {
   const productFields = _.cloneDeep(req.body);
   productFields.itemNo = rand();
-  
+
   try {
     productFields.name = productFields.name
       .toLowerCase()
@@ -107,7 +107,9 @@ exports.getProducts = (req, res, next) => {
 
   Product.find({}).populate('author')
     .skip(startPage * perPage - perPage)
-    .limit(perPage)
+    // temporarily limited directly
+    // .limit(perPage)
+    .limit(8)
     .sort(sort)
     .then(products => res.send(products))
     .catch(err =>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../../../api/products';
-import ProductItem from '../../ProductItem/ProductItem/ProductItem';
-import Loader from '../CatalogLoader/CatalogLoader';
+import ProductItem from '../../ProductItem/ProductItem';
+import CatalogLoader from '../CatalogLoader';
 import { StyledItem, StyledList } from './Styles';
 
 const CatalogList = () => {
@@ -33,7 +33,11 @@ const CatalogList = () => {
     },
   );
 
-  return isLoading ? <Loader /> : <StyledList>{productsElements}</StyledList>;
+  return isLoading ? (
+    <CatalogLoader />
+  ) : (
+    <StyledList>{productsElements}</StyledList>
+  );
 };
 
 export default CatalogList;
