@@ -20,7 +20,7 @@ export const useRoutes = () => {
       <Route exact path='/shoppingcart' component={ShoppingCart} />
       <Route exact path='/authors' component={Authors} />
       <Route exact path='/registration' component={RegistrationPage} />
-      <Route exact path='/itempage' component={ItemPage} />
+      <Route path='/products/:itemNo' component={ItemPage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>
   );
