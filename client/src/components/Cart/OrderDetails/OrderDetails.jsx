@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Box } from '@mui/material';
 import {
   StyledBox,
@@ -8,6 +9,17 @@ import {
 } from './Styled';
 
 const OrderDetails = () => {
+  const toOrderForm = useHistory();
+  const toStore = useHistory();
+
+  const handleOrderProceed = () => {
+    toOrderForm.push('/checkout');
+  };
+
+  const handleContinueShopping = () => {
+    toStore.push('/catalogue');
+  };
+
   return (
     <>
       <StyledBox>
@@ -23,8 +35,12 @@ const OrderDetails = () => {
         <Box sx={{ fontWeight: 'bold' }}>Total</Box>
         <Box as='span'>$2,699.00</Box>
       </StyledBox>
-      <StyledButton type='submit'>Proceed To Checkout</StyledButton>
-      <StyledContinueButton>Continue Shopping</StyledContinueButton>
+      <StyledButton type='submit' onClick={handleOrderProceed}>
+        Proceed To Checkout
+      </StyledButton>
+      <StyledContinueButton onClick={handleContinueShopping}>
+        Continue Shopping
+      </StyledContinueButton>
     </>
   );
 };

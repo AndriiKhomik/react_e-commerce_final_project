@@ -31,8 +31,7 @@ export const StyledButton = styled(Button)(() => ({
   marginTop: '30px',
   textTransform: 'capitalize',
   '&:hover': {
-    // backgroundColor: `${theme.palette.primary.deepdark}`,
-    backgroundColor: '#fd8502',
+    backgroundColor: `${theme.palette.primary.deepdark}`,
   },
 }));
 
@@ -41,4 +40,8 @@ export const StyledContinueButton = styled(Button)(() => ({
   width: '100%',
   marginTop: '4px',
   textTransform: 'capitalize',
+  '&:hover': {
+    backgroundColor: 'transparent',
+    textDecoration: 'underline',
+  },
 }));
