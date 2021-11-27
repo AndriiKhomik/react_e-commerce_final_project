@@ -6,7 +6,9 @@ export const StyledTextField = styled(TextField)(() => ({
   '& fieldset': {
     borderBottomRightRadius: '0',
     borderTopRightRadius: '0',
-    height: '98.5%',
+    height: '2.6em',
+    background: '#fff',
+    border: 'none',
   },
   [theme.breakpoints.up('xs')]: {
     width: '73%',
@@ -21,7 +23,7 @@ export const StyledTextField = styled(TextField)(() => ({
     width: '75%',
   },
   [theme.breakpoints.up('lg')]: {
-    width: '85%',
+    width: '83%',
   },
 }));
 
