@@ -32,4 +32,7 @@ export const StyledText = styled('span')(() => ({
 
 export const StyledBox = styled(Box)(() => ({
   paddingRight: '25px',
+  [theme.breakpoints.up('dl')]: {
+    paddingRight: '55px',
+  },
 }));
