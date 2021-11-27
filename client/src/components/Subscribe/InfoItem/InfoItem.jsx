@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTitle, StyledText } from './Styles';
+import { StyledTitle, StyledText, StyledBox } from './Styles';
 
 const InfoItem = ({ item }) => {
   const { component, title, text } = item;
@@ -8,7 +8,9 @@ const InfoItem = ({ item }) => {
     <div>
       {component}
       <StyledTitle>{title}</StyledTitle>
-      <StyledText>{text}</StyledText>
+      <StyledBox>
+        <StyledText>{text}</StyledText>
+      </StyledBox>
     </div>
   );
 };

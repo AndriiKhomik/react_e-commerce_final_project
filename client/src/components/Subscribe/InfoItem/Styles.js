@@ -1,8 +1,9 @@
 import { styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledTitle = styled('h3')(() => ({
-  color: '#000',
+  color: '#3d3d3d',
   paddingTop: '18px',
   paddingBottom: '9px',
   fontFamily: 'CeraPro Bold',
@@ -27,4 +28,8 @@ export const StyledText = styled('span')(() => ({
     fontSize: '14px',
     lineHeight: '22px',
   },
+}));
+
+export const StyledBox = styled(Box)(() => ({
+  paddingRight: '25px',
 }));

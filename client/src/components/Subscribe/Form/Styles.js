@@ -6,7 +6,7 @@ export const StyledTextField = styled(TextField)(() => ({
   '& fieldset': {
     borderBottomRightRadius: '0',
     borderTopRightRadius: '0',
-    height: '100%',
+    height: '98.5%',
   },
   [theme.breakpoints.up('xs')]: {
     width: '65%',
@@ -44,7 +44,7 @@ export const StyledBox = styled(Box)(() => ({
 
 export const StyledTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
-    color: '#000',
+    color: '#3d3d3d',
     paddingBottom: '18px',
     paddingTop: '18px',
     fontSize: '18px',
