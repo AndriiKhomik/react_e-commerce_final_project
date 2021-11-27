@@ -10,9 +10,9 @@ const SubscribeForm = () => {
       <FormTitle title='Would you like to join newsletters?' />
       <form>
         <StyledTextField
-          // id='outlined-basic'
+          id='outlined-basic'
           label='enter your email address...'
-          // variant='outlined'
+          variant='outlined'
         />
         <StyledButton
           type='submit'
