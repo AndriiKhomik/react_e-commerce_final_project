@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import FormTitle from './FormTitle';
 import FormDescription from './FormDescription';
-import { StyledBox, StyledTextField } from './Styles';
+import { StyledBox, StyledTextField, StyledButton } from './Styles';
 
 const SubscribeForm = () => {
   return (
@@ -10,11 +10,11 @@ const SubscribeForm = () => {
       <FormTitle title='Would you like to join newsletters?' />
       <form>
         <StyledTextField
-          id='outlined-basic'
+          // id='outlined-basic'
           label='enter your email address...'
-          variant='outlined'
+          // variant='outlined'
         />
-        <Button
+        <StyledButton
           type='submit'
           variant='contained'
           style={{ color: '#FFFFFF' }}
@@ -23,7 +23,7 @@ const SubscribeForm = () => {
           }}
         >
           Join
-        </Button>
+        </StyledButton>
       </form>
       <FormDescription text='We usually post offers and challenges in newsletter. We’re your best book friend. We offer a wide range of books from all over the world' />
     </StyledBox>

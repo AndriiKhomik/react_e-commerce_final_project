@@ -6,7 +6,7 @@ export const StyledList = styled(List)(() => ({
   [theme.breakpoints.up('xs')]: {
     display: 'none',
   },
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     display: 'flex',
     fontFamily: 'CeraPro Regular',
     paddingRight: '10px',

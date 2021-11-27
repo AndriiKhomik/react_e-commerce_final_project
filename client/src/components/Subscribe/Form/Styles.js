@@ -1,8 +1,13 @@
-import { Box, TextField } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledTextField = styled(TextField)(() => ({
+  '& fieldset': {
+    borderBottomRightRadius: '0',
+    borderTopRightRadius: '0',
+    height: '100%',
+  },
   [theme.breakpoints.up('xs')]: {
     width: '65%',
   },
@@ -17,6 +22,15 @@ export const StyledTextField = styled(TextField)(() => ({
   },
   [theme.breakpoints.up('lg')]: {
     width: '85%',
+  },
+}
+));
+
+export const StyledButton = styled(Button)(() => ({
+  [theme.breakpoints.up('xs')]: {
+    borderBottomLeftRadius: '0',
+    borderTopLeftRadius: '0',
+    boxShadow: 'none',
   },
 }));
 
