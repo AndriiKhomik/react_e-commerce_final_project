@@ -8,7 +8,7 @@ export const StyledDescriptionWrapper = styled('div')`
 export const StyledDescriptionTitle = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
-    color: `#3d3d3d`,
+    color: `${theme.palette.text.main}`,
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '15px',

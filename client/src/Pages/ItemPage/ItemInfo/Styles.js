@@ -30,7 +30,7 @@ export const StyledListItem = styled(ListItem)(() => ({
     marginLeft: '40px',
   },
   [theme.breakpoints.up('dm')]: {
-    color: '#3D3D3D',
+    color: `${theme.palette.text.main}`,
     fontSize: '14px',
     lineHeight: '16px',
   },

@@ -8,19 +8,19 @@ export const StyledButtonsWrapper = styled('div')`
 
 export const StyledCartButton = styled(Button)`
   padding: 10px 20px;
-  background-color: #ffac0c;
+  background-color: ${theme.palette.primary.main};
   &:hover {
-    background-color: #fd8502;
+    background-color: ${theme.palette.primary.deepdark};
   }
 `;
 
 export const StyledButtonText = styled('p')`
-  color: #fff;
+  color: ${theme.palette.text.light};
 `;
 
 export const StyledFavoriteBtnBox = styled(CardActions)`
   padding: 0;
-  background-color: #ffffff;
+  background-color: ${theme.palette.text.light};
   border-radius: 4px;
   margin-left: 10px;
 `;
@@ -31,7 +31,7 @@ export const StyledFavoriteBtn = styled(Button)`
   color: ${theme.palette.primary.main};
   border: 1px solid ${theme.palette.primary.main};
   &:hover {
-    color: #fd8502;
-    border: 1px solid #fd8502;
+    color: ${theme.palette.primary.deepdark};
+    border: 1px solid ${theme.palette.primary.deepdark};
   }
 `;

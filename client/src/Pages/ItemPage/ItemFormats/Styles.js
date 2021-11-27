@@ -12,7 +12,7 @@ export const StyledFormatsWrapper = styled('div')(() => ({
 }));
 
 export const StyledFormatTitle = styled('h3')`
-  color: #3d3d3d;
+  color: {theme.palette.text.main};
   font-size: 15px;
   line-height: 16px;
 `;

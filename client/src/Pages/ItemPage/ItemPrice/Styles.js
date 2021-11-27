@@ -31,7 +31,7 @@ export const StyledPrice = styled('p')(() => ({
 export const StyledReviews = styled(Link)(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
-    color: `#3d3d3d`,
+    color: `${theme.palette.primary.main}`,
     textDecoration: 'none',
   },
   [theme.breakpoints.up('sm')]: {

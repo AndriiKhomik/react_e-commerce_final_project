@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemButtons from './ItemButtons/ItemButtons';
 import ItemDescription from './ItemDescription/ItemDescription';
 import ItemFormats from './ItemFormats/ItemFormats';
@@ -6,35 +6,49 @@ import ItemImg from './ItemImg/ItemImg';
 import ItemInfo from './ItemInfo/ItemInfo';
 import ItemPrice from './ItemPrice/ItemPrice';
 import ItemTitle from './ItemTitle/ItemTitle';
-import { productItem } from './singleBook';
+import { getItemProduct } from '../../api/api';
+// import { productItem } from './singleBook';
 import { StyledContainer, StyledDescription } from './Styles';
+import Loader from './Loader/Loader';
 
-const {
-  name,
-  price,
-  genre,
-  shortDescription,
-  img,
-  author,
-  publisher,
-  yearOfPublish,
-  pages,
-  reviews,
-} = productItem;
 const ItemPage = () => {
-  return (
+  const [book, setBook] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getItemProduct('912796')
+      .then((data) => {
+        setBook(data);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  const {
+    name,
+    currentPrice,
+    genre,
+    shortDescription,
+    imageUrls,
+    author,
+    publisher,
+    yearOfPublishing,
+    duration,
+  } = book;
+  return isLoading ? (
+    <Loader />
+  ) : (
     <StyledContainer>
-      <ItemImg img={img} name={name} />
+      <ItemImg img={imageUrls} name={name} />
       <StyledDescription>
         <ItemTitle name={name} genre={genre} />
-        <ItemPrice price={price} reviews={reviews} />
+        <ItemPrice price={currentPrice} />
         <ItemDescription shortDescription={shortDescription} />
         <ItemFormats />
         <ItemInfo
-          author={author}
+          author={author.name}
           publisher={publisher}
-          yearOfPublish={yearOfPublish}
-          pages={pages}
+          yearOfPublish={new Date(yearOfPublishing).getFullYear()}
+          pages={duration}
           genre={genre}
         />
         <ItemButtons />

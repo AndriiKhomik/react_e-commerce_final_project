@@ -15,7 +15,7 @@ export const StyledTitle = styled('h3')(() => ({
     fontSize: '20px',
     fontFamily: 'CeraPro Bold',
     fontWeight: 'bold',
-    color: '#3D3D3D',
+    color: `${theme.palette.primary.main}`,
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '25px',

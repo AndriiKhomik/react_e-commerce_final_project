@@ -14,7 +14,7 @@ export const StyledFormatWrapper = styled('div')(() => ({
 }));
 
 export const StyledTitle = styled('h3')(() => ({
-  color: '#000',
+  color: `${theme.palette.text.main}`,
   fontSize: '14px',
   [theme.breakpoints.up('sm')]: {
     lineHeight: '20px',
