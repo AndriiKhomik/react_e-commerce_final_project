@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Drawer, Box, styled } from '@mui/material';
-import FilterListIcon from '@mui/icons-material/FilterList';
+import { Drawer, styled } from '@mui/material';
 import theme from '../../services/theme/theme';
 
 export const StyledFilterContainer = styled(Drawer)(() => ({
@@ -18,15 +17,5 @@ export const StyledFilterContainer = styled(Drawer)(() => ({
         [theme.breakpoints.up('md')]: {
             width: '320px',
         },
-    },
-}));
-
-export const StyledBox = styled(Box)(() => ({
-    marginBottom: '30px',
-}));
-
-export const StyledFilterListIcon = styled(FilterListIcon)(() => ({
-    [theme.breakpoints.up('sm')]: {
-        marginRight: '10px',
     },
 }));

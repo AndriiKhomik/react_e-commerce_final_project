@@ -4,7 +4,7 @@ import SectionTitles from '../../components/SectionTitles';
 import OrderForm from '../../components/OrderForm/OrderForm';
 import CheckoutEditBtn from '../../components/CheckoutEditBtn';
 import { RecommendedBooksList } from '../../components/ProductsList';
-import { checkoutPageTitles } from '../../components/SectionTitles/checkoutPageTitles';
+import { pageTitles } from '../../components/SectionTitles/pageTitles';
 import {
   StyledGrid,
   StyledDownGrid,
@@ -15,7 +15,7 @@ import {
 const CheckoutPage = () => {
   return (
     <>
-      <SectionTitles titles={checkoutPageTitles} />
+      <SectionTitles titles={pageTitles} />
       <StyledGrid container spacing={{ md: 5 }}>
         <StyledFormGrid item xs={12} md={7}>
           <OrderForm />

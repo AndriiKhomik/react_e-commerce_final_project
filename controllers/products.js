@@ -109,7 +109,7 @@ exports.getProducts = (req, res, next) => {
     .skip(startPage * perPage - perPage)
     // temporarily limited directly
     // .limit(perPage)
-    .limit(8)
+    .limit(12)
     .sort(sort)
     .then(products => res.send(products))
     .catch(err =>

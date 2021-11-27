@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { Box, useMediaQuery } from '@mui/material';
-import Filter from '../Filter/Filter';
+import HiddenFilter from '../Filter/HiddenFilter';
+import RowFilter from '../Filter/RowFilter';
 import CloseFilterBtn from '../Filter/CloseFilterBtn';
-import FilterBtn from '../Filter/FilterBtn';
 import CatalogList from '../CatalogList/CatalogList';
-import {
-  StyledFilterContainer,
-  StyledBox,
-  StyledFilterListIcon,
-} from './Styles';
-import theme from '../../services/theme/theme';
+import SectionTitles from '../SectionTitles';
+import { pageTitles } from '../SectionTitles/pageTitles';
+import { StyledFilterContainer } from './Styles';
 
 const Catalogue = () => {
   const [open, setOpen] = useState(false);
@@ -22,24 +18,15 @@ const Catalogue = () => {
     setOpen(false);
   };
 
-  const mediumScreen = useMediaQuery(theme.breakpoints.up('sm'));
-
   return (
     <>
-      <StyledBox>
-        <FilterBtn
-          text={mediumScreen ? 'Show filter' : ''}
-          onClick={handleFilterOpen}
-          svg={<StyledFilterListIcon />}
-        />
-      </StyledBox>
+      <SectionTitles titles={pageTitles.slice(0, 2)} />
+      <RowFilter onClick={handleFilterOpen} />
+      <CatalogList />
       <StyledFilterContainer variant='persistent' anchor='left' open={open}>
         <CloseFilterBtn onClick={handleFilterClose} />
-        <Filter />
+        <HiddenFilter />
       </StyledFilterContainer>
-      <Box>
-        <CatalogList />
-      </Box>
     </>
   );
 };

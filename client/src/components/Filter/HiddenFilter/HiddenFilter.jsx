@@ -8,7 +8,7 @@ import FilterBtn from '../FilterBtn';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 
-const Filter = () => {
+const HiddenFilter = () => {
   return (
     <>
       <SearchInput />
@@ -24,4 +24,4 @@ const Filter = () => {
     </>
   );
 };
-export default Filter;
+export default HiddenFilter;

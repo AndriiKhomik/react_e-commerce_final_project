@@ -8,8 +8,10 @@ export const StyledButton = styled(Button)(() => ({
     fontSize: '16px',
     fontWeight: '700',
     boxShadow: 'none',
+    textTransform: 'capitalize',
     '&:hover': {
         color: [theme.palette.text.light],
+        backgroundColor: [theme.palette.primary.deepdark],
         boxShadow: 'none',
     },
 }));
