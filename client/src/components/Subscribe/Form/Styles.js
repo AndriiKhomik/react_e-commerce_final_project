@@ -9,13 +9,13 @@ export const StyledTextField = styled(TextField)(() => ({
     height: '98.5%',
   },
   [theme.breakpoints.up('xs')]: {
-    width: '65%',
+    width: '73%',
   },
   [theme.breakpoints.up('sm')]: {
-    width: '65%',
+    width: '84%',
   },
   [theme.breakpoints.up('dm')]: {
-    width: '70%',
+    width: '89%',
   },
   [theme.breakpoints.up('md')]: {
     width: '75%',
@@ -23,8 +23,7 @@ export const StyledTextField = styled(TextField)(() => ({
   [theme.breakpoints.up('lg')]: {
     width: '85%',
   },
-}
-));
+}));
 
 export const StyledButton = styled(Button)(() => ({
   [theme.breakpoints.up('xs')]: {
@@ -48,10 +47,10 @@ export const StyledTitle = styled('h3')(() => ({
     paddingBottom: '18px',
     paddingTop: '18px',
     fontSize: '18px',
-    lineHeight: '16px',
+    lineHeight: '24px',
     fontFamily: 'CeraPro Bold',
   },
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     paddingTop: '0',
   },
 }));
