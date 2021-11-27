@@ -2,26 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './Styles';
 
-const FormButton = ({ isSubmitting, text }) => {
+const FilterBtn = ({ onClick, text, svg }) => {
   return (
     <StyledButton
+      onClick={onClick}
       type='submit'
-      disabled={isSubmitting}
       variant='contained'
       title={text}
       aria-label={text}
     >
+      {svg}
       {text}
     </StyledButton>
   );
 };
 
-FormButton.propTypes = {
-  isSubmitting: PropTypes.bool,
+FilterBtn.propTypes = {
+  onClick: PropTypes.func,
+  svg: PropTypes.node,
   text: PropTypes.string.isRequired,
 };
-
-FormButton.defaultProps = {
-  isSubmitting: () => {},
+FilterBtn.defaultProps = {
+  onClick: () => {},
+  svg: null,
 };
-export default FormButton;
+
+export default FilterBtn;

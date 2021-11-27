@@ -7,8 +7,6 @@ import {
   StyledCardMedia,
 } from './Styles';
 
-import defaultimg from '../../../img/missing_image.jpg';
-
 const ProductImg = ({ url, name }) => {
   return (
     <LightTooltip title={name} placement='top'>
@@ -23,11 +21,7 @@ const ProductImg = ({ url, name }) => {
 
 ProductImg.propTypes = {
   name: PropTypes.string.isRequired,
-  url: PropTypes.string,
-};
-
-ProductImg.defaultProps = {
-  url: defaultimg,
+  url: PropTypes.string.isRequired,
 };
 
 export default ProductImg;
