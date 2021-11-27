@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import { StyledPriceValue, StyledSlider, StyledPriceTag } from './Styles';
 
-function valuetext(value) {
+const valuetext = (value) => {
   return `${value}°C`;
-}
-const minDistance = 10;
+};
 
 const FilterRange = () => {
+  const minDistance = 10;
   const [value, setValue] = useState([20, 500]);
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
@@ -20,10 +20,11 @@ const FilterRange = () => {
       setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
     }
   };
+
   return (
     <Box sx={{ width: 209 }}>
       <StyledSlider
-        getAriaLabel={() => 'Price range'}
+        getAriaLabel={() => 'Select price range'}
         value={value}
         onChange={handleChange}
         valueLabelDisplay='auto'
@@ -31,7 +32,6 @@ const FilterRange = () => {
         disableSwap
         // !!!should be changed to max books price
         max={1000}
-        aria-label='Select price range'
       />
       <StyledPriceTag>
         <span>Price: </span>

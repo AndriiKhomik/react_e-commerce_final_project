@@ -21,13 +21,13 @@ const Catalogue = () => {
     setOpen(false);
   };
 
-  const changeFilter = useMediaQuery(theme.breakpoints.up('sm'));
+  const mediumScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <>
       <StyledBox>
         <FilterBtn
-          text={changeFilter ? 'Show filter' : ''}
+          text={mediumScreen ? 'Show filter' : ''}
           onClick={handleFilterOpen}
           svg={<StyledFilterListIcon />}
         />

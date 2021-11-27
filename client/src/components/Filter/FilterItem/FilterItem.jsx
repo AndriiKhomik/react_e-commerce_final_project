@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import FilterLabel from '../FilterLabel';
 import { StyledCheckbox, StyledFormControll, StyledListItem } from './Styles';
 
-const FilterItem = ({ name }) => {
+const FilterItem = ({ name, count }) => {
   return (
     <StyledListItem>
       <StyledFormControll
-        label={<FilterLabel name={name} count={33} />}
+        label={<FilterLabel name={name} count={count} />}
         control={<StyledCheckbox />}
       />
     </StyledListItem>
@@ -16,6 +16,7 @@ const FilterItem = ({ name }) => {
 
 FilterItem.propTypes = {
   name: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 export default FilterItem;

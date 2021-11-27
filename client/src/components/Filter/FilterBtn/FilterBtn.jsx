@@ -20,7 +20,7 @@ const FilterBtn = ({ onClick, text, svg }) => {
 FilterBtn.propTypes = {
   onClick: PropTypes.func,
   svg: PropTypes.node,
-  text: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
 };
 FilterBtn.defaultProps = {
   onClick: () => {},

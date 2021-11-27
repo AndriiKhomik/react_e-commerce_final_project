@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledList } from './Styles';
 import FilterItem from '../FilterItem';
 
 const FilterList = ({ items }) => {
-  const [checkedItem, setCheckedItem] = useState(null);
-
-  const handleChange = (value) => {
-    setCheckedItem(value);
-  };
-
+  const count = 33;
   return (
     <StyledList>
       {items.map(({ id, name }) => (
-        <FilterItem
-          key={id}
-          name={name}
-          onChange={handleChange}
-          checkedItem={checkedItem}
-        />
+        <FilterItem key={id} name={name} count={count} />
       ))}
     </StyledList>
   );
@@ -29,6 +19,7 @@ FilterList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
+      count: PropTypes.number,
     }),
   ).isRequired,
 };
