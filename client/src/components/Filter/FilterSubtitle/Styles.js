@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 

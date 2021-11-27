@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const genres = [
     { id: '1', name: 'Children literature' },
     { id: '2', name: 'Fiction' },

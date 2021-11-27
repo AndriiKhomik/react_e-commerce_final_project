@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
-import { StyledPriceValue,  StyledSlider, StyledPriceTag} from './Styles';
+import { StyledPriceValue, StyledSlider, StyledPriceTag } from './Styles';
 
 function valuetext(value) {
   return `${value}°C`;
@@ -31,11 +31,12 @@ const FilterRange = () => {
         disableSwap
         // !!!should be changed to max books price
         max={1000}
+        aria-label='Select price range'
       />
       <StyledPriceTag>
         <span>Price: </span>
         <StyledPriceValue>
-           &#36;{value[0]}-&#36;{value[1]}
+          &#36;{value[0]}-&#36;{value[1]}
         </StyledPriceValue>
       </StyledPriceTag>
     </Box>

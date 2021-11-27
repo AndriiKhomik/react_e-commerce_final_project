@@ -4,7 +4,13 @@ import { StyledButton } from './Styles';
 
 const FormButton = ({ isSubmitting, text }) => {
   return (
-    <StyledButton type='submit' disabled={isSubmitting} variant='contained'>
+    <StyledButton
+      type='submit'
+      disabled={isSubmitting}
+      variant='contained'
+      title={text}
+      aria-label={text}
+    >
       {text}
     </StyledButton>
   );

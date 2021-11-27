@@ -15,12 +15,12 @@ const Filter = () => {
       <FilterSubtitle text='Genres' />
       <FilterList items={genres} />
       <StyledDivider />
-      <FilterSubtitle text='Format' />
-      <FilterList items={formats} />
-      <StyledDivider />
       <FilterSubtitle text='Price Range' />
       <FilterRange />
-      <FilterBtn />
+      <StyledDivider />
+      <FilterSubtitle text='Format' />
+      <FilterList items={formats} />
+      <FilterBtn text='Filter' />
     </>
   );
 };

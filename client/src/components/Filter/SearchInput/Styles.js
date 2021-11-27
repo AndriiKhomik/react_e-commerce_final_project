@@ -1,9 +1,9 @@
-import { TextField } from '@mui/material';
-import { styled } from '@mui/material/styles';
+/* eslint-disable prettier/prettier */
+import { TextField, styled } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledSearchTextField = styled(TextField)(() => ({
-    marginBottom: '40px',
+    marginBottom: '21px',
     '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
     {
         borderColor: [theme.palette.primary.main],

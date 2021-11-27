@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { StyledList } from './Styles';
 import FilterItem from '../FilterItem';
 
-
 const FilterList = ({ items }) => {
   const [checkedItem, setCheckedItem] = useState(null);
 
