@@ -3,6 +3,7 @@ import { Box, useMediaQuery } from '@mui/material';
 import Filter from '../Filter/Filter';
 import CloseFilterBtn from '../Filter/CloseFilterBtn';
 import FilterBtn from '../Filter/FilterBtn';
+import CatalogList from '../CatalogList/CatalogList';
 import {
   StyledFilterContainer,
   StyledBox,
@@ -36,7 +37,9 @@ const Catalogue = () => {
         <CloseFilterBtn onClick={handleFilterClose} />
         <Filter />
       </StyledFilterContainer>
-      <Box>Catalogue list is here :)</Box>
+      <Box>
+        <CatalogList />
+      </Box>
     </>
   );
 };
