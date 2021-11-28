@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import Subscribe from '../Subscribe/SubscribeMain/Subscribe';
 import theme from '../../services/theme/theme';
 import { StyledContainer } from './Styles';
+import AuthorPage from '../../Pages/AuthorPage/AuthorPage';
 
 const App = () => {
   const routes = useRoutes();
@@ -16,6 +17,7 @@ const App = () => {
         <StyledContainer maxWidth='lg'>
           <Header />
           {routes}
+          <AuthorPage />
           <Subscribe />
           <Footer />
         </StyledContainer>

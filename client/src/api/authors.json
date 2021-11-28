@@ -1,55 +1,11 @@
-{
-  "books": [
-    {
-      "enabled": true,
-      "imageUrls": [
-        "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637777885/books/52848685_t3c5x8.jpg"
-      ],
-      "quantity": 100,
-      "_id": "619e81fde2818a519a0dce37",
-      "name": "The Last Windwitch",
-      "itemNo": "263697",
-      "author": "6196a420d2ece067697ac9a5",
-      "categories": "paper-books",
-      "currentPrice": 20,
-      "previousPrice": 25,
-      "publisher": "harper-Collins",
-      "shortDescription": "Fans of Shannon Hale and Kelly Barnhill will delight in this charming and richly imagined middle grade fantasy debut, featuring a wicked queen, magical animals, a henchman with a golden heart, and a small girl with a great destiny.",
-      "fullDescription": "<p>Many years ago, in the kingdom of Fenwood Reach, there was a powerful Windwitch who wove the seasons, keeping the land bountiful and the people happy. But then a dark magic drove her from the realm, and the world fell into chaos.</p><p>Brida is content in her small village of Oak Hollow. There, she’s plenty occupied trying to convince her fickle magic to actually do what it’s meant to in her work as a hedgewitch’s apprentice—until she accidentally catches the attention of the wicked queen.</p><p>On the run from the queen’s huntsman and her all-seeing Crow spies, Brida discovers the truth about her family, her magic, and who she is destined to be—and that she may hold the power to defeating the wicked queen and setting the kingdom right again.</p>",
-      "yearOfPublishing": "2021-01-01T00:00:00.000Z",
-      "numberOfPages": 448,
-      "genre": "fiction",
-      "coverType": "soft",
-      "date": "2021-11-24T18:20:30.866Z",
-      "__v": 0
-    },
-    {
-      "enabled": true,
-      "imageUrls": [
-        "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637777885/books/52848685_t3c5x8.jpg"
-      ],
-      "quantity": 100,
-      "_id": "619e81fde2818a519a0dce36",
-      "name": "The Last Windwitch",
-      "itemNo": "300735",
-      "author": "6196a420d2ece067697ac9a5",
-      "categories": "ebooks",
-      "currentPrice": 10,
-      "publisher": "harper-Collins",
-      "shortDescription": "Fans of Shannon Hale and Kelly Barnhill will delight in this charming and richly imagined middle grade fantasy debut, featuring a wicked queen, magical animals, a henchman with a golden heart, and a small girl with a great destiny.",
-      "fullDescription": "<p>Many years ago, in the kingdom of Fenwood Reach, there was a powerful Windwitch who wove the seasons, keeping the land bountiful and the people happy. But then a dark magic drove her from the realm, and the world fell into chaos.</p><p>Brida is content in her small village of Oak Hollow. There, she’s plenty occupied trying to convince her fickle magic to actually do what it’s meant to in her work as a hedgewitch’s apprentice—until she accidentally catches the attention of the wicked queen.</p><p>On the run from the queen’s huntsman and her all-seeing Crow spies, Brida discovers the truth about her family, her magic, and who she is destined to be—and that she may hold the power to defeating the wicked queen and setting the kingdom right again.</p>",
-      "yearOfPublishing": "2021-01-01T00:00:00.000Z",
-      "numberOfPages": 448,
-      "genre": "fiction",
-      "date": "2021-11-24T18:20:30.866Z",
-      "__v": 0
-    }
-  ],
-  "_id": "6196a420d2ece067697ac9a5",
-  "name": "Jennifer Adam",
-  "dateOfBirth": "1985-01-01T00:00:00.000Z",
-  "biography": "<p>Jennifer Adam started writing stories when her grandmother showed her how to make books out of construction paper and staples. After living on both coasts, she ended up marrying a farmer and settling down in the middle of the country. A lake covered in swans makes up for being landlocked, though, and she enjoys taking a kayak out whenever she can.</p><p>She rides a formerly wild mustang and enjoys hanging out at the barn. When she's not on the water or in the saddle, she's probably hiking through trees or hiding in a library. She is a voracious consumer of books, collects fountain pens and colored inks, and adores classical music and ballet.</p><ul><li>The Last Windwitch</li></ul>",
-  "authorUrl": "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637361759/authors/jennifer-adams_vi3sk9.webp",
-  "date": "2021-11-24T18:20:30.797Z",
-  "__v": 0
-}
+[
+  {
+    "_id": "6196a420d2ece067697ac9a5",
+    "name": "Jennifer Adam",
+    "dateOfBirth": "1985-01-01T00:00:00.000Z",
+    "biography": "<p>Jennifer Adam started writing stories when her grandmother showed her how to make books out of construction paper and staples. After living on both coasts, she ended up marrying a farmer and settling down in the middle of the country. A lake covered in swans makes up for being landlocked, though, and she enjoys taking a kayak out whenever she can.</p><p>She rides a formerly wild mustang and enjoys hanging out at the barn. When she's not on the water or in the saddle, she's probably hiking through trees or hiding in a library. She is a voracious consumer of books, collects fountain pens and colored inks, and adores classical music and ballet.</p><ul><li>The Last Windwitch</li></ul>",
+    "authorUrl": "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637361759/authors/jennifer-adams_vi3sk9.webp",
+    "date": "2021-11-24T18:20:30.797Z",
+    "__v": 0
+  }
+]
