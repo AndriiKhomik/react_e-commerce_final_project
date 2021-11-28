@@ -1,7 +1,12 @@
 import React from 'react';
+import AuthorsList from '../../components/AuthorsList/AuthorsList';
 
 const Authors = () => {
-  return <h1>Authors</h1>;
+  return (
+    <>
+      <AuthorsList />
+    </>
+  );
 };
 
 export default Authors;
