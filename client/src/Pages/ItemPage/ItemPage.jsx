@@ -6,7 +6,7 @@ import ItemImg from './ItemImg/ItemImg';
 import ItemInfo from './ItemInfo/ItemInfo';
 import ItemPrice from './ItemPrice/ItemPrice';
 import ItemTitle from './ItemTitle/ItemTitle';
-import { getItemProduct } from '../../api/api';
+import { getItemProduct } from '../../api/products';
 // import { productItem } from './singleBook';
 import { StyledContainer, StyledDescription } from './Styles';
 import Loader from './Loader/Loader';
