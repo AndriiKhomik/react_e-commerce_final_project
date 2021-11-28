@@ -7,46 +7,45 @@ export const StyledTableContainer = styled(TableContainer)`
   margin-bottom: 36px;
 `;
 
-export const StyledTableRow = styled(TableRow)`
-  border-bottom: 1px solid #f8a300;
-`;
+export const StyledTableRow = styled(TableRow)(() => ({
+  borderBottom: `1px solid ${theme.palette.primary.dark}`,
+}));
 
 export const StyledTableCellHead = styled(TableCell)(() => ({
   fontWeight: 'bold',
   fontSize: '16px',
-  color: '#3D3D3D',
+  color: `${theme.palette.text.main}`,
   borderBottom: `1px solid ${theme.palette.primary.main}`,
   padding: '4px',
 }));
 
-export const StyledTableCell = styled(TableCell)`
-  border-bottom: none;
-  background-color: #fbfbfb;
-  border-bottom: 4px solid #ffffff;
-  border-top: 4px solid #ffffff;
-  span {
-    font-weight: 700;
-  }
-`;
+export const StyledTableCell = styled(TableCell)(() => ({
+  backgroundColor: '#fbfbfb',
+  borderBottom: `4px solid ${theme.palette.text.light}`,
+  borderTop: `4px solid ${theme.palette.text.light}`,
+  '& span': {
+    fontWeight: 700,
+  },
+}));
 
 export const StyledSellTotals = styled(TableCell)(() => ({
   backgroundColor: '#fbfbfb',
-  borderBottom: '4px solid #FFFFFF',
-  borderTop: '4px solid #FFFFFF',
+  borderBottom: `4px solid ${theme.palette.text.light}`,
+  borderTop: `4px solid ${theme.palette.text.light}`,
   fontWeight: 'bold',
   color: `${theme.palette.primary.main}`,
 }));
 
-export const StyledDiv = styled('div')`
-  display: inline-block;
-  background-color: #f8a300;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding: 0 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  color: #ffffff;
-`;
+export const StyledDiv = styled('div')(() => ({
+  display: 'inline-block',
+  backgroundColor: `${theme.palette.primary.dark}`,
+  marginLeft: '4px',
+  marginRight: '4px',
+  padding: '0 8px',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  color: `${theme.palette.text.light}`,
+}));
 
 export const StyledSelect = styled(Select)`
   height: 28px;

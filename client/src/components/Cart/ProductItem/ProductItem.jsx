@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  FormControl,
-  MenuItem,
-  useMediaQuery,
-  Box,
-  TableRow,
-} from '@mui/material';
+import { useMediaQuery, TableRow } from '@mui/material';
 import theme from '../../../services/theme/theme';
-import { StyledDiv, StyledSelect, StyledSellTotals } from '../Products/Styled';
+import { StyledDiv, StyledSellTotals } from '../Products/Styled';
 import DeleteIcon from '../../icons/DeleteIcon';
-import { StyledTableCell } from './Styled';
+import { StyledIconWrapper, StyledTableCell } from './Styled';
 
-const ProductItem = ({ row, handleChange, img }) => {
+const ProductItem = ({ row }) => {
   const collapseTableColumn = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
@@ -20,7 +14,7 @@ const ProductItem = ({ row, handleChange, img }) => {
       <StyledTableCell component='th' scope='row'>
         {row.cover} <span>{row.number}</span>
       </StyledTableCell>
-      {collapseTableColumn && (
+      {/* {collapseTableColumn && (
         <StyledTableCell align='center'>
           {img}
           <FormControl fullWidth>
@@ -31,7 +25,7 @@ const ProductItem = ({ row, handleChange, img }) => {
             </StyledSelect>
           </FormControl>
         </StyledTableCell>
-      )}
+      )} */}
       {collapseTableColumn && (
         <StyledTableCell align='center'>${row.price}</StyledTableCell>
       )}
@@ -44,9 +38,9 @@ const ProductItem = ({ row, handleChange, img }) => {
         ${row.price * row.quantity}
       </StyledSellTotals>
       <StyledTableCell align='center'>
-        <Box sx={{ cursor: 'pointer' }}>
+        <StyledIconWrapper>
           <DeleteIcon width='18px' height='18px' />
-        </Box>
+        </StyledIconWrapper>
       </StyledTableCell>
     </TableRow>
   );
@@ -60,8 +54,6 @@ ProductItem.propTypes = {
     cover: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   }).isRequired,
-  img: PropTypes.node.isRequired,
-  handleChange: PropTypes.func.isRequired,
 };
 
 export default ProductItem;

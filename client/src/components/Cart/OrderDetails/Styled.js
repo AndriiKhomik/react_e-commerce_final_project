@@ -27,7 +27,7 @@ export const StyledSpan = styled(Box)(() => ({
 export const StyledButton = styled(Button)(() => ({
   backgroundColor: `${theme.palette.primary.main}`,
   width: '100%',
-  color: '#ffffff',
+  color: `${theme.palette.text.light}`,
   marginTop: '30px',
   textTransform: 'capitalize',
   '&:hover': {

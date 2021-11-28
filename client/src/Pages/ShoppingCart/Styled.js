@@ -5,8 +5,8 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: '10px',
-  padding: '36px 0',
-  [theme.breakpoints.up('md')]: {
+  paddingBottom: '36px',
+  [theme.breakpoints.up('sm')]: {
     gridTemplateColumns: '65% 30%',
     gap: '5%',
   },
