@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledTitle, StyledText, StyledBox } from './Styles';
 
 const InfoItem = ({ item }) => {
   const { component, title, text } = item;
   return (
     <div>
       {component}
-      <h3>{title}</h3>
-      <p>{text}</p>
+      <StyledTitle>{title}</StyledTitle>
+      <StyledBox>
+        <StyledText>{text}</StyledText>
+      </StyledBox>
     </div>
   );
 };

@@ -9,14 +9,17 @@ import BookAuthor from '../BookAuthor';
 import BookPrice from '../BookPrice';
 import CartBtn from '../CartBtn';
 import { StyledLink, StyledCardGrid } from './Styles';
+import defaultimg from '../../../img/missing_image.jpg';
 
-const ProductItem = ({ book }) => {
-  const { name, url, price, author, salePrice } = book;
+const ProductItem = ({ name, url, price, author, salePrice, itemNo }) => {
   return (
     <>
       {/* !!!add correct link -> page of one book */}
-
-      <StyledLink as={Link} to='/contacts' aria-label='move to book page'>
+      <StyledLink
+        as={Link}
+        to={`/products/${itemNo}`}
+        aria-label='move to book page'
+      >
         <BookImg url={url} name={name} />
         <FavouriteBtn />
         <BookSaleTag salePrice={salePrice} />
@@ -32,13 +35,17 @@ const ProductItem = ({ book }) => {
 };
 
 ProductItem.propTypes = {
-  book: PropTypes.shape({
-    name: PropTypes.string,
-    price: PropTypes.string,
-    author: PropTypes.string,
-    url: PropTypes.string,
-    salePrice: PropTypes.string,
-  }).isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  author: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  salePrice: PropTypes.number,
+  itemNo: PropTypes.string.isRequired,
+};
+
+ProductItem.defaultProps = {
+  url: defaultimg,
+  salePrice: null,
 };
 
 export default ProductItem;

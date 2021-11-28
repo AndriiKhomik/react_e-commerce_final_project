@@ -7,7 +7,7 @@ const BookSaleTag = ({ salePrice }) => {
 };
 
 BookSaleTag.propTypes = {
-  salePrice: PropTypes.string,
+  salePrice: PropTypes.number,
 };
 
 BookSaleTag.defaultProps = {
