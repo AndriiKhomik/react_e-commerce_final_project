@@ -1,8 +1,8 @@
 import { styled } from '@mui/material/styles';
-import { Container, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import theme from '../../services/theme/theme';
 
-export const StyledContainer = styled(Container)(() => ({
+export const StyledContainer = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
     marginBottom: '50px',
     marginTop: '40px',
@@ -24,7 +24,7 @@ export const StyledDescription = styled(Grid)(() => ({
   },
   [theme.breakpoints.up('md')]: {
     alignItems: 'center',
-    marginLeft: '10%',
-    width: '50%',
+    marginLeft: '13%',
+    width: '60%',
   },
 }));

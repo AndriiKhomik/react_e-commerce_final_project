@@ -1,7 +1,7 @@
 import React from 'react';
-import AudioBookIcon from '../../../components/icons/AudioBookIcon';
-import ElBookIcon from '../../../components/icons/ElBookIcon';
-import PaperBookIcon from '../../../components/icons/PaperBookIcon';
+import AudioBookIcon from '../../icons/AudioBookIcon';
+import ElBookIcon from '../../icons/ElBookIcon';
+import PaperBookIcon from '../../icons/PaperBookIcon';
 
 export const formatItems = [
   {

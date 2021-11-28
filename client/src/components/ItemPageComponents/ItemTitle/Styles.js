@@ -25,9 +25,14 @@ export const StyledTitle = styled('h3')(() => ({
   },
 }));
 
-export const StyledGenre = styled(Link)`
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 16px;
-  color: {theme.palette.primary.main};
-`;
+export const StyledGenre = styled(Link)(() => ({
+  fontWeight: 'normal',
+  fontSize: '15px',
+  lineHeight: '16px',
+  color: `${theme.palette.primary.main}`,
+  textDecoration: 'none',
+  '&:hover': {
+    color: `${theme.palette.primary.deepdark}`,
+    textDecoration: 'underline',
+  },
+}));

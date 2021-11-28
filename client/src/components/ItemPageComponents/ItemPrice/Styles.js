@@ -5,12 +5,9 @@ import theme from '../../../services/theme/theme';
 export const StyledPriceWrapper = styled('div')(() => ({
   [theme.breakpoints.up('xs')]: {
     marginTop: '15px',
-  },
-  [theme.breakpoints.up('sm')]: {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  [theme.breakpoints.up('dm')]: {},
 }));
 
 export const StyledPrice = styled('p')(() => ({
@@ -31,8 +28,12 @@ export const StyledPrice = styled('p')(() => ({
 export const StyledReviews = styled(Link)(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
-    color: `${theme.palette.primary.main}`,
     textDecoration: 'none',
+    color: `${theme.palette.primary.main}`,
+    '&:hover': {
+      color: `${theme.palette.primary.deepdark}`,
+      textDecoration: 'underline',
+    },
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '15px',

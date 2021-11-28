@@ -8,6 +8,7 @@ export const StyledDescriptionWrapper = styled('div')`
 export const StyledDescriptionTitle = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
+    fontWeight: '500',
     color: `${theme.palette.text.main}`,
   },
   [theme.breakpoints.up('sm')]: {
@@ -21,13 +22,16 @@ export const StyledDescriptionTitle = styled('p')(() => ({
 export const StyledDescription = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
+    lineHeight: '16px',
     color: `${theme.palette.text.primary}`,
     marginTop: '10px',
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '15px',
+    lineHeight: '18px',
   },
   [theme.breakpoints.up('dm')]: {
     fontSize: '16px',
+    lineHeight: '20px',
   },
 }));

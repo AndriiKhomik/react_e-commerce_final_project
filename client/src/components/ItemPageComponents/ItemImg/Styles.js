@@ -18,4 +18,5 @@ export const StyledCardMedia = styled('img')`
   margin: auto;
   display: block;
   object-fit: cover;
+  border-radius: 5px;
 `;

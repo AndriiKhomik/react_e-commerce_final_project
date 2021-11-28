@@ -6,6 +6,7 @@ import {
   StyledListItem,
   StyledListItemTitles,
   StyledAuthor,
+  StyledList,
 } from './Styles';
 
 const ItemInfo = ({ author, publisher, yearOfPublish, pages, genre }) => {
@@ -18,7 +19,7 @@ const ItemInfo = ({ author, publisher, yearOfPublish, pages, genre }) => {
         <StyledListItemTitles>Number of Pages:</StyledListItemTitles>
         <StyledListItemTitles>Genre:</StyledListItemTitles>
       </List>
-      <List>
+      <StyledList>
         <StyledListItem>
           <StyledAuthor href='#!'>{author}</StyledAuthor>
         </StyledListItem>
@@ -26,7 +27,7 @@ const ItemInfo = ({ author, publisher, yearOfPublish, pages, genre }) => {
         <StyledListItem>{yearOfPublish}</StyledListItem>
         <StyledListItem>{pages}</StyledListItem>
         <StyledListItem>{genre}</StyledListItem>
-      </List>
+      </StyledList>
     </StyledItemInfoWrapper>
   );
 };
