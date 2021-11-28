@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledText } from './Styles';
 
 const FormDescription = ({ text }) => {
-  return <p>{text}</p>;
+  return <StyledText>{text}</StyledText>;
 };
 
 FormDescription.propTypes = {

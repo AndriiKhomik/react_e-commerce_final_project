@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './Pages/Homepage';
-import Catalogue from './Pages/Catalogue';
+import Catalogue from './Pages/CataloguePage';
 import Contacts from './Pages/Contacts';
 import AdminPanel from './Pages/AdminPanel';
 import ShoppingCart from './Pages/ShoppingCart';

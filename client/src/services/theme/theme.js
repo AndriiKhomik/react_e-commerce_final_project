@@ -13,10 +13,12 @@ const theme = createTheme({
       main: '#3d3d3d',
       primary: '#727272',
       light: '#ffffff',
+      gray: '#A5A5A5',
     },
     background: {
       paper: '#e5e5e5',
       default: '#e5e5e5',
+      filter: '#fbfbfb',
     },
   },
   typography: {
@@ -29,6 +31,7 @@ const theme = createTheme({
       ds: 477,
       sm: 600,
       dm: 715,
+      bm: 790,
       md: 900,
       dl: 1100,
       lg: 1200,

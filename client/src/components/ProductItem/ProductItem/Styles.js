@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 export const StyledLink = styled(Link)`
   width: 100%;
   text-decoration: none;
+  display: block;
 `;
 
 export const StyledCardGrid = styled('div')`

@@ -3,10 +3,19 @@ import { Link, List } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../services/theme/theme';
 
-export const StyledList = styled(List)`
-  display: flex;
-  margin-bottom: 36px;
-`;
+export const StyledList = styled(List)(() => ({
+    display: 'flex',
+    marginBottom: '36px',
+    [theme.breakpoints.up('xs')]: {
+        marginBottom: '5px',
+    },
+    [theme.breakpoints.up('sm')]: {
+        marginBottom: '15px',
+    },
+    [theme.breakpoints.up('md')]: {
+        marginBottom: '20px',
+    },
+}));
 
 export const StyledItem = styled('li')(() => ({
     '&:not(:last-child)': {
@@ -16,6 +25,15 @@ export const StyledItem = styled('li')(() => ({
             position: 'absolute',
             marginLeft: '7px',
         },
+    },
+    [theme.breakpoints.up('xs')]: {
+        marginBottom: '5px',
+    },
+    [theme.breakpoints.up('sm')]: {
+        marginBottom: '15px',
+    },
+    [theme.breakpoints.up('md')]: {
+        marginBottom: '20px',
     },
 }));
 
