@@ -13,6 +13,9 @@ const CatalogList = () => {
       .then((data) => {
         setAuthors(data);
       })
+      .then((data) => {
+        console.log(data);
+      })
       .finally(() => setIsLoading(false));
   }, []);
 
