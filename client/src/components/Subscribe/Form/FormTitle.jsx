@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledTitle } from './Styles';
 
 const FormTitle = ({ title }) => {
-  return <h3>{title}</h3>;
+  return <StyledTitle>{title}</StyledTitle>;
 };
 
 FormTitle.propTypes = {

@@ -16,16 +16,32 @@ const BooksList = ({ items, text }) => {
         <Swiper
           wrapperTag='ul'
           slidesPerView='auto'
-          spaceBetween={30}
+          spaceBetween={35}
           modules={[Navigation]}
           navigation={{ clickable: true }}
           loop
         >
-          {items.map((book) => (
-            <SwiperSlide tag='li' key={book.id} style={{ width: '163px' }}>
-              <ProductItem book={book} />
-            </SwiperSlide>
-          ))}
+          {items.map(
+            ({
+              name,
+              imageUrls,
+              currentPrice,
+              previousPrice,
+              author,
+              itemNo,
+            }) => (
+              <SwiperSlide tag='li' key={itemNo} style={{ width: '163px' }}>
+                <ProductItem
+                  name={name}
+                  url={imageUrls[0]}
+                  price={currentPrice}
+                  salePrice={previousPrice}
+                  author={author.name}
+                  itemNo={itemNo}
+                />
+              </SwiperSlide>
+            ),
+          )}
         </Swiper>
       </StyledSliderWrapper>
     </StyledContainer>
