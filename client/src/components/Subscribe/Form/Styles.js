@@ -6,8 +6,11 @@ export const StyledTextField = styled(TextField)(() => ({
   '& fieldset': {
     borderBottomRightRadius: '0',
     borderTopRightRadius: '0',
+<<<<<<< HEAD
     height: '2.6em',
     background: '#fff',
+=======
+>>>>>>> subscribe
     border: 'none',
   },
   [theme.breakpoints.up('xs')]: {
@@ -32,6 +35,12 @@ export const StyledButton = styled(Button)(() => ({
     borderBottomLeftRadius: '0',
     borderTopLeftRadius: '0',
     boxShadow: 'none',
+<<<<<<< HEAD
+=======
+    height: '100%',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+>>>>>>> subscribe
   },
 }));
 

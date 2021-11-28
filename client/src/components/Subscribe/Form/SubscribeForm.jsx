@@ -13,6 +13,8 @@ const SubscribeForm = () => {
           id='filled-basic'
           label='enter your email address...'
           variant='outlined'
+          style={{ backgroundColor: '#fff' }}
+          size='small'
         />
         <StyledButton
           type='submit'
@@ -21,6 +23,7 @@ const SubscribeForm = () => {
           sx={{
             fontFamily: 'CeraPro Bold',
           }}
+          size='small'
         >
           Join
         </StyledButton>
