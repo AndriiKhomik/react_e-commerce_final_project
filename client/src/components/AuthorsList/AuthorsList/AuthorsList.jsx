@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAuthors } from '../../../api/authors';
 import AuthorItem from '../AuthorItem';
-import AuthorsLoader from '../AuthorsLoader';
+import ListLoader from '../../ListLoader';
 import { StyledList } from './Styles';
 
 const CatalogList = () => {
@@ -21,7 +21,7 @@ const CatalogList = () => {
   });
 
   return isLoading ? (
-    <AuthorsLoader />
+    <ListLoader />
   ) : (
     <StyledList>{authorsElements}</StyledList>
   );

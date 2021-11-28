@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import AuthorImg from '../AuthorImg';
+import defaultimg from '../../../img/noImgAuthor.png';
 import {
-  StyledCardMediaWrapper,
-  StyledCardMediaBox,
-  StyledCardMedia,
   StyledAuthorName,
   StyledBooksLink,
   StyledItem,
@@ -20,11 +18,7 @@ const AuthorItem = ({ name, authorUrl, id }) => {
         to={`/authors/${id}`}
         aria-label='move to author page'
       >
-        <StyledCardMediaWrapper>
-          <StyledCardMediaBox>
-            <StyledCardMedia height='325' src={authorUrl} alt={name} />
-          </StyledCardMediaBox>
-        </StyledCardMediaWrapper>
+        <AuthorImg authorUrl={authorUrl} name={name} />
       </StyledImageLink>
       <StyledAuthorName
         as={Link}
@@ -46,9 +40,8 @@ AuthorItem.propTypes = {
   authorUrl: PropTypes.string,
 };
 
-// add default author img
 AuthorItem.defaultProps = {
-  authorUrl: '',
+  authorUrl: defaultimg,
 };
 
 export default AuthorItem;

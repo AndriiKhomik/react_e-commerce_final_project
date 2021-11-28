@@ -27,7 +27,7 @@ export const HeroSlider = () => {
   });
 
   return (
-    <StyledContainer maxWidth='lg'>
+    <StyledContainer>
       <SliderWrapper>
         <Swiper
           wrapperTag='ul'
