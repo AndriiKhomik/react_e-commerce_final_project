@@ -21,7 +21,7 @@ export const StyledGrid = styled(Grid)(() => ({
 
 export const StyledFilterGrid = styled(Grid)(() => ({
     padding: '55px 19px 205px',
-    backgroundColor: [theme.palette.background.filter],
+    backgroundColor: [theme.palette.background.grayBc],
     borderRadius: '4px',
 }));
 

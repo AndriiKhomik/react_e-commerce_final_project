@@ -17,12 +17,11 @@ export const StyledContainer = styled(Box)(() => ({
   },
 }));
 
-export const StyledSliderWrapper = styled('ul')`
-  & .swiper-button-prev,
-  & .swiper-button-next {
-    color: #ffac0c;
-  }
-`;
+export const StyledSliderWrapper = styled('ul')(() => ({
+  '& .swiper-button-prev, & .swiper-button-next': {
+    color: [theme.palette.primary.main],
+  },
+}));
 
 export const StyledList = styled(List)`
   margin: 0 auto;
