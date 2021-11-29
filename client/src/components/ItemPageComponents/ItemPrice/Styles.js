@@ -10,6 +10,12 @@ export const StyledPriceWrapper = styled('div')(() => ({
   },
 }));
 
+export const StyledReviewsWrapper = styled('div')(() => ({
+  [theme.breakpoints.up('xs')]: {
+    justifyContent: 'space-between',
+  },
+}));
+
 export const StyledPrice = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '18px',
@@ -27,6 +33,7 @@ export const StyledPrice = styled('p')(() => ({
 
 export const StyledReviews = styled(Link)(() => ({
   [theme.breakpoints.up('xs')]: {
+    marginLeft: '20px',
     fontSize: '14px',
     textDecoration: 'none',
     color: `${theme.palette.primary.main}`,
