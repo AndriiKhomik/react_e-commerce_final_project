@@ -2,18 +2,19 @@ import { styled } from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Badge, Button } from '@mui/material';
+import theme from '../../../services/theme/theme';
 
-export const StyledButton = styled(Button)`
-  background-color: #ffac0c;
-  font-size: 14px;
-  color: #ffffff;
-  line-height: 1;
-  border-radius: 6px;
-  padding: 8px;
-  &:hover {
-    background-color: #cf8400;
-  }
-`;
+export const StyledButton = styled(Button)(() => ({
+  backgroundColor: `${theme.palette.primary.main}`,
+  fontSize: '14px',
+  color: `${theme.palette.text.light}`,
+  lineHeight: 1,
+  borderRadius: '6px',
+  padding: '8px',
+  '&:hover': {
+    backgroundColor: '#cf8400',
+  },
+}));
 
 export const StyledLoginIcon = styled(LoginIcon)`
   margin-right: 10px;
@@ -25,8 +26,8 @@ export const StyledLogoutIcon = styled(LogoutIcon)`
   font-size: 18px;
 `;
 
-export const StyledBadge = styled(Badge)`
-  span {
-    background-color: #ffac0c;
-  }
-`;
+export const StyledBadge = styled(Badge)(() => ({
+  span: {
+    backgroundColor: `${theme.palette.primary.main}`,
+  },
+}));
