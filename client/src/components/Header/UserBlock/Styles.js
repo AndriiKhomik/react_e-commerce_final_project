@@ -12,7 +12,7 @@ export const StyledButton = styled(Button)(() => ({
   borderRadius: '6px',
   padding: '8px',
   '&:hover': {
-    backgroundColor: '#cf8400',
+    backgroundColor: `${theme.palette.primary.deepdark}`,
   },
 }));
 
