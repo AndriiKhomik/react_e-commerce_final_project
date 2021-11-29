@@ -6,6 +6,7 @@ export const pageTitles = [
   { id: '4', title: 'Checkout', route: '/checkout' },
 ];
 
+/* eslint-disable prettier/prettier */
 export const authorsPageTitles = [
   { id: '1', title: 'Home', route: '/' },
   { id: '2', title: 'Authors', route: '/authors' },
