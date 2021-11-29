@@ -12,9 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
-    "client": "npm run start --prefix client",
-    "client: install": "npm install --prefix client",
-    "client:build": "npm run build --prefix client",
+    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "node seeds/seed.js",
     "deploy": "netlify deploy -p"
