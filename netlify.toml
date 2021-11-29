@@ -2,6 +2,6 @@
     publish = "build"
 
 [[redirects]]
-    from = "/*"
+    from = "/client/*"
     to = "/index.html"
     status = 200
