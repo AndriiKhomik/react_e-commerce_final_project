@@ -1,9 +1,10 @@
 import { styled } from '@mui/material/styles';
+import theme from '../../../services/theme/theme';
 
 export const StyledAuthorText = styled('p')`
   grid-area: author;
   transition: 0.3s linear;
-  color: #a5a5a5;
+  color: ${[theme.palette.text.gray]};
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
@@ -13,7 +14,7 @@ export const StyledAuthorText = styled('p')`
   overflow: hidden;
   width: 118px;
   &:hover {
-    color: #ffac0c;
+    color: ${[theme.palette.primary.main]};
     text-decoration: underline;
   }
 `;

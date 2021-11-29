@@ -13,7 +13,7 @@ import {
 import { AdaptivePicture } from './AdaptivePicture';
 import { bannersArray } from './banners';
 
-export const HeroSlider = () => {
+const HeroSlider = () => {
   const slides = bannersArray.map(({ id, srcS, srcM, srcL }) => {
     return (
       <SwiperSlide key={`slide-${id}`} tag='li'>
@@ -44,3 +44,5 @@ export const HeroSlider = () => {
     </StyledContainer>
   );
 };
+
+export default HeroSlider;

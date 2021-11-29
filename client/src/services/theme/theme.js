@@ -6,6 +6,7 @@ const theme = createTheme({
       main: '#ffac0c',
       dark: '#f8a300',
       light: 'rgba(255, 172, 12, 0.22)',
+      darkLight: 'rgba(255, 185, 0, 0.5)',
       deepdark: '#fd8502',
       accent: '#f03800',
     },
@@ -14,6 +15,7 @@ const theme = createTheme({
       primary: '#727272',
       light: '#ffffff',
       gray: '#A5A5A5',
+      dark: '#000',
     },
     background: {
       paper: '#e5e5e5',
