@@ -14,8 +14,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seed": "node seeds/seed.js",
-    "deploy": "netlify deploy -p"
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
