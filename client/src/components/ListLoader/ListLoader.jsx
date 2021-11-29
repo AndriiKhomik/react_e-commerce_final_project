@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CatalogLoader = () => {
+const ListLoader = () => {
   return <p>Loading data</p>;
 };
 
-export default CatalogLoader;
+export default ListLoader;
