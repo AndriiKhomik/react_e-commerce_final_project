@@ -39,5 +39,6 @@ export const StyledAnnotation = styled('p')(() => ({
     fontSize: '15px',
     lineHeight: '25px',
     color: `${theme.palette.text.primary}`,
+    marginBottom: '70px',
   },
 }));

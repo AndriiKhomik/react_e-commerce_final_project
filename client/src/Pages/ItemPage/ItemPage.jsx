@@ -14,6 +14,7 @@ import Loader from '../../components/ItemPageComponents/Loader/Loader';
 import SectionTitles from '../../components/SectionTitles/SectionTitles';
 import { pageTitles } from './pageTitles';
 import ItemReviewsBlock from '../../components/ItemPageComponents/ItemReviewsBlock/ItemReviewsBlock';
+import { RelatedBooksList } from '../../components/ProductsList';
 
 const ItemPage = ({ match }) => {
   const [book, setBook] = useState({});
@@ -72,6 +73,7 @@ const ItemPage = ({ match }) => {
         </StyledDescription>
       </StyledContainer>
       <ItemReviewsBlock fullDescription={fullDescription} />
+      <RelatedBooksList />
     </>
   );
 };
