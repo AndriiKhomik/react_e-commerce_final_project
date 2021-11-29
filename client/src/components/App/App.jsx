@@ -1,4 +1,5 @@
 import React from 'react';
+import { Reset } from 'styled-reset';
 import { ThemeProvider } from '@mui/material';
 import { useRoutes } from '../../routes';
 import Header from '../Header';
@@ -11,16 +12,15 @@ const App = () => {
   const routes = useRoutes();
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <StyledContainer maxWidth='lg'>
-          <Header />
-          {routes}
-          <Subscribe />
-          <Footer />
-        </StyledContainer>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <Reset />
+      <StyledContainer maxWidth='lg'>
+        <Header />
+        {routes}
+        <Subscribe />
+        <Footer />
+      </StyledContainer>
+    </ThemeProvider>
   );
 };
 
