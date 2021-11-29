@@ -16,7 +16,8 @@
     "client: install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "deploy": "netlify deploy -p"
   },
   "repository": {
     "type": "git",
