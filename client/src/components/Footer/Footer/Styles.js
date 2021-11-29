@@ -2,13 +2,13 @@ import { Grid, Typography, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
-export const StyledUpperBox = styled(Box)`
-  padding: 23px 0;
-  background-color: #ffac0c26;
-`;
+export const StyledUpperBox = styled(Box)(() => ({
+  padding: '23px 0',
+  backgroundColor: [theme.palette.background.footerBc],
+}));
 
 export const StyledDownBox = styled(Box)(() => ({
-  backgroundColor: '#fbfbfb',
+  backgroundColor: [theme.palette.background.grayBc],
   padding: '15px 0',
   [theme.breakpoints.up('md')]: {
     padding: '32px 0',
@@ -26,8 +26,8 @@ export const StyledDownGrid = styled(Grid)(() => ({
   },
 }));
 
-export const StyledParagraph = styled(Typography)`
-  font-family: inherit;
-  text-align: center;
-  color: #3d3d3d;
-`;
+export const StyledParagraph = styled(Typography)(() => ({
+  fontFamily: 'inherit',
+  textAlign: 'center',
+  color: [theme.palette.text.main],
+}));
