@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Rating } from '@mui/material';
 import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
 import ItemDescription from '../../components/ItemPageComponents/ItemDescription/ItemDescription';
@@ -12,14 +13,15 @@ import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
 import SectionTitles from '../../components/SectionTitles/SectionTitles';
 import { pageTitles } from './pageTitles';
+import ItemReviewsBlock from '../../components/ItemPageComponents/ItemReviewsBlock/ItemReviewsBlock';
 
-const ItemPage = () => {
+const ItemPage = ({ match }) => {
   const [book, setBook] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [value, setValue] = useState(2);
 
   useEffect(() => {
-    getItemProduct('41028')
+    getItemProduct(match.url)
       .then((data) => {
         setBook(data);
       })
@@ -40,6 +42,7 @@ const ItemPage = () => {
     publisher,
     yearOfPublishing,
     duration,
+    fullDescription,
   } = book;
   return isLoading ? (
     <Loader />
@@ -68,8 +71,12 @@ const ItemPage = () => {
           />
         </StyledDescription>
       </StyledContainer>
+      <ItemReviewsBlock fullDescription={fullDescription} />
     </>
   );
 };
 
+ItemPage.propTypes = {
+  match: PropTypes.shape.isRequired,
+};
 export default ItemPage;

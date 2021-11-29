@@ -13,7 +13,7 @@ export const StyledCardMediaBox = styled('div')(() => ({
 }));
 
 export const StyledCardMedia = styled('img')`
-  height: 100%;
+  max-height: 500px;
   padding: 0;
   margin: auto;
   display: block;
