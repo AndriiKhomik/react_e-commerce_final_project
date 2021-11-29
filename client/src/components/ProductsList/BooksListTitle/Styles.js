@@ -9,7 +9,7 @@ export const StyledTitle = styled('p')(() => ({
     fontSize: '20px',
     fontWeight: '700',
     lineHeight: '16px',
-    color: '#ffac0c',
+    color: [theme.palette.primary.main],
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '25px',
