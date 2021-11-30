@@ -59,11 +59,11 @@ const Navbar = () => {
                   Best Price
                 </StyledLink>
               </Typography>
-              <Typography>
+              {/* <Typography>
                 <StyledLink as={NavLink} exact to='/blog'>
                   Blogs
                 </StyledLink>
-              </Typography>
+              </Typography> */}
               <Typography>
                 <StyledLink as={NavLink} exact to='/authors'>
                   Authors

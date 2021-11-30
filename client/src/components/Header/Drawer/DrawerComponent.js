@@ -35,7 +35,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        {/* <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
               <StyledLink as={NavLink} exact to='/blog'>
@@ -43,7 +43,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
               </StyledLink>
             </ListItemText>
           </ListItemIcon>
-        </StyledListItem>
+        </StyledListItem> */}
         <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
