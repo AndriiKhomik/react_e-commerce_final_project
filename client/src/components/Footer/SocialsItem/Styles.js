@@ -1,5 +1,6 @@
 import { Link, ListItem } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import theme from '../../../services/theme/theme';
 
 export const StyledListItem = styled(ListItem)`
   width: inherit;
@@ -9,24 +10,24 @@ export const StyledListItem = styled(ListItem)`
   }
 `;
 
-export const StyledSocialLink = styled(Link)`
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ffac0c8f;
-  border-radius: 4px;
-  text-align: center;
-  transition: 0.3s linear;
-  &:hover {
-    border-color: #fd8502;
-  }
-  & > .footer-icon {
-    fill: #f5a70d;
-    transition: 0.3s linear;
-  }
-  &:hover .footer-icon {
-    fill: #fd8502;
-  }
-`;
+export const StyledSocialLink = styled(Link)(() => ({
+  display: 'grid',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '30px',
+  height: '30px',
+  border: '1px solid #ffac0c8f',
+  borderRadius: '4px',
+  textAlign: 'center',
+  transition: '0.3s linear',
+  '&:hover': {
+    borderColor: [theme.palette.primary.deepdark],
+  },
+  '& > .footer-icon': {
+    fill: [theme.palette.background.footerIcon],
+    transition: '0.3s linear',
+  },
+  '&:hover .footer-icon': {
+    fill: [theme.palette.primary.deepdark],
+  },
+}));
