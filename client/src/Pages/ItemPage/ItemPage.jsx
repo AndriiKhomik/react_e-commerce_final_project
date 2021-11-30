@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Rating } from '@mui/material';
+import { Rating, Typography } from '@mui/material';
 import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
 import ItemDescription from '../../components/ItemPageComponents/ItemDescription/ItemDescription';
 // import ItemFormats from '../../components/ItemPageComponents/ItemFormats';
@@ -49,7 +49,10 @@ const ItemPage = ({ match }) => {
     <Loader />
   ) : (
     <>
-      <SectionTitles titles={pageTitles} />
+      <Typography>
+        <SectionTitles titles={pageTitles} />/{name}
+      </Typography>
+
       <StyledContainer>
         <ItemImg img={imageUrls} name={name} />
         <StyledDescription>
