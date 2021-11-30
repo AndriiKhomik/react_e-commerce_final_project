@@ -35,12 +35,12 @@ export const StyledItem = styled(ListItem)(() => ({
   },
 }));
 
-export const StyledLink = styled(Link)`
-  padding: 0;
-  color: #3d3d3d;
-  text-decoration: none;
-  transition: 0.3s linear;
-  &:hover {
-    color: #ffac0c;
-  }
-`;
+export const StyledLink = styled(Link)(() => ({
+  padding: '0',
+  color: [theme.palette.text.main],
+  textDecoration: 'none',
+  transition: '0.3s linear',
+  '&:hover': {
+    color: [theme.palette.primary.main],
+  },
+}));

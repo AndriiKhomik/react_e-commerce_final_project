@@ -8,6 +8,7 @@ require('dotenv').config();
 
 const globalConfigs = require('./routes/globalConfigs');
 const customers = require('./routes/customers');
+const authors = require('./routes/authors');
 const catalog = require('./routes/catalog');
 const products = require('./routes/products');
 const colors = require('./routes/colors');
@@ -52,6 +53,7 @@ require('./config/passport')(passport);
 // Use Routes
 app.use('/api/configs', globalConfigs);
 app.use('/api/customers', customers);
+app.use('/api/authors', authors);
 app.use('/api/catalog', catalog);
 app.use('/api/products', products);
 app.use('/api/colors', colors);
@@ -83,3 +85,4 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
