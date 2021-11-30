@@ -7,7 +7,7 @@ import {
   StyledReviewsWrapper,
 } from './Styles';
 
-const ItemReviewsBlock = ({ fullDescription, reviews }) => {
+const ItemReviewsBlock = ({ fullDescription }) => {
   const annotation = () => {
     return { __html: fullDescription };
   };
@@ -16,7 +16,7 @@ const ItemReviewsBlock = ({ fullDescription, reviews }) => {
     <StyledReviewsWrapper>
       <StyledReviewsTitleWrapper>
         <StyledReviewsTitle>Annotation</StyledReviewsTitle>
-        <StyledReviewsTitle>Reviews ({reviews})</StyledReviewsTitle>
+        {/* <StyledReviewsTitle>Reviews ({reviews})</StyledReviewsTitle> */}
       </StyledReviewsTitleWrapper>
       <StyledAnnotation dangerouslySetInnerHTML={annotation()} />
     </StyledReviewsWrapper>
@@ -25,12 +25,12 @@ const ItemReviewsBlock = ({ fullDescription, reviews }) => {
 
 ItemReviewsBlock.propTypes = {
   fullDescription: PropTypes.string,
-  reviews: PropTypes.number,
+  // reviews: PropTypes.number,
 };
 
 ItemReviewsBlock.defaultProps = {
   fullDescription: '',
-  reviews: 0,
+  // reviews: 0,
 };
 
 export default ItemReviewsBlock;

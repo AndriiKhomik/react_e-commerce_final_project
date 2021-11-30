@@ -22,16 +22,16 @@ export const StyledDescriptionTitle = styled('p')(() => ({
 export const StyledDescription = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
-    lineHeight: '16px',
+    lineHeight: '19px',
     color: `${theme.palette.text.primary}`,
     marginTop: '10px',
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '15px',
-    lineHeight: '18px',
+    lineHeight: '20px',
   },
   [theme.breakpoints.up('dm')]: {
     fontSize: '16px',
-    lineHeight: '20px',
+    lineHeight: '21px',
   },
 }));

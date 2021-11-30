@@ -13,6 +13,7 @@ export const StyledPriceWrapper = styled('div')(() => ({
 export const StyledReviewsWrapper = styled('div')(() => ({
   [theme.breakpoints.up('xs')]: {
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
 }));
 

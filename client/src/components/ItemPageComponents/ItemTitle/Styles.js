@@ -13,15 +13,20 @@ export const StyledTitleWrapper = styled('div')(() => ({
 export const StyledTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '20px',
+    lineHeight: '25px',
     fontFamily: 'CeraPro Bold',
     fontWeight: 'bold',
-    color: `${theme.palette.primary.main}`,
+    color: `${theme.palette.text.main}`,
+    marginBottom: '10px',
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '25px',
+    lineHeight: '30px',
   },
   [theme.breakpoints.up('dm')]: {
+    maxWidth: '70%',
     fontSize: '30px',
+    lineHeight: '35px',
   },
 }));
 

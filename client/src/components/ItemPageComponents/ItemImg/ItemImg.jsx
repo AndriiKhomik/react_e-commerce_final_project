@@ -14,7 +14,7 @@ const ItemImg = ({ img, name }) => {
 
 ItemImg.propTypes = {
   name: PropTypes.string.isRequired,
-  img: PropTypes.string,
+  img: PropTypes.shape,
 };
 
 ItemImg.defaultProps = {

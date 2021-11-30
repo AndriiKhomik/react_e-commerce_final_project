@@ -15,7 +15,13 @@ const ItemPrice = ({ price, reviews, value }) => {
     <StyledPriceWrapper>
       <StyledPrice>${fixedPrice}</StyledPrice>
       <StyledReviewsWrapper>
-        <Rating name='reviews rating' value={value} readOnly size='small' />
+        <Rating
+          name='reviews rating'
+          value={value}
+          readOnly
+          size='small'
+          style={{ bottom: '-3px' }}
+        />
         <StyledReviews href='#!'>{reviews} Customer Review</StyledReviews>
       </StyledReviewsWrapper>
     </StyledPriceWrapper>

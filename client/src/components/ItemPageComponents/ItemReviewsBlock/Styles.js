@@ -26,19 +26,24 @@ export const StyledReviewsTitleWrapper = styled('div')(() => ({
 export const StyledReviewsTitle = styled('p')(() => ({
   [theme.breakpoints.up('xs')]: {},
   [theme.breakpoints.up('dm')]: {
+    fontWeight: '700',
     fontSize: '17px',
     lineHeight: '16px',
     marginRight: '100px',
-    color: `${theme.palette.text.main}`,
+    paddingBottom: '6px',
+    color: `${theme.palette.primary.main}`,
+    borderBottom: `4px solid ${theme.palette.primary.main}`,
   },
 }));
 
-export const StyledAnnotation = styled('p')(() => ({
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('dm')]: {
+export const StyledAnnotation = styled('div')(() => ({
+  [theme.breakpoints.up('xs')]: {
     fontSize: '15px',
     lineHeight: '25px',
     color: `${theme.palette.text.primary}`,
+    display: 'grid',
+    rowGap: '8px',
     marginBottom: '70px',
   },
+  [theme.breakpoints.up('dm')]: {},
 }));

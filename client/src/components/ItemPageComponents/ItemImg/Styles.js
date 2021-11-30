@@ -12,11 +12,14 @@ export const StyledCardMediaBox = styled('div')(() => ({
   },
 }));
 
-export const StyledCardMedia = styled('img')`
-  max-height: 500px;
-  padding: 0;
-  margin: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 5px;
-`;
+export const StyledCardMedia = styled('img')(() => ({
+  [theme.breakpoints.up('xs')]: {
+    height: '500px',
+    padding: '0',
+    margin: 'auto',
+    display: 'block',
+    objectFit: 'cover',
+    borderRadius: '5px',
+  },
+  [theme.breakpoints.up('md')]: {},
+}));
