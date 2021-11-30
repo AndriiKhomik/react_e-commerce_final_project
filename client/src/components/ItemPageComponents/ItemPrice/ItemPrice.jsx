@@ -29,8 +29,8 @@ const ItemPrice = ({ price, reviews, value }) => {
 };
 
 ItemPrice.propTypes = {
-  price: PropTypes.string,
-  reviews: PropTypes.string,
+  price: PropTypes.number,
+  reviews: PropTypes.number,
   value: PropTypes.number,
 };
 

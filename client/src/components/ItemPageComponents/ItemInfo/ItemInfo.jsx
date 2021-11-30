@@ -50,17 +50,17 @@ const ItemInfo = ({
 };
 
 ItemInfo.propTypes = {
-  author: PropTypes.string.isRequired,
+  author: PropTypes.shape.isRequired,
   publisher: PropTypes.string.isRequired,
-  yearOfPublish: PropTypes.string.isRequired,
+  yearOfPublish: PropTypes.number.isRequired,
   pages: PropTypes.number,
   duration: PropTypes.number,
   genre: PropTypes.string.isRequired,
 };
 
 ItemInfo.defaultProps = {
-  pages: '',
-  duration: '',
+  pages: null,
+  duration: null,
 };
 
 export default ItemInfo;

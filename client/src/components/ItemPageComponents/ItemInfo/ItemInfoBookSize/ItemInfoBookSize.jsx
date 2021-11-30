@@ -22,8 +22,8 @@ ItemInfoBookSize.propTypes = {
 };
 
 ItemInfoBookSize.defaultProps = {
-  pages: '',
-  duration: '',
+  pages: null,
+  duration: null,
 };
 
 export default ItemInfoBookSize;
