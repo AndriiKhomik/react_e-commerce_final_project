@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 import SectionTitles from '../../components/SectionTitles';
 import OrderForm from '../../components/OrderItems/OrderForm/OrderForm';
@@ -9,12 +9,27 @@ import { pageTitles } from '../../components/SectionTitles/pageTitles';
 import { StyledGrid, StyledFormGrid, StyledOrderTotalsGrid } from './Styled';
 
 const CheckoutPage = () => {
+  // eslint-disable-next-line prettier/prettier
+
+  const [isSubmitting, setSubmitting] = useState(false);
+  const [submitForm, setSubmitForm] = useState(() => {});
+  const [formikPropsSet, setFormikPropsSet] = useState(false);
+
+  console.log(setSubmitting, setSubmitForm, setFormikPropsSet);
+
+  const bindSubmitForm = (formikProps) => {
+    console.log('formikProps', formikProps);
+    if (!formikPropsSet && formikProps.submitForm) {
+      setSubmitForm(formikProps.submitForm);
+      setFormikPropsSet(true);
+    }
+  };
   return (
     <>
       <SectionTitles titles={pageTitles} />
       <StyledGrid container spacing={{ md: 5 }}>
         <StyledFormGrid item xs={12} md={7}>
-          <OrderForm />
+          <OrderForm bindSubmitForm={bindSubmitForm} />
         </StyledFormGrid>
         <Grid item xs={12} md={5}>
           <Grid container spacing={{ sm: 4 }}>
@@ -22,7 +37,7 @@ const CheckoutPage = () => {
               <OrderProducts />
             </Grid>
             <StyledOrderTotalsGrid item xs={12} sm={5} md={12}>
-              <OrderTotals />
+              <OrderTotals isSubmiting={isSubmitting} submitForm={submitForm} />
             </StyledOrderTotalsGrid>
           </Grid>
         </Grid>

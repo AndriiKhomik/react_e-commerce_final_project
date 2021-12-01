@@ -9,7 +9,10 @@ import {
 } from './Styles';
 import { StyledBox, StyledSubtitleSpan, StyledYellowSpan } from '../Styles';
 
-const OrderTotals = () => {
+// eslint-disable-next-line react/prop-types
+const OrderTotals = ({isSubmiting, submitForm}) => {
+  console.log('isSubmiting 1', isSubmiting);
+  console.log("submitForm 1", submitForm);
   return (
     <>
       <StyledOutBox>
@@ -33,7 +36,11 @@ const OrderTotals = () => {
         <StyledYellowSpan>$64.00</StyledYellowSpan>
       </StyledBox>
       <StyledBtnBox>
-        <FormButton text='Place order' />
+        <FormButton
+          text='Place order'
+          isSubmiting={isSubmiting}
+          submitForm={submitForm}
+        />
         <CheckoutEditBtn />
       </StyledBtnBox>
     </>
