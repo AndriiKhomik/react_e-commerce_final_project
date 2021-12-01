@@ -7,7 +7,8 @@ import InputLabel from '../InputLabel';
 import FormTextarea from '../FormTextarea';
 import FormButton from '../FormButton';
 import FormNumberInput from '../FormNumberInput';
-import { StyledTitle, StyledErrorMessage } from './Styles';
+import { StyledErrorMessage } from './Styles';
+import { StyledTitle } from '../../Styles';
 
 const OrderForm = () => {
   const handleFormSubmit = (values, { setSubmitting, resetForm }) => {

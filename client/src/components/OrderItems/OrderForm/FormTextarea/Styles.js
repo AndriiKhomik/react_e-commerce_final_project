@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { ErrorMessage } from 'formik';
 import { styled } from '@mui/material/styles';
-import theme from '../../../services/theme/theme';
+import theme from '../../../../services/theme/theme';
 
 export const StyledErrorMessage = styled(ErrorMessage)(() => ({
     position: 'absolute',

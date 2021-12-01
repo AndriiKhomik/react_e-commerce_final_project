@@ -4,7 +4,6 @@ import { Grid } from '@mui/material';
 import theme from '../../services/theme/theme';
 
 export const StyledGrid = styled(Grid)(() => ({
-    position: 'relative',
     [theme.breakpoints.up('xs')]: {
         marginBottom: '28px',
     },
@@ -19,11 +18,6 @@ export const StyledGrid = styled(Grid)(() => ({
     },
 }));
 
-export const StyledDownGrid = styled(Grid)(() => ({
-    [theme.breakpoints.up('md')]: {
-        paddingTop: '12px',
-    },
-}));
 
 export const StyledFormGrid = styled(Grid)(() => ({
     [theme.breakpoints.up('xs')]: {
@@ -37,13 +31,9 @@ export const StyledFormGrid = styled(Grid)(() => ({
     },
 }));
 
-export const StyledBtnGrid = styled(Grid)(() => ({
-    textAlign: 'center',
-    [theme.breakpoints.up('xs')]: {
-        paddingTop: '60px',
-    },
+export const StyledOrderTotalsGrid = styled(Grid)(() => ({
+    marginTop: '36px',
     [theme.breakpoints.up('md')]: {
-        paddingTop: '0',
-        paddingLeft: '40px',
+        marginTop: '0',
     },
 }));

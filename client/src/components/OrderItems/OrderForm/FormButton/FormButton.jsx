@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './Styles';
 
-const FormButton = ({ isSubmitting, text }) => {
+const FormButton = ({ text, isSubmitting }) => {
   return (
     <StyledButton
       type='submit'
@@ -22,6 +22,6 @@ FormButton.propTypes = {
 };
 
 FormButton.defaultProps = {
-  isSubmitting: () => {},
+  isSubmitting: false,
 };
 export default FormButton;
