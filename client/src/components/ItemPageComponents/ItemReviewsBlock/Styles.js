@@ -4,8 +4,7 @@ import theme from '../../../services/theme/theme';
 export const StyledReviewsWrapper = styled('div')``;
 
 export const StyledReviewsTitleWrapper = styled('div')(() => ({
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('dm')]: {
+  [theme.breakpoints.up('xs')]: {
     display: 'flex',
     justifyContent: 'start',
     position: 'relative',
@@ -21,11 +20,11 @@ export const StyledReviewsTitleWrapper = styled('div')(() => ({
       backgroundColor: `${theme.palette.primary.main}`,
     },
   },
+  [theme.breakpoints.up('dm')]: {},
 }));
 
 export const StyledReviewsTitle = styled('p')(() => ({
-  [theme.breakpoints.up('xs')]: {},
-  [theme.breakpoints.up('dm')]: {
+  [theme.breakpoints.up('xs')]: {
     fontWeight: '700',
     fontSize: '17px',
     lineHeight: '16px',
@@ -34,6 +33,7 @@ export const StyledReviewsTitle = styled('p')(() => ({
     color: `${theme.palette.primary.main}`,
     borderBottom: `4px solid ${theme.palette.primary.main}`,
   },
+  [theme.breakpoints.up('dm')]: {},
 }));
 
 export const StyledAnnotation = styled('div')(() => ({

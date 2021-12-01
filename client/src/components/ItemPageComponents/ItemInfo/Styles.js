@@ -45,6 +45,6 @@ export const StyledAuthor = styled(Link)`
   font-weight: normal;
   font-size: 15px;
   line-height: 16px;
-  color: {theme.palette.primary.main};
+  color: ${theme.palette.primary.main};
   coursor: pointer;
 `;

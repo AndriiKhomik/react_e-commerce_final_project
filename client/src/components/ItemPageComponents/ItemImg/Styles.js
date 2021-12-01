@@ -14,12 +14,14 @@ export const StyledCardMediaBox = styled('div')(() => ({
 
 export const StyledCardMedia = styled('img')(() => ({
   [theme.breakpoints.up('xs')]: {
-    height: '500px',
+    height: '400px',
     padding: '0',
     margin: 'auto',
     display: 'block',
     objectFit: 'cover',
     borderRadius: '5px',
   },
-  [theme.breakpoints.up('md')]: {},
+  [theme.breakpoints.up('md')]: {
+    height: '500px',
+  },
 }));

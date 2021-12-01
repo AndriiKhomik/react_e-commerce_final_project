@@ -71,6 +71,11 @@ const ItemPage = ({ match }) => {
 };
 
 ItemPage.propTypes = {
-  match: PropTypes.shape.isRequired,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.objectOf(PropTypes.string),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
 };
 export default ItemPage;

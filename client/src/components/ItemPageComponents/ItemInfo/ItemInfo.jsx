@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, List } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { List } from '@mui/material';
 import {
   StyledItemInfoWrapper,
   StyledListItem,
@@ -50,7 +51,15 @@ const ItemInfo = ({
 };
 
 ItemInfo.propTypes = {
-  author: PropTypes.shape.isRequired,
+  author: PropTypes.shape({
+    books: PropTypes.arrayOf(PropTypes.string).isRequired,
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    dateOfBirth: PropTypes.string.isRequired,
+    biography: PropTypes.string.isRequired,
+    authorUrl: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  }).isRequired,
   publisher: PropTypes.string.isRequired,
   yearOfPublish: PropTypes.number.isRequired,
   pages: PropTypes.number,
