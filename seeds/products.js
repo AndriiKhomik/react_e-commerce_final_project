@@ -54,6 +54,7 @@ module.exports = productsData = [
     genre: "children-literature",
     numberOfPages: 144,
     coverType: "hard",
+    isRecommended: true,
   },
   {
     name: "An Owl Called Star",
@@ -107,6 +108,7 @@ module.exports = productsData = [
     genre: "children-literature",
     numberOfPages: 144,
     coverType: "hard",
+    isRecommended: true,
   },
   {
     name: "A Lamb Called Lucky",
@@ -158,6 +160,7 @@ module.exports = productsData = [
     genre: "children-literature",
     numberOfPages: 288,
     coverType: "soft",
+    isRecommended: true,
   },
   {
     name: "Fledgling",
@@ -272,9 +275,10 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2020"),
     genre: "fiction",
     numberOfPages: 308,
+    isRecommended: true,
   },
   {
-    name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    name: "How to Make the World Add Up",
     _id: "619e65cc03b90d2ed4ab123d",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
@@ -291,7 +295,7 @@ module.exports = productsData = [
     coverType: "hard",
   },
   {
-    name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    name: "How to Make the World Add Up",
     _id: "619e65cc03b90d2ed4ab123e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
@@ -307,7 +311,7 @@ module.exports = productsData = [
     numberOfPages: 304
   },
   {
-    name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    name: "How to Make the World Add Up",
     _id: "619e65cc03b90d2ed4ab123f",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
@@ -372,7 +376,7 @@ module.exports = productsData = [
     coverType: "hard",
   },
   {
-    name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics",
+    name: "The Data Detective",
     _id: "619e65cc03b90d2ed4ab1243",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438819/books/41GD6oSy8PL_wbrrfa.jpg"],
@@ -389,7 +393,7 @@ module.exports = productsData = [
     coverType: "soft",
   },
   {
-    name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics",
+    name: "The Data Detective",
     _id: "619e65cc03b90d2ed4ab1244",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438819/books/41GD6oSy8PL_wbrrfa.jpg"],
@@ -452,7 +456,8 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2014"),
     genre: "adventures",
     numberOfPages: 640,
-    coverType: "soft"
+    coverType: "soft",
+    isRecommended: true,
   },
   {
     name: "The Christmas Pig",
@@ -486,9 +491,10 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2021"),
     genre: "adventures",
     duration: 384,
+    isRecommended: true,
   },
   {
-    name: "Murder Most Unladylike - A Murder Most Unladylike Mystery",
+    name: "Murder Most Unladylike",
     _id: "619e65cc03b90d2ed4ab124a",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509442/books/9780141369761_lcbbiz.jpg"],
@@ -522,7 +528,7 @@ module.exports = productsData = [
     coverType: "soft"
   },
   {
-    name: "Murder Most Unladylike - A Murder Most Unladylike Mystery",
+    name: "Murder Most Unladylike",
     _id: "619e65cc03b90d2ed4ab124c",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509442/books/9780141369761_lcbbiz.jpg"],
@@ -556,7 +562,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Idiots",
-   _id: "619e65cc03b90d2ed4ab124e",
+    _id: "619e65cc03b90d2ed4ab124e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519150/books/41rWzmdpuiL_lxo0h1.jpg"],
     quantity: 300,
@@ -705,7 +711,7 @@ module.exports = productsData = [
     coverType: "hard"
   },
   {
-    name: "Bring Me The Head Of The Taskmaster: 101 next-level tasks",
+    name: "Bring Me The Head Of The Taskmaster",
     _id: "619e65cc03b90d2ed4ab1257",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521759/books/51Y4RMxbzOL._SX357_BO1_204_203_200__rtsdly.jpg"],
@@ -722,7 +728,7 @@ module.exports = productsData = [
     coverType: "hard"
   },
   {
-    name: "Bring Me The Head Of The Taskmaster: 101 next-level tasks",
+    name: "Bring Me The Head Of The Taskmaster",
     _id: "619e65cc03b90d2ed4ab1258",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521759/books/51Y4RMxbzOL._SX357_BO1_204_203_200__rtsdly.jpg"],
@@ -869,5 +875,6 @@ module.exports = productsData = [
     numberOfPages: 448,
     genre: "fiction",
     coverType: "soft",
+    isRecommended: true,
   },
 ];
