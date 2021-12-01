@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import theme from '../../services/theme/theme';
 
 const ElBookIcon = ({ width, height }) => {
   return (
@@ -63,5 +62,3 @@ ElBookIcon.propTypes = {
 };
 
 export default ElBookIcon;
-
-console.log(theme.palette.primary.main);
