@@ -8,14 +8,14 @@ import {
   StyledCurrentPage,
 } from './Styles';
 
-const SectionTitles = ({ titles }) => {
+const SectionTitles = ({ titles, itemTitle }) => {
   return (
     <StyledList>
       {titles.map(({ id, title, route }, index) => {
         return (
           <StyledItem key={id}>
             {index + 1 === titles.length ? (
-              <StyledCurrentPage>{title}</StyledCurrentPage>
+              <StyledCurrentPage>{itemTitle || title}</StyledCurrentPage>
             ) : (
               <StyledLink as={Link} to={route}>
                 {title}
@@ -36,6 +36,11 @@ SectionTitles.propTypes = {
       route: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  itemTitle: PropTypes.string,
+};
+
+SectionTitles.defaultProps = {
+  itemTitle: '',
 };
 
 export default SectionTitles;
