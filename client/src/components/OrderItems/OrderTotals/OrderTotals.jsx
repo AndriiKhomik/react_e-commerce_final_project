@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CheckoutEditBtn from '../CheckoutEditBtn';
 import FormButton from '../OrderForm/FormButton';
 import {
@@ -9,10 +10,7 @@ import {
 } from './Styles';
 import { StyledBox, StyledSubtitleSpan, StyledYellowSpan } from '../Styles';
 
-// eslint-disable-next-line react/prop-types
-const OrderTotals = ({isSubmiting, submitForm}) => {
-  console.log('isSubmiting 1', isSubmiting);
-  console.log("submitForm 1", submitForm);
+const OrderTotals = ({ isSubmiting, submitForm }) => {
   return (
     <>
       <StyledOutBox>
@@ -47,4 +45,13 @@ const OrderTotals = ({isSubmiting, submitForm}) => {
   );
 };
 
+OrderTotals.propTypes = {
+  isSubmiting: PropTypes.bool,
+  submitForm: PropTypes.func,
+};
+
+OrderTotals.defaultProps = {
+  isSubmiting: false,
+  submitForm: () => {},
+};
 export default OrderTotals;

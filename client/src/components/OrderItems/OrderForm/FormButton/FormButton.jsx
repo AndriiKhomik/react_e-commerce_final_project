@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import { StyledButton } from './Styles';
 
 const FormButton = ({ text, isSubmitting, submitForm }) => {
-  
-  const handleSubmitMyForm = (e) => {
-    console.log(submitForm);
+  const handleSubmitForm = (e) => {
     if (submitForm) {
       submitForm(e);
     }
-};
+  };
   return (
     <StyledButton
       type='submit'
@@ -17,7 +15,7 @@ const FormButton = ({ text, isSubmitting, submitForm }) => {
       variant='contained'
       title={text}
       aria-label={text}
-      onClick={(e)=>handleSubmitMyForm(e)}
+      onClick={(e) => handleSubmitForm(e)}
     >
       {text}
     </StyledButton>
@@ -27,11 +25,11 @@ const FormButton = ({ text, isSubmitting, submitForm }) => {
 FormButton.propTypes = {
   isSubmitting: PropTypes.bool,
   text: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  submitForm: PropTypes.any.isRequired,
+  submitForm: PropTypes.func,
 };
 
 FormButton.defaultProps = {
   isSubmitting: false,
+  submitForm: () => {},
 };
 export default FormButton;

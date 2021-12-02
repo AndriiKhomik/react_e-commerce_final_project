@@ -9,21 +9,11 @@ import { pageTitles } from '../../components/SectionTitles/pageTitles';
 import { StyledGrid, StyledFormGrid, StyledOrderTotalsGrid } from './Styled';
 
 const CheckoutPage = () => {
-  // eslint-disable-next-line prettier/prettier
-
-  const [isSubmitting, setSubmitting] = useState(false);
-  const [submitForm, setSubmitForm] = useState(() => {});
-  const [formikPropsSet, setFormikPropsSet] = useState(false);
-
-  console.log(setSubmitting, setSubmitForm, setFormikPropsSet);
-
-  const bindSubmitForm = (formikProps) => {
-    console.log('formikProps', formikProps);
-    if (!formikPropsSet && formikProps.submitForm) {
-      setSubmitForm(formikProps.submitForm);
-      setFormikPropsSet(true);
-    }
+  const [formRef, setFormRef] = useState();
+  const bindSubmitForm = (formRefValue) => {
+    setFormRef(formRefValue);
   };
+
   return (
     <>
       <SectionTitles titles={pageTitles} />
@@ -37,7 +27,10 @@ const CheckoutPage = () => {
               <OrderProducts />
             </Grid>
             <StyledOrderTotalsGrid item xs={12} sm={5} md={12}>
-              <OrderTotals isSubmiting={isSubmitting} submitForm={submitForm} />
+              <OrderTotals
+                isSubmiting={formRef?.isSubmitting}
+                submitForm={formRef?.submitForm}
+              />
             </StyledOrderTotalsGrid>
           </Grid>
         </Grid>

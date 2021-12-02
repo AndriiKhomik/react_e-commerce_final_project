@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { styled } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 import theme from '../../services/theme/theme';
