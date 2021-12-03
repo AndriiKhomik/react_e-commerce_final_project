@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import theme from '../../services/theme/theme';
+import theme from '../../../services/theme/theme';
 
 export const StyledButton = styled(Link)(() => ({
     textDecoration: 'none',
