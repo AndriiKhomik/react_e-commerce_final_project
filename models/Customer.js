@@ -9,17 +9,12 @@ const CustomerSchema = new Schema(
       type: String,
       required: true
     },
-    firstName: {
-      type: String,
-      required: true
-    },
-    lastName: {
+    fullName: {
       type: String,
       required: true
     },
     login: {
-      type: String,
-      required: true
+      type: String
     },
     email: {
       type: String,
@@ -30,12 +25,6 @@ const CustomerSchema = new Schema(
       required: true
     },
     telephone: {
-      type: String
-    },
-    birthdate: {
-      type: String
-    },
-    gender: {
       type: String
     },
     avatarUrl: {
@@ -54,13 +43,19 @@ const CustomerSchema = new Schema(
     date: {
       type: Date,
       default: Date.now
-    }
+    },
+    firstName: {
+      type: String
+    },
+    lastName: {
+      type: String
+    },
   },
   { strict: false }
 );
 
-CustomerSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+CustomerSchema.methods.comparePassword = function (candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
     if (err) return cb(err);
     cb(null, isMatch);
   });
