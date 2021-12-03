@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { InputLabel } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../../../services/theme/theme';
+import theme from '../../../../services/theme/theme';
 
 export const StyledLabel = styled(InputLabel)(() => ({
     marginBottom: '10px',

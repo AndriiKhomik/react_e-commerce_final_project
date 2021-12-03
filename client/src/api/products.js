@@ -14,3 +14,11 @@ export const getItemProduct = async (itemNo) => {
   }
   return response.json();
 };
+
+export const getProductsByQuery = async (query, value = true) => {
+  const response = await fetch(`${host}/api/products?${query}=${value}`);
+  if (!response.ok) {
+    throw new Error(`Error - ${response.status}`);
+  }
+  return response.json();
+};

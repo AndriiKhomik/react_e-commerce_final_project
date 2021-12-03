@@ -65,7 +65,7 @@ const ItemPage = ({ match }) => {
         </StyledDescription>
       </StyledContainer>
       <ItemReviewsBlock fullDescription={fullDescription} />
-      <RelatedBooksList />
+      <RelatedBooksList genre={genre} />
     </>
   );
 };
