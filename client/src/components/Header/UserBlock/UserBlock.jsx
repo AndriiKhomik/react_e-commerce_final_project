@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+// import { useSelector } from 'react-redux';
 import { IconButton, Box, useMediaQuery } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 // import SearchIcon from '@mui/icons-material/Search';
@@ -16,6 +17,7 @@ import CartIcon from '../../icons/CartIcon';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  // const totalCount = useSelector((data) => data.shoppingCart.orderTotal);
   // const [showSearchInput, setshowSearchInput] = useState(false);
 
   const matchesButtonQuery = useMediaQuery(theme.breakpoints.up('ds'));
@@ -54,7 +56,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
         </IconButton>
       )}
       <IconButton onClick={redirectToCart} sx={{ marginRight: '8px' }}>
-        <StyledBadge badgeContent={4} color='warning'>
+        <StyledBadge badgeContent={1} color='warning'>
           <CartIcon color='action' fill='#727272' height='22px' width='22px' />
         </StyledBadge>
       </IconButton>
