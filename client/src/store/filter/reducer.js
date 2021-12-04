@@ -1,11 +1,17 @@
-import { SET_GENRES, SET_FORMATS } from './types';
-// import { SET_GENRES, SET_FORMAT, SET_MIN_PRICE, SET_MAX_PRICE } from './types';
+import {
+  SET_GENRES,
+  SET_FORMATS,
+  SET_MIN_PRICE,
+  SET_MAX_PRICE,
+  SET_SEARCH_STRING,
+} from './types';
+
 const initialState = {
   genres: [],
   formats: [],
   minPrice: 0,
   maxPrice: 0,
-  search: '',
+  searchString: '',
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,6 +40,15 @@ export const filterReducer = (state = initialState, action) => {
         ],
       };
     }
+
+    case SET_MIN_PRICE:
+      return { ...state, minPrice: action.payload };
+
+    case SET_MAX_PRICE:
+      return { ...state, maxPrice: action.payload };
+
+    case SET_SEARCH_STRING:
+      return { ...state, searchString: action.payload };
 
     default:
       return state;

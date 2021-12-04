@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Box } from '@mui/material';
 import { StyledPriceValue, StyledSlider, StyledPriceTag } from './Styles';
+import { setMinPrice, setMaxPrice } from '../../../store/filter/actions';
 
 const valuetext = (value) => {
   return `${value}°C`;
@@ -9,6 +11,8 @@ const valuetext = (value) => {
 const FilterRange = () => {
   const minDistance = 10;
   const [value, setValue] = useState([20, 500]);
+  const dispatch = useDispatch();
+
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
@@ -19,6 +23,9 @@ const FilterRange = () => {
     } else {
       setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
     }
+
+    dispatch(setMinPrice(value[0]));
+    dispatch(setMaxPrice(value[1]));
   };
 
   return (
