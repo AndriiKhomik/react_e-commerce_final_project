@@ -59,6 +59,9 @@ const ProductSchema = new Schema(
       enum: ['children-literature', 'fiction', 'business-literature', 'adventures', 'non-fiction'],
       required: true,
     },
+    isRecommended: {
+      type: Boolean
+    },
     date: {
       type: Date,
       default: Date.now
