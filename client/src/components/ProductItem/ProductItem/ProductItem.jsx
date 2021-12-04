@@ -20,14 +20,14 @@ const ProductItem = ({ name, url, price, author, salePrice, itemNo }) => {
         aria-label='move to book page'
       >
         <BookImg url={url} name={name} />
-        <FavouriteBtn />
+        <FavouriteBtn itemNo={itemNo} />
         <BookSaleTag salePrice={salePrice} />
       </StyledLink>
       <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
         <BookAuthor author={author} />
         <BookPrice price={price} salePrice={salePrice} />
-        <CartBtn />
+        <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
     </>
   );
