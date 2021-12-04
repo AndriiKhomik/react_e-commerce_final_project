@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../../api/products';
 import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
+import { setBooks } from '../../../store/bookList/actions';
 import { StyledItem, StyledList } from './Styles';
 
 const CatalogList = () => {
-  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const products = useSelector((data) => data.books);
 
   useEffect(() => {
     getProducts()
       .then((data) => {
-        setProducts(data);
+        dispatch(setBooks(data));
       })
       .finally(() => setIsLoading(false));
   }, []);
