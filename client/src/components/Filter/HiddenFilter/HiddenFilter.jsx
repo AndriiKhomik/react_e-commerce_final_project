@@ -13,13 +13,13 @@ const HiddenFilter = () => {
     <>
       <SearchInput />
       <FilterSubtitle text='Genres' />
-      <FilterList items={genres} />
+      <FilterList groupTitle='genres' items={genres} />
       <StyledDivider />
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <StyledDivider />
       <FilterSubtitle text='Format' />
-      <FilterList items={formats} />
+      <FilterList groupTitle='formats' items={formats} />
       <FilterBtn text='Filter' />
     </>
   );
