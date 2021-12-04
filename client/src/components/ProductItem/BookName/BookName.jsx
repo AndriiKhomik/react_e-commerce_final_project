@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { StyledBookNameText } from './Styles';
 
-const BookName = ({ name }) => {
+const BookName = ({ name, itemNo }) => {
   return (
     <>
-      {/* !!!add correct link -> page of one book */}
       <StyledBookNameText
         as={Link}
-        to='/contacts'
+        to={`/products/${itemNo}`}
         aria-label='move to book page'
       >
         {name}
@@ -20,6 +19,7 @@ const BookName = ({ name }) => {
 
 BookName.propTypes = {
   name: PropTypes.string.isRequired,
+  itemNo: PropTypes.string.isRequired,
 };
 
 export default BookName;

@@ -14,7 +14,6 @@ import defaultimg from '../../../img/missing_image.jpg';
 const ProductItem = ({ name, url, price, author, salePrice, itemNo }) => {
   return (
     <>
-      {/* !!!add correct link -> page of one book */}
       <StyledLink
         as={Link}
         to={`/products/${itemNo}`}
@@ -24,7 +23,7 @@ const ProductItem = ({ name, url, price, author, salePrice, itemNo }) => {
         <FavouriteBtn />
         <BookSaleTag salePrice={salePrice} />
       </StyledLink>
-      <BookName name={name} />
+      <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
         <BookAuthor author={author} />
         <BookPrice price={price} salePrice={salePrice} />
