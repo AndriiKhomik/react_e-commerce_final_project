@@ -38,6 +38,7 @@ export const StyledItem = styled('li')(() => ({
 }));
 
 export const StyledLink = styled(Link)(() => ({
+  fontSize: '13px',
   color: [theme.palette.text.main],
   textDecoration: 'none',
   transition: '0.3s linear',
@@ -45,9 +46,16 @@ export const StyledLink = styled(Link)(() => ({
     color: [theme.palette.primary.main],
     textDecoration: 'underline',
   },
+  [theme.breakpoints.up('ds')]: {
+    fontSize: '16px',
+  },
 }));
 
 export const StyledCurrentPage = styled('p')(() => ({
+  fontSize: '13px',
   color: [theme.palette.text.main],
   textDecoration: 'none',
+  [theme.breakpoints.up('ds')]: {
+    fontSize: '16px',
+  },
 }));
