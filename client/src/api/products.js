@@ -15,8 +15,8 @@ export const getItemProduct = async (itemNo) => {
   return response.json();
 };
 
-export const getProductsByQuery = async (query, value = true) => {
-  const response = await fetch(`${host}/api/products?${query}=${value}`);
+export const getProductsByQuery = async (query, value = true, exceptId = '') => {
+  const response = await fetch(`${host}/api/products?${query}=${value}&exceptId=${exceptId}`);
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }

@@ -112,7 +112,15 @@ exports.getProducts = (req, res, next) => {
     products = Product.find({ 'isRecommended': { $exists: true } }).populate('author')
   }
   else if (req.query.genre) {
-    products = Product.find({ 'genre': req.query.genre }).populate('author')
+    products = Product.find({
+      $and:
+        [{ 'genre': req.query.genre },
+        {
+          'itemNo': {
+            $ne: req.query.exceptId
+          }
+        }]
+    }).populate('author')
   }
   else {
     products = Product.find({}).populate('author')
