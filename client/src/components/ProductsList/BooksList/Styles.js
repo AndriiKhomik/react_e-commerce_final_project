@@ -4,23 +4,21 @@ import theme from '../../../services/theme/theme';
 
 export const StyledContainer = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
-    marginBottom: '40px',
-  },
-  [theme.breakpoints.up('sm')]: {
-    marginBottom: '50px',
-  },
-  [theme.breakpoints.up('md')]: {
-    marginBottom: '60px',
-  },
-  [theme.breakpoints.up('lg')]: {
-    marginBottom: '90px',
+    marginBottom: '30px',
   },
 }));
 
 export const StyledSliderWrapper = styled('ul')(() => ({
+  '& .swiper': {
+    paddingBottom: '70px',
+  },
   '& .swiper-button-prev, & .swiper-button-next': {
     color: [theme.palette.primary.main],
+    top: '95%',
   },
+  '& .swiper-pagination-bullet-active': {
+    background: [theme.palette.primary.main],
+  }
 }));
 
 export const StyledList = styled(List)`

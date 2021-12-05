@@ -5,7 +5,7 @@ export const StyledSaleParagraph = styled('p')(() => ({
   position: 'absolute',
   zIndex: '2',
   top: '10px',
-  left: '0',
+  left: '2px',
   padding: '6px 16px',
   backgroundColor: [theme.palette.primary.dark],
   fontSize: '16px',

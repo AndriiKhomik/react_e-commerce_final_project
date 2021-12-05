@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-import { Navigation } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { StyledContainer, StyledSliderWrapper } from './Styles';
 import 'swiper/swiper.scss';
 import 'swiper/modules/navigation/navigation.scss';
@@ -16,10 +16,12 @@ const BooksList = ({ items, text }) => {
         <Swiper
           wrapperTag='ul'
           slidesPerView='auto'
-          spaceBetween={35}
-          modules={[Navigation]}
+          spaceBetween={33}
+          modules={[Navigation, Pagination]}
           navigation={{ clickable: true }}
+          pagination={{ clickable: true }}
           loop
+          simulateTouch={false}
         >
           {items.map(
             ({
@@ -29,6 +31,7 @@ const BooksList = ({ items, text }) => {
               previousPrice,
               author,
               itemNo,
+              categories,
             }) => (
               <SwiperSlide tag='li' key={itemNo} style={{ width: '163px' }}>
                 <ProductItem
@@ -38,6 +41,7 @@ const BooksList = ({ items, text }) => {
                   salePrice={previousPrice}
                   author={author.name}
                   itemNo={itemNo}
+                  categories={categories}
                 />
               </SwiperSlide>
             ),

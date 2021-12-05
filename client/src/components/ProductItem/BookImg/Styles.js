@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 export const StyledCardMediaWrapper = styled('div')(() => ({
   position: 'relative',
   minHeight: '243px',
-  width: '100%',
+  width: '163px',
   height: '100%',
   marginBottom: '20px',
 }));
@@ -31,6 +31,6 @@ export const StyledCardMedia = styled('img')`
   max-width: 100%;
   min-height: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center bottom;
 `;
