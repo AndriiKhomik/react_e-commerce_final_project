@@ -10,7 +10,7 @@ import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 // import { StyledContainer, StyledDescription } from './Styles';
-// import Loader from '../../components/ItemPageComponents/Loader/Loader';
+import Loader from '../../components/ItemPageComponents/Loader/Loader';
 // import SectionTitles from '../../components/SectionTitles/SectionTitles';
 // import { bookPageTitles } from '../../components/SectionTitles/pageTitles';
 // import ItemReviewsBlock from '../../components/ItemPageComponents/ItemReviewsBlock/ItemReviewsBlock';
@@ -18,13 +18,14 @@ import SectionTitles from '../../components/SectionTitles';
 
 const AuthorPage = ({ match }) => {
   const [author, setAuthor] = useState({});
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getAuthor(match.url).then((data) => {
-      setAuthor(data);
-    });
-    // .finally(() => setIsLoading(false));
+    getAuthor(match.url)
+      .then((data) => {
+        setAuthor(data);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const {
@@ -41,17 +42,15 @@ const AuthorPage = ({ match }) => {
     //   // fullDescription,
   } = author;
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
       <span>{name}</span>
       <SectionTitles titles={pageTitles} itemTitle={name} />
     </>
   );
 
-  //   return isLoading ? (
-  //     <Loader />
-  //   ) : (
-  //     <>
   //       <SectionTitles titles={bookPageTitles} itemTitle={name} />
   //       <StyledContainer>
   //         <ItemImg img={imageUrls} name={name} />
