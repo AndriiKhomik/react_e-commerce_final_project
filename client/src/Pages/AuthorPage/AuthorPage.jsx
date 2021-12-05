@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
-// import ItemDescription from '../../components/ItemPageComponents/ItemDescription/ItemDescription';
+import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescription/AuthorDescription';
 import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 // import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 // import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
-// import ItemTitle from '../../components/ItemPageComponents/ItemTitle/ItemTitle';
+import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
 import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
@@ -35,6 +35,7 @@ const AuthorPage = ({ match }) => {
     //   // shortDescription,
     //   // imageUrls,
     authorUrl,
+    biography,
     //   // publisher,
     //   // yearOfPublishing,
     //   // numberOfPages,
@@ -50,7 +51,8 @@ const AuthorPage = ({ match }) => {
       <StyledContainer>
         <ItemImg img={authorUrl} name={name} />
         <StyledDescription>
-          <span>name</span>
+          <AuthorTitle name={name} />
+          <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>
     </>

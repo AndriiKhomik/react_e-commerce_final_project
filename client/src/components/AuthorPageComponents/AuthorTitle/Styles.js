@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import { Link } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledTitleWrapper = styled('div')(() => ({
@@ -7,6 +6,7 @@ export const StyledTitleWrapper = styled('div')(() => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'baseline',
+    borderBottom: '0.3px solid #f7bc47',
   },
 }));
 
@@ -27,17 +27,5 @@ export const StyledTitle = styled('h3')(() => ({
     maxWidth: '70%',
     fontSize: '30px',
     lineHeight: '35px',
-  },
-}));
-
-export const StyledGenre = styled(Link)(() => ({
-  fontWeight: 'normal',
-  fontSize: '15px',
-  lineHeight: '16px',
-  color: `${theme.palette.primary.main}`,
-  textDecoration: 'none',
-  '&:hover': {
-    color: `${theme.palette.primary.deepdark}`,
-    textDecoration: 'underline',
   },
 }));

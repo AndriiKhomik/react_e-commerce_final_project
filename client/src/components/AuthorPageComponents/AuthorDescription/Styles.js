@@ -5,10 +5,10 @@ export const StyledDescriptionWrapper = styled('div')`
   margin-top: 15px;
 `;
 
-export const StyledDescriptionTitle = styled('p')(() => ({
+export const StyledDescriptionTitle = styled('h4')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
-    fontWeight: '500',
+    fontFamily: 'CeraPro Bold',
     color: `${theme.palette.text.main}`,
   },
   [theme.breakpoints.up('sm')]: {
@@ -19,7 +19,7 @@ export const StyledDescriptionTitle = styled('p')(() => ({
   },
 }));
 
-export const StyledDescription = styled('p')(() => ({
+export const StyledDescription = styled('div')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '14px',
     lineHeight: '19px',
