@@ -4,16 +4,13 @@ import PropTypes from 'prop-types';
 import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescription/AuthorDescription';
 import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 // import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
-// import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
 import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
 import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
-// import SectionTitles from '../../components/SectionTitles/SectionTitles';
-// import { bookPageTitles } from '../../components/SectionTitles/pageTitles';
-// import ItemReviewsBlock from '../../components/ItemPageComponents/ItemReviewsBlock/ItemReviewsBlock';
+import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
 // import { RelatedBooksList } from '../../components/ProductsList';
 
 const AuthorPage = ({ match }) => {
@@ -36,6 +33,7 @@ const AuthorPage = ({ match }) => {
     //   // imageUrls,
     authorUrl,
     biography,
+    dateOfBirth,
     //   // publisher,
     //   // yearOfPublishing,
     //   // numberOfPages,
@@ -51,6 +49,7 @@ const AuthorPage = ({ match }) => {
       <StyledContainer>
         <ItemImg img={authorUrl} name={name} />
         <StyledDescription>
+          <AuthorDateOfBirth dateOfBirth={dateOfBirth} />
           <AuthorTitle name={name} />
           <AuthorDescription biography={biography} />
         </StyledDescription>
