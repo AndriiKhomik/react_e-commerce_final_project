@@ -49,8 +49,8 @@ const AuthorPage = ({ match }) => {
       <StyledContainer>
         <ItemImg img={authorUrl} name={name} />
         <StyledDescription>
-          <AuthorDateOfBirth dateOfBirth={dateOfBirth} />
           <AuthorTitle name={name} />
+          <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
           <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>

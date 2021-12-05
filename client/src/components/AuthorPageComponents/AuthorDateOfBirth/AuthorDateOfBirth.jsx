@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTitleWrapper, StyledTitle } from './Styles';
+import { StyledTitle, StyledContent, StyledWrapper } from './Styles';
 
 const AuthorDateOfBirth = ({ dateOfBirth }) => {
   return (
-    <StyledTitleWrapper>
-      <StyledTitle>{dateOfBirth}</StyledTitle>
-    </StyledTitleWrapper>
+    <>
+      <StyledWrapper>
+        <StyledTitle>Date of birth:</StyledTitle>
+        <StyledContent>{dateOfBirth}</StyledContent>
+      </StyledWrapper>
+    </>
   );
 };
 
