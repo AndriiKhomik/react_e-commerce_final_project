@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
 // import ItemDescription from '../../components/ItemPageComponents/ItemDescription/ItemDescription';
-// import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
+import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 // import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 // import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
 // import ItemTitle from '../../components/ItemPageComponents/ItemTitle/ItemTitle';
 import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
-// import { StyledContainer, StyledDescription } from './Styles';
+import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
 // import SectionTitles from '../../components/SectionTitles/SectionTitles';
 // import { bookPageTitles } from '../../components/SectionTitles/pageTitles';
@@ -34,7 +34,7 @@ const AuthorPage = ({ match }) => {
     //   // genre,
     //   // shortDescription,
     //   // imageUrls,
-    //   author,
+    authorUrl,
     //   // publisher,
     //   // yearOfPublishing,
     //   // numberOfPages,
@@ -46,35 +46,15 @@ const AuthorPage = ({ match }) => {
     <Loader />
   ) : (
     <>
-      <span>{name}</span>
       <SectionTitles titles={pageTitles} itemTitle={name} />
+      <StyledContainer>
+        <ItemImg img={authorUrl} name={name} />
+        <StyledDescription>
+          <span>name</span>
+        </StyledDescription>
+      </StyledContainer>
     </>
   );
-
-  //       <SectionTitles titles={bookPageTitles} itemTitle={name} />
-  //       <StyledContainer>
-  //         <ItemImg img={imageUrls} name={name} />
-  //         <StyledDescription>
-  //           <ItemTitle name={name} genre={genre} />
-  //           <ItemPrice price={currentPrice} value={3} />
-  //           <ItemDescription shortDescription={shortDescription} />
-  //           {/* <ItemFormats /> */}
-  //           <ItemInfo
-  //             author={author}
-  //             publisher={publisher}
-  //             yearOfPublish={new Date(yearOfPublishing).getFullYear()}
-  //             pages={numberOfPages}
-  //             duration={duration}
-  //             genre={genre}
-  //           />
-  //           <ItemButtons />
-  //         </StyledDescription>
-  //       </StyledContainer>
-  //       <ItemReviewsBlock fullDescription={fullDescription} />
-  //       <RelatedBooksList genre={genre} />
-  //     </>
-  //   );
-  // };
 };
 AuthorPage.propTypes = {
   match: PropTypes.shape({
