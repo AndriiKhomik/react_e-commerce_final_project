@@ -104,19 +104,33 @@ exports.getProducts = (req, res, next) => {
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
+  let products
+  if (req.query.sales) {
+    products = Product.find({ 'previousPrice': { $exists: true } }).populate('author')
+  }
+  else if (req.query.isRecommended) {
+    products = Product.find({ 'isRecommended': { $exists: true } }).populate('author')
+  }
+  else if (req.query.genre) {
+    products = Product.find({ 'genre': req.query.genre }).populate('author')
+  }
+  else {
+    products = Product.find({}).populate('author')
+      .skip(startPage * perPage - perPage)
+      // temporarily limited directly
+      // .limit(perPage)
+      .limit(12)
+      .sort(sort)
+  }
 
-  Product.find({}).populate('author')
-    .skip(startPage * perPage - perPage)
-    // temporarily limited directly
-    // .limit(perPage)
-    .limit(12)
-    .sort(sort)
+  products
     .then(products => res.send(products))
     .catch(err =>
       res.status(400).json({
         message: `Error happened on server: "${err}" `
       })
     );
+
 };
 
 exports.getProductById = (req, res, next) => {
