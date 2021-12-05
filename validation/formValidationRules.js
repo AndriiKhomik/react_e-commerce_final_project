@@ -44,6 +44,26 @@ const formValidationRules = [
     message: "Last Name must be between 2 and 25 characters"
   },
   {
+    field: "fullName",
+    method: FormValidator.isEmpty,
+    validWhen: false,
+    message: "Full Name is required."
+  },
+  {
+    field: "fullName",
+    method: "matches",
+    validWhen: true,
+    args: [/^[a-zA-Zа-яА-Я]+\s+[a-zA-Zа-яА-Я]+$/],
+    message: "Allowed characters for Full Name is a-z, A-Z, а-я, А-Я."
+  },
+  {
+    field: "fullName",
+    method: "isLength",
+    validWhen: true,
+    args: [{ min: 5, max: 35 }],
+    message: "Full Name must be between 5 and 35 characters"
+  },
+  {
     field: "email",
     method: FormValidator.isEmpty,
     validWhen: false,

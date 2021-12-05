@@ -14,21 +14,20 @@ import defaultimg from '../../../img/missing_image.jpg';
 const ProductItem = ({ name, url, price, author, salePrice, itemNo }) => {
   return (
     <>
-      {/* !!!add correct link -> page of one book */}
       <StyledLink
         as={Link}
         to={`/products/${itemNo}`}
         aria-label='move to book page'
       >
         <BookImg url={url} name={name} />
-        <FavouriteBtn />
+        <FavouriteBtn itemNo={itemNo} />
         <BookSaleTag salePrice={salePrice} />
       </StyledLink>
-      <BookName name={name} />
+      <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
         <BookAuthor author={author} />
         <BookPrice price={price} salePrice={salePrice} />
-        <CartBtn />
+        <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
     </>
   );
