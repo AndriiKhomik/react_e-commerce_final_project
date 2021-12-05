@@ -11,6 +11,7 @@ import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
+import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
 // import { RelatedBooksList } from '../../components/ProductsList';
 
 const AuthorPage = ({ match }) => {
@@ -54,6 +55,7 @@ const AuthorPage = ({ match }) => {
           <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>
+      <AuthorButton />
     </>
   );
 };
