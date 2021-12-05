@@ -58,7 +58,7 @@ exports.addProduct = (req, res, next) => {
 };
 
 exports.updateProduct = (req, res, next) => {
-  Product.findOne({ _id: req.params.id })
+  Product.findOne({ _id: req.params.id }).populate('author')
     .then(product => {
       if (!product) {
         return res.status(400).json({
@@ -104,7 +104,7 @@ exports.getProducts = (req, res, next) => {
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
-  let products
+  let products;
   if (req.query.sales) {
     products = Product.find({ 'previousPrice': { $exists: true } }).populate('author')
   }
@@ -168,7 +168,7 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const sort = req.query.sort;
 
   try {
-    const products = await Product.find(mongooseQuery)
+    const products = await Product.find(mongooseQuery).populate('author')
       .skip(startPage * perPage - perPage)
       .limit(perPage)
       .sort(sort);
