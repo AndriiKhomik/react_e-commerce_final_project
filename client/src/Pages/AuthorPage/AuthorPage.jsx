@@ -5,12 +5,12 @@ import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescr
 import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 // import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
+import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
 import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
-import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
 // import { RelatedBooksList } from '../../components/ProductsList';
 
 const AuthorPage = ({ match }) => {
