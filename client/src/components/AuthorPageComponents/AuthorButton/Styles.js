@@ -5,7 +5,7 @@ import theme from '../../../services/theme/theme';
 export const StyledButtonsWrapper = styled('div')`
   display: flex;
   justify-content: center;
-  padding-bottom: 135px;
+  padding-bottom: 130px;
 `;
 
 export const StyledButton = styled(Button)`
