@@ -12,6 +12,7 @@ import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
 import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
+import BooksList from '../../components/ProductsList/BooksList';
 // import { RelatedBooksList } from '../../components/ProductsList';
 
 const AuthorPage = ({ match }) => {
@@ -26,22 +27,8 @@ const AuthorPage = ({ match }) => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const {
-    name,
-    //   // currentPrice,
-    //   // genre,
-    //   // shortDescription,
-    //   // imageUrls,
-    authorUrl,
-    biography,
-    dateOfBirth,
-    //   // publisher,
-    //   // yearOfPublishing,
-    //   // numberOfPages,
-    //   // duration,
-    //   // fullDescription,
-  } = author;
-
+  const { books, name, authorUrl, biography, dateOfBirth } = author;
+  console.log(books);
   return isLoading ? (
     <Loader />
   ) : (
@@ -55,6 +42,7 @@ const AuthorPage = ({ match }) => {
           <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>
+      <BooksList items={books} text='Books' />
       <AuthorButton />
     </>
   );
