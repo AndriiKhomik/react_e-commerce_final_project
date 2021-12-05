@@ -9,14 +9,21 @@ import { StyledAnnotation } from '../../ItemPageComponents/ItemReviewsBlock/Styl
 
 const AuthorDescription = ({ biography }) => {
   const bio = () => {
-    return { __html: biography };
+    const popularBooks = biography.match(/<ul>(.*?)<\/ul>/g);
+    console.log(popularBooks[0]);
+    return { __html: biography.replace(popularBooks[0], '') };
   };
 
   return (
     <StyledDescriptionWrapper>
       <StyledDescriptionTitle>About the author:</StyledDescriptionTitle>
       <StyledDescription>
-        <StyledAnnotation dangerouslySetInnerHTML={bio()} />
+        <StyledAnnotation
+          style={{ marginBottom: '20px' }}
+          dangerouslySetInnerHTML={bio()}
+        />
+        <StyledDescriptionTitle>The most popular books:</StyledDescriptionTitle>
+        {/* <StyledAnnotation dangerouslySetInnerHTML={popularBooks[0]} /> */}
       </StyledDescription>
     </StyledDescriptionWrapper>
   );

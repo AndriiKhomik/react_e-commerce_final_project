@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-// import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
 import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescription/AuthorDescription';
 import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
-// import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
 import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
 import { getAuthor } from '../../api/authors';
@@ -13,7 +11,6 @@ import { StyledContainer, StyledDescription } from './Styles';
 import Loader from '../../components/ItemPageComponents/Loader/Loader';
 import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
 import BooksList from '../../components/ProductsList/BooksList';
-// import { RelatedBooksList } from '../../components/ProductsList';
 
 const AuthorPage = ({ match }) => {
   const [author, setAuthor] = useState({});
@@ -29,6 +26,8 @@ const AuthorPage = ({ match }) => {
 
   const { books, name, authorUrl, biography, dateOfBirth } = author;
   console.log(books);
+  console.log(biography);
+
   return isLoading ? (
     <Loader />
   ) : (
