@@ -25,8 +25,6 @@ const AuthorPage = ({ match }) => {
   }, []);
 
   const { books, name, authorUrl, biography, dateOfBirth } = author;
-  console.log(books);
-  console.log(biography);
 
   return isLoading ? (
     <Loader />
@@ -46,6 +44,7 @@ const AuthorPage = ({ match }) => {
     </>
   );
 };
+
 AuthorPage.propTypes = {
   match: PropTypes.shape({
     isExact: PropTypes.bool,
@@ -54,4 +53,5 @@ AuthorPage.propTypes = {
     url: PropTypes.string,
   }).isRequired,
 };
+
 export default AuthorPage;

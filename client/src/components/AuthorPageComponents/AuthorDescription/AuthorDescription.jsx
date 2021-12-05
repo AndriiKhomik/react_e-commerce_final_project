@@ -8,10 +8,13 @@ import {
 import { StyledAnnotation } from '../../ItemPageComponents/ItemReviewsBlock/Styles';
 
 const AuthorDescription = ({ biography }) => {
+  const popularBooks = biography.match(/<ul>(.*?)<\/ul>/g);
   const bio = () => {
-    const popularBooks = biography.match(/<ul>(.*?)<\/ul>/g);
-    console.log(popularBooks[0]);
     return { __html: biography.replace(popularBooks[0], '') };
+  };
+
+  const popBooks = () => {
+    return { __html: popularBooks[0] };
   };
 
   return (
@@ -22,8 +25,13 @@ const AuthorDescription = ({ biography }) => {
           style={{ marginBottom: '20px' }}
           dangerouslySetInnerHTML={bio()}
         />
-        <StyledDescriptionTitle>The most popular books:</StyledDescriptionTitle>
-        {/* <StyledAnnotation dangerouslySetInnerHTML={popularBooks[0]} /> */}
+        <StyledDescriptionTitle style={{ marginBottom: '10px' }}>
+          The most popular books:
+        </StyledDescriptionTitle>
+        <StyledAnnotation
+          style={{ marginBottom: '0' }}
+          dangerouslySetInnerHTML={popBooks()}
+        />
       </StyledDescription>
     </StyledDescriptionWrapper>
   );
