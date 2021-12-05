@@ -9,7 +9,7 @@ export const getAuthors = async () => {
 };
 
 export const getAuthor = async (id) => {
-  const response = await fetch(`${host}/api/authors/${id}`);
+  const response = await fetch(`${host}/api${id}`);
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }

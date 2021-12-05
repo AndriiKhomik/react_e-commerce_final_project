@@ -1,3 +1,3 @@
-import ItemPage from './ItemPage';
+import AuthorPage from './AuthorPage';
 
-export default ItemPage;
+export default AuthorPage;
