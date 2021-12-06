@@ -31,6 +31,6 @@ export const StyledCardMedia = styled('img')`
   max-width: 100%;
   min-height: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center bottom;
 `;

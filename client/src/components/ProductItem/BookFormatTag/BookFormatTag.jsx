@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import LaptopChromebookOutlinedIcon from '@mui/icons-material/LaptopChromebookOutlined';
 import LibraryMusicOutlinedIcon from '@mui/icons-material/LibraryMusicOutlined';
-import LightTooltip from '../Tooltip';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import { StyledFormatParagraph } from './Styles';
 
 const BookFormatTag = ({ categories }) => {
-  const tagTitle = categories.slice(0, -1);
   const setIcon = () => {
     switch (categories) {
       case 'ebooks':
@@ -15,14 +13,10 @@ const BookFormatTag = ({ categories }) => {
       case 'audio-books':
         return <LibraryMusicOutlinedIcon />;
       default:
-        return <LibraryBooksOutlinedIcon />;
+        return <MenuBookOutlinedIcon />;
     }
   };
-  return (
-    <LightTooltip title={tagTitle} placement='top'>
-      <StyledFormatParagraph>{setIcon()}</StyledFormatParagraph>
-    </LightTooltip>
-  );
+  return <StyledFormatParagraph>{setIcon()}</StyledFormatParagraph>;
 };
 
 BookFormatTag.propTypes = {

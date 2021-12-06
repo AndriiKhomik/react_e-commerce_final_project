@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import BookSaleTag from '../BookSaleTag';
 import BookFormatTag from '../BookFormatTag';
 import FavouriteBtn from '../FavouriteBtn';
-
+import LightToolTip from '../Tooltip';
 import {
   StyledCardMediaWrapper,
   StyledCardMediaBox,
@@ -12,14 +12,16 @@ import {
 
 const ProductImg = ({ url, name, categories, itemNo, salePrice }) => {
   return (
-    <StyledCardMediaWrapper>
-      <StyledCardMediaBox>
-        <StyledCardMedia height='243' src={url} alt={name} />
-      </StyledCardMediaBox>
-      <BookSaleTag salePrice={salePrice} />
-      <FavouriteBtn itemNo={itemNo} />
-      <BookFormatTag categories={categories} />
-    </StyledCardMediaWrapper>
+    <LightToolTip title={name} placement='top'>
+      <StyledCardMediaWrapper>
+        <StyledCardMediaBox>
+          <StyledCardMedia height='243' src={url} alt={name} />
+        </StyledCardMediaBox>
+        <BookSaleTag salePrice={salePrice} />
+        <FavouriteBtn itemNo={itemNo} />
+        <BookFormatTag categories={categories} />
+      </StyledCardMediaWrapper>
+    </LightToolTip>
   );
 };
 
