@@ -6,7 +6,6 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 // import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useHistory } from 'react-router-dom';
-import Modal from '../../Modal/Modal';
 import {
   StyledBadge,
   StyledButton,
@@ -15,6 +14,7 @@ import {
 } from './Styles';
 import theme from '../../../services/theme/theme';
 import CartIcon from '../../icons/CartIcon';
+import LoginModal from '../../LoginModal/LoginModal';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -76,7 +76,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
             <StyledLogoutIcon />
             {matchesButtonQuery && 'Logout'}
           </StyledButton>
-          <Modal
+          <LoginModal
             isLoginModalOpen={isLoginModalOpen}
             handleClose={handleClose}
           />
