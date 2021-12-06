@@ -30,7 +30,7 @@ ProductImg.propTypes = {
   url: PropTypes.string.isRequired,
   categories: PropTypes.string.isRequired,
   itemNo: PropTypes.string.isRequired,
-  salePrice: PropTypes.string,
+  salePrice: PropTypes.number,
 };
 
 ProductImg.defaultProps = {
