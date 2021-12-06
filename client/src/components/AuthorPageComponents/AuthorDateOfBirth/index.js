@@ -1,3 +1,3 @@
-import AuthorDateOfBirth from './AuthorTitle';
+import AuthorDateOfBirth from './AuthorDateOfBirth';
 
 export default AuthorDateOfBirth;

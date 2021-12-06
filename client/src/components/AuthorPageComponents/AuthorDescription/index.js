@@ -1,3 +1,3 @@
-import AuthorDescription from './ItemDescription';
+import AuthorDescription from './AuthorDescription';
 
 export default AuthorDescription;
