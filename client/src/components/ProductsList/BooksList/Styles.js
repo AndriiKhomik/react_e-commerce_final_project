@@ -48,7 +48,6 @@ export const StyledSliderWrapper = styled('div')(() => ({
     [theme.breakpoints.up('ds')]: {
       left: '0',
     },
-    // left: '0',
   },
   '& .swiper-button-next': {
     [theme.breakpoints.up('sr')]: {
