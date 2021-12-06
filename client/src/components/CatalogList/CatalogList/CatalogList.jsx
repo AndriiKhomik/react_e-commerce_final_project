@@ -20,7 +20,15 @@ const CatalogList = () => {
   }, []);
 
   const productsElements = products.map(
-    ({ name, itemNo, imageUrls, currentPrice, author, previousPrice }) => {
+    ({
+      name,
+      itemNo,
+      imageUrls,
+      currentPrice,
+      author,
+      previousPrice,
+      categories,
+    }) => {
       return (
         <StyledItem key={itemNo}>
           <ProductItem
@@ -30,6 +38,7 @@ const CatalogList = () => {
             salePrice={previousPrice}
             author={author.name}
             itemNo={itemNo}
+            categories={categories}
           />
         </StyledItem>
       );

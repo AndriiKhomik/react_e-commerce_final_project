@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledBookNameText = styled('p')`
+  // width: 100%;
   min-height: 36px;
   margin-bottom: 14px;
   transition: 0.2s linear;
