@@ -166,14 +166,31 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
+  console.log(req.query.searchstring);
+  console.log(mongooseQuery);
 
   try {
-    const products = await Product.find(mongooseQuery).populate('author')
+    let query = req.query.searchstring
+      .toLowerCase()
+      .trim()
+      .replace(/\s\s+/g, " ");
+
+    const searchFind = {
+      $text: { $search: query }
+    };
+
+    const findResult = {
+      ...mongooseQuery, ...searchFind
+    }
+
+    const products = await Product.find(findResult).populate('author')
       .skip(startPage * perPage - perPage)
       .limit(perPage)
       .sort(sort);
 
     const productsQuantity = await Product.find(mongooseQuery);
+    console.log(mongooseQuery);
+    console.log('saerchString', req.query.searchstring);
 
     res.json({ products, productsQuantity: productsQuantity.length });
   } catch (err) {
@@ -184,12 +201,13 @@ exports.getProductsFilterParams = async (req, res, next) => {
 };
 
 exports.searchProducts = async (req, res, next) => {
-  if (!req.body.query) {
+  console.log(req.query.searchstring);
+  if (!req.query.searchstring) {
     res.status(400).json({ message: "Query string is empty" });
   }
 
   //Taking the entered value from client in lower-case and trimed
-  let query = req.body.query
+  let query = req.query.searchstring
     .toLowerCase()
     .trim()
     .replace(/\s\s+/g, " ");

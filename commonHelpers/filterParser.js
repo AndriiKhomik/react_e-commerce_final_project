@@ -1,4 +1,5 @@
 const excludedParams = ["perPage", "startPage", "minprice", "maxprice", "sort", "searchstring"];
+const Product = require("../models/Product");
 
 module.exports = function filterParser(filtersQueryString) {
   const mongooseQuery = {};
@@ -8,16 +9,6 @@ module.exports = function filterParser(filtersQueryString) {
       $gte: Number(filtersQueryString.minprice),
       $lte: Number(filtersQueryString.maxprice)
     };
-  }
-  if (filtersQueryString.searchstring) {
-    const filterString =
-      filtersQueryString.searchstring
-        .trim()
-        .replace(/\s\s+/g, " ");
-    mongooseQuery.searchstring = {
-      name: { $search: filterString }
-      // $text: { $search: filtersQueryString.searchstring }
-    }
   }
 
   return Object.keys(filtersQueryString).reduce(
