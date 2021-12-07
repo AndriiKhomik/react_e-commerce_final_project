@@ -14,6 +14,7 @@ const HiddenFilter = () => {
   const filtersValues = useSelector((data) => data.filter);
 
   const applyFilter = () => {
+    // query string
     console.log(makeQueryString(filtersValues));
   };
 
