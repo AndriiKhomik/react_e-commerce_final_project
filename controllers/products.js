@@ -166,21 +166,23 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
-  console.log(req.query.searchstring);
-  console.log(mongooseQuery);
+
+  let query = '';
+  let findResult = '';
 
   try {
-    let query = req.query.searchstring
-      .toLowerCase()
-      .trim()
-      .replace(/\s\s+/g, " ");
+    if (req.query.searchString) {
+      query = req.query.searchString
+        .toLowerCase()
+        .trim()
+        .replace(/\s\s+/g, " ");
 
-    const searchFind = {
-      $text: { $search: query }
-    };
-
-    const findResult = {
-      ...mongooseQuery, ...searchFind
+      findResult = {
+        ...mongooseQuery,
+        ...{ $text: { $search: query } }
+      };
+    } else {
+      findResult = { ...mongooseQuery }
     }
 
     const products = await Product.find(findResult).populate('author')
@@ -188,9 +190,9 @@ exports.getProductsFilterParams = async (req, res, next) => {
       .limit(perPage)
       .sort(sort);
 
-    const productsQuantity = await Product.find(mongooseQuery);
+    const productsQuantity = await Product.find(findResult);
     console.log(mongooseQuery);
-    console.log('saerchString', req.query.searchstring);
+    console.log('saerchString', req.query.searchString);
 
     res.json({ products, productsQuantity: productsQuantity.length });
   } catch (err) {
@@ -201,13 +203,12 @@ exports.getProductsFilterParams = async (req, res, next) => {
 };
 
 exports.searchProducts = async (req, res, next) => {
-  console.log(req.query.searchstring);
-  if (!req.query.searchstring) {
+  if (!req.query.searchString) {
     res.status(400).json({ message: "Query string is empty" });
   }
 
   //Taking the entered value from client in lower-case and trimed
-  let query = req.query.searchstring
+  let query = req.query.searchString
     .toLowerCase()
     .trim()
     .replace(/\s\s+/g, " ");

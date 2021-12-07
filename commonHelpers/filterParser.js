@@ -1,13 +1,12 @@
-const excludedParams = ["perPage", "startPage", "minprice", "maxprice", "sort", "searchstring"];
-const Product = require("../models/Product");
+const excludedParams = ["perPage", "startPage", "minPrice", "maxPrice", "sort", "searchString"];
 
 module.exports = function filterParser(filtersQueryString) {
   const mongooseQuery = {};
 
-  if (filtersQueryString.minprice || filtersQueryString.maxprice) {
+  if (filtersQueryString.minPrice || filtersQueryString.maxPrice) {
     mongooseQuery.currentPrice = {
-      $gte: Number(filtersQueryString.minprice),
-      $lte: Number(filtersQueryString.maxprice)
+      $gte: Number(filtersQueryString.minPrice),
+      $lte: Number(filtersQueryString.maxPrice)
     };
   }
 
