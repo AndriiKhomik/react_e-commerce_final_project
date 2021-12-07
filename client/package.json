@@ -38,7 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-    "test": "rDISABLE_ESLINT_PLUGIN=true eact-scripts test",
+    "test": "DISABLE_ESLINT_PLUGIN=true eact-scripts test",
     "eject": "DISABLE_ESLINT_PLUGIN=true react-scripts eject"
   },
   "eslintConfig": {
