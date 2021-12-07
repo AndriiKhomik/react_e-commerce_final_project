@@ -1,9 +1,17 @@
 import React from 'react';
-import { TableHead, Table, TableBody, useMediaQuery } from '@mui/material';
+import {
+  TableHead,
+  Table,
+  TableBody,
+  useMediaQuery,
+  TableRow,
+} from '@mui/material';
+import { useSelector } from 'react-redux';
 import {
   StyledTableCellHead,
   StyledTableContainer,
   StyledTableRow,
+  StyledTableTitle,
 } from './Styled';
 import theme from '../../../services/theme/theme';
 // import Ebook from '../../icons/ElBookIcon';
@@ -11,35 +19,8 @@ import theme from '../../../services/theme/theme';
 // import AudioBook from '../../icons/AudioBookIcon';
 import ProductItem from '../ProductItem/ProductItem';
 
-// Test data
-const rows = [
-  {
-    id: 1,
-    cover: 'img',
-    number: 'long number',
-    name: 'Harry Potter',
-    price: 15,
-    quantity: 1,
-  },
-  {
-    id: 2,
-    cover: 'img',
-    number: 'long number',
-    name: 'Harry Potter',
-    price: 15,
-    quantity: 2,
-  },
-  {
-    id: 3,
-    cover: 'img',
-    number: 'long number',
-    name: 'Harry Potter',
-    price: 15,
-    quantity: 1,
-  },
-];
-
 const Products = () => {
+  const books = useSelector((data) => data.bookList);
   // const [img, setImg] = useState(
   //   <Ebook width='24px' height='28px' fill='#000000' />,
   // );
@@ -57,10 +38,12 @@ const Products = () => {
   //     setImg(<AudioBook width='24px' height='28px' fill='#000000' />);
   //   }
   // };
+console.log(books);
+  const items = books.map((item) => (
+    <ProductItem item={item} key={item.itemNo} />
+  ));
 
-  const items = rows.map((row) => <ProductItem row={row} key={row.id} />);
-
-  return (
+   return (
     <StyledTableContainer>
       <Table
         sx={{ borderCollapse: 'separate' }}
@@ -83,7 +66,15 @@ const Products = () => {
             <StyledTableCellHead align='center'>Delete</StyledTableCellHead>
           </StyledTableRow>
         </TableHead>
-        <TableBody>{items}</TableBody>
+        <TableBody>
+          {books.length ? (
+            items
+          ) : (
+            <TableRow>
+              <StyledTableTitle>Your shopping cart is empty</StyledTableTitle>
+            </TableRow>
+          )}
+        </TableBody>
       </Table>
     </StyledTableContainer>
   );

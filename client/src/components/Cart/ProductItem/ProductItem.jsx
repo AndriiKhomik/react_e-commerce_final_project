@@ -1,18 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { useMediaQuery, TableRow } from '@mui/material';
+import {
+  allBookRemovedFromCart,
+  bookAddedToCart,
+  bookRemovedFromCart,
+} from '../../../store/cart/actions';
 import theme from '../../../services/theme/theme';
 import { StyledDiv, StyledSellTotals } from '../Products/Styled';
 import DeleteIcon from '../../icons/DeleteIcon';
 import { StyledIconWrapper, StyledTableCell } from './Styled';
 
-const ProductItem = ({ row }) => {
+const ProductItem = ({ item, onIncrease, onDecrease, onDelete }) => {
   const collapseTableColumn = useMediaQuery(theme.breakpoints.up('md'));
+  const { imageUrls, name, currentPrice, itemNo, quantity } = item;
+  console.log(imageUrls);
 
   return (
     <TableRow>
       <StyledTableCell component='th' scope='row'>
-        {row.cover} <span>{row.number}</span>
+        {imageUrls} <span>{name}</span>
       </StyledTableCell>
       {/* {collapseTableColumn && (
         <StyledTableCell align='center'>
@@ -27,18 +35,20 @@ const ProductItem = ({ row }) => {
         </StyledTableCell>
       )} */}
       {collapseTableColumn && (
-        <StyledTableCell align='center'>${row.price}</StyledTableCell>
+        <StyledTableCell align='center'>${currentPrice}</StyledTableCell>
       )}
       <StyledTableCell align='center' sx={{ padding: '4px' }}>
-        <StyledDiv>-</StyledDiv>
-        {row.quantity}
-        <StyledDiv sx={{ padding: '0 6px' }}>+</StyledDiv>
+        <StyledDiv onClick={() => onDecrease(itemNo)}>-</StyledDiv>
+        {quantity}
+        <StyledDiv sx={{ padding: '0 6px' }} onClick={() => onIncrease(itemNo)}>
+          +
+        </StyledDiv>
       </StyledTableCell>
       <StyledSellTotals align='center'>
-        ${row.price * row.quantity}
+        ${+currentPrice * +quantity}
       </StyledSellTotals>
       <StyledTableCell align='center'>
-        <StyledIconWrapper>
+        <StyledIconWrapper onClick={() => onDelete(itemNo)}>
           <DeleteIcon width='18px' height='18px' />
         </StyledIconWrapper>
       </StyledTableCell>
@@ -46,14 +56,33 @@ const ProductItem = ({ row }) => {
   );
 };
 
-ProductItem.propTypes = {
-  row: PropTypes.shape({
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    cover: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  }).isRequired,
+const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal } }) => {
+  return {
+    items: cartItems,
+    total: orderTotal,
+  };
 };
 
-export default ProductItem;
+const mapDispatchToProps = () => {
+  return {
+    onIncrease: bookAddedToCart,
+    onDecrease: bookRemovedFromCart,
+    onDelete: allBookRemovedFromCart,
+  };
+};
+
+ProductItem.propTypes = {
+  item: PropTypes.shape({
+    currentPrice: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    imageUrls: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    itemNo: PropTypes.number.isRequired,
+  }).isRequired,
+  onIncrease: PropTypes.func.isRequired,
+  onDecrease: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductItem);

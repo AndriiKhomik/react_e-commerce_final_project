@@ -23,6 +23,11 @@ const RelatedBooksList = ({ genre }) => {
 };
 
 RelatedBooksList.propTypes = {
-  genre: PropTypes.string.isRequired,
+  genre: PropTypes.string,
 };
+
+RelatedBooksList.defaultProps = {
+  genre: 'children-literature',
+};
+
 export default RelatedBooksList;

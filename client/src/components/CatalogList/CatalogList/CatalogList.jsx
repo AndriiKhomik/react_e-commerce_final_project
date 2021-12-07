@@ -9,7 +9,7 @@ import { StyledItem, StyledList } from './Styles';
 const CatalogList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-  const products = useSelector((data) => data.books);
+  const products = useSelector((data) => data.bookList);
 
   useEffect(() => {
     getProducts()

@@ -1,17 +1,17 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { booksReducer } from './bookList/reducer';
-import { updateShoppingCartReducer } from './cart/reducer';
 import { favoritesReducer } from './favorites/reducer';
+import { shoppingCartReducer } from './cart/reducer';
 import {
   REMOVE_FROM_FAVORITES,
   SET_BOOK_TO_FAVORITES,
 } from './favorites/types';
 
 const rootReducer = combineReducers({
-  books: booksReducer,
+  bookList: booksReducer,
   favorites: favoritesReducer,
-  shoppingCart: updateShoppingCartReducer,
+  shoppingCart: shoppingCartReducer,
 });
 
 const favoritesMiddleware = () => (next) => (action) => {

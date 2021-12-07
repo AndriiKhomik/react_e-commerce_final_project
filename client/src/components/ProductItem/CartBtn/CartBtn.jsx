@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CartIcon from '../../icons/CartIcon';
 import { StyledCartButton } from './Styles';
-// import { updateOrder } from '../../../store/cart/actions';
+import { bookAddedToCart } from '../../../store/cart/actions';
 
 const CartBtn = ({ itemNo }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const onCartClick = () => {
-    // dispatch(updateOrder(itemNo));
-    /* eslint-disable no-debugger, no-console */
-    console.log(itemNo);
+  const onAddedToCart = () => {
+    dispatch(bookAddedToCart(itemNo));
   };
+
   return (
-    <StyledCartButton onClick={onCartClick}>
+    <StyledCartButton onClick={onAddedToCart}>
       <CartIcon width='16px' height='17px' fill='#ffffff' />
     </StyledCartButton>
   );

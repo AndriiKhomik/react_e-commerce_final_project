@@ -58,3 +58,9 @@ export const StyledSelect = styled(Select)`
     bottom: 2px;
   }
 `;
+
+export const StyledTableTitle = styled(TableCell)`
+  // width: 100%;
+  text-align: center;
+  border: none;
+`;
