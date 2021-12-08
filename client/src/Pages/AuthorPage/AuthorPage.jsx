@@ -26,8 +26,6 @@ const AuthorPage = ({ match }) => {
 
   const { books, name, authorUrl, biography, dateOfBirth } = auth;
 
-  console.log(books);
-
   return isLoading ? (
     <Loader />
   ) : (
