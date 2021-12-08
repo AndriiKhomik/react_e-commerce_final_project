@@ -5,6 +5,11 @@ import FormDescription from './FormDescription';
 import { StyledBox, StyledTextField, StyledButton } from './Styles';
 
 const SubscribeForm = () => {
+  const onClick = (event) => {
+    event.preventDefault();
+    console.log('click');
+  };
+
   return (
     <StyledBox>
       <FormTitle title='Would you like to join newsletters?' />
@@ -24,6 +29,7 @@ const SubscribeForm = () => {
             fontFamily: 'CeraPro Bold',
           }}
           size='small'
+          onClick={onClick}
         >
           Join
         </StyledButton>

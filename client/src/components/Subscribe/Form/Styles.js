@@ -9,13 +9,16 @@ export const StyledTextField = styled(TextField)(() => ({
     border: 'none',
   },
   [theme.breakpoints.up('xs')]: {
-    width: '73%',
+    width: '60%',
   },
   [theme.breakpoints.up('sm')]: {
-    width: '84%',
+    width: '50%',
   },
   [theme.breakpoints.up('dm')]: {
-    width: '89%',
+    width: '65%',
+  },
+  [theme.breakpoints.up('bm')]: {
+    width: '77%',
   },
   [theme.breakpoints.up('md')]: {
     width: '75%',
@@ -24,6 +27,18 @@ export const StyledTextField = styled(TextField)(() => ({
     width: '83%',
   },
 }));
+
+// xs: 0,
+// sr: 380,
+// ds: 477,
+// sm: 600,
+// dm: 715,
+// bm: 790,
+// md: 900,
+// dl: 1100,
+// lg: 1200,
+// xl: 1536,
+// },
 
 export const StyledButton = styled(Button)(() => ({
   [theme.breakpoints.up('xs')]: {
@@ -49,14 +64,28 @@ export const StyledTitle = styled('h3')(() => ({
     color: '#3d3d3d',
     paddingBottom: '18px',
     paddingTop: '18px',
-    fontSize: '18px',
-    lineHeight: '24px',
+    fontSize: '16px',
+    lineHeight: '18px',
     fontFamily: 'CeraPro Bold',
   },
   [theme.breakpoints.up('md')]: {
-    paddingTop: '0',
+    fontSize: '18px',
+    lineHeight: '24px',
+    // paddingTop: '0',
   },
 }));
+
+// xs: 0,
+// sr: 380,
+// ds: 477,
+// sm: 600,
+// dm: 715,
+// bm: 790,
+// md: 900,
+// dl: 1100,
+// lg: 1200,
+// xl: 1536,
+// },
 
 export const StyledText = styled('span')(() => ({
   color: '#727272',
