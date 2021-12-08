@@ -9,7 +9,7 @@ export const StyledLogoText = styled('span')`
 
 export const StyledBox = styled(Box)`
   display: flex;
-  margin-right: 20px;
+  margin-right: 95px;
 `;
 
 export const StyledLink = styled('a')`

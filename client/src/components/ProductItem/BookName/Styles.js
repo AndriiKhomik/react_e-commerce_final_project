@@ -1,10 +1,12 @@
 import { styled } from '@mui/material/styles';
+import theme from '../../../services/theme/theme';
 
 export const StyledBookNameText = styled('p')`
+  // width: 100%;
   min-height: 36px;
   margin-bottom: 14px;
   transition: 0.2s linear;
-  color: #000000;
+  color: ${[theme.palette.text.dark]};
   text-decoration: none;
   font-size: 16px;
   font-weight: 700;
@@ -14,7 +16,7 @@ export const StyledBookNameText = styled('p')`
   -webkit-box-orient: vertical;
   overflow: hidden;
   &:hover {
-    color: #ffac0c;
+    color: ${[theme.palette.primary.main]};
     text-decoration: underline;
   }
 `;

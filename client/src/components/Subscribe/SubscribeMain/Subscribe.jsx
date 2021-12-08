@@ -8,10 +8,10 @@ import { StyledBox } from './Styles';
 const Subscribe = () => {
   return (
     <ThemeProvider theme={theme}>
-        <StyledBox>
-          <InfoItemsList />
-          <SubscribeForm />
-        </StyledBox>
+      <StyledBox>
+        <InfoItemsList />
+        <SubscribeForm />
+      </StyledBox>
     </ThemeProvider>
   );
 };

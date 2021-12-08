@@ -54,6 +54,7 @@ module.exports = productsData = [
     genre: "children-literature",
     numberOfPages: 144,
     coverType: "hard",
+    isRecommended: true,
   },
   {
     name: "An Owl Called Star",
@@ -107,6 +108,7 @@ module.exports = productsData = [
     genre: "children-literature",
     numberOfPages: 144,
     coverType: "hard",
+    isRecommended: true,
   },
   {
     name: "A Lamb Called Lucky",
@@ -158,6 +160,7 @@ module.exports = productsData = [
     genre: "children-literature",
     numberOfPages: 288,
     coverType: "soft",
+    isRecommended: true,
   },
   {
     name: "Fledgling",
@@ -272,9 +275,10 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2020"),
     genre: "fiction",
     numberOfPages: 308,
+    isRecommended: true,
   },
   {
-    name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    name: "How to Make the World Add Up",
     _id: "619e65cc03b90d2ed4ab123d",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
@@ -291,7 +295,7 @@ module.exports = productsData = [
     coverType: "hard",
   },
   {
-    name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    name: "How to Make the World Add Up",
     _id: "619e65cc03b90d2ed4ab123e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
@@ -307,7 +311,7 @@ module.exports = productsData = [
     numberOfPages: 304
   },
   {
-    name: "How to Make the World Add Up: Ten Rules for Thinking Differently About Numbers",
+    name: "How to Make the World Add Up",
     _id: "619e65cc03b90d2ed4ab123f",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637436733/books/9780349143866_llwrby.jpg"],
@@ -372,7 +376,7 @@ module.exports = productsData = [
     coverType: "hard",
   },
   {
-    name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics",
+    name: "The Data Detective",
     _id: "619e65cc03b90d2ed4ab1243",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438819/books/41GD6oSy8PL_wbrrfa.jpg"],
@@ -389,7 +393,7 @@ module.exports = productsData = [
     coverType: "soft",
   },
   {
-    name: "The Data Detective: Ten Easy Rules to Make Sense of Statistics",
+    name: "The Data Detective",
     _id: "619e65cc03b90d2ed4ab1244",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637438819/books/41GD6oSy8PL_wbrrfa.jpg"],
@@ -452,7 +456,8 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2014"),
     genre: "adventures",
     numberOfPages: 640,
-    coverType: "soft"
+    coverType: "soft",
+    isRecommended: true,
   },
   {
     name: "The Christmas Pig",
@@ -486,9 +491,10 @@ module.exports = productsData = [
     yearOfPublishing: new Date("2021"),
     genre: "adventures",
     duration: 384,
+    isRecommended: true,
   },
   {
-    name: "Murder Most Unladylike - A Murder Most Unladylike Mystery",
+    name: "Murder Most Unladylike",
     _id: "619e65cc03b90d2ed4ab124a",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509442/books/9780141369761_lcbbiz.jpg"],
@@ -522,7 +528,7 @@ module.exports = productsData = [
     coverType: "soft"
   },
   {
-    name: "Murder Most Unladylike - A Murder Most Unladylike Mystery",
+    name: "Murder Most Unladylike",
     _id: "619e65cc03b90d2ed4ab124c",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509442/books/9780141369761_lcbbiz.jpg"],
@@ -556,7 +562,7 @@ module.exports = productsData = [
   },
   {
     name: "Surrounded by Idiots",
-   _id: "619e65cc03b90d2ed4ab124e",
+    _id: "619e65cc03b90d2ed4ab124e",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637519150/books/41rWzmdpuiL_lxo0h1.jpg"],
     quantity: 300,
@@ -629,8 +635,8 @@ module.exports = productsData = [
     quantity: 100,
     author: "619a8c932b77b7d09028ea9a",
     categories: "paper-books",
-    currentPrice: 20,
-    previousPrice: 15,
+    currentPrice: 15,
+    previousPrice: 30,
     publisher: "martin-essentials",
     shortDescription: "#1 internationally bestselling author Thomas Erikson shows readers how to identify and avoid the psychopaths around them.",
     fullDescription: "<p>Charming, charismatic, and delightful or manipulative, self-serving, and cunning? Psychopaths are both and that’s exactly what makes them dangerous. Bestselling author of the international phenomenon Surrounded by Idiots, Thomas Erikson reveals how to identify the psychopaths in your life and combat their efforts to control and manipulate.</p><p>Using the same simple four-color system of behavior classification that made Surrounded by Idiots so popular, Surrounded by Psychopaths teaches readers how to deal with psychopaths in their lives by becoming aware of their own behavior and their weaknesses. Vivid example stories illustrate ways that psychopaths can take advantage of various behavior types, helping readers identify their own weaknesses and be proactive about protecting themselves.</p><p>Erikson outlines some of the most common forms of manipulation used by psychopaths—and others—to influence those around them. Since manipulation can often be a feature of ordinary, non-psychopathic relationships, the book also includes practical methods and techniques to help readers confront controlling people and rehabilitate negative relationships into mutually respectful ones.</p><p>By understanding your behavior as well as the tendencies and strategies of psychopaths, Surrounded by Psychopaths will teach you to protect yourself from manipulative influence in your workplace, social life, and family.</p>",
@@ -705,7 +711,7 @@ module.exports = productsData = [
     coverType: "hard"
   },
   {
-    name: "Bring Me The Head Of The Taskmaster: 101 next-level tasks",
+    name: "Bring Me The Head Of The Taskmaster",
     _id: "619e65cc03b90d2ed4ab1257",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521759/books/51Y4RMxbzOL._SX357_BO1_204_203_200__rtsdly.jpg"],
@@ -722,7 +728,7 @@ module.exports = productsData = [
     coverType: "hard"
   },
   {
-    name: "Bring Me The Head Of The Taskmaster: 101 next-level tasks",
+    name: "Bring Me The Head Of The Taskmaster",
     _id: "619e65cc03b90d2ed4ab1258",
     itemNo: rand(),
     imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521759/books/51Y4RMxbzOL._SX357_BO1_204_203_200__rtsdly.jpg"],
@@ -869,5 +875,6 @@ module.exports = productsData = [
     numberOfPages: 448,
     genre: "fiction",
     coverType: "soft",
+    isRecommended: true,
   },
 ];

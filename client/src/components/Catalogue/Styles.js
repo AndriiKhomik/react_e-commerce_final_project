@@ -13,7 +13,7 @@ export const StyledFilterContainer = styled(Drawer)(() => ({
         borderRadius: '4px',
         boxSizing: 'border-box',
         padding: '0 19px 20px',
-        backgroundColor: [theme.palette.background.filter],
+        backgroundColor: [theme.palette.background.grayBc],
         [theme.breakpoints.up('md')]: {
             width: '320px',
         },
