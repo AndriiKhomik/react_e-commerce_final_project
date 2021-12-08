@@ -14,7 +14,10 @@ const ItemImg = ({ img, name }) => {
 
 ItemImg.propTypes = {
   name: PropTypes.string.isRequired,
-  img: PropTypes.arrayOf(PropTypes.string),
+  img: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
 };
 
 ItemImg.defaultProps = {
