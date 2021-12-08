@@ -11,6 +11,7 @@ const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector((data) => data.books);
+  const selectedGenre = useSelector((data) => data.filter.selectedGenre);
 
   useEffect(() => {
     filterProducts(query)
@@ -19,6 +20,14 @@ const CatalogList = ({ query }) => {
       })
       .finally(() => setIsLoading(false));
   }, [query]);
+
+  useEffect(() => {
+    filterProducts(`genre=${selectedGenre}`)
+      .then((data) => {
+        dispatch(setBooks(data.products));
+      })
+      .finally(() => setIsLoading(false));
+  }, [selectedGenre]);
 
   const productsElements = products.map(
     ({

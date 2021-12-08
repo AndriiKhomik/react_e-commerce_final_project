@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { setSelectedGenre } from '../../../store/filter/actions';
 import { StyledTitleWrapper, StyledTitle, StyledGenre } from './Styles';
 
 const ItemTitle = ({ name, genre }) => {
+  const dispatch = useDispatch();
+
   const clickHandler = () => {
+    dispatch(setSelectedGenre(genre));
     // change relevant checkbox of genre in redux
-    console.log(genre);
   };
 
   return (
