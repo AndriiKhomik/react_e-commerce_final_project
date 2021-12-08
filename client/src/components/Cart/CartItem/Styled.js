@@ -11,6 +11,16 @@ export const StyledTableCell = styled(TableCell)(() => ({
   },
 }));
 
+export const StyledTableImgCell = styled(TableCell)(() => ({
+  backgroundColor: '#fbfbfb',
+  borderBottom: `4px solid ${theme.palette.text.light}`,
+  borderTop: `4px solid ${theme.palette.text.light}`,
+  display: 'flex',
+  '& span': {
+    fontWeight: 700,
+  },
+}));
+
 // export const StyledSelect = styled(Select)`
 //   height: 28px;
 //   font-size: 14px;
@@ -51,3 +61,15 @@ export const StyledSellTotals = styled(TableCell)(() => ({
   fontWeight: 'bold',
   color: `${theme.palette.primary.main}`,
 }));
+
+export const StyledImg = styled('img')`
+  width: 42px;
+  height: auto;
+`;
+
+export const StyledBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  justify-content: center;
+`;

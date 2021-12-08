@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import BookImg from '../BookImg/BookImg';
 import BookName from '../BookName';
 import BookAuthor from '../BookAuthor';
@@ -8,6 +9,7 @@ import BookPrice from '../BookPrice';
 import CartBtn from '../CartBtn';
 import { StyledLink, StyledCardGrid } from './Styles';
 import defaultimg from '../../../img/missing_image.jpg';
+import { bookAddedToCart } from '../../../store/cart/actions';
 
 const ProductItem = ({
   name,
@@ -18,6 +20,22 @@ const ProductItem = ({
   itemNo,
   categories,
 }) => {
+  const dispatch = useDispatch();
+
+  const onAddedToCart = () => {
+    dispatch(
+      bookAddedToCart({
+        name,
+        url,
+        price,
+        author,
+        salePrice,
+        itemNo,
+        categories,
+      }),
+    );
+  };
+
   return (
     <>
       <StyledLink
@@ -37,7 +55,7 @@ const ProductItem = ({
       <StyledCardGrid>
         <BookAuthor author={author} />
         <BookPrice price={price} salePrice={salePrice} />
-        <CartBtn itemNo={itemNo} />
+        <CartBtn onAddedToCart={onAddedToCart} />
       </StyledCardGrid>
     </>
   );

@@ -17,10 +17,10 @@ import theme from '../../../services/theme/theme';
 // import Ebook from '../../icons/ElBookIcon';
 // import CartonBook from '../../icons/PaperBookIcon';
 // import AudioBook from '../../icons/AudioBookIcon';
-import ProductItem from '../ProductItem/ProductItem';
+import CartItem from '../CartItem/CartItem';
 
-const Products = () => {
-  const books = useSelector((data) => data.bookList);
+const CartProducts = () => {
+  const orders = useSelector((data) => data.shoppingCart);
   // const [img, setImg] = useState(
   //   <Ebook width='24px' height='28px' fill='#000000' />,
   // );
@@ -38,12 +38,12 @@ const Products = () => {
   //     setImg(<AudioBook width='24px' height='28px' fill='#000000' />);
   //   }
   // };
-console.log(books);
-  const items = books.map((item) => (
-    <ProductItem item={item} key={item.itemNo} />
+
+  const items = orders.map((cartItem) => (
+    <CartItem cartItem={cartItem} key={cartItem.itemNo} />
   ));
 
-   return (
+  return (
     <StyledTableContainer>
       <Table
         sx={{ borderCollapse: 'separate' }}
@@ -67,7 +67,7 @@ console.log(books);
           </StyledTableRow>
         </TableHead>
         <TableBody>
-          {books.length ? (
+          {orders.length ? (
             items
           ) : (
             <TableRow>
@@ -80,4 +80,4 @@ console.log(books);
   );
 };
 
-export default Products;
+export default CartProducts;
