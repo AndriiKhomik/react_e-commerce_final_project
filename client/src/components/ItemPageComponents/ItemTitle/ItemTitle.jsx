@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 import { StyledTitleWrapper, StyledTitle, StyledGenre } from './Styles';
 
 const ItemTitle = ({ name, genre }) => {
+  const clickHandler = () => {
+    // change relevant checkbox of genre in redux
+    console.log(genre);
+  };
+
   return (
     <StyledTitleWrapper>
       <StyledTitle>{name}</StyledTitle>
-      <StyledGenre href='#!'>{genre}</StyledGenre>
+      <StyledGenre onClick={clickHandler} to='/products'>
+        {genre}
+      </StyledGenre>
     </StyledTitleWrapper>
   );
 };

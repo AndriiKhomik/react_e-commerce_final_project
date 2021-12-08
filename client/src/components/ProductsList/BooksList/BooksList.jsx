@@ -46,6 +46,8 @@ const BooksList = ({ items, text }) => {
                   price={currentPrice}
                   salePrice={previousPrice}
                   author={author.name}
+                  // eslint-disable-next-line no-underscore-dangle
+                  authorId={author._id}
                   itemNo={itemNo}
                   categories={categories}
                 />

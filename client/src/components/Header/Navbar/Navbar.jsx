@@ -50,7 +50,7 @@ const Navbar = () => {
                 </StyledLink>
               </Typography>
               <Typography aria-controls='basic-menu' area-haspopup='true'>
-                <StyledLink as={NavLink} exact to='/catalogue'>
+                <StyledLink as={NavLink} exact to='/products'>
                   Catalogue
                 </StyledLink>
               </Typography>

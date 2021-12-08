@@ -17,6 +17,7 @@ const ProductItem = ({
   salePrice,
   itemNo,
   categories,
+  authorId,
 }) => {
   return (
     <>
@@ -35,7 +36,7 @@ const ProductItem = ({
       </StyledLink>
       <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
-        <BookAuthor author={author} />
+        <BookAuthor author={author} authorId={authorId} />
         <BookPrice price={price} salePrice={salePrice} />
         <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
@@ -47,6 +48,7 @@ ProductItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   author: PropTypes.string.isRequired,
+  authorId: PropTypes.string.isRequired,
   url: PropTypes.string,
   salePrice: PropTypes.number,
   itemNo: PropTypes.string.isRequired,
