@@ -175,8 +175,8 @@ exports.getProductsFilterParams = async (req, res, next) => {
       query = req.query.searchString
         .toLowerCase()
         .trim()
-        .replace(/\s\s+/g, " ");
-
+        .replace("+", " ");
+      console.log(query);
       findResult = {
         ...mongooseQuery,
         ...{ $text: { $search: query } }

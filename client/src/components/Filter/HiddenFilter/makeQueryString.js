@@ -28,7 +28,7 @@ const formCheckboxQuery = (key, value) => {
   return value !== '' ? `${key.toLowerCase()}=${value.slice(0, -1)}&` : value;
 };
 const formPriceQuery = (key, obj) => {
-  const priceStr = `${key.toLowerCase()}=${obj[key]}`;
+  const priceStr = `${key}=${obj[key]}`;
   return priceStr;
 };
 
