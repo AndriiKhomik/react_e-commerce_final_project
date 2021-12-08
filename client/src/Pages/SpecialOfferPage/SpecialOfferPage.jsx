@@ -1,13 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescription/AuthorDescription';
-// import AuthorImg from '../../components/AuthorPageComponents/AuthorImg/AuthorImg';
-// import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
+import AuthorImg from '../../components/AuthorPageComponents/AuthorImg/AuthorImg';
+import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
 // import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
 // import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
+import { offer } from './hardcode';
 // import Loader from '../../components/ItemPageComponents/Loader/Loader';
 // import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
 // import BooksList from '../../components/ProductsList/BooksList';
@@ -30,14 +31,17 @@ import { StyledContainer, StyledDescription } from './Styles';
 //   <Loader />
 // ) : (
 const SpecialOfferPage = () => {
+  const { description, title, imgUrl, endTime } = offer;
+  console.log(description);
+  console.log(endTime);
   return (
     <>
-      <SectionTitles titles={pageTitles} />
+      <SectionTitles titles={pageTitles} itemTitle={title} />
       <StyledContainer>
-        {/* <AuthorImg img={authorUrl} name={name} /> */}
+        <AuthorImg img={imgUrl} name={title} />
         <StyledDescription>
-          {/* <AuthorTitle name={name} />
-          <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
+          <AuthorTitle name={title} />
+          {/* <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
           <AuthorDescription biography={biography} /> */}
         </StyledDescription>
       </StyledContainer>
