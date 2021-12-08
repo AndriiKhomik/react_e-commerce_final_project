@@ -20,6 +20,7 @@ export const StyledCardMedia = styled('img')(() => ({
     display: 'block',
     objectFit: 'cover',
     borderRadius: '5px',
+    maxWidth: '350px',
   },
   [theme.breakpoints.up('md')]: {
     height: '500px',
