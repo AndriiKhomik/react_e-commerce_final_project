@@ -7,16 +7,16 @@ import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles'
 import { StyledFormWrapper } from '../Styles';
 // import FormButton from '../../OrderItems/OrderForm/FormButton';
 import { loginUser } from '../../../api/user';
-import { StyledButton } from '../../OrderItems/CheckoutEditBtn/Styles';
+import FormButton from '../../OrderItems/OrderForm/FormButton';
 
 const LoginForm = () => {
-  const submitLogin = (event) => {
-    loginUser(event);
+  const submitLogin = (e) => {
+    loginUser(e);
     console.log('====================================');
-    console.log(loginUser(event));
+    console.log(loginUser(e));
     console.log('====================================');
     console.log('====================================');
-    console.log(event);
+    console.log(e);
     console.log('====================================');
   };
   return (
@@ -43,9 +43,7 @@ const LoginForm = () => {
               <StyledErrorMessage component='div' name={name} />
             </Grid>
           ))}
-          <StyledButton type='submit' variant='contained' title='Login'>
-            Login
-          </StyledButton>
+          <FormButton text='Login' />
         </StyledFormWrapper>
       </Form>
     </Formik>

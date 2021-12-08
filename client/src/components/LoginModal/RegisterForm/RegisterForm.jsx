@@ -9,7 +9,6 @@ import FormButton from '../../OrderItems/OrderForm/FormButton';
 // import { registerUser } from '../../../api/user';
 
 const RegisterForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const submitRegister = (e) => {
     delete e.confirmPassword;
     const user = { ...e };
@@ -50,11 +49,7 @@ const RegisterForm = () => {
               <StyledErrorMessage component='div' name={name} />
             </Grid>
           ))}
-          <FormButton
-            text='Register'
-            submitForm={submitRegister}
-            isSubmitting={isSubmitting}
-          />
+          <FormButton text='Register' />
         </StyledFormWrapper>
       </Form>
     </Formik>
