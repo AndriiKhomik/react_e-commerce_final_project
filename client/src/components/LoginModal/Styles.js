@@ -32,6 +32,9 @@ export const StyledBox = styled(Box)(() => ({
     backgroundColor: `${theme.palette.text.light}`,
     borderBottom: `10px solid ${theme.palette.primary.dark}`,
     position: 'relative',
+    padding: '30px 50px',
+    display: 'flex',
+    flexDirection: 'column',
   },
   [theme.breakpoints.up('sm')]: {},
   [theme.breakpoints.up('dm')]: {},
@@ -39,4 +42,23 @@ export const StyledBox = styled(Box)(() => ({
 
 export const StyledCloseBtnDiv = styled('div')`
   position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+`;
+export const StyledLoginTitleWrapper = styled('div')`
+  display: flex;
+  margin: 0 auto;
+`;
+
+export const StyledTitleDelimiter = styled('div')`
+  width: 1px;
+  height: 15px;
+  background-color: ${theme.palette.text.main};
+`;
+
+export const StyledFormWrapper = styled('div')`
+  margin-top: 30px;
+  display: grid;
+  row-gap: 30px;
 `;
