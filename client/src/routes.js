@@ -11,6 +11,7 @@ import ItemPage from './Pages/ItemPage/ItemPage';
 import CheckoutPage from './Pages/CheckoutPage';
 import Authors from './Pages/Authors';
 import AuthorPage from './Pages/AuthorPage/AuthorPage';
+import SpecialOfferPage from './Pages/SpecialOfferPage';
 
 export const useRoutes = () => {
   return (
@@ -24,6 +25,7 @@ export const useRoutes = () => {
       <Route exact path='/registration' component={RegistrationPage} />
       <Route path='/products/:itemNo' component={ItemPage} />
       <Route path='/authors/:_id' component={AuthorPage} />
+      <Route exact path='/offers' component={SpecialOfferPage} />
       <Route exact path='/checkout' component={CheckoutPage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>
