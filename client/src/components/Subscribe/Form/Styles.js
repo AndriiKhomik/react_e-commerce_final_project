@@ -20,11 +20,6 @@ export const StyledTextField = styled(TextField)(() => ({
     fill: [theme.palette.text.gray],
   },
 
-  // '& fieldset': {
-  //   borderBottomRightRadius: '0',
-  //   borderTopRightRadius: '0',
-  //   border: 'none',
-  // },
   [theme.breakpoints.up('xs')]: {
     width: '60%',
   },
@@ -44,18 +39,6 @@ export const StyledTextField = styled(TextField)(() => ({
     width: '83%',
   },
 }));
-
-// xs: 0,
-// sr: 380,
-// ds: 477,
-// sm: 600,
-// dm: 715,
-// bm: 790,
-// md: 900,
-// dl: 1100,
-// lg: 1200,
-// xl: 1536,
-// },
 
 export const StyledButton = styled(Button)(() => ({
   [theme.breakpoints.up('xs')]: {
@@ -88,21 +71,8 @@ export const StyledTitle = styled('h3')(() => ({
   [theme.breakpoints.up('md')]: {
     fontSize: '18px',
     lineHeight: '24px',
-    // paddingTop: '0',
   },
 }));
-
-// xs: 0,
-// sr: 380,
-// ds: 477,
-// sm: 600,
-// dm: 715,
-// bm: 790,
-// md: 900,
-// dl: 1100,
-// lg: 1200,
-// xl: 1536,
-// },
 
 export const StyledText = styled('span')(() => ({
   color: '#727272',
