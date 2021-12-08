@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescription/AuthorDescription';
-import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
+import AuthorImg from '../../components/AuthorPageComponents/AuthorImg/AuthorImg';
 import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
 import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
 import { getAuthor } from '../../api/authors';
@@ -32,7 +32,7 @@ const AuthorPage = ({ match }) => {
     <>
       <SectionTitles titles={pageTitles} itemTitle={name} />
       <StyledContainer>
-        <ItemImg img={authorUrl} name={name} />
+        <AuthorImg img={authorUrl} name={name} />
         <StyledDescription>
           <AuthorTitle name={name} />
           <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
