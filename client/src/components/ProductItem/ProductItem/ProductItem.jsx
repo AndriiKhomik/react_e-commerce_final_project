@@ -36,7 +36,7 @@ const ProductItem = ({ name, url, price, author, salePrice, itemNo }) => {
 ProductItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   url: PropTypes.string,
   salePrice: PropTypes.number,
   itemNo: PropTypes.string.isRequired,
@@ -45,6 +45,7 @@ ProductItem.propTypes = {
 ProductItem.defaultProps = {
   url: defaultimg,
   salePrice: null,
+  author: '',
 };
 
 export default ProductItem;

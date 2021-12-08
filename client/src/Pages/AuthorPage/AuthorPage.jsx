@@ -13,18 +13,20 @@ import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
 import BooksList from '../../components/ProductsList/BooksList';
 
 const AuthorPage = ({ match }) => {
-  const [author, setAuthor] = useState({});
+  const [auth, setAuth] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getAuthor(match.url)
       .then((data) => {
-        setAuthor(data);
+        setAuth(data);
       })
       .finally(() => setIsLoading(false));
   }, []);
 
-  const { books, name, authorUrl, biography, dateOfBirth } = author;
+  const { books, name, authorUrl, biography, dateOfBirth } = auth;
+
+  console.log(books);
 
   return isLoading ? (
     <Loader />
