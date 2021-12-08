@@ -1,5 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { clearFilter } from '../../../store/filter/actions';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
 import FilterSubtitle from '../FilterSubtitle';
@@ -10,12 +12,15 @@ import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
 
-const HiddenFilter = () => {
+const HiddenFilter = ({ onClick }) => {
   const filtersValues = useSelector((data) => data.filter);
+  const dispatch = useDispatch();
 
   const applyFilter = () => {
     // query string
+    onClick();
     console.log(makeQueryString(filtersValues));
+    dispatch(clearFilter());
   };
 
   return (
@@ -32,5 +37,9 @@ const HiddenFilter = () => {
       <FilterBtn text='Filter' onClick={applyFilter} />
     </>
   );
+};
+
+HiddenFilter.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 export default HiddenFilter;

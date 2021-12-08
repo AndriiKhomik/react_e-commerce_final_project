@@ -4,6 +4,7 @@ import {
   SET_MIN_PRICE,
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
+  // CLEAR_FILTER,
 } from './types';
 
 const initialState = {
@@ -49,6 +50,8 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SEARCH_STRING:
       return { ...state, searchString: action.payload };
+    // case CLEAR_FILTER:
+    //   return ;
 
     default:
       return state;

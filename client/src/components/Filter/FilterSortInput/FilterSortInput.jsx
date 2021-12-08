@@ -20,8 +20,6 @@ const FilterSortInput = () => {
         >
           <MenuItem value='lower-price'>to higher price</MenuItem>
           <MenuItem value='higher-price'>to lower price</MenuItem>
-          <MenuItem value='format'>by format</MenuItem>
-          <MenuItem value='genres'>by genres</MenuItem>
         </Select>
       </StyledFormControl>
     </>

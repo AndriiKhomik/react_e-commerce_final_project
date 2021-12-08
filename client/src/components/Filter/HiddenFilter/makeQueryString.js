@@ -8,8 +8,12 @@ const getValues = (obj) => {
     if (typeof obj[key] === 'object' && obj[key] !== null) {
       for (const el of obj[key]) {
         if (el.isChecked) {
+          const modifiedKey = key === 'formats' ? 'categories' : 'genre';
           values.push({
-            [key]: el.name.trim().toLowerCase().replace(' ', '-'),
+            [modifiedKey || key]: el.name
+              .trim()
+              .toLowerCase()
+              .replace(' ', '-'),
           });
         }
       }
@@ -20,38 +24,53 @@ const getValues = (obj) => {
   return values;
 };
 
+const formCheckboxQuery = (key, value) => {
+  return value !== '' ? `${key.toLowerCase()}=${value.slice(0, -1)}&` : value;
+};
+const formPriceQuery = (key, obj) => {
+  const priceStr = `${key.toLowerCase()}=${obj[key]}`;
+  return priceStr;
+};
+
+const formSearchQuery = (key, value) => {
+  return value !== ''
+    ? `&${key.toLowerCase()}=${value.trim().split(' ').join('+')}`
+    : value;
+};
+
 const formString = (arr) => {
   let fStr = '';
   let gStr = '';
+  let genreStr = '';
+  let formatStr = '';
   let maxPriceStr = '';
   let minPriceStr = '';
   let searchStr = '';
   let queryStr = '';
   arr.forEach((element) => {
     for (const key in element) {
-      if (key === 'formats') {
+      if (key === 'categories') {
         fStr += `${element[key]},`;
+        formatStr = formCheckboxQuery(key, fStr);
       }
-      if (key === 'genres') {
+      if (key === 'genre') {
         gStr += `${element[key]},`;
+        genreStr = formCheckboxQuery(key, gStr);
       }
       if (key === 'maxPrice') {
-        maxPriceStr = `&maxprice=${element[key]}`;
+        maxPriceStr = formPriceQuery(key, element);
       }
       if (key === 'minPrice') {
-        minPriceStr = `&minprice=${element[key]}`;
+        minPriceStr = formPriceQuery(key, element);
       }
+
       if (key === 'searchString') {
-        element[key] !== ''
-          ? (searchStr = `&${key.toLowerCase()}=${element[key]}`)
-          : '';
+        searchStr = formSearchQuery(key, element[key]);
       }
     }
-    const genreStr = `genre=${gStr.slice(0, -1)}&`;
-    const formatStr = `categories=${fStr.slice(0, -1)}`;
-    queryStr = genreStr + formatStr + maxPriceStr + minPriceStr + searchStr;
+    queryStr = `${genreStr}${formatStr}${maxPriceStr}&${minPriceStr}${searchStr}`;
   });
-  return queryStr;
+  return queryStr.trim();
 };
 
 export const makeQueryString = (data) => {

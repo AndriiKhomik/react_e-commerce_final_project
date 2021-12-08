@@ -25,7 +25,7 @@ const Catalogue = () => {
       <CatalogList />
       <StyledFilterContainer variant='persistent' anchor='left' open={open}>
         <CloseFilterBtn onClick={handleFilterClose} />
-        <HiddenFilter />
+        <HiddenFilter onClick={handleFilterClose}/>
       </StyledFilterContainer>
     </>
   );
