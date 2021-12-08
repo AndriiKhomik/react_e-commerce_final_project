@@ -16,7 +16,7 @@ const SubscribeForm = () => {
       <form>
         <StyledTextField
           id='filled-basic'
-          label='enter your email address...'
+          placeholder='Enter to search'
           variant='outlined'
           style={{ backgroundColor: '#fff' }}
           size='small'
