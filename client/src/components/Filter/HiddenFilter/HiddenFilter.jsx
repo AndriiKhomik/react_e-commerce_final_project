@@ -18,8 +18,7 @@ const HiddenFilter = ({ onClick }) => {
 
   const applyFilter = () => {
     // query string
-    onClick();
-    console.log(makeQueryString(filtersValues));
+    onClick(makeQueryString(filtersValues));
     dispatch(clearFilter());
   };
 

@@ -33,9 +33,7 @@ const formPriceQuery = (key, obj) => {
 };
 
 const formSearchQuery = (key, value) => {
-  return value !== ''
-    ? `&${key.toLowerCase()}=${value.trim().split(' ').join('+')}`
-    : value;
+  return value !== '' ? `&${key}=${value.trim().split(' ').join('+')}` : value;
 };
 
 const formString = (arr) => {

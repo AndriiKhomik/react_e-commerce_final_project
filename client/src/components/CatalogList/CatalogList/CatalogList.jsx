@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../../api/products';
+import PropTypes from 'prop-types';
+import { filterProducts } from '../../../api/products';
 import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
 import { StyledItem, StyledList } from './Styles';
 
-const CatalogList = () => {
+const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector((data) => data.books);
 
   useEffect(() => {
-    getProducts()
+    filterProducts(query)
       .then((data) => {
-        dispatch(setBooks(data));
+        dispatch(setBooks(data.products));
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [query]);
 
   const productsElements = products.map(
     ({
@@ -52,6 +53,14 @@ const CatalogList = () => {
   ) : (
     <StyledList>{productsElements}</StyledList>
   );
+};
+
+CatalogList.propTypes = {
+  query: PropTypes.string,
+};
+
+CatalogList.defaultProps = {
+  query: '',
 };
 
 export default CatalogList;

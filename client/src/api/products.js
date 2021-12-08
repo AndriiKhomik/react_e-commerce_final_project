@@ -30,7 +30,7 @@ export const getProductsByQuery = async (
   return response.json();
 };
 
-export const filterProducts = async (queryString) => {
+export const filterProducts = async (queryString = '') => {
   const response = await fetch(`${host}/api/products/filter?${queryString}`);
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);

@@ -187,7 +187,9 @@ exports.getProductsFilterParams = async (req, res, next) => {
 
     const products = await Product.find(findResult).populate('author')
       .skip(startPage * perPage - perPage)
-      .limit(perPage)
+      // .limit(perPage)
+      // temporarily limited directly
+      .limit(12)
       .sort(sort);
 
     console.log(mongooseQuery);
