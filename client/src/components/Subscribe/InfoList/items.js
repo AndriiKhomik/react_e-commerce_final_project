@@ -9,7 +9,7 @@ import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 export const subscribeItems = [
   {
     id: '1',
-    component: <LaptopChromebookOutlinedIcon fontSize='large' />,
+    component: <MenuBookOutlinedIcon fontSize='large' />,
     title: 'Paper book',
     text: 'You can buy paper version of each book and enjoy it every moment',
   },
@@ -21,7 +21,7 @@ export const subscribeItems = [
   },
   {
     id: '3',
-    component: <MenuBookOutlinedIcon fontSize='large' />,
+    component: <LaptopChromebookOutlinedIcon fontSize='large' />,
     title: 'Electronic book',
     text: 'A lot of books and authors in you pocket device',
   },
