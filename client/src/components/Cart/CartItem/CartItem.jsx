@@ -17,17 +17,12 @@ import {
   StyledTableCell,
   StyledTableImgCell,
 } from './Styled';
+import { decreaseAmount, increaseAmount } from '../../../store/cart/actions';
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const collapseTableColumn = useMediaQuery(theme.breakpoints.up('md'));
   const { url, name, price, itemNo, quantity } = cartItem;
-
-  const onDecrease = () => {};
-  const onIncrease = () => {};
-  const onDelete = () => {};
-
-  console.log(cartItem);
 
   return (
     <TableRow>
@@ -54,15 +49,20 @@ const CartItem = ({ cartItem }) => {
         <StyledTableCell align='center'>${price}</StyledTableCell>
       )}
       <StyledTableCell align='center' sx={{ padding: '4px' }}>
-        <StyledDiv onClick={() => dispatch(onDecrease(itemNo))}>-</StyledDiv>
+        <StyledDiv onClick={() => dispatch(decreaseAmount(itemNo))}>
+          -
+        </StyledDiv>
         {quantity}
-        <StyledDiv sx={{ padding: '0 6px' }} onClick={() => onIncrease(itemNo)}>
+        <StyledDiv
+          sx={{ padding: '0 6px' }}
+          onClick={() => dispatch(increaseAmount(itemNo))}
+        >
           +
         </StyledDiv>
       </StyledTableCell>
       <StyledSellTotals align='center'>${+price * +quantity}</StyledSellTotals>
       <StyledTableCell align='center'>
-        <StyledIconWrapper onClick={() => onDelete(itemNo)}>
+        <StyledIconWrapper onClick={() => console.log(itemNo)}>
           <DeleteIcon width='18px' height='18px' />
         </StyledIconWrapper>
       </StyledTableCell>

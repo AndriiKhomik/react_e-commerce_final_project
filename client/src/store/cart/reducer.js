@@ -1,7 +1,7 @@
 import {
   ALL_BOOKS_REMOVED_FROM_CART,
   BOOK_ADDED_TO_CART,
-  BOOK_REMOVED_FROM_CART,
+  DECREASE_BOOK_AMOUNT,
   INCREASE_BOOK_AMOUNT,
 } from './types';
 // import { updateOrder } from './utils';
@@ -23,19 +23,21 @@ export const shoppingCartReducer = (state = [], action) => {
     }
 
     case INCREASE_BOOK_AMOUNT: {
+      console.log(action.payload);
       return state;
     }
 
-    case BOOK_REMOVED_FROM_CART: {
+    case DECREASE_BOOK_AMOUNT: {
+      console.log(action.payload);
       if (
         state.some(
-          (item) => item.book === action.payload && item.quantity === 1,
+          (item) => item.itemNo === action.payload && item.quantity === 1,
         )
       ) {
-        return state.filter((item) => item.book !== action.payload);
+        return state.filter((item) => item.itemNo !== action.payload);
       }
       return state.map((item) => {
-        return item.book === action.payload
+        return item.itemNo === action.payload
           ? { ...item, quantity: item.quantity - 1 }
           : item;
       });
