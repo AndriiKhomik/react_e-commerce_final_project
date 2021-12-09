@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3107b33c.chunk.css",
+    "main.js": "/static/js/main.e5b30e63.chunk.js",
+    "main.js.map": "/static/js/main.e5b30e63.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f951d28d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f951d28d.js.map",
+    "static/css/2.55c4350f.chunk.css": "/static/css/2.55c4350f.chunk.css",
+    "static/js/2.7df456c7.chunk.js": "/static/js/2.7df456c7.chunk.js",
+    "static/js/2.7df456c7.chunk.js.map": "/static/js/2.7df456c7.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.55c4350f.chunk.css.map": "/static/css/2.55c4350f.chunk.css.map",
+    "static/css/main.3107b33c.chunk.css.map": "/static/css/main.3107b33c.chunk.css.map",
+    "static/js/2.7df456c7.chunk.js.LICENSE.txt": "/static/js/2.7df456c7.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/static/media/CeraPro-Regular.a81f68b2.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f951d28d.js",
+    "static/css/2.55c4350f.chunk.css",
+    "static/js/2.7df456c7.chunk.js",
+    "static/css/main.3107b33c.chunk.css",
+    "static/js/main.e5b30e63.chunk.js"
+  ]
+}
