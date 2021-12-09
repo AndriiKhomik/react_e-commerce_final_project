@@ -10,24 +10,35 @@ import { StyledItem, StyledList } from './Styles';
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-  const products = useSelector((data) => data.books);
-  const selectedGenre = useSelector((data) => data.filter.selectedGenre);
+  const products = useSelector(({ books }) => books);
+  const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
 
-  useEffect(() => {
-    filterProducts(query)
+  const updateBooksList = (queryString = query) => {
+    filterProducts(queryString)
       .then((data) => {
         dispatch(setBooks(data.products));
       })
       .finally(() => setIsLoading(false));
+  };
+
+  useEffect(() => {
+    if (products.length === 0) {
+      console.log('initial render', query);
+      updateBooksList();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (query) {
+      console.log('changed query ->', query);
+      updateBooksList();
+    }
   }, [query]);
 
   useEffect(() => {
     if (selectedGenre) {
-      filterProducts(`genre=${selectedGenre}`)
-        .then((data) => {
-          dispatch(setBooks(data.products));
-        })
-        .finally(() => setIsLoading(false));
+      console.log('changed selectedGenre ->', selectedGenre);
+      updateBooksList(`genre=${selectedGenre}`);
     }
   }, [selectedGenre]);
 

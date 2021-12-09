@@ -7,11 +7,11 @@ import { setMinPrice, setMaxPrice } from '../../../store/filter/actions';
 const valuetext = (value) => {
   return `${value}°C`;
 };
+// Get max price price from db, and set as max price in StyledSlider prop
 
 const FilterRange = () => {
   const minDistance = 10;
-  // Get max price price from db, and set as max price to state
-  const [value, setValue] = useState([0, 500]);
+  const [value, setValue] = useState([0, 50]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const FilterRange = () => {
         getAriaValueText={valuetext}
         disableSwap
         // !!!should be changed to max books price
-        max={1000}
+        max={100}
       />
       <StyledPriceTag>
         <span>Price: </span>
