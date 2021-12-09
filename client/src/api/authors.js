@@ -1,7 +1,5 @@
-import { host } from './variables';
-
 export const getAuthors = async () => {
-  const response = await fetch(`${host}/api/authors`);
+  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/authors`);
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }

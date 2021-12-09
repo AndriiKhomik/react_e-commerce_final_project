@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Back End code for final projects of Front End groups\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DDANIT\u001b[3~ Front End groups",
   "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
@@ -13,8 +16,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
+    "start": "node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "seed": "node seeds/seed.js"
   },
   "repository": {
