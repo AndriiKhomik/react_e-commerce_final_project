@@ -14,23 +14,21 @@ const CatalogList = ({ query }) => {
   const selectedGenre = useSelector((data) => data.filter.selectedGenre);
 
   useEffect(() => {
-    try {
-      filterProducts(query)
-        .then((data) => {
-          dispatch(setBooks(data.products));
-        })
-        .finally(() => setIsLoading(false));
-    } catch (error) {
-      console.log(error);
-    }
-  }, [query]);
-
-  useEffect(() => {
-    filterProducts(`genre=${selectedGenre}`)
+    filterProducts(query)
       .then((data) => {
         dispatch(setBooks(data.products));
       })
       .finally(() => setIsLoading(false));
+  }, [query]);
+
+  useEffect(() => {
+    if (selectedGenre) {
+      filterProducts(`genre=${selectedGenre}`)
+        .then((data) => {
+          dispatch(setBooks(data.products));
+        })
+        .finally(() => setIsLoading(false));
+    }
   }, [selectedGenre]);
 
   const productsElements = products.map(

@@ -13,7 +13,6 @@ const Catalogue = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const products = useSelector((data) => data.books);
-  console.log(products.length);
 
   const handleFilterOpen = () => {
     setOpen(true);
