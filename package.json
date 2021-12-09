@@ -16,6 +16,7 @@
     "start": "node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "seed": "node seeds/seed.js"
   },
   "repository": {
