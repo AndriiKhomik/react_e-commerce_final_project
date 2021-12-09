@@ -1,7 +1,7 @@
-import { host } from './variables';
-
 export const getProducts = async () => {
-  const response = await fetch(`${host}/api/products`);
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/api/products`,
+  );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }
@@ -9,7 +9,9 @@ export const getProducts = async () => {
 };
 
 export const getItemProduct = async (itemNo) => {
-  const response = await fetch(`${host}/api${itemNo}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/api${itemNo}`,
+  );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }
@@ -22,7 +24,7 @@ export const getProductsByQuery = async (
   exceptId = '',
 ) => {
   const response = await fetch(
-    `${host}/api/products?${query}=${value}&exceptId=${exceptId}`,
+    `${process.env.REACT_APP_BASE_URL}/api/products?${query}=${value}&exceptId=${exceptId}`,
   );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
@@ -31,7 +33,9 @@ export const getProductsByQuery = async (
 };
 
 export const filterProducts = async (queryString = '') => {
-  const response = await fetch(`${host}/api/products/filter?${queryString}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/api/products/filter?${queryString}`,
+  );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }
