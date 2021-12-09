@@ -14,11 +14,15 @@ const CatalogList = ({ query }) => {
   const selectedGenre = useSelector((data) => data.filter.selectedGenre);
 
   useEffect(() => {
-    filterProducts(query)
-      .then((data) => {
-        dispatch(setBooks(data.products));
-      })
-      .finally(() => setIsLoading(false));
+    try {
+      filterProducts(query)
+        .then((data) => {
+          dispatch(setBooks(data.products));
+        })
+        .finally(() => setIsLoading(false));
+    } catch (error) {
+      console.log(error);
+    }
   }, [query]);
 
   useEffect(() => {
