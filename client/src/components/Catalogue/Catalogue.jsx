@@ -17,7 +17,9 @@ const Catalogue = () => {
 
   const handleFilterClose = (queryString) => {
     setOpen(false);
-    setQuery(queryString);
+    if (typeof queryString === 'string') {
+      setQuery(queryString);
+    }
   };
 
   return (
