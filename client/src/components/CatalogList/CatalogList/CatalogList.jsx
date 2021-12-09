@@ -22,11 +22,13 @@ const CatalogList = ({ query }) => {
   }, [query]);
 
   useEffect(() => {
-    filterProducts(`genre=${selectedGenre}`)
-      .then((data) => {
-        dispatch(setBooks(data.products));
-      })
-      .finally(() => setIsLoading(false));
+    if (selectedGenre) {
+      filterProducts(`genre=${selectedGenre}`)
+        .then((data) => {
+          dispatch(setBooks(data.products));
+        })
+        .finally(() => setIsLoading(false));
+    }
   }, [selectedGenre]);
 
   const productsElements = products.map(
