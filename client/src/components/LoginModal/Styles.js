@@ -28,7 +28,7 @@ export const Backdrop = styled('div')`
 
 export const StyledBox = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
-    width: '500px',
+    width: '300px',
     backgroundColor: `${theme.palette.text.light}`,
     borderBottom: `10px solid ${theme.palette.primary.dark}`,
     position: 'relative',
@@ -36,8 +36,13 @@ export const StyledBox = styled(Box)(() => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  [theme.breakpoints.up('sm')]: {},
-  [theme.breakpoints.up('dm')]: {},
+  [theme.breakpoints.up('sm')]: {
+    width: '450px',
+    padding: '45px 60px',
+  },
+  [theme.breakpoints.up('dm')]: {
+    width: '500px',
+  },
 }));
 
 export const StyledCloseBtnDiv = styled('div')`

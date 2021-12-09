@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Formik, Field } from 'formik';
 import { Grid, TextField } from '@mui/material';
-import { validationSchema } from '../LoginForm/validationSchema';
+import { validationSchema } from './validationSchema';
 import { registerFormData } from './registerFormData';
 import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
 import { StyledFormWrapper } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
-// import { registerUser } from '../../../api/user';
+import { registerUser } from '../../../api/user';
 
 const RegisterForm = () => {
   const submitRegister = (e) => {
     delete e.confirmPassword;
     const user = { ...e };
     user.login = user.email;
-    console.log('====================================');
-    console.log(user);
-    console.log('====================================');
-    setIsSubmitting(false);
-    // registerUser(user);
+    registerUser(user);
   };
 
   return (

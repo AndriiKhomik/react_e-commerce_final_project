@@ -13,7 +13,7 @@ export const registerUser = async (user) => {
 };
 
 export const loginUser = async (loginData) => {
-  const response = await fetch(`${host}/api/customers`, {
+  const response = await fetch(`${host}/api/customers/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(loginData),

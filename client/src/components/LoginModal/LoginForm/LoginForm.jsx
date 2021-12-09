@@ -5,19 +5,15 @@ import { validationSchema } from './validationSchema';
 import { loginFormData } from './loginFormData';
 import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
 import { StyledFormWrapper } from '../Styles';
-// import FormButton from '../../OrderItems/OrderForm/FormButton';
 import { loginUser } from '../../../api/user';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
 
 const LoginForm = () => {
   const submitLogin = (e) => {
-    loginUser(e);
-    console.log('====================================');
-    console.log(loginUser(e));
-    console.log('====================================');
-    console.log('====================================');
-    console.log(e);
-    console.log('====================================');
+    loginUser(e).then((data) => {
+      const { token } = data;
+      localStorage.setItem('token', token);
+    });
   };
   return (
     <Formik
@@ -39,7 +35,6 @@ const LoginForm = () => {
                 variant='outlined'
                 fullWidth
               />
-
               <StyledErrorMessage component='div' name={name} />
             </Grid>
           ))}
