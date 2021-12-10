@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Field } from 'formik';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import theme from '../../services/theme/theme';
 
@@ -67,6 +66,6 @@ export const StyledFormWrapper = styled('div')`
   row-gap: 30px;
 `;
 
-export const StyledField = styled(Field)`
-  letter-spacing: 2px;
+export const StyledServerError = styled('p')`
+  color: red;
 `;

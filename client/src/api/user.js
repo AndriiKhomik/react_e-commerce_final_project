@@ -19,7 +19,8 @@ export const loginUser = async (loginData) => {
     body: JSON.stringify(loginData),
   });
   if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
+    // throw new Error(`Error - ${response.status}`);
+    return response.json();
   }
   return response.json();
 };

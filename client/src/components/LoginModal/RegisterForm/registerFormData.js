@@ -16,15 +16,11 @@ export const registerFormData = [
     name: 'password',
     label: 'Password',
     type: 'password',
-    placeholder: '',
-    autocomplete: 'new-password',
   },
   {
     id: 4,
     name: 'confirmPassword',
     label: 'Confirm Password',
     type: 'password',
-    placeholder: '',
-    autocomplete: 'new-password',
   },
 ];

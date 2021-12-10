@@ -1,19 +1,21 @@
 import React from 'react';
-import { Form, Formik } from 'formik';
+import PropTypes from 'prop-types';
+import { Form, Formik, Field } from 'formik';
 import { Grid, TextField } from '@mui/material';
 import { validationSchema } from './validationSchema';
 import { registerFormData } from './registerFormData';
 import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
-import { StyledField, StyledFormWrapper } from '../Styles';
+import { StyledFormWrapper } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
 import { registerUser } from '../../../api/user';
 
-const RegisterForm = () => {
+const RegisterForm = ({ handleClose }) => {
   const submitRegister = (e) => {
     delete e.confirmPassword;
     const user = { ...e };
-    user.login = user.email;
+    user.login = user.email.slice(0, user.email.indexOf('@'));
     registerUser(user);
+    handleClose();
   };
 
   return (
@@ -29,25 +31,22 @@ const RegisterForm = () => {
     >
       <Form>
         <StyledFormWrapper>
-          {registerFormData.map(
-            ({ id, name, type, placeholder, label, autocomplete }) => (
-              <Grid key={id} item>
-                <StyledField
-                  id={name}
-                  name={name}
-                  as={TextField}
-                  label={label}
-                  placeholder={placeholder}
-                  type={type}
-                  variant='outlined'
-                  autocomplete={autocomplete}
-                  fullWidth
-                />
+          {registerFormData.map(({ id, name, type, label }) => (
+            <Grid key={id} item>
+              <Field
+                style={{ letterSpacing: '2px' }}
+                id={name}
+                name={name}
+                as={TextField}
+                label={label}
+                type={type}
+                variant='outlined'
+                fullWidth
+              />
 
-                <StyledErrorMessage component='div' name={name} />
-              </Grid>
-            ),
-          )}
+              <StyledErrorMessage component='div' name={name} />
+            </Grid>
+          ))}
           <FormButton text='Register' />
         </StyledFormWrapper>
       </Form>
@@ -55,4 +54,11 @@ const RegisterForm = () => {
   );
 };
 
+RegisterForm.propTypes = {
+  handleClose: PropTypes.func,
+};
+
+RegisterForm.defaultProps = {
+  handleClose: () => {},
+};
 export default RegisterForm;

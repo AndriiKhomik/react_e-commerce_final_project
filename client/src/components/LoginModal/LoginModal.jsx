@@ -54,7 +54,11 @@ const LoginModal = ({ isLoginModalOpen, handleClose }) => {
               }
             />
           </StyledLoginTitleWrapper>
-          {isLogin ? <LoginForm /> : <RegisterForm />}
+          {isLogin ? (
+            <LoginForm handleClose={handleClose} />
+          ) : (
+            <RegisterForm handleClose={handleClose} />
+          )}
         </StyledBox>
       </StyledModal>
     </>
