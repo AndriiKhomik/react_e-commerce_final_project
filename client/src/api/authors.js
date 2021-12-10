@@ -5,3 +5,11 @@ export const getAuthors = async () => {
   }
   return response.json();
 };
+
+export const getAuthor = async (id) => {
+  const response = await fetch(`${host}/api${id}`);
+  if (!response.ok) {
+    throw new Error(`Error - ${response.status}`);
+  }
+  return response.json();
+};
