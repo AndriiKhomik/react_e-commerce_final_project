@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik } from 'formik';
 import { Grid, TextField } from '@mui/material';
 import { validationSchema } from './validationSchema';
 import { loginFormData } from './loginFormData';
 import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
-import { StyledFormWrapper } from '../Styles';
+import { StyledField, StyledFormWrapper } from '../Styles';
 import { loginUser } from '../../../api/user';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
 
@@ -25,7 +25,7 @@ const LoginForm = () => {
         <StyledFormWrapper>
           {loginFormData.map(({ id, name, type, placeholder, label }) => (
             <Grid key={id} item>
-              <Field
+              <StyledField
                 id={name}
                 name={name}
                 as={TextField}
@@ -33,6 +33,7 @@ const LoginForm = () => {
                 placeholder={placeholder}
                 type={type}
                 variant='outlined'
+                autocomplete='on'
                 fullWidth
               />
               <StyledErrorMessage component='div' name={name} />

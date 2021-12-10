@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik } from 'formik';
 import { Grid, TextField } from '@mui/material';
 import { validationSchema } from './validationSchema';
 import { registerFormData } from './registerFormData';
 import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
-import { StyledFormWrapper } from '../Styles';
+import { StyledField, StyledFormWrapper } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
 import { registerUser } from '../../../api/user';
 
@@ -29,22 +29,25 @@ const RegisterForm = () => {
     >
       <Form>
         <StyledFormWrapper>
-          {registerFormData.map(({ id, name, type, placeholder, label }) => (
-            <Grid key={id} item>
-              <Field
-                id={name}
-                name={name}
-                as={TextField}
-                label={label}
-                placeholder={placeholder}
-                type={type}
-                variant='outlined'
-                fullWidth
-              />
+          {registerFormData.map(
+            ({ id, name, type, placeholder, label, autocomplete }) => (
+              <Grid key={id} item>
+                <StyledField
+                  id={name}
+                  name={name}
+                  as={TextField}
+                  label={label}
+                  placeholder={placeholder}
+                  type={type}
+                  variant='outlined'
+                  autocomplete={autocomplete}
+                  fullWidth
+                />
 
-              <StyledErrorMessage component='div' name={name} />
-            </Grid>
-          ))}
+                <StyledErrorMessage component='div' name={name} />
+              </Grid>
+            ),
+          )}
           <FormButton text='Register' />
         </StyledFormWrapper>
       </Form>

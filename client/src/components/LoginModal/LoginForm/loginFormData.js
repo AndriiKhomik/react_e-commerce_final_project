@@ -4,7 +4,6 @@ export const loginFormData = [
     name: 'loginOrEmail',
     label: 'Email',
     type: 'email',
-    placeholder: 'example@gmail.com',
   },
   {
     id: 2,

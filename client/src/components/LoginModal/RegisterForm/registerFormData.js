@@ -4,14 +4,12 @@ export const registerFormData = [
     name: 'fullName',
     label: 'Full Name',
     type: 'text',
-    placeholder: 'Jonn Doe',
   },
   {
     id: 2,
     name: 'email',
     label: 'Email',
     type: 'email',
-    placeholder: 'example@gmail.com',
   },
   {
     id: 3,
@@ -19,6 +17,7 @@ export const registerFormData = [
     label: 'Password',
     type: 'password',
     placeholder: '',
+    autocomplete: 'new-password',
   },
   {
     id: 4,
@@ -26,5 +25,6 @@ export const registerFormData = [
     label: 'Confirm Password',
     type: 'password',
     placeholder: '',
+    autocomplete: 'new-password',
   },
 ];

@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Field } from 'formik';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import theme from '../../services/theme/theme';
 
@@ -13,6 +14,7 @@ export const StyledModal = styled(ModalUnstyled)`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: ${theme.typography.fontFamily};
 `;
 
 export const Backdrop = styled('div')`
@@ -37,11 +39,8 @@ export const StyledBox = styled(Box)(() => ({
     flexDirection: 'column',
   },
   [theme.breakpoints.up('sm')]: {
-    width: '450px',
+    width: '350px',
     padding: '45px 60px',
-  },
-  [theme.breakpoints.up('dm')]: {
-    width: '500px',
   },
 }));
 
@@ -66,4 +65,8 @@ export const StyledFormWrapper = styled('div')`
   margin-top: 30px;
   display: grid;
   row-gap: 30px;
+`;
+
+export const StyledField = styled(Field)`
+  letter-spacing: 2px;
 `;
