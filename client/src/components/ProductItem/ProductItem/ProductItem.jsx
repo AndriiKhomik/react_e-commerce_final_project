@@ -6,7 +6,7 @@ import BookName from '../BookName';
 import BookAuthor from '../BookAuthor';
 import BookPrice from '../BookPrice';
 import CartBtn from '../CartBtn';
-import { StyledLink, StyledCardGrid } from './Styles';
+import { StyledLink, StyledCardGrid, StyledItem } from './Styles';
 import defaultimg from '../../../img/missing_image.jpg';
 
 const ProductItem = ({
@@ -19,7 +19,7 @@ const ProductItem = ({
   categories,
 }) => {
   return (
-    <>
+    <StyledItem>
       <StyledLink
         as={Link}
         to={`/products/${itemNo}`}
@@ -39,14 +39,14 @@ const ProductItem = ({
         <BookPrice price={price} salePrice={salePrice} />
         <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
-    </>
+    </StyledItem>
   );
 };
 
 ProductItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   url: PropTypes.string,
   salePrice: PropTypes.number,
   itemNo: PropTypes.string.isRequired,
@@ -56,6 +56,8 @@ ProductItem.propTypes = {
 ProductItem.defaultProps = {
   url: defaultimg,
   salePrice: null,
+  author: '',
 };
 
 export default ProductItem;
+

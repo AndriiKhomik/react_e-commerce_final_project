@@ -57,7 +57,6 @@ ItemInfo.propTypes = {
     name: PropTypes.string.isRequired,
     dateOfBirth: PropTypes.string.isRequired,
     biography: PropTypes.string.isRequired,
-    authorUrl: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   }).isRequired,
   publisher: PropTypes.string.isRequired,
