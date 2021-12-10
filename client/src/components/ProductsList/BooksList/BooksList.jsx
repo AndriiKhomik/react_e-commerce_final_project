@@ -68,6 +68,6 @@ BooksList.propTypes = {
 
 BooksList.defaultProps = {
   authorName: '',
-}
+};
 
 export default BooksList;

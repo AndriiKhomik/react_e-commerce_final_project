@@ -21,13 +21,15 @@ const CatalogList = ({ query }) => {
       .finally(() => setIsLoading(false));
   };
 
+  // initial render without updating query and genre!
   useEffect(() => {
-    if (!products.length) {
+    if (!selectedGenre && !query) {
       console.log('initial render', query);
       updateBooksList();
     }
   }, []);
 
+  // update by changed query
   useEffect(() => {
     if (query) {
       console.log('changed query ->', query);
@@ -35,6 +37,7 @@ const CatalogList = ({ query }) => {
     }
   }, [query]);
 
+  // update by changed selectedGenre
   useEffect(() => {
     if (selectedGenre) {
       console.log('changed selectedGenre ->', selectedGenre);
