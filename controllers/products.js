@@ -58,7 +58,7 @@ exports.addProduct = (req, res, next) => {
 };
 
 exports.updateProduct = (req, res, next) => {
-  Product.findOne({ _id: req.params.id })
+  Product.findOne({ _id: req.params.id }).populate('author')
     .then(product => {
       if (!product) {
         return res.status(400).json({
@@ -104,7 +104,7 @@ exports.getProducts = (req, res, next) => {
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
-  let products
+  let products;
   if (req.query.sales) {
     products = Product.find({ 'previousPrice': { $exists: true } }).populate('author')
   }
@@ -112,7 +112,15 @@ exports.getProducts = (req, res, next) => {
     products = Product.find({ 'isRecommended': { $exists: true } }).populate('author')
   }
   else if (req.query.genre) {
-    products = Product.find({ 'genre': req.query.genre }).populate('author')
+    products = Product.find({
+      $and:
+        [{ 'genre': req.query.genre },
+        {
+          'itemNo': {
+            $ne: req.query.exceptId
+          }
+        }]
+    }).populate('author')
   }
   else {
     products = Product.find({}).populate('author')
@@ -159,15 +167,35 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
 
+  let query = '';
+  let findResult = '';
+
   try {
-    const products = await Product.find(mongooseQuery)
+    if (req.query.searchString) {
+      query = req.query.searchString
+        .toLowerCase()
+        .trim()
+        .replace("+", " ");
+      console.log(query);
+      findResult = {
+        ...mongooseQuery,
+        ...{ $text: { $search: query } }
+      };
+    } else {
+      findResult = { ...mongooseQuery }
+    }
+
+    const products = await Product.find(findResult).populate('author')
       .skip(startPage * perPage - perPage)
-      .limit(perPage)
+      // .limit(perPage)
+      // temporarily limited directly
+      .limit(12)
       .sort(sort);
 
-    const productsQuantity = await Product.find(mongooseQuery);
+    console.log(mongooseQuery);
+    console.log('saerchString', req.query.searchString);
 
-    res.json({ products, productsQuantity: productsQuantity.length });
+    res.json({ products, productsQuantity: products.length });
   } catch (err) {
     res.status(400).json({
       message: `Error happened on server: "${err}" `
@@ -176,12 +204,12 @@ exports.getProductsFilterParams = async (req, res, next) => {
 };
 
 exports.searchProducts = async (req, res, next) => {
-  if (!req.body.query) {
+  if (!req.query.searchString) {
     res.status(400).json({ message: "Query string is empty" });
   }
 
   //Taking the entered value from client in lower-case and trimed
-  let query = req.body.query
+  let query = req.query.searchString
     .toLowerCase()
     .trim()
     .replace(/\s\s+/g, " ");
