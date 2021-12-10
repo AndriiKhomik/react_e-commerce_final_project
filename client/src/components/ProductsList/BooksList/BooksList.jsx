@@ -8,7 +8,7 @@ import 'swiper/modules/navigation/navigation.scss';
 import BooksListTitle from '../BooksListTitle';
 import ProductItem from '../../ProductItem/ProductItem';
 
-const BooksList = ({ items, text }) => {
+const BooksList = ({ items, text, authorName }) => {
   return (
     <StyledContainer>
       <BooksListTitle text={text} />
@@ -45,7 +45,9 @@ const BooksList = ({ items, text }) => {
                   url={imageUrls[0]}
                   price={currentPrice}
                   salePrice={previousPrice}
-                  author={author.name}
+                  author={authorName || author.name}
+                  // eslint-disable-next-line no-underscore-dangle
+                  authorId={author._id}
                   itemNo={itemNo}
                   categories={categories}
                 />
@@ -61,6 +63,11 @@ const BooksList = ({ items, text }) => {
 BooksList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   text: PropTypes.string.isRequired,
+  authorName: PropTypes.string,
+};
+
+BooksList.defaultProps = {
+  authorName: '',
 };
 
 export default BooksList;

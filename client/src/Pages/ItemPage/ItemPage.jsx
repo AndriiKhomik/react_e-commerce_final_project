@@ -39,6 +39,7 @@ const ItemPage = ({ match }) => {
     numberOfPages,
     duration,
     fullDescription,
+    itemNo,
     categories,
   } = book;
 
@@ -66,7 +67,7 @@ const ItemPage = ({ match }) => {
         </StyledDescription>
       </StyledContainer>
       <ItemReviewsBlock fullDescription={fullDescription} />
-      <RelatedBooksList genre={genre} />
+      <RelatedBooksList genre={genre} itemNo={itemNo} />
     </>
   );
 };

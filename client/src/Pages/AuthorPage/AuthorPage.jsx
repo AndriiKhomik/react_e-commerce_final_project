@@ -39,7 +39,7 @@ const AuthorPage = ({ match }) => {
           <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>
-      <BooksList items={books} text='Books' />
+      <BooksList authorName={name} items={books} text='Books' />
       <AuthorButton />
     </>
   );

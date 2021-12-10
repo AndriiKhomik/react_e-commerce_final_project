@@ -16,7 +16,7 @@ export const useRoutes = () => {
   return (
     <Switch>
       <Route exact path='/' component={Homepage} />
-      <Route exact path='/catalogue' component={Catalogue} />
+      <Route exact path='/products' component={Catalogue} />
       <Route exact path='/contacts' component={Contacts} />
       <Route exact path='/adminpanel' component={AdminPanel} />
       <Route exact path='/shoppingcart' component={ShoppingCart} />
