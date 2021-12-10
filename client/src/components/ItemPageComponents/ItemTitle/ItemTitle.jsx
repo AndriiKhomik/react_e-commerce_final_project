@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { setSelectedGenre } from '../../../store/filter/actions';
 import { StyledTitleWrapper, StyledTitle, StyledGenre } from './Styles';
+import { toCapitaleCase } from '../toCapitaleCase';
 
 const ItemTitle = ({ name, genre }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const ItemTitle = ({ name, genre }) => {
     <StyledTitleWrapper>
       <StyledTitle>{name}</StyledTitle>
       <StyledGenre onClick={clickHandler} to='/products'>
-        {genre}
+        {toCapitaleCase(genre)}
       </StyledGenre>
     </StyledTitleWrapper>
   );
