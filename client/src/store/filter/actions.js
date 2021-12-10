@@ -6,6 +6,7 @@ import {
   SET_SEARCH_STRING,
   CLEAR_FILTER,
   SET_SELECTED_GENRE,
+  SET_SELECTED_SORT,
 } from './types';
 
 export const setGenres = (genre) => ({
@@ -36,6 +37,11 @@ export const setSearchString = (searchString) => ({
 export const setSelectedGenre = (genre) => ({
   type: SET_SELECTED_GENRE,
   payload: genre,
+});
+
+export const setSelectedSort = (sort) => ({
+  type: SET_SELECTED_SORT,
+  payload: sort,
 });
 
 export const clearFilter = () => ({

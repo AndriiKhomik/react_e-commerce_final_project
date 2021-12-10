@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { StyledFormControl } from './Styles';
+import { setSelectedSort } from '../../../store/filter/actions';
 
 const FilterSortInput = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('higher-price');
+  const dispatch = useDispatch();
+
   const handleChange = (event) => {
     setValue(event.target.value);
+    console.log(value);
+    if (value) {
+      setSelectedSort(dispatch(value));
+    }
   };
 
   return (

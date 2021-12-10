@@ -12,6 +12,7 @@ const CatalogList = ({ query }) => {
   const dispatch = useDispatch();
   const products = useSelector(({ books }) => books);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
+  const selectedSort = useSelector(({ filter }) => filter.selectedSort);
 
   const updateBooksList = (queryString = query) => {
     filterProducts(queryString)
@@ -41,6 +42,15 @@ const CatalogList = ({ query }) => {
       updateBooksList(`genre=${selectedGenre}`);
     }
   }, [selectedGenre]);
+
+  useEffect(() => {
+    if (selectedSort) {
+      console.log('changed selectedSort ->', selectedSort);
+      const currentSorting = selectedSort === 'higher-price' ? -1 : 1;
+      // updateBooksList(`${query}&sort=${selectedSort}`);
+      updateBooksList(`sort=${currentSorting}`);
+    }
+  }, [selectedSort]);
 
   const productsElements = products.map(
     ({

@@ -166,7 +166,10 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
   const sort = req.query.sort;
-
+  // let currentSort;
+  // if (sort === 'higher-price'){
+  //   currentSort = {}
+  // }
   let query = '';
   let findResult = '';
 
@@ -190,8 +193,9 @@ exports.getProductsFilterParams = async (req, res, next) => {
       // .limit(perPage)
       // temporarily limited directly
       .limit(12)
-      .sort(sort);
+      .sort({ "currentPrice": Number(sort) });
 
+    // console.log(products);
     console.log(mongooseQuery);
     console.log('saerchString', req.query.searchString);
 

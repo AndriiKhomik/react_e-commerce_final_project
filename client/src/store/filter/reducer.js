@@ -5,6 +5,7 @@ import {
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
+  SET_SELECTED_SORT,
   // CLEAR_FILTER,
 } from './types';
 
@@ -15,6 +16,7 @@ const initialState = {
   maxPrice: 0,
   searchString: '',
   selectedGenre: '',
+  selectedSort: '',
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -55,6 +57,9 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_GENRE:
       return { ...state, selectedGenre: action.payload };
+
+    case SET_SELECTED_SORT:
+      return { ...state, selectedSort: action.payload };
     // case CLEAR_FILTER:
     //   return ;
 
