@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { getProductsByQuery } from '../../api/products';
 import BooksList from './BooksList';
 
-const RelatedBooksList = ({ genre }) => {
+const RelatedBooksList = ({ genre, itemNo }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getProductsByQuery('genre', genre)
+    getProductsByQuery('genre', genre, itemNo)
       .then((data) => {
         setProducts(data);
       })
@@ -24,5 +24,6 @@ const RelatedBooksList = ({ genre }) => {
 
 RelatedBooksList.propTypes = {
   genre: PropTypes.string.isRequired,
+  itemNo: PropTypes.string.isRequired,
 };
 export default RelatedBooksList;
