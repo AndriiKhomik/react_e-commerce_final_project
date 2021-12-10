@@ -5,7 +5,6 @@ import {
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
-  // CLEAR_FILTER,
 } from './types';
 
 const initialState = {
