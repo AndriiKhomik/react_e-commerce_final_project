@@ -7,7 +7,7 @@ export const getAuthors = async () => {
 };
 
 export const getAuthor = async (id) => {
-  const response = await fetch(`${host}/api${id}`);
+  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api${id}`);
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }
