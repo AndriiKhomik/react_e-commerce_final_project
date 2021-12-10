@@ -17,7 +17,6 @@ const ProductItem = ({
   salePrice,
   itemNo,
   categories,
-  authorId,
 }) => {
   return (
     <StyledItem>
@@ -36,7 +35,7 @@ const ProductItem = ({
       </StyledLink>
       <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
-        <BookAuthor author={author} authorId={authorId} />
+        <BookAuthor author={author} />
         <BookPrice price={price} salePrice={salePrice} />
         <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
