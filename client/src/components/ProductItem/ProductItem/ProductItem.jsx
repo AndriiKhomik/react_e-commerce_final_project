@@ -6,7 +6,7 @@ import BookName from '../BookName';
 import BookAuthor from '../BookAuthor';
 import BookPrice from '../BookPrice';
 import CartBtn from '../CartBtn';
-import { StyledLink, StyledCardGrid } from './Styles';
+import { StyledLink, StyledCardGrid, StyledItem } from './Styles';
 import defaultimg from '../../../img/missing_image.jpg';
 
 const ProductItem = ({
@@ -20,7 +20,7 @@ const ProductItem = ({
   authorId,
 }) => {
   return (
-    <>
+    <StyledItem>
       <StyledLink
         as={Link}
         to={`/products/${itemNo}`}
@@ -40,7 +40,7 @@ const ProductItem = ({
         <BookPrice price={price} salePrice={salePrice} />
         <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
-    </>
+    </StyledItem>
   );
 };
 
@@ -61,3 +61,7 @@ ProductItem.defaultProps = {
 };
 
 export default ProductItem;
+
+// window.addEventListener('mouseover', (e) => {
+//   console.log(e.target);
+// });

@@ -22,7 +22,7 @@ const CatalogList = ({ query }) => {
   };
 
   useEffect(() => {
-    if (products.length === 0) {
+    if (!products.length) {
       console.log('initial render', query);
       updateBooksList();
     }
