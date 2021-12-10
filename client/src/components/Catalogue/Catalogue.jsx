@@ -29,7 +29,8 @@ const Catalogue = () => {
     <>
       <SectionTitles titles={pageTitles.slice(0, 2)} />
       <RowFilter onClick={handleFilterOpen} />
-      {products.length ? <CatalogList query={query} /> : <EmptyCatalogueNote />}
+      <CatalogList query={query} />
+      {!products.length && <EmptyCatalogueNote />}
       <StyledFilterContainer variant='persistent' anchor='left' open={open}>
         <CloseFilterBtn onClick={handleFilterClose} />
         <HiddenFilter onClick={handleFilterClose} />
