@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LightTooltip from '../../ProductItem/Tooltip';
+import { StyledCardMediaWrapper } from './Styles';
 import {
-  StyledCardMediaWrapper,
   StyledCardMediaBox,
   StyledCardMedia,
-} from './Styles';
+} from '../../ProductItem/BookImg/Styles';
 
 const AuthorImg = ({ authorUrl, name }) => {
   return (

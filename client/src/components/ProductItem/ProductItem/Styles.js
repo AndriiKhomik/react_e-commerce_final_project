@@ -1,8 +1,8 @@
-import { Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled('a')`
+  position: relative;
   width: 100%;
   text-decoration: none;
   display: block;

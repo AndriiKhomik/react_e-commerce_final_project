@@ -39,6 +39,7 @@ const ItemPage = ({ match }) => {
     numberOfPages,
     duration,
     fullDescription,
+    categories,
   } = book;
 
   return isLoading ? (
@@ -47,7 +48,7 @@ const ItemPage = ({ match }) => {
     <>
       <SectionTitles titles={bookPageTitles} itemTitle={name} />
       <StyledContainer>
-        <ItemImg img={imageUrls} name={name} />
+        <ItemImg img={imageUrls} name={name} categories={categories} />
         <StyledDescription>
           <ItemTitle name={name} genre={genre} />
           <ItemPrice price={currentPrice} value={3} />
@@ -65,7 +66,7 @@ const ItemPage = ({ match }) => {
         </StyledDescription>
       </StyledContainer>
       <ItemReviewsBlock fullDescription={fullDescription} />
-      <RelatedBooksList />
+      <RelatedBooksList genre={genre} />
     </>
   );
 };
