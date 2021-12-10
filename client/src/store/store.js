@@ -7,6 +7,12 @@ import {
   REMOVE_FROM_FAVORITES,
   SET_BOOK_TO_FAVORITES,
 } from './favorites/types';
+import {
+  BOOK_ADDED_TO_CART,
+  BOOK_REMOVED_FROM_CART,
+  DECREASE_BOOK_AMOUNT,
+  INCREASE_BOOK_AMOUNT,
+} from './cart/types';
 
 const rootReducer = combineReducers({
   bookList: booksReducer,
@@ -24,13 +30,43 @@ const favoritesMiddleware = () => (next) => (action) => {
   return result;
 };
 
+const cartMiddleware = () => (next) => (action) => {
+  const result = next(action);
+  if (
+    /* eslint-disable no-constant-condition */
+    [
+      BOOK_ADDED_TO_CART,
+      BOOK_REMOVED_FROM_CART,
+      INCREASE_BOOK_AMOUNT,
+      DECREASE_BOOK_AMOUNT,
+    ]
+  ) {
+    // eslint-disable-next-line no-use-before-define
+    const { shoppingCart } = store.getState();
+    localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+  }
+  return result;
+};
+
 let initialState = {};
 
 const favoritesFromLS = localStorage.getItem('favorites');
+const shoppingCartFromLS = localStorage.getItem('shoppingCart');
 
 if (favoritesFromLS) {
   try {
     initialState = { ...initialState, favorites: JSON.parse(favoritesFromLS) };
+  } catch (e) {
+    throw new Error(e);
+  }
+}
+
+if (shoppingCartFromLS) {
+  try {
+    initialState = {
+      ...initialState,
+      shoppingCart: JSON.parse(shoppingCartFromLS),
+    };
   } catch (e) {
     throw new Error(e);
   }
@@ -45,7 +81,10 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
 const store = createStore(
   rootReducer,
   initialState,
-  compose(applyMiddleware(thunk, favoritesMiddleware), devTools),
+  compose(
+    applyMiddleware(thunk, favoritesMiddleware, cartMiddleware),
+    devTools,
+  ),
 );
 
 export default store;

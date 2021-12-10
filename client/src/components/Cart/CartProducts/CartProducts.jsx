@@ -59,7 +59,7 @@ const CartProducts = () => {
             {collapseTableColumn && (
               <StyledTableCellHead align='center'>Price</StyledTableCellHead>
             )}
-            <StyledTableCellHead sx={{ minWidth: '70px' }} align='center'>
+            <StyledTableCellHead sx={{ minWidth: '80px' }} align='center'>
               Quantity
             </StyledTableCellHead>
             <StyledTableCellHead align='center'>Total</StyledTableCellHead>
@@ -70,8 +70,10 @@ const CartProducts = () => {
           {orders.length ? (
             items
           ) : (
-            <TableRow>
-              <StyledTableTitle>Your shopping cart is empty</StyledTableTitle>
+            <TableRow sx={{ position: 'relative' }}>
+              <StyledTableTitle colSpan={5}>
+                Your shopping cart is empty
+              </StyledTableTitle>
             </TableRow>
           )}
         </TableBody>

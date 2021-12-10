@@ -16,8 +16,16 @@ export const StyledTableImgCell = styled(TableCell)(() => ({
   borderBottom: `4px solid ${theme.palette.text.light}`,
   borderTop: `4px solid ${theme.palette.text.light}`,
   display: 'flex',
+  padding: '8px',
+  flexDirection: 'column',
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+  },
   '& span': {
-    fontWeight: 700,
+    fontSize: '16px',
+  },
+  '& span:first-of-type': {
+    fontWeight: 'bold',
   },
 }));
 
@@ -64,12 +72,12 @@ export const StyledSellTotals = styled(TableCell)(() => ({
 
 export const StyledImg = styled('img')`
   width: 42px;
-  height: auto;
+  height: 64px;
+  margin-right: 20px;
 `;
 
 export const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
   justify-content: center;
 `;

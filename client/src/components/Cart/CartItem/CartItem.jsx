@@ -17,7 +17,11 @@ import {
   StyledTableCell,
   StyledTableImgCell,
 } from './Styled';
-import { decreaseAmount, increaseAmount } from '../../../store/cart/actions';
+import {
+  bookRemovedFromCart,
+  decreaseAmount,
+  increaseAmount,
+} from '../../../store/cart/actions';
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -30,7 +34,7 @@ const CartItem = ({ cartItem }) => {
         <StyledImg src={url} alt='book cover' />
         <StyledBox>
           <span className='title'>{name}</span>
-          <span>Item number {itemNo}</span>
+          <span>SKU {itemNo}</span>
         </StyledBox>
       </StyledTableImgCell>
       {/* {collapseTableColumn && (
@@ -60,9 +64,13 @@ const CartItem = ({ cartItem }) => {
           +
         </StyledDiv>
       </StyledTableCell>
-      <StyledSellTotals align='center'>${+price * +quantity}</StyledSellTotals>
+      <StyledSellTotals align='center' sx={{ padding: 0 }}>
+        ${+price * +quantity}
+      </StyledSellTotals>
       <StyledTableCell align='center'>
-        <StyledIconWrapper onClick={() => console.log(itemNo)}>
+        <StyledIconWrapper
+          onClick={() => dispatch(bookRemovedFromCart(itemNo))}
+        >
           <DeleteIcon width='18px' height='18px' />
         </StyledIconWrapper>
       </StyledTableCell>

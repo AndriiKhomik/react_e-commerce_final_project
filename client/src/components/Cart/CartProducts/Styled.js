@@ -60,7 +60,8 @@ export const StyledSelect = styled(Select)`
 `;
 
 export const StyledTableTitle = styled(TableCell)`
-  // width: 100%;
+  padding-top: 20px;
+  font-size: calc(10px + 1vw);
   text-align: center;
   border: none;
 `;

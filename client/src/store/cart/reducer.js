@@ -1,10 +1,9 @@
 import {
-  ALL_BOOKS_REMOVED_FROM_CART,
   BOOK_ADDED_TO_CART,
+  BOOK_REMOVED_FROM_CART,
   DECREASE_BOOK_AMOUNT,
   INCREASE_BOOK_AMOUNT,
 } from './types';
-// import { updateOrder } from './utils';
 
 export const shoppingCartReducer = (state = [], action) => {
   switch (action.type) {
@@ -23,12 +22,14 @@ export const shoppingCartReducer = (state = [], action) => {
     }
 
     case INCREASE_BOOK_AMOUNT: {
-      console.log(action.payload);
-      return state;
+      return state.map((item) => {
+        return item.itemNo === action.payload
+          ? { ...item, quantity: item.quantity + 1 }
+          : item;
+      });
     }
 
     case DECREASE_BOOK_AMOUNT: {
-      console.log(action.payload);
       if (
         state.some(
           (item) => item.itemNo === action.payload && item.quantity === 1,
@@ -43,11 +44,8 @@ export const shoppingCartReducer = (state = [], action) => {
       });
     }
 
-    case ALL_BOOKS_REMOVED_FROM_CART: {
-      const newShoppingCart = state.shoppingCart.find(
-        ({ itemNo }) => itemNo === action.payload,
-      );
-      return newShoppingCart;
+    case BOOK_REMOVED_FROM_CART: {
+      return state.filter((item) => item.itemNo !== action.payload);
     }
 
     default:
