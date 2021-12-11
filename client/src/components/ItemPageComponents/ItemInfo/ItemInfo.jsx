@@ -10,6 +10,7 @@ import {
   StyledList,
 } from './Styles';
 import ItemInfoBookSize from './ItemInfoBookSize/ItemInfoBookSize';
+import { toCapitaleCase } from '../toCapitaleCase';
 
 const ItemInfo = ({
   author,
@@ -41,10 +42,10 @@ const ItemInfo = ({
             {name}
           </StyledAuthor>
         </StyledListItem>
-        <StyledListItem>{publisher}</StyledListItem>
+        <StyledListItem>{toCapitaleCase(publisher)}</StyledListItem>
         <StyledListItem>{yearOfPublish}</StyledListItem>
         <ItemInfoBookSize pages={pages} duration={duration} />
-        <StyledListItem>{genre}</StyledListItem>
+        <StyledListItem>{toCapitaleCase(genre)}</StyledListItem>
       </StyledList>
     </StyledItemInfoWrapper>
   );
@@ -57,7 +58,6 @@ ItemInfo.propTypes = {
     name: PropTypes.string.isRequired,
     dateOfBirth: PropTypes.string.isRequired,
     biography: PropTypes.string.isRequired,
-    authorUrl: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   }).isRequired,
   publisher: PropTypes.string.isRequired,
