@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { booksReducer } from './bookList/reducer';
 import { updateShoppingCartReducer } from './cart/reducer';
 import { favoritesReducer } from './favorites/reducer';
+import { filterReducer } from './filter/reducer';
 import {
   REMOVE_FROM_FAVORITES,
   SET_BOOK_TO_FAVORITES,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   books: booksReducer,
   favorites: favoritesReducer,
   shoppingCart: updateShoppingCartReducer,
+  filter: filterReducer,
 });
 
 const favoritesMiddleware = () => (next) => (action) => {
