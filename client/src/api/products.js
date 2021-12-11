@@ -32,12 +32,8 @@ export const getProductsByQuery = async (
   return response.json();
 };
 
+
 export const filterProducts = async (queryString = '') => {
   const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/api/products/filter?${queryString}`,
-  );
-  if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
-  }
-  return response.json();
-};
+
