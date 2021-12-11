@@ -17,6 +17,7 @@ const ProductItem = ({
   salePrice,
   itemNo,
   categories,
+  authorId,
 }) => {
   return (
     <StyledItem>
@@ -35,7 +36,7 @@ const ProductItem = ({
       </StyledLink>
       <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
-        <BookAuthor author={author} />
+        <BookAuthor authorId={authorId} author={author} />
         <BookPrice price={price} salePrice={salePrice} />
         <CartBtn itemNo={itemNo} />
       </StyledCardGrid>
@@ -51,13 +52,14 @@ ProductItem.propTypes = {
   salePrice: PropTypes.number,
   itemNo: PropTypes.string.isRequired,
   categories: PropTypes.string.isRequired,
+  authorId: PropTypes.string,
 };
 
 ProductItem.defaultProps = {
   url: defaultimg,
   salePrice: null,
   author: '',
+  authorId: '',
 };
 
 export default ProductItem;
-
