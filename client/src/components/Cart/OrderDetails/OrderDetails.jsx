@@ -72,7 +72,7 @@ const OrderDetails = () => {
       </StyledBox>
       <StyledButton
         type='submit'
-        disabled={Boolean(!totalAmount)}
+        disabled={Boolean(!totalAmount) || !cartItems.length}
         onClick={handleOrderProceed}
       >
         Proceed To Checkout
