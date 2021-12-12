@@ -6,6 +6,7 @@ import {
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
   SET_SELECTED_SORT,
+  SET_SELECTED_TAG,
   // CLEAR_FILTER,
 } from './types';
 
@@ -17,6 +18,7 @@ const initialState = {
   searchString: '',
   selectedGenre: '',
   selectedSort: '',
+  selectedTag: 'all-books',
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -60,6 +62,10 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_SORT:
       return { ...state, selectedSort: action.payload };
+
+    case SET_SELECTED_TAG:
+      return { ...state, selectedTag: action.payload };
+
     // case CLEAR_FILTER:
     //   return ;
 

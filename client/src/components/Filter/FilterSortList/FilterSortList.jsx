@@ -1,14 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { sortItems } from './sortItems';
 import { StyledTagsList, StyledTagsItem, StyledLink } from './Styles';
+import { setSelectedTag } from '../../../store/filter/actions';
 
 const FilterSortList = () => {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(setSelectedTag(''));
+  // }, []);
+
+  const clickHandler = (name) => {
+    const joinedName = name.replace(' ', '-').toLowerCase();
+    dispatch(setSelectedTag(joinedName));
+  };
+
   return (
     <StyledTagsList>
-      {sortItems.map(({ id, name, route }) => (
+      {sortItems.map(({ id, name }) => (
         <StyledTagsItem key={id}>
-          <StyledLink as={Link} to={route}>
+          <StyledLink
+            onClick={() => {
+              clickHandler(name);
+            }}
+          >
             {name}
           </StyledLink>
         </StyledTagsItem>

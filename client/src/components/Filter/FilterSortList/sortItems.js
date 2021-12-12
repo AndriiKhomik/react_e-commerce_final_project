@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 export const sortItems = [
-  { id: '1', name: 'All books', route: '/products' },
-  { id: '2', name: 'New arrivals', route: '/new' },
-  { id: '3', name: 'Sale', route: '/sales' },
+  { id: '1', name: 'All books' },
+  { id: '2', name: 'Sale' },
 ];

@@ -6,7 +6,10 @@ import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
 import { StyledItem, StyledList } from './Styles';
-import { setSelectedGenre } from '../../../store/filter/actions';
+import {
+  setSelectedGenre,
+  setSelectedTag,
+} from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +17,7 @@ const CatalogList = ({ query }) => {
   const products = useSelector(({ books }) => books);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
   const selectedSort = useSelector(({ filter }) => filter.selectedSort);
+  const selectedTag = useSelector(({ filter }) => filter.selectedTag);
 
   const updateBooksList = (queryString = query) => {
     filterProducts(queryString)
@@ -23,9 +27,10 @@ const CatalogList = ({ query }) => {
       .finally(() => setIsLoading(false));
   };
 
-  // initial render without updating query and genre!
+  // initial render without updating query, genre and tag!
   useEffect(() => {
     dispatch(setSelectedGenre(''));
+    dispatch(setSelectedTag('all-books'));
     if (!selectedGenre && !query) {
       console.log('initial render', query);
       updateBooksList();
@@ -35,6 +40,7 @@ const CatalogList = ({ query }) => {
   // update by changed query
   useEffect(() => {
     if (query) {
+      dispatch(setSelectedTag('all-books'));
       console.log('changed query ->', query);
       updateBooksList();
     }
@@ -53,9 +59,21 @@ const CatalogList = ({ query }) => {
     if (selectedSort) {
       console.log('changed selectedSort ->', selectedSort);
       const currentSorting = selectedSort === 'lower-price' ? -1 : 1;
-      updateBooksList(`${query}&sort=${currentSorting}`);
+      const tag = `&tag=${selectedTag}`;
+      updateBooksList(`${query}&sort=${currentSorting}${tag}`);
     }
   }, [selectedSort]);
+
+  // update by changed tag
+  useEffect(() => {
+    if (selectedTag === 'sale') {
+      console.log('changed selectedTag ->', selectedTag);
+      updateBooksList(`${query}&tag=${selectedTag}`);
+    } else {
+      console.log('changed selectedTag all books ->', selectedTag);
+      updateBooksList(`${query}`);
+    }
+  }, [selectedTag]);
 
   const productsElements = products.map(
     ({
