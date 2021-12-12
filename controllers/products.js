@@ -165,8 +165,7 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const mongooseQuery = filterParser(req.query);
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
-  const sort = { "currentPrice": Number(req.query.sort) } || '';
-  console.log(req.query.sort);
+  const sort = { "currentPrice": Number(req.query.sort) };
 
   let query = '';
   let findResult = '';

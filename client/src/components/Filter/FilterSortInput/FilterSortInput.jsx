@@ -10,7 +10,6 @@ const FilterSortInput = () => {
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(value);
     dispatch(setSelectedSort(value));
   };
 
