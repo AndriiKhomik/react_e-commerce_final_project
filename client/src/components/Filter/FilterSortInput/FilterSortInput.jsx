@@ -5,15 +5,13 @@ import { StyledFormControl } from './Styles';
 import { setSelectedSort } from '../../../store/filter/actions';
 
 const FilterSortInput = () => {
-  const [value, setValue] = useState('higher-price');
+  const [value, setValue] = useState('lower-price');
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setValue(event.target.value);
     console.log(value);
-    if (value) {
-      setSelectedSort(dispatch(value));
-    }
+    dispatch(setSelectedSort(value));
   };
 
   return (

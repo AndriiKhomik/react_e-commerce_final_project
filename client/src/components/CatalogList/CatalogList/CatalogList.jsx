@@ -48,12 +48,12 @@ const CatalogList = ({ query }) => {
     }
   }, [selectedGenre]);
 
+  // update by changed sorting
   useEffect(() => {
     if (selectedSort) {
       console.log('changed selectedSort ->', selectedSort);
-      const currentSorting = selectedSort === 'higher-price' ? -1 : 1;
-      // updateBooksList(`${query}&sort=${selectedSort}`);
-      updateBooksList(`sort=${currentSorting}`);
+      const currentSorting = selectedSort === 'lower-price' ? -1 : 1;
+      updateBooksList(`${query}&sort=${currentSorting}`);
     }
   }, [selectedSort]);
 
