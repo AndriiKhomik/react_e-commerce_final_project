@@ -4,7 +4,6 @@ import {
   SET_MIN_PRICE,
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
-  CLEAR_FILTER,
   SET_SELECTED_GENRE,
   SET_SELECTED_SORT,
 } from './types';
@@ -44,6 +43,7 @@ export const setSelectedSort = (sort) => ({
   payload: sort,
 });
 
-export const clearFilter = () => ({
-  type: CLEAR_FILTER,
-});
+// export const clearFilter = () => ({
+//   type: CLEAR_FILTER,
+// });
+

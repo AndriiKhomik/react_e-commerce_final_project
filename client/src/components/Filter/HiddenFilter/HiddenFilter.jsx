@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { clearFilter } from '../../../store/filter/actions';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
 import FilterSubtitle from '../FilterSubtitle';
@@ -14,12 +13,10 @@ import { makeQueryString } from './makeQueryString';
 
 const HiddenFilter = ({ onClick }) => {
   const filtersValues = useSelector((data) => data.filter);
-  const dispatch = useDispatch();
 
   const applyFilter = () => {
     // query string
     onClick(makeQueryString(filtersValues));
-    dispatch(clearFilter());
   };
 
   return (

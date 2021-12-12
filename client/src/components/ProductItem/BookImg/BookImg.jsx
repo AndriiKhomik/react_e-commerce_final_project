@@ -16,10 +16,10 @@ const ProductImg = ({ url, name, categories, itemNo, salePrice }) => {
       <StyledCardMediaWrapper>
         <StyledCardMediaBox>
           <StyledCardMedia height='243' src={url} alt={name} />
+          <FavouriteBtn itemNo={itemNo} />
+          <BookFormatTag categories={categories} />
+          <BookSaleTag salePrice={salePrice} />
         </StyledCardMediaBox>
-        <BookSaleTag salePrice={salePrice} />
-        <FavouriteBtn itemNo={itemNo} />
-        <BookFormatTag categories={categories} />
       </StyledCardMediaWrapper>
     </LightToolTip>
   );

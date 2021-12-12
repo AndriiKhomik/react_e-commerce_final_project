@@ -14,7 +14,12 @@ const BookAuthor = ({ author, authorId }) => {
 };
 
 BookAuthor.propTypes = {
-  author: PropTypes.string.isRequired,
-  authorId: PropTypes.string.isRequired,
+  author: PropTypes.string,
+  authorId: PropTypes.string,
+};
+
+BookAuthor.defaultProps = {
+  author: '',
+  authorId: '',
 };
 export default BookAuthor;

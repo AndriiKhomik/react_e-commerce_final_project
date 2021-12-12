@@ -1,17 +1,21 @@
 import React from 'react';
-// import { Button } from '@mui/material';
 import FormTitle from './FormTitle';
 import FormDescription from './FormDescription';
 import { StyledBox, StyledTextField, StyledButton } from './Styles';
 
 const SubscribeForm = () => {
+  const onClick = (event) => {
+    event.preventDefault();
+    console.log('click');
+  };
+
   return (
     <StyledBox>
       <FormTitle title='Would you like to join newsletters?' />
       <form>
         <StyledTextField
           id='filled-basic'
-          label='enter your email address...'
+          placeholder='Enter to search'
           variant='outlined'
           style={{ backgroundColor: '#fff' }}
           size='small'
@@ -24,6 +28,7 @@ const SubscribeForm = () => {
             fontFamily: 'CeraPro Bold',
           }}
           size='small'
+          onClick={onClick}
         >
           Join
         </StyledButton>
