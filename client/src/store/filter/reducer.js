@@ -6,7 +6,6 @@ import {
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
   SET_SELECTED_SORT,
-  // CLEAR_FILTER,
 } from './types';
 
 const initialState = {
@@ -60,8 +59,6 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_SORT:
       return { ...state, selectedSort: action.payload };
-    // case CLEAR_FILTER:
-    //   return ;
 
     default:
       return state;

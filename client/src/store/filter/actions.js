@@ -43,7 +43,3 @@ export const setSelectedSort = (sort) => ({
   payload: sort,
 });
 
-// export const clearFilter = () => ({
-//   type: CLEAR_FILTER,
-// });
-
