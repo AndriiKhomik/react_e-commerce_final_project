@@ -9,6 +9,7 @@ import { StyledItem, StyledList } from './Styles';
 import {
   setSelectedGenre,
   setSelectedTag,
+  setSelectedSort,
 } from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
@@ -18,6 +19,8 @@ const CatalogList = ({ query }) => {
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
   const selectedSort = useSelector(({ filter }) => filter.selectedSort);
   const selectedTag = useSelector(({ filter }) => filter.selectedTag);
+
+  const currentSorting = selectedSort === 'lower-price' ? -1 : 1;
 
   const updateBooksList = (queryString = query) => {
     filterProducts(queryString)
@@ -31,6 +34,7 @@ const CatalogList = ({ query }) => {
   useEffect(() => {
     dispatch(setSelectedGenre(''));
     dispatch(setSelectedTag('all-books'));
+    dispatch(setSelectedSort('higher-price'));
     if (!selectedGenre && !query) {
       console.log('initial render', query);
       updateBooksList();
@@ -58,7 +62,6 @@ const CatalogList = ({ query }) => {
   useEffect(() => {
     if (selectedSort) {
       console.log('changed selectedSort ->', selectedSort);
-      const currentSorting = selectedSort === 'lower-price' ? -1 : 1;
       const tag = `&tag=${selectedTag}`;
       updateBooksList(`${query}&sort=${currentSorting}${tag}`);
     }
@@ -66,12 +69,13 @@ const CatalogList = ({ query }) => {
 
   // update by changed tag
   useEffect(() => {
+    const sort = `&sort=${currentSorting}`;
     if (selectedTag === 'sale') {
       console.log('changed selectedTag ->', selectedTag);
-      updateBooksList(`${query}&tag=${selectedTag}`);
+      updateBooksList(`${query}&tag=${selectedTag}${sort}`);
     } else {
       console.log('changed selectedTag all books ->', selectedTag);
-      updateBooksList(`${query}`);
+      updateBooksList(`${query}${sort}`);
     }
   }, [selectedTag]);
 

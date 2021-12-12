@@ -48,8 +48,3 @@ export const setSelectedTag = (tag) => ({
   type: SET_SELECTED_TAG,
   payload: tag,
 });
-
-// export const clearFilter = () => ({
-//   type: CLEAR_FILTER,
-// });
-

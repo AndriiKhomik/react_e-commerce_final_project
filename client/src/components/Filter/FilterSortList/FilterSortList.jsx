@@ -7,10 +7,6 @@ import { setSelectedTag } from '../../../store/filter/actions';
 const FilterSortList = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(setSelectedTag(''));
-  // }, []);
-
   const clickHandler = (name) => {
     const joinedName = name.replace(' ', '-').toLowerCase();
     dispatch(setSelectedTag(joinedName));
