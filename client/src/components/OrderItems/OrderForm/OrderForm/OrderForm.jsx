@@ -1,5 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { TextField, Grid } from '@mui/material';
 import { Form, Formik, Field } from 'formik';
 import { formValues } from './formData';
@@ -9,15 +11,52 @@ import FormTextarea from '../FormTextarea';
 import FormNumberInput from '../FormNumberInput';
 import { StyledErrorMessage } from './Styles';
 import { StyledTitle } from '../../Styles';
+import { postOrder } from '../../../../api/order';
+
+const letterSubject = 'Good news from the Bookstore! Thank you for order!';
+const letterHtml = <h1>Your order is placed. OrderNo is 023689452.</h1>;
 
 const OrderForm = ({ bindSubmitForm }) => {
   const formRef = useRef();
+  const [shippingCharge, setShippingCharge] = useState(0);
+  const shoppingCart = useSelector((data) => data.shoppingCart);
+  const toHomePage = useHistory();
   useEffect(() => {
     bindSubmitForm(formRef.current);
   }, []);
 
+  useEffect(() => {
+    let total = 0;
+    shoppingCart.map((item) => {
+      total += item.price * item.quantity * (0.02).toFixed(2);
+      return setShippingCharge(() => total);
+    });
+  }, [shoppingCart]);
+
   const handleFormSubmit = (values, { setSubmitting, resetForm }) => {
-    // console.log(values);
+    const newOrder = {
+      deliveryAddress: {
+        country: values.country,
+        city: values.city,
+        address: values.address,
+        postal: '01044',
+      },
+      shipping: shippingCharge,
+      paymentInfo: 'Сash to the courier',
+      email: values.email,
+      mobile: values.tel,
+      letterSubject,
+      letterHtml,
+      // canceled: false,
+      products: shoppingCart,
+    };
+    postOrder(newOrder)
+      .then(() => {
+        localStorage.removeItem('shoppingCart');
+      })
+      .then(() => {
+        toHomePage.push('/');
+      });
     setSubmitting(false);
     resetForm({});
   };

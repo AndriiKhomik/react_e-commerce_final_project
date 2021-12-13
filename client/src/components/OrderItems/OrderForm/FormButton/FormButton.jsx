@@ -1,23 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { StyledButton } from './Styles';
-import { postShoppingCart } from '../../../../api/cart';
 
 const FormButton = ({ text, isSubmitting, submitForm }) => {
-  const shoppingCart = useSelector((data) => data.shoppingCart);
-  const toHomePage = useHistory();
   const handleSubmitForm = (e) => {
     if (submitForm) {
       submitForm(e);
-      postShoppingCart(shoppingCart)
-        .then(() => {
-          localStorage.removeItem('shoppingCart');
-        })
-        .then(() => {
-          toHomePage.push('/');
-        });
     }
   };
   return (
