@@ -8,6 +8,7 @@ import CatalogList from '../CatalogList/CatalogList';
 import EmptyCatalogueNote from '../EmptyCatalogueNote';
 import SectionTitles from '../SectionTitles';
 import { pageTitles } from '../SectionTitles/pageTitles';
+import PaginationRounded from '../Pagination';
 import { StyledFilterContainer } from './Styles';
 
 const Catalogue = () => {
@@ -44,6 +45,7 @@ const Catalogue = () => {
         <CloseFilterBtn onClick={handleFilterClose} />
         <HiddenFilter onClick={handleFilterClose} />
       </StyledFilterContainer>
+      {isEmpty ? '' : <PaginationRounded />}
     </>
   );
 };
