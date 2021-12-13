@@ -25,7 +25,7 @@ const ItemPage = ({ match }) => {
     previousPrice,
     genre,
     shortDescription,
-    // imageUrls,
+    imageUrls,
     author,
     publisher,
     yearOfPublishing,
@@ -50,7 +50,7 @@ const ItemPage = ({ match }) => {
     <>
       <SectionTitles titles={bookPageTitles} itemTitle={name} />
       <StyledContainer>
-        <ItemImg name={name} categories={categories} />
+        <ItemImg img={imageUrls} name={name} categories={categories} />
         <StyledDescription>
           <ItemTitle name={name} genre={genre} />
           <ItemPrice price={currentPrice} salePrice={previousPrice} value={3} />
