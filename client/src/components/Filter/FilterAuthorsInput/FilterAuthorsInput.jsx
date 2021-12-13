@@ -11,10 +11,7 @@ const FilterAuthorsInput = () => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    if (value === 'all-authors') {
-      return setValue('');
-    }
-    return setValue(event.target.value);
+    setValue(event.target.value);
   };
 
   useEffect(() => {
@@ -26,6 +23,8 @@ const FilterAuthorsInput = () => {
   useEffect(() => {
     if (value !== 'all-authors') {
       dispatch(setSelectedAuthor(value));
+    } else {
+      dispatch(setSelectedAuthor(''));
     }
   }, [value]);
 
