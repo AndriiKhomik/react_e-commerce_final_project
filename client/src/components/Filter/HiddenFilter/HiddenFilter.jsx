@@ -7,6 +7,7 @@ import FilterSubtitle from '../FilterSubtitle';
 import FilterList from '../FilterList';
 import FilterRange from '../FilterRange';
 import FilterBtn from '../FilterBtn';
+import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
@@ -27,6 +28,8 @@ const HiddenFilter = ({ onClick }) => {
       <StyledDivider />
       <FilterSubtitle text='Price Range' />
       <FilterRange />
+      <StyledDivider />
+      <FilterAuthorsInput />
       <StyledDivider />
       <FilterSubtitle text='Format' />
       <FilterList groupTitle='formats' items={formats} />

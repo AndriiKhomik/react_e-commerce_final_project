@@ -7,7 +7,7 @@ import {
   SET_SELECTED_GENRE,
   SET_SELECTED_SORT,
   SET_SELECTED_TAG,
-
+  SET_SELECTED_AUTHOR,
 } from './types';
 
 const initialState = {
@@ -19,6 +19,7 @@ const initialState = {
   selectedGenre: '',
   selectedSort: 'higher-price',
   selectedTag: 'all-books',
+  author: '',
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -65,6 +66,9 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_TAG:
       return { ...state, selectedTag: action.payload };
+
+    case SET_SELECTED_AUTHOR:
+      return { ...state, author: action.payload };
 
     default:
       return state;

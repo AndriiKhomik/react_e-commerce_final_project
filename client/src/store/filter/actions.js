@@ -7,6 +7,7 @@ import {
   SET_SELECTED_GENRE,
   SET_SELECTED_SORT,
   SET_SELECTED_TAG,
+  SET_SELECTED_AUTHOR,
 } from './types';
 
 export const setGenres = (genre) => ({
@@ -47,4 +48,9 @@ export const setSelectedSort = (sort) => ({
 export const setSelectedTag = (tag) => ({
   type: SET_SELECTED_TAG,
   payload: tag,
+});
+
+export const setSelectedAuthor = (author) => ({
+  type: SET_SELECTED_AUTHOR,
+  payload: author,
 });
