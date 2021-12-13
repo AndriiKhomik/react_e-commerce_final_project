@@ -6,6 +6,7 @@ import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
 import { StyledItem, StyledList } from './Styles';
+import { setSelectedGenre } from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,7 @@ const CatalogList = ({ query }) => {
 
   // initial render without updating query and genre!
   useEffect(() => {
+    dispatch(setSelectedGenre(''));
     if (!selectedGenre && !query) {
       console.log('initial render', query);
       updateBooksList();
