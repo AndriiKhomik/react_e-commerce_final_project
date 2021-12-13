@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
 import ItemDescription from '../../components/ItemPageComponents/ItemDescription/ItemDescription';
-// import ItemFormats from '../../components/ItemPageComponents/ItemFormats';
 import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
@@ -55,7 +54,6 @@ const ItemPage = ({ match }) => {
           <ItemTitle name={name} genre={genre} />
           <ItemPrice price={currentPrice} salePrice={previousPrice} value={3} />
           <ItemDescription shortDescription={shortDescription} />
-          {/* <ItemFormats /> */}
           <ItemInfo
             author={author}
             publisher={publisher}

@@ -9,11 +9,11 @@ const BookFormatTag = ({ categories }) => {
   const setIcon = () => {
     switch (categories) {
       case 'ebooks':
-        return <LaptopChromebookOutlinedIcon />;
+        return <LaptopChromebookOutlinedIcon fontSize='large' />;
       case 'audio-books':
-        return <LibraryMusicOutlinedIcon />;
+        return <LibraryMusicOutlinedIcon fontSize='large' />;
       default:
-        return <MenuBookOutlinedIcon />;
+        return <MenuBookOutlinedIcon fontSize='large' />;
     }
   };
   return <StyledFormatParagraph>{setIcon()}</StyledFormatParagraph>;
