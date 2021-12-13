@@ -19,20 +19,13 @@ const ItemPage = ({ match }) => {
   const [book, setBook] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    getItemProduct(match.url)
-      .then((data) => {
-        setBook(data);
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
-
   const {
     name,
     currentPrice,
+    previousPrice,
     genre,
     shortDescription,
-    imageUrls,
+    // imageUrls,
     author,
     publisher,
     yearOfPublishing,
@@ -43,16 +36,24 @@ const ItemPage = ({ match }) => {
     categories,
   } = book;
 
+  useEffect(() => {
+    getItemProduct(match.url)
+      .then((data) => {
+        setBook(data);
+      })
+      .finally(() => setIsLoading(false));
+  }, [match.url]);
+
   return isLoading ? (
     <Loader />
   ) : (
     <>
       <SectionTitles titles={bookPageTitles} itemTitle={name} />
       <StyledContainer>
-        <ItemImg img={imageUrls} name={name} categories={categories} />
+        <ItemImg name={name} categories={categories} />
         <StyledDescription>
           <ItemTitle name={name} genre={genre} />
-          <ItemPrice price={currentPrice} value={3} />
+          <ItemPrice price={currentPrice} salePrice={previousPrice} value={3} />
           <ItemDescription shortDescription={shortDescription} />
           {/* <ItemFormats /> */}
           <ItemInfo
@@ -62,6 +63,7 @@ const ItemPage = ({ match }) => {
             pages={numberOfPages}
             duration={duration}
             genre={genre}
+            categories={categories}
           />
           <ItemButtons />
         </StyledDescription>
