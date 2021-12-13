@@ -11,7 +11,10 @@ const FilterAuthorsInput = () => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    if (value === 'all-authors') {
+      return setValue('');
+    }
+    return setValue(event.target.value);
   };
 
   useEffect(() => {
@@ -21,7 +24,9 @@ const FilterAuthorsInput = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(setSelectedAuthor(value));
+    if (value !== 'all-authors') {
+      dispatch(setSelectedAuthor(value));
+    }
   }, [value]);
 
   return (
@@ -33,6 +38,9 @@ const FilterAuthorsInput = () => {
         label='Authors'
         onChange={handleChange}
       >
+        <MenuItem key='1' value='all-authors'>
+          All authors
+        </MenuItem>
         {authors.map(({ name, _id }) => (
           <MenuItem key={_id} value={_id}>
             {name}
