@@ -17,7 +17,7 @@ const OrderDetails = () => {
   };
 
   const handleContinueShopping = () => {
-    toStore.push('/catalogue');
+    toStore.push('/products');
   };
 
   return (

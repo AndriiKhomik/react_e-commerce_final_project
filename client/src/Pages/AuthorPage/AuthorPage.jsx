@@ -24,7 +24,7 @@ const AuthorPage = ({ match }) => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const { books, name, authorUrl, biography, dateOfBirth } = auth;
+  const { books, name, authorUrl, biography, dateOfBirth, _id } = auth;
 
   return isLoading ? (
     <Loader />
@@ -39,8 +39,8 @@ const AuthorPage = ({ match }) => {
           <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>
-      <BooksList items={books} text='Books' />
-      <AuthorButton />
+      <BooksList authorName={name} items={books} text='Books' fromAuthor />
+      <AuthorButton id={_id} />
     </>
   );
 };

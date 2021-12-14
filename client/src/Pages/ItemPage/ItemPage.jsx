@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ItemButtons from '../../components/ItemPageComponents/ItemButtons/ItemButtons';
 import ItemDescription from '../../components/ItemPageComponents/ItemDescription/ItemDescription';
-// import ItemFormats from '../../components/ItemPageComponents/ItemFormats';
 import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
@@ -19,17 +18,10 @@ const ItemPage = ({ match }) => {
   const [book, setBook] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    getItemProduct(match.url)
-      .then((data) => {
-        setBook(data);
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
-
   const {
     name,
     currentPrice,
+    previousPrice,
     genre,
     shortDescription,
     imageUrls,
@@ -39,8 +31,17 @@ const ItemPage = ({ match }) => {
     numberOfPages,
     duration,
     fullDescription,
+    itemNo,
     categories,
   } = book;
+
+  useEffect(() => {
+    getItemProduct(match.url)
+      .then((data) => {
+        setBook(data);
+      })
+      .finally(() => setIsLoading(false));
+  }, [match.url]);
 
   return isLoading ? (
     <Loader />
@@ -48,12 +49,11 @@ const ItemPage = ({ match }) => {
     <>
       <SectionTitles titles={bookPageTitles} itemTitle={name} />
       <StyledContainer>
-        <ItemImg img={imageUrls} name={name} categories={categories}/>
+        <ItemImg img={imageUrls} name={name} categories={categories} />
         <StyledDescription>
           <ItemTitle name={name} genre={genre} />
-          <ItemPrice price={currentPrice} value={3} />
+          <ItemPrice price={currentPrice} salePrice={previousPrice} value={3} />
           <ItemDescription shortDescription={shortDescription} />
-          {/* <ItemFormats /> */}
           <ItemInfo
             author={author}
             publisher={publisher}
@@ -61,12 +61,13 @@ const ItemPage = ({ match }) => {
             pages={numberOfPages}
             duration={duration}
             genre={genre}
+            categories={categories}
           />
           <ItemButtons />
         </StyledDescription>
       </StyledContainer>
       <ItemReviewsBlock fullDescription={fullDescription} />
-      <RelatedBooksList genre={genre} />
+      <RelatedBooksList genre={genre} itemNo={itemNo} />
     </>
   );
 };

@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledFavouriteBtnBox = styled(CardActions)`
+  opacity: 0;
   position: absolute;
   padding: 0;
   z-index: 2;
@@ -10,6 +11,9 @@ export const StyledFavouriteBtnBox = styled(CardActions)`
   right: 8px;
   background-color: ${[theme.palette.text.light]};
   border-radius: 4px;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const StyledFavouriteBtn = styled(Button)`

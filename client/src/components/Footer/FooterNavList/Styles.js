@@ -22,7 +22,7 @@ export const StyledList = styled(List)(() => ({
   },
   [theme.breakpoints.up('dl')]: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     padding: '0',
   },
 }));

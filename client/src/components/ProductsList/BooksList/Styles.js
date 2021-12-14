@@ -56,7 +56,6 @@ export const StyledSliderWrapper = styled('div')(() => ({
     [theme.breakpoints.up('ds')]: {
       right: '0',
     },
-    // right: '0',
   },
 }));
 
