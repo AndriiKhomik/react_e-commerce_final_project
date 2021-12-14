@@ -20,7 +20,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/catalogue'>
+              <StyledLink as={NavLink} exact to='/products'>
                 Catalogue
               </StyledLink>
             </ListItemText>

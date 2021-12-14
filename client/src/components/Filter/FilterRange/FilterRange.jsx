@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Box } from '@mui/material';
 import { StyledPriceValue, StyledSlider, StyledPriceTag } from './Styles';
+import { setMinPrice, setMaxPrice } from '../../../store/filter/actions';
 
 const valuetext = (value) => {
   return `${value}°C`;
 };
+// Get max price price from db, and set as max price in StyledSlider prop
 
 const FilterRange = () => {
-  const minDistance = 10;
-  const [value, setValue] = useState([20, 500]);
+  const minDistance = 5;
+  const [value, setValue] = useState([0, 30]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setMinPrice(value[0]));
+    dispatch(setMaxPrice(value[1]));
+  }, [value[0], value[1]]);
+
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
-
     if (activeThumb === 0) {
       setValue([Math.min(newValue[0], value[1] - minDistance), value[1]]);
     } else {
@@ -31,7 +40,7 @@ const FilterRange = () => {
         getAriaValueText={valuetext}
         disableSwap
         // !!!should be changed to max books price
-        max={1000}
+        max={50}
       />
       <StyledPriceTag>
         <span>Price: </span>
