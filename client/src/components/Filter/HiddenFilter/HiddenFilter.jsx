@@ -16,7 +16,6 @@ const HiddenFilter = ({ onClick }) => {
   const filtersValues = useSelector((data) => data.filter);
 
   const applyFilter = () => {
-    // query string
     onClick(makeQueryString(filtersValues));
   };
 

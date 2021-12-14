@@ -8,8 +8,6 @@ import { setBooks } from '../../../store/bookList/actions';
 import { StyledItem, StyledList } from './Styles';
 import {
   setSelectedGenre,
-  setSelectedTag,
-  // setSelectedSort,
   setSelectedAuthorId,
 } from '../../../store/filter/actions';
 
@@ -19,13 +17,6 @@ const CatalogList = ({ query }) => {
   const products = useSelector(({ books }) => books);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
   const selectedAuthorId = useSelector(({ filter }) => filter.authorId);
-  const selectedSort = useSelector(({ filter }) => filter.selectedSort);
-  // const selectedTag = useSelector(({ filter }) => filter.selectedTag);
-
-  const sortValue = selectedSort === 'lower-price' ? -1 : 1;
-  const currentSorting = `sort=${sortValue}`;
-  const currentAuthor = selectedAuthorId ? `author=${selectedAuthorId}` : '';
-  const currentGenre = selectedGenre ? `genre=${selectedGenre}` : '';
 
   const updateBooksList = (queryString = query) => {
     filterProducts(queryString)
@@ -35,70 +26,26 @@ const CatalogList = ({ query }) => {
       .finally(() => setIsLoading(false));
   };
 
-  // initial render without updating query, genre and tag!
+  // initial render without updating query, genre and author!
   useEffect(() => {
     dispatch(setSelectedGenre(''));
-    // dispatch(setSelectedTag('all-books'));
-    // dispatch(setSelectedSort('higher-price'));
     dispatch(setSelectedAuthorId(''));
     if (!selectedGenre && !query && !selectedAuthorId) {
-      console.log('initial render', query);
       updateBooksList();
     }
   }, []);
 
-  // update by changed query
   useEffect(() => {
-    if (query) {
-      dispatch(setSelectedTag('all-books'));
-      console.log('changed query ->', query);
-      updateBooksList();
-    }
+    if (query) updateBooksList();
   }, [query]);
 
-  // update by changed tag
-  // useEffect(() => {
-  //   const sort = `&sort=${currentSorting}`;
-  //   if (selectedTag === 'sale') {
-  //     console.log('changed selectedTag ->', selectedTag);
-  //     updateBooksList(`${query}&tag=${selectedTag}${sort}`);
-  //   } else {
-  //     console.log('changed selectedTag all books ->', selectedTag);
-  //     updateBooksList(`${query}${sort}`);
-  //   }
-  // }, [selectedTag]);
-
-  // update by changed selectedGenre
   useEffect(() => {
-    if (selectedGenre) {
-      const queryStrings = [currentSorting, currentGenre].join('&');
-      console.log('changed selectedGenre ->', selectedGenre);
-      console.log(queryStrings);
-      updateBooksList(`genre=${selectedGenre}`);
-    }
+    if (selectedGenre) updateBooksList(`genre=${selectedGenre}`);
   }, [selectedGenre]);
 
-  // update by changed author id from 1 author page
   useEffect(() => {
-    const queryStrings = [currentSorting, currentAuthor].join('&');
-    if (selectedAuthorId) {
-      console.log('changed selectedAuthorId ->', selectedAuthorId);
-      console.log(queryStrings);
-      updateBooksList(`${queryStrings}`);
-    }
+    if (selectedAuthorId) updateBooksList(`author=${selectedAuthorId}`);
   }, [selectedAuthorId]);
-
-  // update by changed sorting
-  useEffect(() => {
-    if (selectedSort) {
-      console.log('changed selectedSort ->', selectedSort);
-      // const tag = `&tag=${selectedTag}`;
-      const queryStrings = [currentGenre, currentSorting, currentAuthor].join(
-        '&',
-      );
-      updateBooksList(`${query}${queryStrings}`);
-    }
-  }, [selectedSort]);
 
   const productsElements = products.map(
     ({
