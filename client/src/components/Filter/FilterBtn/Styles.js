@@ -3,7 +3,7 @@ import { Button, styled } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledButton = styled(Button)(() => ({
-    padding: '8px 15px',
+    padding: '8px 22px',
     color: [theme.palette.text.light],
     fontSize: '16px',
     fontWeight: '700',

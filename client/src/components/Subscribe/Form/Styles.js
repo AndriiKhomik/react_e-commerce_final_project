@@ -3,19 +3,34 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledTextField = styled(TextField)(() => ({
-  '& fieldset': {
+  '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+    {
+      borderColor: [theme.palette.primary.main],
+    },
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '6px',
     borderBottomRightRadius: '0',
     borderTopRightRadius: '0',
-    border: 'none',
   },
+
+  '& .MuiOutlinedInput-notchedOutline': {
+    borderColor: [theme.palette.primary.main],
+  },
+  '& .css-i4bv87-MuiSvgIcon-root': {
+    fill: [theme.palette.text.gray],
+  },
+
   [theme.breakpoints.up('xs')]: {
-    width: '73%',
+    width: '60%',
   },
   [theme.breakpoints.up('sm')]: {
-    width: '84%',
+    width: '50%',
   },
   [theme.breakpoints.up('dm')]: {
-    width: '89%',
+    width: '65%',
+  },
+  [theme.breakpoints.up('bm')]: {
+    width: '77%',
   },
   [theme.breakpoints.up('md')]: {
     width: '75%',
@@ -49,12 +64,13 @@ export const StyledTitle = styled('h3')(() => ({
     color: '#3d3d3d',
     paddingBottom: '18px',
     paddingTop: '18px',
-    fontSize: '18px',
-    lineHeight: '24px',
+    fontSize: '16px',
+    lineHeight: '18px',
     fontFamily: 'CeraPro Bold',
   },
   [theme.breakpoints.up('md')]: {
-    paddingTop: '0',
+    fontSize: '18px',
+    lineHeight: '24px',
   },
 }));
 
