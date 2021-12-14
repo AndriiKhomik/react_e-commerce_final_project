@@ -5,8 +5,6 @@ import {
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
-  SET_SELECTED_SORT,
-  SET_SELECTED_TAG,
   SET_SELECTED_AUTHOR,
   SET_SELECTED_AUTHOR_ID,
 } from './types';
@@ -18,8 +16,6 @@ const initialState = {
   maxPrice: 0,
   searchString: '',
   selectedGenre: '',
-  selectedSort: 'higher-price',
-  selectedTag: 'all-books',
   author: '',
   authorId: '',
 };
@@ -62,12 +58,6 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_GENRE:
       return { ...state, selectedGenre: action.payload };
-
-    case SET_SELECTED_SORT:
-      return { ...state, selectedSort: action.payload };
-
-    case SET_SELECTED_TAG:
-      return { ...state, selectedTag: action.payload };
 
     case SET_SELECTED_AUTHOR:
       return { ...state, author: action.payload };

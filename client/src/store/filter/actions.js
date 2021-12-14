@@ -5,8 +5,6 @@ import {
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
-  SET_SELECTED_SORT,
-  SET_SELECTED_TAG,
   SET_SELECTED_AUTHOR,
   SET_SELECTED_AUTHOR_ID,
 } from './types';
@@ -39,16 +37,6 @@ export const setSearchString = (searchString) => ({
 export const setSelectedGenre = (genre) => ({
   type: SET_SELECTED_GENRE,
   payload: genre,
-});
-
-export const setSelectedSort = (sort) => ({
-  type: SET_SELECTED_SORT,
-  payload: sort,
-});
-
-export const setSelectedTag = (tag) => ({
-  type: SET_SELECTED_TAG,
-  payload: tag,
 });
 
 export const setSelectedAuthor = (author) => ({
