@@ -11,10 +11,6 @@ import ItemPage from './Pages/ItemPage/ItemPage';
 import CheckoutPage from './Pages/CheckoutPage';
 import Authors from './Pages/Authors';
 import AuthorPage from './Pages/AuthorPage/AuthorPage';
-<<<<<<< HEAD
-import SpecialOfferPage from './Pages/SpecialOfferPage';
-=======
->>>>>>> dev
 
 export const useRoutes = () => {
   return (
