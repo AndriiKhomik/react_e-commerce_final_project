@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { getAuthors } from '../../../api/authors';
 import { setSelectedAuthor } from '../../../store/filter/actions';
@@ -9,6 +9,7 @@ const FilterAuthorsInput = () => {
   const [authors, setAuthors] = useState([]);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+  const author = useSelector((data) => data.filter.authorId);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -21,11 +22,17 @@ const FilterAuthorsInput = () => {
   }, []);
 
   useEffect(() => {
-    if (value !== 'all-authors') {
-      dispatch(setSelectedAuthor(value));
-    } else {
-      dispatch(setSelectedAuthor(''));
+    if (author) {
+      setValue(author);
     }
+  }, []);
+
+
+  useEffect(() => {
+    if (value !== 'all-authors') {
+      return dispatch(setSelectedAuthor(value));
+    }
+    return dispatch(setSelectedAuthor(''));
   }, [value]);
 
   return (
