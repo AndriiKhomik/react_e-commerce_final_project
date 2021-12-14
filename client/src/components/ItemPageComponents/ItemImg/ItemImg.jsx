@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BookFormatTag from '../../ProductItem/BookFormatTag';
 import { StyledCardMediaBox, StyledCardMedia } from './Styles';
-
 import defaultimg from '../../../img/missing_image.jpg';
+import BookFormatTag from './BookFormatTag/BookFormatTag';
 
 const ItemImg = ({ img, name, categories }) => {
   return (
@@ -24,7 +23,7 @@ ItemImg.propTypes = {
 };
 
 ItemImg.defaultProps = {
-  img: defaultimg,
+  img: [defaultimg],
 };
 
 export default ItemImg;
