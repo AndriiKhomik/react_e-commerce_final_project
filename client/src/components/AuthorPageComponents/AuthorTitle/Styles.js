@@ -6,7 +6,11 @@ export const StyledTitleWrapper = styled('div')(() => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'baseline',
+<<<<<<< HEAD
     borderBottom: '0.3px solid #f7bc47',
+=======
+    borderBottom: `0.3px solid ${theme.palette.primary.main}`,
+>>>>>>> dev
   },
 }));
 
