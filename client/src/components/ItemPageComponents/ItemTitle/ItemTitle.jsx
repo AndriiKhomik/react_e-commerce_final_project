@@ -10,7 +10,6 @@ const ItemTitle = ({ name, genre }) => {
 
   const clickHandler = () => {
     dispatch(setSelectedGenre(genre));
-    // change relevant checkbox of genre in redux
   };
 
   return (
