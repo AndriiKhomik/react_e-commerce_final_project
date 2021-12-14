@@ -7,6 +7,7 @@ export const StyledTitleWrapper = styled('div')(() => ({
     justifyContent: 'space-between',
     alignItems: 'baseline',
     borderBottom: '0.3px solid #f7bc47',
+    marginBottom: '20px',
   },
 }));
 

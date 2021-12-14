@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledTitleWrapper, StyledTitle } from './Styles';
 
-const AuthorTitle = ({ name }) => {
+const PromotionalTitle = ({ name }) => {
   return (
     <StyledTitleWrapper>
       <StyledTitle>{name}</StyledTitle>
@@ -10,8 +10,8 @@ const AuthorTitle = ({ name }) => {
   );
 };
 
-AuthorTitle.propTypes = {
+PromotionalTitle.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default AuthorTitle;
+export default PromotionalTitle;

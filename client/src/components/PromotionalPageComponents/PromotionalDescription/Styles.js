@@ -21,7 +21,7 @@ export const StyledDescriptionTitle = styled('h4')(() => ({
 
 export const StyledDescription = styled('div')(() => ({
   [theme.breakpoints.up('xs')]: {
-    fontSize: '14px',
+    fontSize: '13px',
     lineHeight: '19px',
     color: `${theme.palette.text.primary}`,
     marginTop: '10px',

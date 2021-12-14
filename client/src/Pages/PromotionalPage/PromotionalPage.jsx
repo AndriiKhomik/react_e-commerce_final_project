@@ -1,17 +1,14 @@
 import React from 'react';
+import DateCountdown from 'react-date-countdown-timer';
 // import PropTypes from 'prop-types';
-// import AuthorDescription from '../../components/AuthorPageComponents/AuthorDescription/AuthorDescription';
-import AuthorImg from '../../components/AuthorPageComponents/AuthorImg/AuthorImg';
-import AuthorTitle from '../../components/AuthorPageComponents/AuthorTitle/AuthorTitle';
-// import AuthorDateOfBirth from '../../components/AuthorPageComponents/AuthorDateOfBirth/AuthorDateOfBirth';
-// import { getAuthor } from '../../api/authors';
+import PromotionalTitle from '../../components/PromotionalPageComponents/PromotionalTitle/PromotionalTitle';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
 import { offer } from './hardcode';
+import PromotionalImg from '../../components/PromotionalPageComponents/PromotionalImg';
+import PromotionalDescription from '../../components/PromotionalPageComponents/PromotionalDescription';
 // import Loader from '../../components/ItemPageComponents/Loader/Loader';
-// import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
-// import BooksList from '../../components/ProductsList/BooksList';
 
 // const AuthorPage = ({ match }) => {
 //   const [auth, setAuth] = useState({});
@@ -38,15 +35,16 @@ const SpecialOfferPage = () => {
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />
       <StyledContainer>
-        <AuthorImg img={imgUrl} name={title} />
+        <PromotionalTitle name={title} />
         <StyledDescription>
-          <AuthorTitle name={title} />
-          {/* <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
-          <AuthorDescription biography={biography} /> */}
+          <PromotionalImg img={imgUrl} name={title} />
+          <PromotionalDescription description={description} />
         </StyledDescription>
+        <DateCountdown
+          dateTo='January 01, 2023 00:00:00 GMT+03:00'
+          callback={() => alert('Hello')}
+        />
       </StyledContainer>
-      {/* <BooksList items={books} text='Books' /> */}
-      {/* <AuthorButton /> */}
     </>
   );
 };

@@ -4,7 +4,7 @@ import { StyledCardMediaBox, StyledCardMedia } from './Styles';
 
 import defaultimg from '../../../img/missing_image.jpg';
 
-const AuthorImg = ({ img, name }) => {
+const PromotionalImg = ({ img, name }) => {
   return (
     <StyledCardMediaBox>
       <StyledCardMedia src={img} alt={name} />
@@ -12,7 +12,7 @@ const AuthorImg = ({ img, name }) => {
   );
 };
 
-AuthorImg.propTypes = {
+PromotionalImg.propTypes = {
   name: PropTypes.string.isRequired,
   img: PropTypes.oneOfType([
     PropTypes.string,
@@ -20,8 +20,8 @@ AuthorImg.propTypes = {
   ]),
 };
 
-AuthorImg.defaultProps = {
+PromotionalImg.defaultProps = {
   img: defaultimg,
 };
 
-export default AuthorImg;
+export default PromotionalImg;

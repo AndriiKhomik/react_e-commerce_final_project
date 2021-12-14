@@ -10,11 +10,11 @@ export const StyledContainer = styled(Box)(() => ({
     flexDirection: 'column',
   },
   [theme.breakpoints.up('sm')]: {
-    marginBottom: '50px',
+    marginBottom: '25px',
   },
   [theme.breakpoints.up('md')]: {
-    flexDirection: 'row',
-    marginBottom: '60px',
+    // flexDirection: 'row',
+    marginBottom: '35px',
   },
 }));
 
@@ -24,7 +24,7 @@ export const StyledDescription = styled(Grid)(() => ({
   },
   [theme.breakpoints.up('md')]: {
     alignItems: 'center',
-    marginLeft: '13%',
-    width: '60%',
+    marginLeft: '0%',
+    width: '70%',
   },
 }));

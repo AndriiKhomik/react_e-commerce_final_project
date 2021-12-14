@@ -15,15 +15,24 @@ export const StyledCardMediaBox = styled('div')(() => ({
 
 export const StyledCardMedia = styled('img')(() => ({
   [theme.breakpoints.up('xs')]: {
-    height: '400px',
+    // height: '400px',
     padding: '0',
-    margin: 'auto',
+    // margin: 'auto',
     display: 'block',
     objectFit: 'cover',
     borderRadius: '5px',
-    maxWidth: '350px',
+    maxWidth: '100%',
   },
-  [theme.breakpoints.up('md')]: {
-    height: '500px',
-  },
+  // [theme.breakpoints.up('ds')]: {
+  //   // height: '500px',
+  //   maxWidth: '400px',
+  // },
+  // [theme.breakpoints.up('sm')]: {
+  //   // height: '500px',
+  //   maxWidth: '550px',
+  // },
+  // [theme.breakpoints.up('md')]: {
+  //   // height: '500px',
+  //   maxWidth: '700px',
+  // },
 }));
