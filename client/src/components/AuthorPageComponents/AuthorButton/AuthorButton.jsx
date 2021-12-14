@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { StyledButtonsWrapper, StyledButtonText, StyledButton } from './Styles';
+import { setSelectedAuthorId } from '../../../store/filter/actions';
 
 const AuthorButton = ({ id }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const onClick = () => {
-    // dispatch(setSelectedAuthor(id));
-    console.log(id);
+    dispatch(setSelectedAuthorId(id));
   };
 
   return (
