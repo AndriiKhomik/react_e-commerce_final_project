@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BooksList from './BooksList';
 import { getProductsByQuery } from '../../api/products';
+import ListLoader from '../ListLoader/ListLoader';
 
 const SalesBooksList = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,11 @@ const SalesBooksList = () => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  return isLoading ? 'Loading' : <BooksList items={products} text='Sales' />;
+  return isLoading ? (
+    <ListLoader />
+  ) : (
+    <BooksList items={products} text='Sales' />
+  );
 };
 
 export default SalesBooksList;
