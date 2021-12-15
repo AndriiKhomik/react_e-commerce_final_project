@@ -19,18 +19,22 @@ const Navbar = () => {
   const changeMenu = useMediaQuery(theme.breakpoints.down('md'));
   const changeLogo = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleCloseOpenDrawer = (e) => {
-    if (!e.target.classList.contains('css-i4bv87-MuiSvgIcon-root')) {
-      setOpenDrawer(false);
+  const toggleDrawer = (value) => (event) => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
     }
-    return false;
+
+    setOpenDrawer(value);
   };
 
   return (
     <>
       <Box
         elevation={0}
-        onClick={(e) => handleCloseOpenDrawer(e)}
+        onClick={() => toggleDrawer()}
         sx={{ marginBottom: '36px' }}
       >
         <StyledBox>

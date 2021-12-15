@@ -5,9 +5,14 @@ import { StyledLink, StyledListItem } from './Styles';
 
 const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
   return (
-    <Drawer anchor='left' open={openDrawer}>
+    <Drawer
+      anchor='left'
+      open={openDrawer}
+      onClose={() => setOpenDrawer(false)}
+      onClick={() => setOpenDrawer(false)}
+    >
       <List>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
               <StyledLink exact to='/' activeClassName='selected'>
@@ -16,7 +21,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
               <StyledLink exact to='/products' activeClassName='selected'>
@@ -25,7 +30,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
               <StyledLink exact to='/promotionals' activeClassName='selected'>
@@ -43,7 +48,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem> */}
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem button>
           <ListItemIcon>
             <ListItemText>
               <StyledLink exact to='/authors' activeClassName='selected'>
