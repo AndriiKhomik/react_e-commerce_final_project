@@ -12,10 +12,12 @@ export const StyledButton = styled(Button)(() => ({
   lineHeight: 1,
   borderRadius: '6px',
   padding: '8px',
-  width: '98px',
-  height: '40px',
   '&:hover': {
     backgroundColor: `${theme.palette.primary.deepdark}`,
+  },
+  [theme.breakpoints.up('ds')]: {
+    width: '98px',
+    height: '40px',
   },
 }));
 
