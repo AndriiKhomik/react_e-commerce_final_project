@@ -13,7 +13,8 @@ module.exports = authorsData = [
     dateOfBirth: new Date("1985"),
     biography: "<p>Jennifer Adam started writing stories when her grandmother showed her how to make books out of construction paper and staples. After living on both coasts, she ended up marrying a farmer and settling down in the middle of the country. A lake covered in swans makes up for being landlocked, though, and she enjoys taking a kayak out whenever she can.</p><p>She rides a formerly wild mustang and enjoys hanging out at the barn. When she's not on the water or in the saddle, she's probably hiking through trees or hiding in a library. She is a voracious consumer of books, collects fountain pens and colored inks, and adores classical music and ballet.</p><ul><li>The Last Windwitch</li></ul>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637361759/authors/jennifer-adams_vi3sk9.webp",
-    books: ["619e81fde2818a519a0dce37", "619e81fde2818a519a0dce36"],
+    books: ["619e81fde2818a519a0dce37", "619e81fde2818a519a0dce36", "61b92ed22d5ae78577b3a100", "61b92ed22d5ae78577b3a101", "6196a420d2ece067697ac9a5",
+      "61b931ac1ae10800dc6be0a4", "61b931ac1ae10800dc6be0a5", "61b931ac1ae10800dc6be0a6"],
   },
   {
     name: "Lucy Hope",
@@ -21,7 +22,7 @@ module.exports = authorsData = [
     _id: "6198cbc8d584625da10c9ee5",
     biography: "<p>Lucy Hope grew up in North Wales, though now she lives in the Cotswolds. After jobs ranging from managing telecoms products to working in schools, she did a master's degree in Writing for Young People at Bath Spa university.</p><p>Fledgling is her first novel. Lucy Hope's remarkable debut novel, Fledgling, is a story about angels, cherubs and an ordinary girl, Cassie Englel, who finds herself in extraordinary circumstances.</p><p>We asked author Lucy Hope to tell us more about what inspired the story, and how the mystery at the heart of the story developed.</p><ul><li>Fledgling</li></ul>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637401891/authors/lucy_tcfys5.jpg",
-    books: ["619e65cc03b90d2ed4ab1235", "619e65cc03b90d2ed4ab1236"],
+    books: ["619e65cc03b90d2ed4ab1235", "619e65cc03b90d2ed4ab1236", "61b933a76bd970027de13f46", "61b93637778ce9041334284c", "61b93637778ce9041334284b", "61b93637778ce9041334284a"],
   },
   {
     name: "Christina Lauren",
@@ -45,7 +46,7 @@ module.exports = authorsData = [
     _id: "619a488fcc615cae5b11bf74",
     biography: "<p>J.K. Rowling is best-known as the author of the seven Harry Potter books, which were published between 1997 and 2007. The enduringly popular adventures of Harry, Ron and Hermione have gone on to sell over 500 million copies, be translated into over 80 languages and made into eight blockbuster films.</p><p>Alongside the Harry Potter series, J.K. Rowling also wrote three short companion volumes for charity: Quidditch Through the Ages and Fantastic Beasts and Where to Find Them, in aid of Comic Relief, and The Tales of Beedle the Bard, in aid of Lumos. The companion books and original series are all available as audiobooks.</p><ul><li>Harry Potter and the Chamber of Secrets</li><li>Harry Potter and the Order of the Phoenix</li><li>Harry Potter and the Goblet of Fire</li></ul>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637500800/authors/fvh43djng407r1iq142ng0sk5f._SX450__pt32yh.jpg",
-    books: ["619e65cc03b90d2ed4ab1249", "619e65cc03b90d2ed4ab1248", "619e65cc03b90d2ed4ab1247", "619e65cc03b90d2ed4ab1246", "619e65cc03b90d2ed4ab1245"],
+    books: ["619e65cc03b90d2ed4ab1249", "619e65cc03b90d2ed4ab1248", "619e65cc03b90d2ed4ab1247", "619e65cc03b90d2ed4ab1246", "619e65cc03b90d2ed4ab1245", "61b9375e8c4a8704cb35fdb4", "61b9375e8c4a8704cb35fdb5"],
   },
   {
     name: "Robin Stevens",
@@ -53,7 +54,7 @@ module.exports = authorsData = [
     _id: "619a67d9c9a653c13ffbe3eb",
     biography: "<p>One of Waterstones booksellers’ favourite children’s writers, Robin Stevens was born in California but grew up in Oxford, directly opposite the house where Alice in Wonderland lived. A life-long fan of detective fiction she is best known as the author of the bestselling Murder Most Unladylike Mysteries, starring dynamic duo Daisy Wells and Hazel Wong. She is also the author of The Guggenheim Mystery and the Deepdean Mini-Mysteries.</p><p>Before becoming a full-time author, Stevens worked as a bookseller at Blackwell's bookshop in Oxford, and as an editor at Egmont. Stevens started writing Murder Most Unladylike as part of National Novel Writing Month in November 2010, but did not send it to agencies for two years.</p><p>Stevens has cited the Golden Age of Detective Fiction as an influence on her work – particularly the authors Agatha Christie, Ngaio Marsh, Margery Allingham, and Dorothy L. Sayers.</p><ul><li>Once Upon a Crime</li><li>Murder Most Unladylike</li><li>Arsenic For Tea</li></ul>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637509063/authors/robin_stevens_dkuxji.jpg",
-    books: ["619e65cc03b90d2ed4ab124d", "619e65cc03b90d2ed4ab124c", "619e65cc03b90d2ed4ab124b", "619e65cc03b90d2ed4ab124a"],
+    books: ["619e65cc03b90d2ed4ab124d", "619e65cc03b90d2ed4ab124c", "619e65cc03b90d2ed4ab124b", "619e65cc03b90d2ed4ab124a", "61b93928841df30652d5dba6", "61b93928841df30652d5dba5"],
   },
   {
     name: "Thomas Erikson",
@@ -69,7 +70,7 @@ module.exports = authorsData = [
     _id: "619a97fb06cf40de5ced4b99",
     biography: "<p>Alex Horne (born 10 September 1978) is a British comedian. He is the host of 'The Horne Section', a live music variety show which has been broadcast on BBC Radio 4.</p><p>Horne was educated at Lancing College (Fields House, 1991–1996) and the University of Cambridge, where he was a member of Footlights.</p><p>He made his first appearance at the Edinburgh festival in 2000 with his show, 'How To Avoid Huge Ships'. His 2003 Edinburgh show, 'Making Fish Laugh' was nominated for a Perrier newcomer award. In 2004 he won a Chortle Award for Best Breakthrough Act. His shows with Tim Key have been 'Every Body Talks' and 'When In Rome', both of which featured unusually extensive use of Microsoft PowerPoint for a comic act. Horne toured Roman towns of the UK with the 'When In Rome' show in early 2006.</p><ul><li>Wordwatching: How to Break into the Dictionary</li><li>Taskmaster 220 Extraordinary Tasks for Ordinary People</li><li>Bring Me The Head Of The Taskmaster: 101 next-level tasks</li></ul>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637521382/authors/81C9_3T3tyL._SX450__zdfmco.jpg",
-    books: ["619e65cc03b90d2ed4ab1257", "619e65cc03b90d2ed4ab1258", "619e65cc03b90d2ed4ab125a", "619e65cc03b90d2ed4ab1259"],
+    books: ["619e65cc03b90d2ed4ab1257", "619e65cc03b90d2ed4ab1258", "619e65cc03b90d2ed4ab125a", "619e65cc03b90d2ed4ab1259", "61b93a01e10f5106e182f006", "61b93a8fac27d5073712dc91"],
   },
   {
     name: "Elodie Harper",
@@ -77,6 +78,6 @@ module.exports = authorsData = [
     _id: "619a9cd662e0d8e5a0da8cae",
     biography: "<p>Elodie Harper is a journalist and prize-winning short story writer. Her story 'Wild Swimming' won the 2016 Bazaar of Bad Dreams short story competition, which was judged by Stephen King.</p><p>She is currently a reporter at ITV News Anglia, and before that worked as a producer for Channel 4 News. Her job as a journalist has seen her join one of the most secretive wings of the Church of Scientology and cover the far right hip hop scene in Berlin, as well as crime reporting in Norfolk where her first two novels were set – The Binding Song and The Death Knock.</p><p>Elodie studied Latin poetry both in the original and in translation as part of her English Literature degree at Oxford, instilling a lifelong interest in the ancient world. The Wolf Den is the first in a trilogy of novels about the lives of women in ancient Pompeii.</p><ul><li>The Wolf Den</li><li>The House with the Golden Door</li><li>The Binding Song</li></ul>",
     authorUrl: "https://res.cloudinary.com/dsdzwg97f/image/upload/v1637522602/authors/62a284_b33b07f109ff4613bc75cb4bd076d111_mv2_d_2143_3000_s_2_mijl7k.jpg",
-    books: ["619e65cc03b90d2ed4ab125c", "619e65cc03b90d2ed4ab125d", "619e65cc03b90d2ed4ab125b", "619e65cc03b90d2ed4ab125e"],
+    books: ["619e65cc03b90d2ed4ab125c", "619e65cc03b90d2ed4ab125d", "619e65cc03b90d2ed4ab125b", "619e65cc03b90d2ed4ab125e", "61b93b0e6dce3007aeac985a", "61b93b71066965081a500049"],
   },
 ];
