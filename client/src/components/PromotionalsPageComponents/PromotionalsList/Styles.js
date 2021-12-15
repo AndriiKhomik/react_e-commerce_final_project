@@ -3,7 +3,7 @@ import theme from '../../../services/theme/theme';
 
 export const StyledList = styled('ul')(() => ({
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, 750px)',
+  gridTemplateColumns: 'repeat(auto-fill, 550px)',
   rowGap: '50px',
   marginBottom: '45px',
 
