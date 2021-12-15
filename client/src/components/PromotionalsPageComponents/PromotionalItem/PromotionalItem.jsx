@@ -5,12 +5,7 @@ import { Link } from 'react-router-dom';
 import PromotionalImg from '../PromotionalImg/PromotionalImg';
 import defaultimg from '../../../img/noImgAuthor.png';
 // import { setSelectedAuthorId } from '../../../store/filter/actions';
-import {
-  StyledPromoTitle,
-  StyledBooksLink,
-  StyledItem,
-  StyledImageLink,
-} from './Styles';
+import { StyledPromoTitle, StyledItem, StyledImageLink } from './Styles';
 
 const PromotionalItem = ({ title, promoUrl, promoId }) => {
   // const dispatch = useDispatch();

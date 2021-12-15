@@ -11,7 +11,7 @@ import ItemPage from './Pages/ItemPage/ItemPage';
 import CheckoutPage from './Pages/CheckoutPage';
 import Authors from './Pages/Authors';
 import AuthorPage from './Pages/AuthorPage/AuthorPage';
-import PromotionalPage from './Pages/PromotionalPage/PromotionalPage';
+import PromotionalsPage from './Pages/PromotionalsPage/PromotionalsPage';
 
 export const useRoutes = () => {
   return (
@@ -25,7 +25,7 @@ export const useRoutes = () => {
       <Route exact path='/registration' component={RegistrationPage} />
       <Route path='/products/:itemNo' component={ItemPage} />
       <Route path='/authors/:_id' component={AuthorPage} />
-      <Route path='/promotionals' component={PromotionalPage} />
+      <Route path='/promotionals' component={PromotionalsPage} />
       <Route exact path='/checkout' component={CheckoutPage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>

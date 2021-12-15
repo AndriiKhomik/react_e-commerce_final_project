@@ -2,7 +2,7 @@
 import React from 'react';
 // import { getAuthors } from '../../../api/authors';
 import PromotionalItem from '../PromotionalItem/PromotionalItem';
-import ListLoader from '../../ListLoader';
+// import ListLoader from '../../ListLoader';
 import { StyledList } from './Styles';
 import { promotionals } from '../../../Pages/PromotionalPage/hardcode';
 
@@ -17,7 +17,7 @@ const PromotionalsList = () => {
   //     })
   //     .finally(() => setIsLoading(false));
   // }, []);
-
+  console.log(promotionals);
   const promoElements = promotionals.map(({ title, promoId, promoUrl }) => {
     return (
       <PromotionalItem
@@ -29,7 +29,8 @@ const PromotionalsList = () => {
     );
   });
 
-  return isLoading ? <ListLoader /> : <StyledList>{promoElements}</StyledList>;
+  // return isLoading ? <ListLoader /> : <StyledList>{promoElements}</StyledList>;
+  return <StyledList>{promoElements}</StyledList>;
 };
 
 export default PromotionalsList;
