@@ -18,14 +18,14 @@ const PromotionalItem = ({ title, imgUrl, promoId }) => {
     <StyledItem>
       <StyledImageLink
         as={Link}
-        to={`/promotionals/${promoId}`}
+        to={`/promotions/${promoId}`}
         aria-label='move to promo page'
       >
         <PromotionalImg imgUrl={imgUrl} title={title} />
       </StyledImageLink>
       <StyledPromoTitle
         as={Link}
-        to={`/promotionals/${promoId}`}
+        to={`/promotions/${promoId}`}
         aria-label='move to promo page'
       >
         {title}
