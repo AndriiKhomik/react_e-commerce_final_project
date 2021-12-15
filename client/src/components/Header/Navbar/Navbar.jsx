@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Typography, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import DrawerComponent from '../Drawer';
@@ -45,22 +44,22 @@ const Navbar = () => {
           ) : (
             <StyledLinkBox>
               <Typography>
-                <StyledLink as={NavLink} exact to='/'>
+                <StyledLink exact to='/' activeClassName='selected'>
                   Home
                 </StyledLink>
               </Typography>
               <Typography aria-controls='basic-menu' area-haspopup='true'>
-                <StyledLink as={NavLink} exact to='/products'>
+                <StyledLink exact to='/products' activeClassName='selected'>
                   Catalogue
                 </StyledLink>
               </Typography>
               <Typography>
-                <StyledLink as={NavLink} exact to='/promotionals'>
+                <StyledLink exact to='/promotionals' activeClassName='selected'>
                   Promotionals
                 </StyledLink>
               </Typography>
               <Typography>
-                <StyledLink as={NavLink} exact to='/authors'>
+                <StyledLink exact to='/authors' activeClassName='selected'>
                   Authors
                 </StyledLink>
               </Typography>

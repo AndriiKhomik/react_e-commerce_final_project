@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Drawer, List, ListItemIcon, ListItemText } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import { StyledLink, StyledListItem } from './Styles';
 
 const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
@@ -11,7 +10,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/home'>
+              <StyledLink exact to='/' activeClassName='selected'>
                 Home
               </StyledLink>
             </ListItemText>
@@ -20,7 +19,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/products'>
+              <StyledLink exact to='/products' activeClassName='selected'>
                 Catalogue
               </StyledLink>
             </ListItemText>
@@ -29,7 +28,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/bestprice'>
+              <StyledLink exact to='/promotionals' activeClassName='selected'>
                 Best Price
               </StyledLink>
             </ListItemText>
@@ -47,7 +46,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <StyledListItem button onClick={() => setOpenDrawer(false)}>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/authors'>
+              <StyledLink exact to='/authors' activeClassName='selected'>
                 Authors
               </StyledLink>
             </ListItemText>

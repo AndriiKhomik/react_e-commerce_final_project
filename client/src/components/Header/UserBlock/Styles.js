@@ -6,11 +6,14 @@ import theme from '../../../services/theme/theme';
 
 export const StyledButton = styled(Button)(() => ({
   backgroundColor: `${theme.palette.primary.main}`,
+  textTransform: 'capitalize',
   fontSize: '14px',
   color: `${theme.palette.text.light}`,
   lineHeight: 1,
   borderRadius: '6px',
   padding: '8px',
+  width: '98px',
+  height: '40px',
   '&:hover': {
     backgroundColor: `${theme.palette.primary.deepdark}`,
   },
