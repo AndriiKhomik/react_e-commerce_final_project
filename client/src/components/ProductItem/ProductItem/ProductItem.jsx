@@ -20,6 +20,8 @@ const ProductItem = ({
   itemNo,
   categories,
   authorId,
+  _id,
+  quantity,
 }) => {
   const dispatch = useDispatch();
 
@@ -33,6 +35,8 @@ const ProductItem = ({
         salePrice,
         itemNo,
         categories,
+        _id,
+        quantity,
       }),
     );
   };
@@ -71,6 +75,8 @@ ProductItem.propTypes = {
   itemNo: PropTypes.string.isRequired,
   categories: PropTypes.string.isRequired,
   authorId: PropTypes.string,
+  _id: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
 };
 
 ProductItem.defaultProps = {

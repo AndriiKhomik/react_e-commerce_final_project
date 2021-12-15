@@ -18,15 +18,15 @@ exports.placeOrder = async (req, res, next) => {
     let cartProducts = [];
 
     if (req.body.deliveryAddress) {
-      order.deliveryAddress = JSON.parse(req.body.deliveryAddress);
+      order.deliveryAddress = req.body.deliveryAddress;
     }
 
     if (req.body.shipping) {
-      order.shipping = JSON.parse(req.body.shipping);
+      order.shipping = req.body.shipping;
     }
 
     if (req.body.paymentInfo) {
-      order.paymentInfo = JSON.parse(req.body.paymentInfo);
+      order.paymentInfo = req.body.paymentInfo;
     }
 
     if (req.body.customerId) {
@@ -97,12 +97,12 @@ exports.placeOrder = async (req, res, next) => {
       newOrder
         .save()
         .then(async order => {
-          const mailResult = await sendMail(
-            subscriberMail,
-            letterSubject,
-            letterHtml,
-            res
-          );
+          // const mailResult = await sendMail(
+          //   subscriberMail,
+          //   letterSubject,
+          //   letterHtml,
+          //   res
+          // );
 
           for (item of order.products){
             const id = item.product._id;
@@ -111,7 +111,8 @@ exports.placeOrder = async (req, res, next) => {
             await Product.findOneAndUpdate({ _id: id }, { quantity: productQuantity - item.product.quantity }, { new: true })
           }
 
-          res.json({ order, mailResult });
+          res.json({ order });
+          // res.json({ order, mailResult });
         })
         .catch(err =>
           res.status(400).json({

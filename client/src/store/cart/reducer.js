@@ -12,11 +12,11 @@ export const shoppingCartReducer = (state = [], action) => {
         (item) => item.itemNo === action.payload.itemNo,
       );
       if (!exists) {
-        return [...state, { ...action.payload, quantity: 1 }];
+        return [...state, { ...action.payload, cartQuantity: 1 }];
       }
       return state.map((item) => {
         return item.itemNo === action.payload.itemNo
-          ? { ...item, quantity: item.quantity + 1 }
+          ? { ...item, cartQuantity: item.cartQuantity + 1 }
           : item;
       });
     }
@@ -24,7 +24,7 @@ export const shoppingCartReducer = (state = [], action) => {
     case INCREASE_BOOK_AMOUNT: {
       return state.map((item) => {
         return item.itemNo === action.payload
-          ? { ...item, quantity: item.quantity + 1 }
+          ? { ...item, cartQuantity: item.cartQuantity + 1 }
           : item;
       });
     }
@@ -32,14 +32,14 @@ export const shoppingCartReducer = (state = [], action) => {
     case DECREASE_BOOK_AMOUNT: {
       if (
         state.some(
-          (item) => item.itemNo === action.payload && item.quantity === 1,
+          (item) => item.itemNo === action.payload && item.cartQuantity === 1,
         )
       ) {
         return state.filter((item) => item.itemNo !== action.payload);
       }
       return state.map((item) => {
         return item.itemNo === action.payload
-          ? { ...item, quantity: item.quantity - 1 }
+          ? { ...item, cartQuantity: item.cartQuantity - 1 }
           : item;
       });
     }

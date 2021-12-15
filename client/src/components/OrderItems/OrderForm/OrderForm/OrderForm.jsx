@@ -21,6 +21,7 @@ const OrderForm = ({ bindSubmitForm }) => {
   const [shippingCharge, setShippingCharge] = useState(0);
   const shoppingCart = useSelector((data) => data.shoppingCart);
   const toHomePage = useHistory();
+
   useEffect(() => {
     bindSubmitForm(formRef.current);
   }, []);
@@ -33,8 +34,24 @@ const OrderForm = ({ bindSubmitForm }) => {
     });
   }, [shoppingCart]);
 
+  const order = shoppingCart.map((product) => {
+    const { _id, name, itemNo, author, cartQuantity, quantity, categories } = product;
+    return {
+      product: {
+        quantity,
+        _id,
+        name,
+        itemNo,
+        author,
+        categories,
+      },
+      cartQuantity,
+    };
+  });
+
   const handleFormSubmit = (values, { setSubmitting, resetForm }) => {
     const newOrder = {
+      products: order,
       deliveryAddress: {
         country: values.country,
         city: values.city,
@@ -43,13 +60,12 @@ const OrderForm = ({ bindSubmitForm }) => {
       },
       shipping: shippingCharge,
       paymentInfo: 'Сash to the courier',
-      email: values.email,
-      mobile: values.tel,
       letterSubject,
       letterHtml,
-      // canceled: false,
-      products: shoppingCart,
+      email: values.email,
+      mobile: values.tel,
     };
+    console.log(JSON.stringify(newOrder));
     postOrder(newOrder)
       .then(() => {
         localStorage.removeItem('shoppingCart');

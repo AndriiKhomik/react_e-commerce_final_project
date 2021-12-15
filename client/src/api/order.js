@@ -2,7 +2,7 @@
 //   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYTkyYzg5NjgxZDY1MTczNDA2YjMzMyIsImZpcnN0TmFtZSI6IkN1c3RvbWVyIiwibGFzdE5hbWUiOiJOZXdvbmUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2MzkxNjYwOTUsImV4cCI6MTYzOTIwMjA5NX0.75_QB5Ndi_xJem1Dk_VzHDdYVjhOMGMSk-jQvtoIM5E';
 
 export const postOrder = async (order) => {
-  const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/orders`, {
+  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/orders`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -10,8 +10,8 @@ export const postOrder = async (order) => {
     },
     body: JSON.stringify(order),
   });
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error(`Could not fetch ${process.env.REACT_APP_BASE_URL}`);
   }
-  return res.json();
+  return response.json();
 };

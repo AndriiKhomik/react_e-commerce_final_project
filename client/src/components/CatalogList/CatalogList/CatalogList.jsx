@@ -56,6 +56,7 @@ const CatalogList = ({ query }) => {
       author,
       previousPrice,
       categories,
+      _id,
     }) => {
       return (
         <StyledItem key={itemNo}>
@@ -69,6 +70,7 @@ const CatalogList = ({ query }) => {
             authorId={author._id}
             itemNo={itemNo}
             categories={categories}
+            _id={_id}
           />
         </StyledItem>
       );

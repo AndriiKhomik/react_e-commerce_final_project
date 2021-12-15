@@ -38,6 +38,8 @@ const BooksList = ({ items, text, authorName }) => {
               author,
               itemNo,
               categories,
+              _id,
+              quantity,
             }) => (
               <SwiperSlide tag='li' key={itemNo} style={{ width: '163px' }}>
                 <ProductItem
@@ -50,6 +52,8 @@ const BooksList = ({ items, text, authorName }) => {
                   authorId={author._id}
                   itemNo={itemNo}
                   categories={categories}
+                  _id={_id}
+                  quantity={quantity}
                 />
               </SwiperSlide>
             ),

@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery, TableRow } from '@mui/material';
-// import {
-//   allBookRemovedFromCart,
-//   bookAddedToCart,
-//   bookRemovedFromCart,
-// } from '../../../store/cart/actions';
 import theme from '../../../services/theme/theme';
 import { StyledDiv, StyledSellTotals } from '../CartProducts/Styled';
 import DeleteIcon from '../../icons/DeleteIcon';
@@ -26,7 +21,7 @@ import {
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const collapseTableColumn = useMediaQuery(theme.breakpoints.up('md'));
-  const { url, name, price, itemNo, quantity } = cartItem;
+  const { url, name, price, itemNo, cartQuantity } = cartItem;
 
   return (
     <TableRow>
@@ -56,7 +51,7 @@ const CartItem = ({ cartItem }) => {
         <StyledDiv onClick={() => dispatch(decreaseAmount(itemNo))}>
           -
         </StyledDiv>
-        {quantity}
+        {cartQuantity}
         <StyledDiv
           sx={{ padding: '0 6px' }}
           onClick={() => dispatch(increaseAmount(itemNo))}
@@ -65,7 +60,7 @@ const CartItem = ({ cartItem }) => {
         </StyledDiv>
       </StyledTableCell>
       <StyledSellTotals align='center' sx={{ padding: 0 }}>
-        ${+price * +quantity}
+        ${+price * +cartQuantity}
       </StyledSellTotals>
       <StyledTableCell align='center'>
         <StyledIconWrapper
@@ -84,7 +79,7 @@ CartItem.propTypes = {
     name: PropTypes.string,
     price: PropTypes.number,
     itemNo: PropTypes.string,
-    quantity: PropTypes.number,
+    cartQuantity: PropTypes.number,
   }).isRequired,
 };
 
