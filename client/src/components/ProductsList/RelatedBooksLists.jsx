@@ -13,7 +13,7 @@ const RelatedBooksList = ({ genre, itemNo }) => {
         setProducts(data);
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [itemNo]);
 
   return isLoading ? (
     'Loading'

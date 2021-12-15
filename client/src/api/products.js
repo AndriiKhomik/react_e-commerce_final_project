@@ -41,3 +41,5 @@ export const filterProducts = async (queryString = '') => {
   }
   return response.json();
 };
+
+
