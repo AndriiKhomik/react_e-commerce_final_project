@@ -1,11 +1,11 @@
 import React from 'react';
-import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 import { StyledLoaderBox } from './Styles';
 
 const ListLoader = () => {
   return (
     <StyledLoaderBox>
-      <LinearProgress color='inherit' />
+      <CircularProgress color='inherit' />
     </StyledLoaderBox>
   );
 };
