@@ -30,6 +30,7 @@ const PromotionalItem = ({ title, imgUrl, promoId }) => {
       >
         {title}
       </StyledPromoTitle>
+      description???
     </StyledItem>
   );
 };

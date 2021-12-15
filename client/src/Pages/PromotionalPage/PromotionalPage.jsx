@@ -27,7 +27,7 @@ import PromotionalDescription from '../../components/PromotionalPageComponents/P
 // return isLoading ? (
 //   <Loader />
 // ) : (
-const SpecialOfferPage = () => {
+const PromotionalPage = () => {
   const { description, title, imgUrl, endTime } = offer;
   console.log(description);
   console.log(endTime);
@@ -58,4 +58,4 @@ const SpecialOfferPage = () => {
 //   }).isRequired,
 // };
 
-export default SpecialOfferPage;
+export default PromotionalPage;
