@@ -11,6 +11,7 @@ import {
 } from './Styles';
 import ItemInfoBookSize from './ItemInfoBookSize/ItemInfoBookSize';
 import { toCapitaleCase } from '../toCapitaleCase';
+import ItemBookFormat from './ItemBookFormat/ItemBookFormat';
 
 const ItemInfo = ({
   author,
@@ -19,6 +20,7 @@ const ItemInfo = ({
   pages,
   duration,
   genre,
+  categories,
 }) => {
   const { _id, name } = author;
   const bookSize = pages ? 'Number of Pages:' : 'Duration:';
@@ -31,6 +33,7 @@ const ItemInfo = ({
         <StyledListItemTitles>Year of Publishing:</StyledListItemTitles>
         <StyledListItemTitles>{bookSize}</StyledListItemTitles>
         <StyledListItemTitles>Genre:</StyledListItemTitles>
+        <StyledListItemTitles>Format:</StyledListItemTitles>
       </List>
       <StyledList>
         <StyledListItem>
@@ -46,6 +49,7 @@ const ItemInfo = ({
         <StyledListItem>{yearOfPublish}</StyledListItem>
         <ItemInfoBookSize pages={pages} duration={duration} />
         <StyledListItem>{toCapitaleCase(genre)}</StyledListItem>
+        <ItemBookFormat categories={categories} />
       </StyledList>
     </StyledItemInfoWrapper>
   );
@@ -65,6 +69,7 @@ ItemInfo.propTypes = {
   pages: PropTypes.number,
   duration: PropTypes.number,
   genre: PropTypes.string.isRequired,
+  categories: PropTypes.string.isRequired,
 };
 
 ItemInfo.defaultProps = {

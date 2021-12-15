@@ -5,6 +5,8 @@ import {
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
+  SET_SELECTED_AUTHOR,
+  SET_SELECTED_AUTHOR_ID,
 } from './types';
 
 export const setGenres = (genre) => ({
@@ -37,4 +39,12 @@ export const setSelectedGenre = (genre) => ({
   payload: genre,
 });
 
+export const setSelectedAuthor = (author) => ({
+  type: SET_SELECTED_AUTHOR,
+  payload: author,
+});
 
+export const setSelectedAuthorId = (author) => ({
+  type: SET_SELECTED_AUTHOR_ID,
+  payload: author,
+});

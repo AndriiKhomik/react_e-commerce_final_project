@@ -1,4 +1,4 @@
-const excludedParams = ["perPage", "startPage", "minPrice", "maxPrice", "sort", "searchString"];
+const excludedParams = ["perPage", "startPage", "minPrice", "maxPrice", "sort", "searchString", "tag"];
 
 module.exports = function filterParser(filtersQueryString) {
   const mongooseQuery = {};
@@ -8,6 +8,10 @@ module.exports = function filterParser(filtersQueryString) {
       $gte: Number(filtersQueryString.minPrice),
       $lte: Number(filtersQueryString.maxPrice)
     };
+  }
+
+  if (filtersQueryString.tag === "sale") {
+    mongooseQuery.previousPrice = { $exists: true }
   }
 
   return Object.keys(filtersQueryString).reduce(

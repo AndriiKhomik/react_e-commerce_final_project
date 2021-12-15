@@ -55,15 +55,10 @@ const Navbar = () => {
                 </StyledLink>
               </Typography>
               <Typography>
-                <StyledLink as={NavLink} exact to='/discounts'>
-                  Best Price
+                <StyledLink as={NavLink} exact to='/promotionals'>
+                  Promotionals
                 </StyledLink>
               </Typography>
-              {/* <Typography>
-                <StyledLink as={NavLink} exact to='/blog'>
-                  Blogs
-                </StyledLink>
-              </Typography> */}
               <Typography>
                 <StyledLink as={NavLink} exact to='/authors'>
                   Authors
