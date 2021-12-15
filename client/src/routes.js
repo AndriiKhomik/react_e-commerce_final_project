@@ -27,7 +27,7 @@ export const useRoutes = () => {
       <Route path='/products/:itemNo' component={ItemPage} />
       <Route path='/authors/:_id' component={AuthorPage} />
       <Route path='/promotionals' component={PromotionalsPage} />
-      <Route path='/promotional/2' component={PromotionalPage} />
+      <Route path='/promotional/*' component={PromotionalPage} />
       <Route exact path='/checkout' component={CheckoutPage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>

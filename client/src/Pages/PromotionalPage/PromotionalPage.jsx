@@ -28,9 +28,8 @@ import PromotionalDescription from '../../components/PromotionalPageComponents/P
 //   <Loader />
 // ) : (
 const PromotionalPage = () => {
-  const { description, title, imgUrl, endTime } = offer;
-  console.log(description);
-  console.log(endTime);
+  const { description, title, imgUrl } = offer;
+  console.log(imgUrl);
   return (
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />
