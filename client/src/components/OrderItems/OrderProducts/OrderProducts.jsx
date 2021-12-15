@@ -28,7 +28,7 @@ const OrderProducts = () => {
       </StyledBox>
       <StyledDivider />
       <List>
-        {products.map(({ url, name, price, quantity, itemNo }) => (
+        {products.map(({ url, name, price, cartQuantity, itemNo }) => (
           <SryledListItem key={itemNo}>
             <img width='42px' height='64px' src={url} alt='book cover' />
             <p>
@@ -38,8 +38,10 @@ const OrderProducts = () => {
                 {itemNo}
               </StyledSmallSpan>
             </p>
-            <StyledSmallSpan>(x{quantity})</StyledSmallSpan>
-            <StyledYellowSpan>&#36; {price * quantity}</StyledYellowSpan>
+            <StyledSmallSpan>(x{cartQuantity})</StyledSmallSpan>
+            <StyledYellowSpan sx={{ width: '50px' }}>
+              &#36; {price * cartQuantity}
+            </StyledYellowSpan>
           </SryledListItem>
         ))}
       </List>

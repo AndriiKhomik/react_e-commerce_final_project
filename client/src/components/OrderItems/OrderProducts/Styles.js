@@ -9,7 +9,7 @@ export const StyledDivider = styled(Divider)(() => ({
 
 export const SryledListItem = styled('li')(() => ({
   display: 'grid',
-  gridTemplateColumns: '70px auto 30px 40px',
+  gridTemplateColumns: '42px auto 30px 40px',
   columnGap: '7px',
   alignItems: 'center',
   marginBottom: '10px',

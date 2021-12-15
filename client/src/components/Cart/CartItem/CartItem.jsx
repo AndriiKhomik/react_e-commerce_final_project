@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { useMediaQuery, TableRow } from '@mui/material';
+import { useMediaQuery, TableRow, Box } from '@mui/material';
 import theme from '../../../services/theme/theme';
 import { StyledDiv, StyledSellTotals } from '../CartProducts/Styled';
 import DeleteIcon from '../../icons/DeleteIcon';
@@ -48,16 +48,18 @@ const CartItem = ({ cartItem }) => {
         <StyledTableCell align='center'>${price}</StyledTableCell>
       )}
       <StyledTableCell align='center' sx={{ padding: '4px' }}>
-        <StyledDiv onClick={() => dispatch(decreaseAmount(itemNo))}>
-          -
-        </StyledDiv>
-        {cartQuantity}
-        <StyledDiv
-          sx={{ padding: '0 6px' }}
-          onClick={() => dispatch(increaseAmount(itemNo))}
-        >
-          +
-        </StyledDiv>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <StyledDiv onClick={() => dispatch(decreaseAmount(itemNo))}>
+            -
+          </StyledDiv>
+          <Box sx={{ width: '14px' }}>{cartQuantity}</Box>
+          <StyledDiv
+            sx={{ padding: '0 6px' }}
+            onClick={() => dispatch(increaseAmount(itemNo))}
+          >
+            +
+          </StyledDiv>
+        </Box>
       </StyledTableCell>
       <StyledSellTotals align='center' sx={{ padding: 0 }}>
         ${+price * +cartQuantity}

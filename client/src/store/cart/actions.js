@@ -1,6 +1,7 @@
 import {
   BOOK_ADDED_TO_CART,
   BOOK_REMOVED_FROM_CART,
+  CLEAR_CART,
   DECREASE_BOOK_AMOUNT,
   INCREASE_BOOK_AMOUNT,
 } from './types';
@@ -30,5 +31,12 @@ export const bookRemovedFromCart = (bookId) => {
   return {
     type: BOOK_REMOVED_FROM_CART,
     payload: bookId,
+  };
+};
+
+export const clearCart = () => {
+  return {
+    type: CLEAR_CART,
+    payload: [],
   };
 };

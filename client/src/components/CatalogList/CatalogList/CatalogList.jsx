@@ -57,6 +57,14 @@ const CatalogList = ({ query }) => {
       previousPrice,
       categories,
       _id,
+      quantity,
+      publisher,
+      shortDescription,
+      fullDescription,
+      yearOfPublishing,
+      genre,
+      numberOfPages,
+      coverType,
     }) => {
       return (
         <StyledItem key={itemNo}>
@@ -71,6 +79,14 @@ const CatalogList = ({ query }) => {
             itemNo={itemNo}
             categories={categories}
             _id={_id}
+            quantity={quantity}
+            publisher={publisher}
+            shortDescription={shortDescription}
+            fullDescription={fullDescription}
+            yearOfPublishing={yearOfPublishing}
+            genre={genre}
+            numberOfPages={numberOfPages}
+            coverType={coverType}
           />
         </StyledItem>
       );

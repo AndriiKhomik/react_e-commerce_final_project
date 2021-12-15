@@ -1,6 +1,7 @@
 import {
   BOOK_ADDED_TO_CART,
   BOOK_REMOVED_FROM_CART,
+  CLEAR_CART,
   DECREASE_BOOK_AMOUNT,
   INCREASE_BOOK_AMOUNT,
 } from './types';
@@ -46,6 +47,10 @@ export const shoppingCartReducer = (state = [], action) => {
 
     case BOOK_REMOVED_FROM_CART: {
       return state.filter((item) => item.itemNo !== action.payload);
+    }
+
+    case CLEAR_CART: {
+      return [];
     }
 
     default:

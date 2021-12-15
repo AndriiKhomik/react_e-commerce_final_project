@@ -15,13 +15,20 @@ const ProductItem = ({
   name,
   url,
   price,
-  author,
   salePrice,
+  author,
   itemNo,
   categories,
   authorId,
   _id,
   quantity,
+  publisher,
+  shortDescription,
+  fullDescription,
+  yearOfPublishing,
+  genre,
+  numberOfPages,
+  coverType,
 }) => {
   const dispatch = useDispatch();
 
@@ -37,6 +44,13 @@ const ProductItem = ({
         categories,
         _id,
         quantity,
+        publisher,
+        shortDescription,
+        fullDescription,
+        yearOfPublishing,
+        genre,
+        numberOfPages,
+        coverType,
       }),
     );
   };
@@ -77,6 +91,13 @@ ProductItem.propTypes = {
   authorId: PropTypes.string,
   _id: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
+  publisher: PropTypes.string.isRequired,
+  shortDescription: PropTypes.string.isRequired,
+  fullDescription: PropTypes.string.isRequired,
+  yearOfPublishing: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  numberOfPages: PropTypes.number,
+  coverType: PropTypes.string,
 };
 
 ProductItem.defaultProps = {
@@ -84,6 +105,8 @@ ProductItem.defaultProps = {
   salePrice: null,
   author: '',
   authorId: '',
+  coverType: '',
+  numberOfPages: null,
 };
 
 export default ProductItem;

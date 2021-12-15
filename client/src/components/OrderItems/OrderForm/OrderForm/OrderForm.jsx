@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { TextField, Grid } from '@mui/material';
 import { Form, Formik, Field } from 'formik';
@@ -12,12 +12,14 @@ import FormNumberInput from '../FormNumberInput';
 import { StyledErrorMessage } from './Styles';
 import { StyledTitle } from '../../Styles';
 import { postOrder } from '../../../../api/order';
+import { clearCart } from '../../../../store/cart/actions';
 
 const letterSubject = 'Good news from the Bookstore! Thank you for order!';
 const letterHtml = <h1>Your order is placed. OrderNo is 023689452.</h1>;
 
 const OrderForm = ({ bindSubmitForm }) => {
   const formRef = useRef();
+  const dispatch = useDispatch();
   const [shippingCharge, setShippingCharge] = useState(0);
   const shoppingCart = useSelector((data) => data.shoppingCart);
   const toHomePage = useHistory();
@@ -35,7 +37,24 @@ const OrderForm = ({ bindSubmitForm }) => {
   }, [shoppingCart]);
 
   const order = shoppingCart.map((product) => {
-    const { _id, name, itemNo, author, cartQuantity, quantity, categories } = product;
+    const {
+      _id,
+      name,
+      itemNo,
+      author,
+      cartQuantity,
+      quantity,
+      categories,
+      publisher,
+      price,
+      shortDescription,
+      fullDescription,
+      yearOfPublishing,
+      genre,
+      numberOfPages,
+      coverType,
+      url,
+    } = product;
     return {
       product: {
         quantity,
@@ -44,6 +63,15 @@ const OrderForm = ({ bindSubmitForm }) => {
         itemNo,
         author,
         categories,
+        publisher,
+        shortDescription,
+        fullDescription,
+        yearOfPublishing,
+        genre,
+        numberOfPages,
+        coverType,
+        imageUrls: [url],
+        currentPrice: price,
       },
       cartQuantity,
     };
@@ -65,10 +93,11 @@ const OrderForm = ({ bindSubmitForm }) => {
       email: values.email,
       mobile: values.tel,
     };
-    console.log(JSON.stringify(newOrder));
+
     postOrder(newOrder)
       .then(() => {
         localStorage.removeItem('shoppingCart');
+        dispatch(clearCart([]));
       })
       .then(() => {
         toHomePage.push('/');

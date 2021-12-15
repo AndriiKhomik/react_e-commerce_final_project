@@ -44,7 +44,7 @@ exports.placeOrder = async (req, res, next) => {
     if (cartProducts.length > 0) {
       order.products = _.cloneDeep(cartProducts);
     } else {
-      order.products = JSON.parse(req.body.products);
+      order.products = req.body.products;
     }
 
     order.totalSum = order.products.reduce(
@@ -137,15 +137,15 @@ exports.updateOrder = (req, res, next) => {
       const order = _.cloneDeep(req.body);
 
       if (req.body.deliveryAddress) {
-        order.deliveryAddress = JSON.parse(req.body.deliveryAddress);
+        order.deliveryAddress = req.body.deliveryAddress;
       }
 
       if (req.body.shipping) {
-        order.shipping = JSON.parse(req.body.shipping);
+        order.shipping = req.body.shipping;
       }
 
       if (req.body.paymentInfo) {
-        order.paymentInfo = JSON.parse(req.body.paymentInfo);
+        order.paymentInfo = req.body.paymentInfo;
       }
 
       if (req.body.customerId) {
@@ -153,7 +153,7 @@ exports.updateOrder = (req, res, next) => {
       }
 
       if (req.body.products) {
-        order.products = JSON.parse(req.body.products);
+        order.products = req.body.products;
 
         order.totalSum = order.products.reduce(
           (sum, cartItem) =>

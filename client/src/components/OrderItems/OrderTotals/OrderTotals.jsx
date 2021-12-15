@@ -18,7 +18,7 @@ const OrderTotals = ({ isSubmiting, submitForm }) => {
   useEffect(() => {
     let total = 0;
     cartItems.map((item) => {
-      total += item.price * item.quantity;
+      total += item.price * item.cartQuantity;
       return setTotalAmount(() => total);
     });
   }, [cartItems]);

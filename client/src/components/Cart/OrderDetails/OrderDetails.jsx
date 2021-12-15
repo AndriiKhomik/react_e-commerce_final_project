@@ -34,7 +34,7 @@ const OrderDetails = () => {
   useEffect(() => {
     let total = 0;
     cartItems.map((item) => {
-      total += item.price * item.quantity;
+      total += item.price * item.cartQuantity;
       return setTotalAmount(() => total);
     });
   }, [cartItems]);
@@ -88,13 +88,7 @@ const OrderDetails = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{ background: '#fff' }}>
-          <Button
-            sx={{ '&:hover': { background: '#fff' } }}
-            onClick={handleClose}
-            autoFocus
-          >
-            Ok
-          </Button>
+          <Button onClick={handleClose}>Ok</Button>
         </DialogActions>
       </Dialog>
     </>
