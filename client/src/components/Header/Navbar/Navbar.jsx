@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Typography, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import DrawerComponent from '../Drawer';
@@ -20,18 +19,22 @@ const Navbar = () => {
   const changeMenu = useMediaQuery(theme.breakpoints.down('md'));
   const changeLogo = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleCloseOpenDrawer = (e) => {
-    if (!e.target.classList.contains('css-i4bv87-MuiSvgIcon-root')) {
-      setOpenDrawer(false);
+  const toggleDrawer = (value) => (event) => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
     }
-    return false;
+
+    setOpenDrawer(value);
   };
 
   return (
     <>
       <Box
         elevation={0}
-        onClick={(e) => handleCloseOpenDrawer(e)}
+        onClick={() => toggleDrawer()}
         sx={{ marginBottom: '36px' }}
       >
         <StyledBox>
@@ -45,22 +48,22 @@ const Navbar = () => {
           ) : (
             <StyledLinkBox>
               <Typography>
-                <StyledLink as={NavLink} exact to='/'>
+                <StyledLink exact to='/' activeClassName='selected'>
                   Home
                 </StyledLink>
               </Typography>
               <Typography aria-controls='basic-menu' area-haspopup='true'>
-                <StyledLink as={NavLink} exact to='/products'>
+                <StyledLink exact to='/products' activeClassName='selected'>
                   Catalogue
                 </StyledLink>
               </Typography>
               <Typography>
-                <StyledLink as={NavLink} exact to='/promotionals'>
+                <StyledLink exact to='/promotionals' activeClassName='selected'>
                   Promotionals
                 </StyledLink>
               </Typography>
               <Typography>
-                <StyledLink as={NavLink} exact to='/authors'>
+                <StyledLink exact to='/authors' activeClassName='selected'>
                   Authors
                 </StyledLink>
               </Typography>
