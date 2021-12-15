@@ -36,7 +36,8 @@ export const StyledLink = styled('a')(() => ({
   textDecoration: 'none',
   marginRight: '10px',
   whiteSpace: 'nowrap',
-  transition: '0.4s',
+  transition: '0.4s linear',
+  borderBottom: `4px solid transparent`,
   '&:hover': {
     color: `${theme.palette.primary.main}`,
     borderBottom: `4px solid ${theme.palette.primary.main}`,

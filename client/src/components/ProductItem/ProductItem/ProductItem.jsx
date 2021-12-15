@@ -29,6 +29,7 @@ const ProductItem = ({
   genre,
   numberOfPages,
   coverType,
+  fromAuthor,
 }) => {
   const dispatch = useDispatch();
 
@@ -55,6 +56,8 @@ const ProductItem = ({
     );
   };
 
+  const isAvailable = quantity <= 0;
+
   return (
     <StyledItem>
       <StyledLink
@@ -72,9 +75,13 @@ const ProductItem = ({
       </StyledLink>
       <BookName name={name} itemNo={itemNo} />
       <StyledCardGrid>
-        <BookAuthor authorId={authorId} author={author} />
-        <BookPrice price={price} salePrice={salePrice} />
-        <CartBtn onAddedToCart={onAddedToCart} />
+        {!fromAuthor && <BookAuthor authorId={authorId} author={author} />}
+        <BookPrice
+          price={price}
+          salePrice={salePrice}
+          isAvailable={isAvailable}
+        />
+        <CartBtn onAddedToCart={onAddedToCart} isAvailable={isAvailable} />
       </StyledCardGrid>
     </StyledItem>
   );
@@ -98,6 +105,7 @@ ProductItem.propTypes = {
   genre: PropTypes.string.isRequired,
   numberOfPages: PropTypes.number,
   coverType: PropTypes.string,
+  fromAuthor: PropTypes.bool,
 };
 
 ProductItem.defaultProps = {
@@ -107,6 +115,7 @@ ProductItem.defaultProps = {
   authorId: '',
   coverType: '',
   numberOfPages: null,
+  fromAuthor: false,
 };
 
 export default ProductItem;
