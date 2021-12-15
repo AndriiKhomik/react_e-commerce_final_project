@@ -18,12 +18,12 @@ const PromotionalsList = () => {
   //     .finally(() => setIsLoading(false));
   // }, []);
   console.log(promotionals);
-  const promoElements = promotionals.map(({ title, promoId, promoUrl }) => {
+  const promoElements = promotionals.map(({ title, promoId, imgUrl }) => {
     return (
       <PromotionalItem
         key={promoId}
         title={title}
-        promoUrl={promoUrl}
+        imgUrl={imgUrl}
         promoId={promoId}
       />
     );

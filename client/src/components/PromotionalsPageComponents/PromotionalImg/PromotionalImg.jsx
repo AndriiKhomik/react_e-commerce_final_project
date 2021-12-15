@@ -7,12 +7,12 @@ import {
   StyledCardMedia,
 } from '../../ProductItem/BookImg/Styles';
 
-const PromotionalImg = ({ promoUrl, title }) => {
+const PromotionalImg = ({ imgUrl, title }) => {
   return (
     <LightTooltip title={title} placement='top'>
       <StyledCardMediaWrapper>
         <StyledCardMediaBox>
-          <StyledCardMedia height='325' src={promoUrl} alt={title} />
+          <StyledCardMedia height='325' src={imgUrl} alt={title} />
         </StyledCardMediaBox>
       </StyledCardMediaWrapper>
     </LightTooltip>
@@ -20,7 +20,7 @@ const PromotionalImg = ({ promoUrl, title }) => {
 };
 
 PromotionalImg.propTypes = {
-  promoUrl: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 

@@ -7,7 +7,7 @@ import defaultimg from '../../../img/noImgAuthor.png';
 // import { setSelectedAuthorId } from '../../../store/filter/actions';
 import { StyledPromoTitle, StyledItem, StyledImageLink } from './Styles';
 
-const PromotionalItem = ({ title, promoUrl, promoId }) => {
+const PromotionalItem = ({ title, imgUrl, promoId }) => {
   // const dispatch = useDispatch();
 
   // const onClickHandler = () => {
@@ -21,7 +21,7 @@ const PromotionalItem = ({ title, promoUrl, promoId }) => {
         to={`/promotionals/${promoId}`}
         aria-label='move to promo page'
       >
-        <PromotionalImg promoUrl={promoUrl} title={title} />
+        <PromotionalImg imgUrl={imgUrl} title={title} />
       </StyledImageLink>
       <StyledPromoTitle
         as={Link}
@@ -37,11 +37,11 @@ const PromotionalItem = ({ title, promoUrl, promoId }) => {
 PromotionalItem.propTypes = {
   title: PropTypes.string.isRequired,
   promoId: PropTypes.string.isRequired,
-  promoUrl: PropTypes.string,
+  imgUrl: PropTypes.string,
 };
 
 PromotionalItem.defaultProps = {
-  promoUrl: defaultimg,
+  imgUrl: defaultimg,
 };
 
 export default PromotionalItem;
