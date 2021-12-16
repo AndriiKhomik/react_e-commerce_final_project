@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledCardMediaBox, StyledCardMedia } from './Styles';
 
-import defaultimg from '../../../img/missing_image.jpg';
+import defaultimg from '../../../img/noImgAuthor.png';
 
 const AuthorImg = ({ img, name }) => {
   return (
