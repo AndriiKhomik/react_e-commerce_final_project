@@ -1,18 +1,19 @@
 import React from 'react';
 // import DateCountdown from 'react-date-countdown-timer';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import PromotionalTitle from '../../components/PromotionalPageComponents/PromotionalTitle/PromotionalTitle';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
 import { offer } from './hardcode';
+// import { offer, offer2, offer3 } from './hardcode';
 import PromotionalImg from '../../components/PromotionalPageComponents/PromotionalImg';
 import PromotionalDescription from '../../components/PromotionalPageComponents/PromotionalDescription';
 // import Loader from '../../components/ItemPageComponents/Loader/Loader';
 
-const PromotionalPage = () => {
-  const { description, title, imgUrl } = offer;
-  console.log(imgUrl);
+const { description, title, imgUrl } = offer;
+const PromotionalPage = ({ match }) => {
+  console.log(match.url);
   return (
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />
@@ -31,13 +32,13 @@ const PromotionalPage = () => {
   );
 };
 
-// AuthorPage.propTypes = {
-//   match: PropTypes.shape({
-//     isExact: PropTypes.bool,
-//     params: PropTypes.objectOf(PropTypes.string),
-//     path: PropTypes.string,
-//     url: PropTypes.string,
-//   }).isRequired,
-// };
+PromotionalPage.propTypes = {
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.objectOf(PropTypes.string),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
+};
 
 export default PromotionalPage;
