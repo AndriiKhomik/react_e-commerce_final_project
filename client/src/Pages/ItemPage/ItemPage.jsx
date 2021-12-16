@@ -8,11 +8,11 @@ import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
 import ItemTitle from '../../components/ItemPageComponents/ItemTitle/ItemTitle';
 import { getItemProduct } from '../../api/products';
 import { StyledContainer, StyledDescription } from './Styles';
-import Loader from '../../components/ItemPageComponents/Loader/Loader';
 import SectionTitles from '../../components/SectionTitles/SectionTitles';
 import { bookPageTitles } from '../../components/SectionTitles/pageTitles';
 import ItemReviewsBlock from '../../components/ItemPageComponents/ItemReviewsBlock/ItemReviewsBlock';
 import { RelatedBooksList } from '../../components/ProductsList';
+import ListLoader from '../../components/ListLoader/ListLoader';
 
 const ItemPage = ({ match }) => {
   const [book, setBook] = useState({});
@@ -44,7 +44,7 @@ const ItemPage = ({ match }) => {
   }, [match.url]);
 
   return isLoading ? (
-    <Loader />
+    <ListLoader />
   ) : (
     <>
       <SectionTitles titles={bookPageTitles} itemTitle={name} />
