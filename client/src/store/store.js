@@ -14,6 +14,7 @@ import {
   DECREASE_BOOK_AMOUNT,
   INCREASE_BOOK_AMOUNT,
 } from './cart/types';
+import { setIsLoginReducer } from './login/reducer';
 
 const rootReducer = combineReducers({
   bookList: booksReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   shoppingCart: shoppingCartReducer,
   // shoppingCart: updateShoppingCartReducer,
   filter: filterReducer,
+  login: setIsLoginReducer,
 });
 
 const favoritesMiddleware = () => (next) => (action) => {

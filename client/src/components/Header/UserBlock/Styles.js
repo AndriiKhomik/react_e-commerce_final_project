@@ -6,8 +6,7 @@ import theme from '../../../services/theme/theme';
 
 export const StyledButton = styled(Button)(() => ({
   backgroundColor: `${theme.palette.primary.main}`,
-  width: '100px',
-  height: '40px',
+  textTransform: 'capitalize',
   fontSize: '14px',
   color: `${theme.palette.text.light}`,
   lineHeight: 1,
@@ -15,6 +14,10 @@ export const StyledButton = styled(Button)(() => ({
   padding: '8px',
   '&:hover': {
     backgroundColor: `${theme.palette.primary.deepdark}`,
+  },
+  [theme.breakpoints.up('ds')]: {
+    width: '98px',
+    height: '40px',
   },
 }));
 

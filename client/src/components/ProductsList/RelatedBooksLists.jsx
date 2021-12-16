@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getProductsByQuery } from '../../api/products';
 import BooksList from './BooksList';
+import ListLoader from '../ListLoader/ListLoader';
 
 const RelatedBooksList = ({ genre, itemNo }) => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ const RelatedBooksList = ({ genre, itemNo }) => {
   }, [itemNo]);
 
   return isLoading ? (
-    'Loading'
+    <ListLoader />
   ) : (
     <BooksList items={products} text='Related products' />
   );
