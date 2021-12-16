@@ -5,16 +5,19 @@ import { StyledList } from './Styles';
 import { promotionals } from '../../../Pages/PromotionalPage/hardcode';
 
 const PromotionalsList = () => {
-  const promoElements = promotionals.map(({ title, promoId, imgUrl }) => {
-    return (
-      <PromotionalItem
-        key={promoId}
-        title={title}
-        imgUrl={imgUrl}
-        promoId={promoId}
-      />
-    );
-  });
+  const promoElements = promotionals.map(
+    ({ title, promoId, imgUrl, subtitle }) => {
+      return (
+        <PromotionalItem
+          key={promoId}
+          title={title}
+          imgUrl={imgUrl}
+          promoId={promoId}
+          subtitle={subtitle}
+        />
+      );
+    },
+  );
 
   return <StyledList>{promoElements}</StyledList>;
 };

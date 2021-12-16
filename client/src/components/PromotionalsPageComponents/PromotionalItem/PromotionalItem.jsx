@@ -5,7 +5,7 @@ import PromotionalImg from '../PromotionalImg/PromotionalImg';
 import defaultimg from '../../../img/noImgAuthor.png';
 import { StyledPromoTitle, StyledItem, StyledImageLink } from './Styles';
 
-const PromotionalItem = ({ title, imgUrl, promoId }) => {
+const PromotionalItem = ({ title, imgUrl, promoId, subtitle }) => {
   return (
     <StyledItem>
       <StyledImageLink
@@ -22,13 +22,14 @@ const PromotionalItem = ({ title, imgUrl, promoId }) => {
       >
         {title}
       </StyledPromoTitle>
-      description???
+      {subtitle}
     </StyledItem>
   );
 };
 
 PromotionalItem.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   promoId: PropTypes.string.isRequired,
   imgUrl: PropTypes.string,
 };
