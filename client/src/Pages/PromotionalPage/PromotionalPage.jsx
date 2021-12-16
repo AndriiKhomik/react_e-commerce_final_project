@@ -10,23 +10,6 @@ import PromotionalImg from '../../components/PromotionalPageComponents/Promotion
 import PromotionalDescription from '../../components/PromotionalPageComponents/PromotionalDescription';
 // import Loader from '../../components/ItemPageComponents/Loader/Loader';
 
-// const AuthorPage = ({ match }) => {
-//   const [auth, setAuth] = useState({});
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     getAuthor(match.url)
-//       .then((data) => {
-//         setAuth(data);
-//       })
-//       .finally(() => setIsLoading(false));
-//   }, []);
-
-// const { books, name, authorUrl, biography, dateOfBirth } = auth;
-
-// return isLoading ? (
-//   <Loader />
-// ) : (
 const PromotionalPage = () => {
   const { description, title, imgUrl } = offer;
   console.log(imgUrl);

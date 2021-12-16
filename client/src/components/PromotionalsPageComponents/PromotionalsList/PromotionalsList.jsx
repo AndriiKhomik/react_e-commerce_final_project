@@ -1,8 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 import React from 'react';
-// import { getAuthors } from '../../../api/authors';
 import PromotionalItem from '../PromotionalItem/PromotionalItem';
-// import ListLoader from '../../ListLoader';
 import { StyledList } from './Styles';
 import { promotionals } from '../../../Pages/PromotionalPage/hardcode';
 
@@ -29,7 +27,6 @@ const PromotionalsList = () => {
     );
   });
 
-  // return isLoading ? <ListLoader /> : <StyledList>{promoElements}</StyledList>;
   return <StyledList>{promoElements}</StyledList>;
 };
 
