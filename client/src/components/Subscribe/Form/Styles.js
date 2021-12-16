@@ -3,10 +3,11 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledTextField = styled(TextField)(() => ({
-  '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
-    {
-      borderColor: [theme.palette.primary.main],
-    },
+  // '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+  //   {
+  //     borderColor: [theme.palette.primary.main],
+  //   },
+
   '& .MuiOutlinedInput-root': {
     borderRadius: '6px',
     borderBottomRightRadius: '0',
