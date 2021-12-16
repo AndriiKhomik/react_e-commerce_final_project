@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Rating from '@mui/material/Rating';
+// import Rating from '@mui/material/Rating';
 import {
   StyledPriceWrapper,
   StyledPrice,
-  StyledReviews,
-  StyledReviewsWrapper,
+  // StyledReviews,
+  // StyledReviewsWrapper,
   StyledPreviousPrice,
 } from './Styles';
 
-const ItemPrice = ({ price, reviews, value, salePrice }) => {
+const ItemPrice = ({
+  price,
+  //  reviews,
+  //   value,
+  salePrice,
+}) => {
   const fixedPrice = (sum) => Number(sum).toFixed(2);
 
   return (
@@ -22,7 +27,7 @@ const ItemPrice = ({ price, reviews, value, salePrice }) => {
           </StyledPreviousPrice>
         )}
       </div>
-      <StyledReviewsWrapper>
+      {/* <StyledReviewsWrapper>
         <Rating
           name='reviews rating'
           value={value}
@@ -32,7 +37,7 @@ const ItemPrice = ({ price, reviews, value, salePrice }) => {
         />
 
         <StyledReviews href='#!'>{reviews} Customer Review</StyledReviews>
-      </StyledReviewsWrapper>
+      </StyledReviewsWrapper> */}
     </StyledPriceWrapper>
   );
 };
@@ -40,15 +45,15 @@ const ItemPrice = ({ price, reviews, value, salePrice }) => {
 ItemPrice.propTypes = {
   price: PropTypes.number,
   salePrice: PropTypes.number,
-  reviews: PropTypes.number,
-  value: PropTypes.number,
+  // reviews: PropTypes.number,
+  // value: PropTypes.number,
 };
 
 ItemPrice.defaultProps = {
   price: 0,
   salePrice: null,
-  reviews: 0,
-  value: 2,
+  // reviews: 0,
+  // value: 2,
 };
 
 export default ItemPrice;
