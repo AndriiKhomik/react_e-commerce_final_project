@@ -5,14 +5,27 @@ import PromotionalTitle from '../../components/PromotionalPageComponents/Promoti
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
-import { offer } from './hardcode';
-// import { offer, offer2, offer3 } from './hardcode';
+import { offer, offer2, offer3 } from './hardcode';
 import PromotionalImg from '../../components/PromotionalPageComponents/PromotionalImg';
 import PromotionalDescription from '../../components/PromotionalPageComponents/PromotionalDescription';
 // import Loader from '../../components/ItemPageComponents/Loader/Loader';
+let obj = {};
 
-const { description, title, imgUrl } = offer;
 const PromotionalPage = ({ match }) => {
+  switch (match.url) {
+    case '/promotions/1':
+      obj = offer;
+      break;
+    case '/promotions/2':
+      obj = offer2;
+      break;
+    case '/promotions/3':
+      obj = offer3;
+      break;
+    default:
+      console.log(123);
+  }
+  const { description, title, imgUrl } = obj;
   console.log(match.url);
   return (
     <>
