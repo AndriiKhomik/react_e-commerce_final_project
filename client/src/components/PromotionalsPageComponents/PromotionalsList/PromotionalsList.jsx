@@ -5,17 +5,6 @@ import { StyledList } from './Styles';
 import { promotionals } from '../../../Pages/PromotionalPage/hardcode';
 
 const PromotionalsList = () => {
-  // const [authors, setAuthors] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   getAuthors()
-  //     .then((data) => {
-  //       setAuthors(data);
-  //     })
-  //     .finally(() => setIsLoading(false));
-  // }, []);
-  console.log(promotionals);
   const promoElements = promotionals.map(({ title, promoId, imgUrl }) => {
     return (
       <PromotionalItem

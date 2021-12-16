@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
 import PromotionalImg from '../PromotionalImg/PromotionalImg';
 import defaultimg from '../../../img/noImgAuthor.png';
-// import { setSelectedAuthorId } from '../../../store/filter/actions';
 import { StyledPromoTitle, StyledItem, StyledImageLink } from './Styles';
 
 const PromotionalItem = ({ title, imgUrl, promoId }) => {
-  // const dispatch = useDispatch();
-
-  // const onClickHandler = () => {
-  //   dispatch(setSelectedAuthorId(id));
-  // };
-
   return (
     <StyledItem>
       <StyledImageLink
