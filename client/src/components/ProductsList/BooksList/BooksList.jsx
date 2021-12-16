@@ -8,7 +8,7 @@ import 'swiper/modules/navigation/navigation.scss';
 import BooksListTitle from '../BooksListTitle';
 import ProductItem from '../../ProductItem/ProductItem';
 
-const BooksList = ({ items, text, authorName }) => {
+const BooksList = ({ items, text, authorName, fromAuthor }) => {
   return (
     <StyledContainer>
       <BooksListTitle text={text} />
@@ -50,6 +50,7 @@ const BooksList = ({ items, text, authorName }) => {
                   authorId={author._id}
                   itemNo={itemNo}
                   categories={categories}
+                  fromAuthor={fromAuthor}
                 />
               </SwiperSlide>
             ),
@@ -64,10 +65,12 @@ BooksList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   text: PropTypes.string.isRequired,
   authorName: PropTypes.string,
+  fromAuthor: PropTypes.bool,
 };
 
 BooksList.defaultProps = {
   authorName: '',
+  fromAuthor: false,
 };
 
 export default BooksList;

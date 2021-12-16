@@ -10,8 +10,8 @@ const valuetext = (value) => {
 // Get max price price from db, and set as max price in StyledSlider prop
 
 const FilterRange = () => {
-  const minDistance = 10;
-  const [value, setValue] = useState([0, 50]);
+  const minDistance = 5;
+  const [value, setValue] = useState([0, 30]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const FilterRange = () => {
         getAriaValueText={valuetext}
         disableSwap
         // !!!should be changed to max books price
-        max={100}
+        max={50}
       />
       <StyledPriceTag>
         <span>Price: </span>

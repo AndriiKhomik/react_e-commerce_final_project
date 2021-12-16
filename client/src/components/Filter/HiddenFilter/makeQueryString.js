@@ -27,13 +27,14 @@ const getValues = (obj) => {
 const formCheckboxQuery = (key, value) => {
   return value !== '' ? `${key.toLowerCase()}=${value.slice(0, -1)}&` : value;
 };
-const formPriceQuery = (key, obj) => {
-  const priceStr = `${key}=${obj[key]}`;
-  return priceStr;
+const formSoloParameterQuery = (key, obj) => {
+  return obj[key] !== '' ? `${key}=${obj[key]}&` : '';
 };
 
 const formSearchQuery = (key, value) => {
-  return value !== '' ? `&${key}=${value.trim().split(' ').join('+')}` : value;
+  return value !== ''
+    ? `${key}=${value.replace(/\s\s+/g, ' ').trim().split(' ').join('+')}&`
+    : value;
 };
 
 const formString = (arr) => {
@@ -44,6 +45,7 @@ const formString = (arr) => {
   let maxPriceStr = '';
   let minPriceStr = '';
   let searchStr = '';
+  let authorStr = '';
   let queryStr = '';
   arr.forEach((element) => {
     for (const key in element) {
@@ -56,19 +58,23 @@ const formString = (arr) => {
         genreStr = formCheckboxQuery(key, gStr);
       }
       if (key === 'maxPrice') {
-        maxPriceStr = formPriceQuery(key, element);
+        maxPriceStr = formSoloParameterQuery(key, element);
       }
       if (key === 'minPrice') {
-        minPriceStr = formPriceQuery(key, element);
+        minPriceStr = formSoloParameterQuery(key, element);
       }
 
       if (key === 'searchString') {
         searchStr = formSearchQuery(key, element[key]);
       }
+      if (key === 'author') {
+        authorStr = formSoloParameterQuery(key, element);
+      }
     }
-    queryStr = `${genreStr}${formatStr}${maxPriceStr}&${minPriceStr}${searchStr}`;
+    queryStr =
+      genreStr + formatStr + maxPriceStr + minPriceStr + searchStr + authorStr;
   });
-  return queryStr.trim();
+  return queryStr.trim().slice(0, -1);
 };
 
 export const makeQueryString = (data) => {

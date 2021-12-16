@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getProductsByQuery } from '../../api/products';
+import ListLoader from '../ListLoader/ListLoader';
 import BooksList from './BooksList';
 
 const RecommendedBooksList = () => {
@@ -15,7 +16,7 @@ const RecommendedBooksList = () => {
   }, []);
 
   return isLoading ? (
-    'Loading'
+    <ListLoader />
   ) : (
     <BooksList items={products} text='Recommended' />
   );

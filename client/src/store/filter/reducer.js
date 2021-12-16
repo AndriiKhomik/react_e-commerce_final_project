@@ -5,6 +5,8 @@ import {
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
   SET_SELECTED_GENRE,
+  SET_SELECTED_AUTHOR,
+  SET_SELECTED_AUTHOR_ID,
 } from './types';
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
   maxPrice: 0,
   searchString: '',
   selectedGenre: '',
+  author: '',
+  authorId: '',
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -54,8 +58,12 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_GENRE:
       return { ...state, selectedGenre: action.payload };
-    // case CLEAR_FILTER:
-    //   return ;
+
+    case SET_SELECTED_AUTHOR:
+      return { ...state, author: action.payload };
+
+    case SET_SELECTED_AUTHOR_ID:
+      return { ...state, authorId: action.payload };
 
     default:
       return state;

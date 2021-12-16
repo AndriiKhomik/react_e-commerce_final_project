@@ -6,13 +6,17 @@ import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
 import { StyledItem, StyledList } from './Styles';
-import { setSelectedGenre } from '../../../store/filter/actions';
+import {
+  setSelectedGenre,
+  setSelectedAuthorId,
+} from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector(({ books }) => books);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
+  const selectedAuthorId = useSelector(({ filter }) => filter.authorId);
 
   const updateBooksList = (queryString = query) => {
     filterProducts(queryString)
@@ -22,30 +26,26 @@ const CatalogList = ({ query }) => {
       .finally(() => setIsLoading(false));
   };
 
-  // initial render without updating query and genre!
+  // initial render without updating query, genre and author!
   useEffect(() => {
     dispatch(setSelectedGenre(''));
-    if (!selectedGenre && !query) {
-      console.log('initial render', query);
+    dispatch(setSelectedAuthorId(''));
+    if (!selectedGenre && !query && !selectedAuthorId) {
       updateBooksList();
     }
   }, []);
 
-  // update by changed query
   useEffect(() => {
-    if (query) {
-      console.log('changed query ->', query);
-      updateBooksList();
-    }
+    if (query) updateBooksList();
   }, [query]);
 
-  // update by changed selectedGenre
   useEffect(() => {
-    if (selectedGenre) {
-      console.log('changed selectedGenre ->', selectedGenre);
-      updateBooksList(`genre=${selectedGenre}`);
-    }
+    if (selectedGenre) updateBooksList(`genre=${selectedGenre}`);
   }, [selectedGenre]);
+
+  useEffect(() => {
+    if (selectedAuthorId) updateBooksList(`author=${selectedAuthorId}`);
+  }, [selectedAuthorId]);
 
   const productsElements = products.map(
     ({
