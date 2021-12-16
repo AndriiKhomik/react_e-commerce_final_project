@@ -99,6 +99,9 @@ const OrderForm = ({ bindSubmitForm }) => {
         localStorage.removeItem('shoppingCart');
         dispatch(clearCart([]));
       })
+      .catch((err) => {
+        console.log(err);
+      })
       .then(() => {
         toHomePage.push('/');
       });
