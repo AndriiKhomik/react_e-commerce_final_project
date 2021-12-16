@@ -1,35 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Drawer, List, ListItemIcon, ListItemText } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import { StyledLink, StyledListItem } from './Styles';
 
 const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
   return (
-    <Drawer anchor='left' open={openDrawer}>
+    <Drawer
+      anchor='left'
+      open={openDrawer}
+      onClose={() => setOpenDrawer(false)}
+      onClick={() => setOpenDrawer(false)}
+    >
       <List>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/home'>
+              <StyledLink exact to='/' activeClassName='selected'>
                 Home
               </StyledLink>
             </ListItemText>
           </ListItemIcon>
         </StyledListItem>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/products'>
+              <StyledLink exact to='/products' activeClassName='selected'>
                 Catalogue
               </StyledLink>
             </ListItemText>
           </ListItemIcon>
         </StyledListItem>
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/bestprice'>
+              <StyledLink exact to='/promotionals' activeClassName='selected'>
                 Best Price
               </StyledLink>
             </ListItemText>
@@ -44,10 +48,10 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem> */}
-        <StyledListItem button onClick={() => setOpenDrawer(false)}>
+        <StyledListItem button>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink as={NavLink} exact to='/authors'>
+              <StyledLink exact to='/authors' activeClassName='selected'>
                 Authors
               </StyledLink>
             </ListItemText>
