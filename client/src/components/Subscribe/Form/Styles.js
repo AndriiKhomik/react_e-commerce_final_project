@@ -3,22 +3,24 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledTextField = styled(TextField)(() => ({
-  '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
-    {
-      borderColor: [theme.palette.primary.main],
-    },
+  // '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+  //   {
+  //     borderColor: [theme.palette.primary.main],
+  //   },
+
   '& .MuiOutlinedInput-root': {
     borderRadius: '6px',
     borderBottomRightRadius: '0',
     borderTopRightRadius: '0',
+    height: '2.5em',
   },
 
-  '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: [theme.palette.primary.main],
-  },
-  '& .css-i4bv87-MuiSvgIcon-root': {
-    fill: [theme.palette.text.gray],
-  },
+  // '& .MuiOutlinedInput-notchedOutline': {
+  //   borderColor: [theme.palette.primary.main],
+  // },
+  // '& .css-i4bv87-MuiSvgIcon-root': {
+  //   fill: [theme.palette.text.gray],
+  // },
 
   [theme.breakpoints.up('xs')]: {
     width: '60%',
@@ -45,7 +47,7 @@ export const StyledButton = styled(Button)(() => ({
     borderBottomLeftRadius: '0',
     borderTopLeftRadius: '0',
     boxShadow: 'none',
-    height: '100%',
+    height: '2.5rem',
     paddingTop: '8px',
     paddingBottom: '8px',
   },
