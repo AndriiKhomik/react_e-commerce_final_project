@@ -5,17 +5,17 @@ export const StyledDescriptionWrapper = styled('div')`
   margin-top: 15px;
 `;
 
-export const StyledDescriptionTitle = styled('h4')(() => ({
+export const StyledDescriptionTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
-    fontSize: '14px',
+    fontSize: '16px',
     fontFamily: 'CeraPro Bold',
-    color: `${theme.palette.text.main}`,
+    color: `${theme.palette.primary.main}`,
   },
   [theme.breakpoints.up('sm')]: {
-    fontSize: '15px',
+    fontSize: '18px',
   },
   [theme.breakpoints.up('dm')]: {
-    fontSize: '16px',
+    fontSize: '20px',
   },
 }));
 

@@ -7,18 +7,27 @@ import {
 } from './Styles';
 import { StyledAnnotation } from '../../ItemPageComponents/ItemReviewsBlock/Styles';
 
-const PromotionalDescription = ({ description }) => {
+const PromotionalDescription = ({ description, terms, subtitle }) => {
   const descr = () => {
     return { __html: description };
   };
-
+  const term = () => {
+    return { __html: terms };
+  };
   return (
     <StyledDescriptionWrapper>
-      <StyledDescriptionTitle>About the promo:</StyledDescriptionTitle>
+      <StyledDescriptionTitle>{subtitle}:</StyledDescriptionTitle>
       <StyledDescription>
         <StyledAnnotation
           style={{ marginBottom: '20px' }}
           dangerouslySetInnerHTML={descr()}
+        />
+      </StyledDescription>
+      <StyledDescriptionTitle>Terms of the promotion:</StyledDescriptionTitle>
+      <StyledDescription>
+        <StyledAnnotation
+          style={{ marginBottom: '20px' }}
+          dangerouslySetInnerHTML={term()}
         />
       </StyledDescription>
     </StyledDescriptionWrapper>
@@ -27,6 +36,8 @@ const PromotionalDescription = ({ description }) => {
 
 PromotionalDescription.propTypes = {
   description: PropTypes.string.isRequired,
+  terms: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
 };
 
 export default PromotionalDescription;

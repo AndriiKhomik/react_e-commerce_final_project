@@ -12,6 +12,8 @@ import PromotionalDescription from '../../components/PromotionalPageComponents/P
 let obj = {};
 
 const PromotionalPage = ({ match }) => {
+  // const date = Date(Date.now()).toString();
+  // console.log(date);
   switch (match.url) {
     case '/promotions/1':
       obj = offer;
@@ -23,9 +25,9 @@ const PromotionalPage = ({ match }) => {
       obj = offer3;
       break;
     default:
-      console.log(123);
+      console.log('123');
   }
-  const { description, title, imgUrl } = obj;
+  const { description, title, imgUrl, terms, subtitle } = obj;
   console.log(match.url);
   return (
     <>
@@ -34,7 +36,11 @@ const PromotionalPage = ({ match }) => {
         <PromotionalTitle name={title} />
         <StyledDescription>
           <PromotionalImg img={imgUrl} name={title} />
-          <PromotionalDescription description={description} />
+          <PromotionalDescription
+            description={description}
+            terms={terms}
+            subtitle={subtitle}
+          />
         </StyledDescription>
         {/* <DateCountdown
           dateTo='January 01, 2023 00:00:00 GMT+03:00'
