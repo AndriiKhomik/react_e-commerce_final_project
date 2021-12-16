@@ -9,6 +9,8 @@ import { StyledItem, StyledList } from './Styles';
 import {
   setSelectedGenre,
   setSelectedAuthorId,
+  setCurrentPage,
+  setTotalCountOfPages,
 } from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
@@ -17,11 +19,14 @@ const CatalogList = ({ query }) => {
   const products = useSelector(({ books }) => books);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
   const selectedAuthorId = useSelector(({ filter }) => filter.authorId);
+  const currentPage = useSelector(({ filter }) => filter.currentPage);
 
   const updateBooksList = (queryString = query) => {
-    filterProducts(queryString)
+    filterProducts(queryString, currentPage)
       .then((data) => {
         dispatch(setBooks(data.products));
+        dispatch(setCurrentPage(data.currentPage));
+        dispatch(setTotalCountOfPages(data.totalCountOfPages));
       })
       .finally(() => setIsLoading(false));
   };
@@ -30,21 +35,37 @@ const CatalogList = ({ query }) => {
   useEffect(() => {
     dispatch(setSelectedGenre(''));
     dispatch(setSelectedAuthorId(''));
+    // dispatch(setCurrentPage(1));
     if (!selectedGenre && !query && !selectedAuthorId) {
       updateBooksList();
     }
   }, []);
 
   useEffect(() => {
-    if (query) updateBooksList();
+    if (query) {
+      // dispatch(setCurrentPage(1));
+      updateBooksList();
+    }
   }, [query]);
 
   useEffect(() => {
-    if (selectedGenre) updateBooksList(`genre=${selectedGenre}`);
+    // if (!selectedGenre && !query && !selectedAuthorId) {
+    updateBooksList();
+    // }
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (selectedGenre) {
+      dispatch(setCurrentPage(1));
+      updateBooksList(`genre=${selectedGenre}`);
+    }
   }, [selectedGenre]);
 
   useEffect(() => {
-    if (selectedAuthorId) updateBooksList(`author=${selectedAuthorId}`);
+    if (selectedAuthorId) {
+      // dispatch(setCurrentPage(1));
+      updateBooksList(`author=${selectedAuthorId}`);
+    }
   }, [selectedAuthorId]);
 
   const productsElements = products.map(

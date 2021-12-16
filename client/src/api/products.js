@@ -32,14 +32,12 @@ export const getProductsByQuery = async (
   return response.json();
 };
 
-export const filterProducts = async (queryString = '') => {
+export const filterProducts = async (queryString = '', startPage = 2) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/api/products/filter?${queryString}`,
+    `${process.env.REACT_APP_BASE_URL}/api/products/filter?perPage=12&startPage=${startPage}&${queryString}`,
   );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }
   return response.json();
 };
-
-

@@ -7,6 +7,8 @@ import {
   SET_SELECTED_GENRE,
   SET_SELECTED_AUTHOR,
   SET_SELECTED_AUTHOR_ID,
+  SET_TOTAL_COUNT_OF_PAGES,
+  SET_CURRENT_PAGE
 } from './types';
 
 const initialState = {
@@ -18,6 +20,8 @@ const initialState = {
   selectedGenre: '',
   author: '',
   authorId: '',
+  totalCountOfPages: 1,
+  currentPage: 1,
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -64,6 +68,12 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_SELECTED_AUTHOR_ID:
       return { ...state, authorId: action.payload };
+
+    case SET_TOTAL_COUNT_OF_PAGES:
+      return { ...state, totalCountOfPages: action.payload };
+
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.payload };
 
     default:
       return state;
