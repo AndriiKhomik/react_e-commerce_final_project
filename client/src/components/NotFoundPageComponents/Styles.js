@@ -48,9 +48,10 @@ export const StyledLink = styled(Link)(() => ({
     color: `${theme.palette.primary.dark}`,
     border: `2px solid ${theme.palette.primary.main}`,
     borderRadius: '4px',
+    textDecoration: 'none',
     '&:hover': {
       color: `${theme.palette.primary.deepdark}`,
-      border: `1px solid ${theme.palette.primary.deepdark}`,
+      border: `2px solid ${theme.palette.primary.deepdark}`,
     },
   },
   [theme.breakpoints.up('ds')]: {},
