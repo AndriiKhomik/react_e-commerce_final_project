@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IconButton, Box, useMediaQuery } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 // import SearchIcon from '@mui/icons-material/Search';
@@ -14,9 +14,14 @@ import {
 } from './Styles';
 import theme from '../../../services/theme/theme';
 import CartIcon from '../../icons/CartIcon';
+import LoginModal from '../../LoginModal/LoginModal';
+import { setIsLoginFalse } from '../../../store/login/actions';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const isLoggedIn = useSelector((data) => data.login.isLogin);
+
+  const dispatch = useDispatch();
   // const totalCount = useSelector((data) => data.shoppingCart.orderTotal);
   // const [showSearchInput, setshowSearchInput] = useState(false);
 
@@ -32,8 +37,18 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   // };
 
   const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
+    if (!isLoggedIn) {
+      setIsLoginModalOpen(true);
+    }
   };
+
+  const handleLogout = () => {
+    if (isLoggedIn) {
+      dispatch(setIsLoginFalse());
+      localStorage.removeItem('token');
+    }
+  };
+  const handleClose = () => setIsLoginModalOpen(false);
 
   return (
     <>
@@ -61,23 +76,31 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
         </StyledBadge>
       </IconButton>
       {isLoggedIn ? (
-        <StyledButton
-          disableElevation
-          variant='contained'
-          onClick={handleLogin}
-        >
-          <StyledLogoutIcon />
-          {matchesButtonQuery && 'Logout'}
-        </StyledButton>
+        <>
+          <StyledButton
+            disableElevation
+            variant='contained'
+            onClick={handleLogout}
+          >
+            <StyledLogoutIcon />
+            {matchesButtonQuery && 'Logout'}
+          </StyledButton>
+        </>
       ) : (
-        <StyledButton
-          disableElevation
-          variant='contained'
-          onClick={handleLogin}
-        >
-          <StyledLoginIcon />
-          {matchesButtonQuery && 'Login'}
-        </StyledButton>
+        <>
+          <StyledButton
+            disableElevation
+            variant='contained'
+            onClick={handleLogin}
+          >
+            <StyledLoginIcon />
+            {matchesButtonQuery && 'Login'}
+          </StyledButton>
+          <LoginModal
+            isLoginModalOpen={isLoginModalOpen}
+            handleClose={handleClose}
+          />
+        </>
       )}
       {changeMenu && (
         <IconButton onClick={() => setOpenDrawer(true)}>

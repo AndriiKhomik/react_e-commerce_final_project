@@ -10,6 +10,8 @@ import {
   StyledList,
 } from './Styles';
 import ItemInfoBookSize from './ItemInfoBookSize/ItemInfoBookSize';
+import { toCapitaleCase } from '../toCapitaleCase';
+import ItemBookFormat from './ItemBookFormat/ItemBookFormat';
 
 const ItemInfo = ({
   author,
@@ -18,6 +20,7 @@ const ItemInfo = ({
   pages,
   duration,
   genre,
+  categories,
 }) => {
   const { _id, name } = author;
   const bookSize = pages ? 'Number of Pages:' : 'Duration:';
@@ -30,6 +33,7 @@ const ItemInfo = ({
         <StyledListItemTitles>Year of Publishing:</StyledListItemTitles>
         <StyledListItemTitles>{bookSize}</StyledListItemTitles>
         <StyledListItemTitles>Genre:</StyledListItemTitles>
+        <StyledListItemTitles>Format:</StyledListItemTitles>
       </List>
       <StyledList>
         <StyledListItem>
@@ -41,10 +45,11 @@ const ItemInfo = ({
             {name}
           </StyledAuthor>
         </StyledListItem>
-        <StyledListItem>{publisher}</StyledListItem>
+        <StyledListItem>{toCapitaleCase(publisher)}</StyledListItem>
         <StyledListItem>{yearOfPublish}</StyledListItem>
         <ItemInfoBookSize pages={pages} duration={duration} />
-        <StyledListItem>{genre}</StyledListItem>
+        <StyledListItem>{toCapitaleCase(genre)}</StyledListItem>
+        <ItemBookFormat categories={categories} />
       </StyledList>
     </StyledItemInfoWrapper>
   );
@@ -57,7 +62,6 @@ ItemInfo.propTypes = {
     name: PropTypes.string.isRequired,
     dateOfBirth: PropTypes.string.isRequired,
     biography: PropTypes.string.isRequired,
-    authorUrl: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   }).isRequired,
   publisher: PropTypes.string.isRequired,
@@ -65,6 +69,7 @@ ItemInfo.propTypes = {
   pages: PropTypes.number,
   duration: PropTypes.number,
   genre: PropTypes.string.isRequired,
+  categories: PropTypes.string.isRequired,
 };
 
 ItemInfo.defaultProps = {

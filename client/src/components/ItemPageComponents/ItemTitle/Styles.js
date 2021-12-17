@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 import theme from '../../../services/theme/theme';
 
 export const StyledTitleWrapper = styled('div')(() => ({

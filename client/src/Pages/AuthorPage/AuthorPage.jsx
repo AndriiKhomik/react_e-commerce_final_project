@@ -8,9 +8,9 @@ import { getAuthor } from '../../api/authors';
 import { pageTitles } from './pageTitles';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
-import Loader from '../../components/ItemPageComponents/Loader/Loader';
 import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
 import BooksList from '../../components/ProductsList/BooksList';
+import ListLoader from '../../components/ListLoader/ListLoader';
 
 const AuthorPage = ({ match }) => {
   const [auth, setAuth] = useState({});
@@ -24,10 +24,10 @@ const AuthorPage = ({ match }) => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const { books, name, authorUrl, biography, dateOfBirth } = auth;
+  const { books, name, authorUrl, biography, dateOfBirth, _id } = auth;
 
   return isLoading ? (
-    <Loader />
+    <ListLoader />
   ) : (
     <>
       <SectionTitles titles={pageTitles} itemTitle={name} />
@@ -39,8 +39,8 @@ const AuthorPage = ({ match }) => {
           <AuthorDescription biography={biography} />
         </StyledDescription>
       </StyledContainer>
-      <BooksList items={books} text='Books' />
-      <AuthorButton />
+      <BooksList authorName={name} items={books} text='Books' fromAuthor />
+      <AuthorButton id={_id} />
     </>
   );
 };

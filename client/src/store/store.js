@@ -3,15 +3,19 @@ import thunk from 'redux-thunk';
 import { booksReducer } from './bookList/reducer';
 import { updateShoppingCartReducer } from './cart/reducer';
 import { favoritesReducer } from './favorites/reducer';
+import { filterReducer } from './filter/reducer';
 import {
   REMOVE_FROM_FAVORITES,
   SET_BOOK_TO_FAVORITES,
 } from './favorites/types';
+import { setIsLoginReducer } from './login/reducer';
 
 const rootReducer = combineReducers({
   books: booksReducer,
   favorites: favoritesReducer,
   shoppingCart: updateShoppingCartReducer,
+  filter: filterReducer,
+  login: setIsLoginReducer,
 });
 
 const favoritesMiddleware = () => (next) => (action) => {

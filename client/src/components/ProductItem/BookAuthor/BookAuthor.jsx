@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { StyledAuthorText } from './Styles';
 
-const BookAuthor = ({ author }) => {
+const BookAuthor = ({ author, authorId }) => {
   return (
     <>
-      {/* !!!add correct link -> page of author */}
-      <StyledAuthorText as={Link} to='/contacts'>
+      <StyledAuthorText as={Link} to={`/authors/${authorId}`}>
         {author}
       </StyledAuthorText>
     </>
@@ -15,6 +14,12 @@ const BookAuthor = ({ author }) => {
 };
 
 BookAuthor.propTypes = {
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
+  authorId: PropTypes.string,
+};
+
+BookAuthor.defaultProps = {
+  author: '',
+  authorId: '',
 };
 export default BookAuthor;

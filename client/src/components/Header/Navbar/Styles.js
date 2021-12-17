@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import theme from '../../../services/theme/theme';
@@ -30,15 +31,19 @@ export const StyledUserBox = styled(Box)`
   alignitems: center;
 `;
 
-export const StyledLink = styled('a')(() => ({
+export const StyledLink = styled(NavLink)(() => ({
   color: `${theme.palette.text.primary}`,
-  paddingBottom: '25px',
+  paddingBottom: '26px',
   textDecoration: 'none',
   marginRight: '10px',
   whiteSpace: 'nowrap',
-  transition: '0.4s',
+  transition: '0.4s linear',
+  borderBottom: `4px solid transparent`,
   '&:hover': {
     color: `${theme.palette.primary.main}`,
     borderBottom: `4px solid ${theme.palette.primary.main}`,
+  },
+  '&.selected': {
+    color: `${theme.palette.primary.main}`,
   },
 }));

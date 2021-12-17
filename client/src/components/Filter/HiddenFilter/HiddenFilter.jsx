@@ -1,27 +1,43 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
 import FilterSubtitle from '../FilterSubtitle';
 import FilterList from '../FilterList';
 import FilterRange from '../FilterRange';
 import FilterBtn from '../FilterBtn';
+import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
+import { makeQueryString } from './makeQueryString';
 
-const HiddenFilter = () => {
+const HiddenFilter = ({ onClick }) => {
+  const filtersValues = useSelector((data) => data.filter);
+
+  const applyFilter = () => {
+    onClick(makeQueryString(filtersValues));
+  };
+
   return (
     <>
       <SearchInput />
       <FilterSubtitle text='Genres' />
-      <FilterList items={genres} />
+      <FilterList groupTitle='genres' items={genres} />
       <StyledDivider />
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <StyledDivider />
+      <FilterAuthorsInput />
+      <StyledDivider />
       <FilterSubtitle text='Format' />
-      <FilterList items={formats} />
-      <FilterBtn text='Filter' />
+      <FilterList groupTitle='formats' items={formats} />
+      <FilterBtn text='Filter' onClick={applyFilter} />
     </>
   );
+};
+
+HiddenFilter.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 export default HiddenFilter;

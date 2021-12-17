@@ -1,0 +1,2 @@
+export const SET_ISLOGIN_TRUE = 'SET_ISLOGIN_TRUE';
+export const SET_ISLOGIN_FALSE = 'SET_ISLOGIN_FALSE';
