@@ -33,6 +33,7 @@ const ItemPage = ({ match }) => {
     fullDescription,
     itemNo,
     categories,
+    quantity,
   } = book;
 
   useEffect(() => {
@@ -52,7 +53,12 @@ const ItemPage = ({ match }) => {
         <ItemImg img={imageUrls} name={name} categories={categories} />
         <StyledDescription>
           <ItemTitle name={name} genre={genre} />
-          <ItemPrice price={currentPrice} salePrice={previousPrice} value={3} />
+          <ItemPrice
+            price={currentPrice}
+            salePrice={previousPrice}
+            value={3}
+            quantity={quantity}
+          />
           <ItemDescription shortDescription={shortDescription} />
           <ItemInfo
             author={author}

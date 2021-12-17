@@ -33,6 +33,9 @@ export const StyledTextField = styled(TextField)(() => ({
     border: `1px solid ${theme.palette.primary.main}`,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
+    '&:hover': {
+      border: '1px solid transparent',
+    },
   },
   '& .MuiOutlinedInput-notchedOutline': {
     borderColor: `${theme.palette.text.light}`,

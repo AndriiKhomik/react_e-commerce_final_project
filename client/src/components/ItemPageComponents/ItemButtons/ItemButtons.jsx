@@ -63,7 +63,7 @@ const ItemButtons = ({ book }) => {
 
   return (
     <StyledButtonsWrapper>
-      <StyledCartButton onClick={onCartClick}>
+      <StyledCartButton onClick={onCartClick} disabled={!quantity}>
         <StyledButtonText>Add to cart</StyledButtonText>
       </StyledCartButton>
       <StyledFavoriteBtnBox>

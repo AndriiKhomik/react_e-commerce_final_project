@@ -44,3 +44,7 @@ export const StyledPriceSaleText = styled('span')`
   font-weight: 400;
   text-decoration: line-through;
 `;
+
+export const StyledText = styled('span')`
+  color: ${[theme.palette.text.gray]};
+`;

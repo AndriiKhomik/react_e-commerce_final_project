@@ -111,6 +111,7 @@ const OrderForm = ({ bindSubmitForm }) => {
         country: values.country,
         city: values.city,
         address: values.address,
+        comment: values.comment,
         postal: '01044',
       },
       shipping: shippingCharge,

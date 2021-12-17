@@ -7,7 +7,7 @@ import BookName from '../BookName';
 import BookAuthor from '../BookAuthor';
 import BookPrice from '../BookPrice';
 import CartBtn from '../CartBtn';
-import { StyledLink, StyledCardGrid, StyledItem } from './Styles';
+import { StyledLink, StyledCardGrid, StyledItem, StyledText } from './Styles';
 import defaultimg from '../../../img/missing_image.jpg';
 import { bookAddedToCart } from '../../../store/cart/actions';
 
@@ -80,8 +80,10 @@ const ProductItem = ({
           price={price}
           salePrice={salePrice}
           isAvailable={isAvailable}
+          quantity={quantity}
         />
         <CartBtn onAddedToCart={onAddedToCart} isAvailable={isAvailable} />
+        {!quantity && <StyledText>Unavailable</StyledText>}
       </StyledCardGrid>
     </StyledItem>
   );
