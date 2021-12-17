@@ -14,7 +14,7 @@ const Catalogue = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [isEmpty, setIsEmpty] = useState(false);
-  const products = useSelector((data) => data.shoppingCart);
+  const products = useSelector((data) => data.bookList);
   const firstRender = useFirstRender();
 
   useEffect(() => {
