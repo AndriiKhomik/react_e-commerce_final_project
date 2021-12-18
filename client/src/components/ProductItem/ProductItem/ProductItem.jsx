@@ -7,9 +7,10 @@ import BookName from '../BookName';
 import BookAuthor from '../BookAuthor';
 import BookPrice from '../BookPrice';
 import CartBtn from '../CartBtn';
-import { StyledLink, StyledCardGrid, StyledItem, StyledText } from './Styles';
+import { StyledLink, StyledCardGrid, StyledItem } from './Styles';
 import defaultimg from '../../../img/missing_image.jpg';
 import { bookAddedToCart } from '../../../store/cart/actions';
+import UnavailableItem from '../UnavailableItem/UnavailableItem';
 
 const ProductItem = ({
   name,
@@ -57,6 +58,7 @@ const ProductItem = ({
   };
 
   const isAvailable = quantity <= 0;
+  const showOpacity = isAvailable ? '0.35' : 1;
 
   return (
     <StyledItem>
@@ -64,6 +66,7 @@ const ProductItem = ({
         as={Link}
         to={`/products/${itemNo}`}
         aria-label='move to book page'
+        sx={{ opacity: `${showOpacity}` }}
       >
         <BookImg
           url={url}
@@ -73,7 +76,7 @@ const ProductItem = ({
           salePrice={salePrice}
         />
       </StyledLink>
-      <BookName name={name} itemNo={itemNo} />
+      <BookName name={name} itemNo={itemNo} showOpacity={showOpacity} />
       <StyledCardGrid>
         {!fromAuthor && <BookAuthor authorId={authorId} author={author} />}
         <BookPrice
@@ -82,9 +85,13 @@ const ProductItem = ({
           isAvailable={isAvailable}
           quantity={quantity}
         />
-        <CartBtn onAddedToCart={onAddedToCart} isAvailable={isAvailable} />
-        {!quantity && <StyledText>Unavailable</StyledText>}
+        <CartBtn
+          onAddedToCart={onAddedToCart}
+          isAvailable={isAvailable}
+          showOpacity={showOpacity}
+        />
       </StyledCardGrid>
+      {!quantity && <UnavailableItem />}
     </StyledItem>
   );
 };

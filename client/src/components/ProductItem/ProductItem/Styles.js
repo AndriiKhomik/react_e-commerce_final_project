@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledItem = styled('div')`
+  position: relative;
   &:hover .MuiCardActions-root {
     opacity: 1;
   }
@@ -42,8 +43,4 @@ export const StyledPriceSaleText = styled('span')`
   font-size: 16px;
   font-weight: 400;
   text-decoration: line-through;
-`;
-
-export const StyledText = styled('span')`
-  color: ${[theme.palette.text.gray]};
 `;
