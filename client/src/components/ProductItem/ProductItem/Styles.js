@@ -2,8 +2,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledItem = styled('div')`
-  &:hover .MuiCardActions-root,
-  &:hover p {
+  &:hover .MuiCardActions-root {
     opacity: 1;
   }
 `;
