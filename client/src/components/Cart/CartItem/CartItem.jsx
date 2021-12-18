@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useMediaQuery, TableRow, Box } from '@mui/material';
 import theme from '../../../services/theme/theme';
 import { StyledDiv, StyledSellTotals } from '../CartProducts/Styled';
@@ -9,6 +10,7 @@ import {
   StyledBox,
   StyledIconWrapper,
   StyledImg,
+  StyledLink,
   StyledTableCell,
   StyledTableImgCell,
 } from './Styled';
@@ -26,11 +28,13 @@ const CartItem = ({ cartItem }) => {
   return (
     <TableRow>
       <StyledTableImgCell component='th' scope='row'>
-        <StyledImg src={url} alt='book cover' />
-        <StyledBox>
-          <span className='title'>{name}</span>
-          <span>SKU {itemNo}</span>
-        </StyledBox>
+        <StyledLink as={Link} to={`/products/${itemNo}`}>
+          <StyledImg src={url} alt='book cover' />
+          <StyledBox>
+            <span className='title'>{name}</span>
+            <span>SKU {itemNo}</span>
+          </StyledBox>
+        </StyledLink>
       </StyledTableImgCell>
       {/* {collapseTableColumn && (
         <StyledTableCell align='center'>

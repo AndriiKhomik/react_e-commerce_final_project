@@ -7,6 +7,7 @@ import {
   TableRow,
 } from '@mui/material';
 import { useSelector } from 'react-redux';
+import CartItem from '../CartItem/CartItem';
 import {
   StyledTableCellHead,
   StyledTableContainer,
@@ -17,7 +18,6 @@ import theme from '../../../services/theme/theme';
 // import Ebook from '../../icons/ElBookIcon';
 // import CartonBook from '../../icons/PaperBookIcon';
 // import AudioBook from '../../icons/AudioBookIcon';
-import CartItem from '../CartItem/CartItem';
 
 const CartProducts = () => {
   const orders = useSelector((data) => data.shoppingCart);

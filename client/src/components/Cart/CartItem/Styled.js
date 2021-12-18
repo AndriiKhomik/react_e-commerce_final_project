@@ -15,12 +15,9 @@ export const StyledTableImgCell = styled(TableCell)(() => ({
   backgroundColor: '#fbfbfb',
   borderBottom: `4px solid ${theme.palette.text.light}`,
   borderTop: `4px solid ${theme.palette.text.light}`,
-  display: 'flex',
+
   padding: '8px',
-  flexDirection: 'column',
-  [theme.breakpoints.up('md')]: {
-    flexDirection: 'row',
-  },
+
   '& span': {
     fontSize: '16px',
   },
@@ -76,8 +73,22 @@ export const StyledImg = styled('img')`
   margin-right: 20px;
 `;
 
-export const StyledBox = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
+export const StyledBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  paddingTop: '8px',
+  [theme.breakpoints.up('md')]: {
+    paddingTop: 0,
+  },
+}));
+
+export const StyledLink = styled('a')(() => ({
+  textDecoration: 'none',
+  color: theme.palette.text.primary,
+  display: 'flex',
+  flexDirection: 'column',
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+  },
+}));

@@ -44,6 +44,14 @@ export const StyledTextField = styled(TextField)(() => ({
     {
       borderColor: 'transparent',
     },
+  '& .css-1blzztw-MuiFormControl-root-MuiTextField-root .MuiInputBase-formControl:hover':
+    {
+      border: '1px solid #ffac0c',
+    },
+  '& .css-6uc8ib-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+    {
+      borderColor: '#ffac0c',
+    },
 }));
 
 export const StyledButton = styled(Button)(() => ({
