@@ -27,7 +27,7 @@ export const StyledList = styled('ul')(() => ({
     columnGap: '60px',
   },
   [theme.breakpoints.up('lg')]: {
-    columnGap: '70px',
+    columnGap: '60px',
     // gridTemplateColumns: 'repeat(auto-fill, 550px)',
   },
 }));

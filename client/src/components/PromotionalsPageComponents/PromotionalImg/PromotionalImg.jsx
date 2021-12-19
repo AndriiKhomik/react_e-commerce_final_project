@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LightTooltip from '../../ProductItem/Tooltip';
-import { StyledCardMediaWrapper } from './Styles';
 import {
+  StyledCardMediaWrapper,
   StyledCardMediaBox,
   StyledCardMedia,
-} from '../../ProductItem/BookImg/Styles';
+} from './Styles';
 
 const PromotionalImg = ({ imgUrl, title }) => {
   return (

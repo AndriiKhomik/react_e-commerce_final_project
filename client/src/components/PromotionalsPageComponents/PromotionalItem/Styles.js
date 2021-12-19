@@ -10,6 +10,7 @@ export const StyledPromoTitle = styled(StyledBookNameText)`
   font-size: 24px;
   line-height: 24px;
   overflow: visible;
+  // margin: 0 auto;
   color: ${theme.palette.text.main};
 `;
 
@@ -34,4 +35,5 @@ export const StyledItem = styled('li')`
 
 export const StyledParagraph = styled('p')`
   color: ${theme.palette.text.primary};
+  // margin: 0 auto;
 `;
