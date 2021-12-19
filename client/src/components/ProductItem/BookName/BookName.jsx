@@ -21,7 +21,11 @@ const BookName = ({ name, itemNo, showOpacity }) => {
 BookName.propTypes = {
   name: PropTypes.string.isRequired,
   itemNo: PropTypes.string.isRequired,
-  showOpacity: PropTypes.string.isRequired,
+  showOpacity: PropTypes.number,
+};
+
+BookName.defaultProps = {
+  showOpacity: 1,
 };
 
 export default BookName;

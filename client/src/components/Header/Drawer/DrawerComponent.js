@@ -34,7 +34,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
           <ListItemIcon>
             <ListItemText>
               <StyledLink exact to='/promotionals' activeClassName='selected'>
-                Best Price
+                Promotionals
               </StyledLink>
             </ListItemText>
           </ListItemIcon>

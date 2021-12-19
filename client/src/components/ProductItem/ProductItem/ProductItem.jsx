@@ -58,7 +58,7 @@ const ProductItem = ({
   };
 
   const isAvailable = quantity <= 0;
-  const showOpacity = isAvailable ? '0.35' : 1;
+  const showOpacity = isAvailable ? 0.35 : 1;
 
   return (
     <StyledItem>

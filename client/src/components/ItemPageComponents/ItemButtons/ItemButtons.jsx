@@ -61,10 +61,18 @@ const ItemButtons = ({ book }) => {
     );
   };
 
+  const isAvailable = quantity < 1 ? 0.35 : 1;
+
   return (
     <StyledButtonsWrapper>
-      <StyledCartButton onClick={onCartClick} disabled={!quantity}>
-        <StyledButtonText>Add to cart</StyledButtonText>
+      <StyledCartButton
+        onClick={onCartClick}
+        disabled={!quantity}
+        style={{ opacity: isAvailable }}
+      >
+        <StyledButtonText>
+          {quantity > 0 ? 'Add to cart' : 'Unavailable'}
+        </StyledButtonText>
       </StyledCartButton>
       <StyledFavoriteBtnBox>
         <StyledFavoriteBtn onClick={onFavoriteClick}>
