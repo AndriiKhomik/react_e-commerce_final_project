@@ -27,3 +27,7 @@ export const StyledItem = styled('li')`
   display: flex;
   flex-direction: column;
 `;
+
+export const StyledParagraph = styled('p')`
+  display: inline;
+`;

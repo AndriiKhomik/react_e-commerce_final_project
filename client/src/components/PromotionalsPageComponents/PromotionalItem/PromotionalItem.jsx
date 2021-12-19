@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import PromotionalImg from '../PromotionalImg/PromotionalImg';
 import defaultimg from '../../../img/noImgAuthor.png';
-import { StyledPromoTitle, StyledItem, StyledImageLink } from './Styles';
+import {
+  StyledPromoTitle,
+  StyledItem,
+  StyledImageLink,
+  StyledParagraph,
+} from './Styles';
 
 const PromotionalItem = ({ title, imgUrl, promoId, subtitle }) => {
   return (
@@ -22,7 +27,7 @@ const PromotionalItem = ({ title, imgUrl, promoId, subtitle }) => {
       >
         {title}
       </StyledPromoTitle>
-      {subtitle}
+      <StyledParagraph>{subtitle}</StyledParagraph>
     </StyledItem>
   );
 };
