@@ -25,6 +25,6 @@ export const StyledDescription = styled(Grid)(() => ({
   [theme.breakpoints.up('md')]: {
     alignItems: 'center',
     marginLeft: '0%',
-    width: '70%',
+    width: '100%',
   },
 }));
