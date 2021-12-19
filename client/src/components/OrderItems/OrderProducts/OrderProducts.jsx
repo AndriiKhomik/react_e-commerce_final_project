@@ -1,6 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { List } from '@mui/material';
-import { products } from './poducts';
 import {
   StyledSpan,
   SryledListItem,
@@ -17,6 +17,8 @@ import {
 } from '../Styles';
 
 const OrderProducts = () => {
+  const products = useSelector((data) => data.shoppingCart);
+
   return (
     <>
       <StyledTitle>Your Order</StyledTitle>
@@ -26,9 +28,9 @@ const OrderProducts = () => {
       </StyledBox>
       <StyledDivider />
       <List>
-        {products.map(({ id, img, name, price, quantity, itemNo }) => (
-          <SryledListItem key={id}>
-            <img src={img} alt={name} title={name} height='70' />
+        {products.map(({ url, name, price, cartQuantity, itemNo }) => (
+          <SryledListItem key={itemNo}>
+            <img width='42px' height='64px' src={url} alt='book cover' />
             <p>
               <StyledBookNameSpan>{name}</StyledBookNameSpan>
               <StyledSmallSpan>
@@ -36,8 +38,10 @@ const OrderProducts = () => {
                 {itemNo}
               </StyledSmallSpan>
             </p>
-            <StyledSmallSpan>(x{quantity})</StyledSmallSpan>
-            <StyledYellowSpan>&#36; {price}</StyledYellowSpan>
+            <StyledSmallSpan>(x{cartQuantity})</StyledSmallSpan>
+            <StyledYellowSpan sx={{ width: '50px' }}>
+              &#36; {price * cartQuantity}
+            </StyledYellowSpan>
           </SryledListItem>
         ))}
       </List>
