@@ -1,27 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
 import CartIcon from '../../icons/CartIcon';
 import { StyledCartButton } from './Styles';
-// import { updateOrder } from '../../../store/cart/actions';
 
-const CartBtn = ({ itemNo }) => {
-  // const dispatch = useDispatch();
-
-  const onCartClick = () => {
-    // dispatch(updateOrder(itemNo));
-    /* eslint-disable no-debugger, no-console */
-    console.log(itemNo);
-  };
+const CartBtn = ({ onAddedToCart, isAvailable, showOpacity }) => {
   return (
-    <StyledCartButton onClick={onCartClick}>
+    <StyledCartButton
+      onClick={onAddedToCart}
+      disabled={isAvailable}
+      sx={{ opacity: `${showOpacity}` }}
+    >
       <CartIcon width='16px' height='17px' fill='#ffffff' />
     </StyledCartButton>
   );
 };
 
 CartBtn.propTypes = {
-  itemNo: PropTypes.string.isRequired,
+  onAddedToCart: PropTypes.func.isRequired,
+  isAvailable: PropTypes.bool.isRequired,
+  showOpacity: PropTypes.number,
 };
 
+CartBtn.defaultProps = {
+  showOpacity: 1,
+};
 export default CartBtn;

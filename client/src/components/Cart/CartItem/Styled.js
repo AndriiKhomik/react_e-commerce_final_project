@@ -11,6 +11,21 @@ export const StyledTableCell = styled(TableCell)(() => ({
   },
 }));
 
+export const StyledTableImgCell = styled(TableCell)(() => ({
+  backgroundColor: '#fbfbfb',
+  borderBottom: `4px solid ${theme.palette.text.light}`,
+  borderTop: `4px solid ${theme.palette.text.light}`,
+
+  padding: '8px',
+
+  '& span': {
+    fontSize: '16px',
+  },
+  '& span:first-of-type': {
+    fontWeight: 'bold',
+  },
+}));
+
 // export const StyledSelect = styled(Select)`
 //   height: 28px;
 //   font-size: 14px;
@@ -50,4 +65,30 @@ export const StyledSellTotals = styled(TableCell)(() => ({
   borderTop: `4px solid ${theme.palette.text.light}`,
   fontWeight: 'bold',
   color: `${theme.palette.primary.main}`,
+}));
+
+export const StyledImg = styled('img')`
+  width: 42px;
+  height: 64px;
+  margin-right: 20px;
+`;
+
+export const StyledBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  paddingTop: '8px',
+  [theme.breakpoints.up('md')]: {
+    paddingTop: 0,
+  },
+}));
+
+export const StyledLink = styled('a')(() => ({
+  textDecoration: 'none',
+  color: theme.palette.text.primary,
+  display: 'flex',
+  flexDirection: 'column',
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+  },
 }));
