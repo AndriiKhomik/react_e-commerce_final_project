@@ -58,3 +58,10 @@ export const StyledSelect = styled(Select)`
     bottom: 2px;
   }
 `;
+
+export const StyledTableTitle = styled(TableCell)`
+  padding-top: 20px;
+  font-size: calc(10px + 1vw);
+  text-align: center;
+  border: none;
+`;

@@ -32,12 +32,21 @@ const BooksList = ({ items, text, authorName, fromAuthor }) => {
           {items.map(
             ({
               name,
+              itemNo,
               imageUrls,
               currentPrice,
-              previousPrice,
               author,
-              itemNo,
+              previousPrice,
               categories,
+              _id,
+              quantity,
+              publisher,
+              shortDescription,
+              fullDescription,
+              yearOfPublishing,
+              genre,
+              numberOfPages,
+              coverType,
             }) => (
               <SwiperSlide tag='li' key={itemNo} style={{ width: '163px' }}>
                 <ProductItem
@@ -50,6 +59,15 @@ const BooksList = ({ items, text, authorName, fromAuthor }) => {
                   authorId={author._id}
                   itemNo={itemNo}
                   categories={categories}
+                  _id={_id}
+                  quantity={quantity}
+                  publisher={publisher}
+                  shortDescription={shortDescription}
+                  fullDescription={fullDescription}
+                  yearOfPublishing={yearOfPublishing}
+                  genre={genre}
+                  numberOfPages={numberOfPages}
+                  coverType={coverType}
                   fromAuthor={fromAuthor}
                 />
               </SwiperSlide>

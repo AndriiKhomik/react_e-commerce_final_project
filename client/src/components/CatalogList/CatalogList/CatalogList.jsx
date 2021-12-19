@@ -14,7 +14,7 @@ import {
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-  const products = useSelector(({ books }) => books);
+  const products = useSelector((data) => data.bookList);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
   const selectedAuthorId = useSelector(({ filter }) => filter.authorId);
 
@@ -56,6 +56,15 @@ const CatalogList = ({ query }) => {
       author,
       previousPrice,
       categories,
+      _id,
+      quantity,
+      publisher,
+      shortDescription,
+      fullDescription,
+      yearOfPublishing,
+      genre,
+      numberOfPages,
+      coverType,
     }) => {
       return (
         <StyledItem key={itemNo}>
@@ -69,6 +78,15 @@ const CatalogList = ({ query }) => {
             authorId={author._id}
             itemNo={itemNo}
             categories={categories}
+            _id={_id}
+            quantity={quantity}
+            publisher={publisher}
+            shortDescription={shortDescription}
+            fullDescription={fullDescription}
+            yearOfPublishing={yearOfPublishing}
+            genre={genre}
+            numberOfPages={numberOfPages}
+            coverType={coverType}
           />
         </StyledItem>
       );

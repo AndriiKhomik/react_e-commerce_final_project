@@ -2,8 +2,8 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledItem = styled('div')`
-  &:hover .MuiCardActions-root,
-  &:hover p {
+  position: relative;
+  &:hover .MuiCardActions-root {
     opacity: 1;
   }
 `;

@@ -64,8 +64,13 @@ export const StyledFormWrapper = styled('div')`
   margin-top: 30px;
   display: grid;
   row-gap: 30px;
+  height: 70%;
+`;
+export const StyledServerErrorWrapper = styled('div')`
+  height: 20px;
 `;
 
 export const StyledServerError = styled('p')`
+  height: 20px;
   color: red;
 `;

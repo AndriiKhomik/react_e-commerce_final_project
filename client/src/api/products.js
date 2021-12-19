@@ -23,8 +23,9 @@ export const getProductsByQuery = async (
   value = true,
   exceptId = '',
 ) => {
+  const id = exceptId ? `&exceptId=${exceptId}` : '';
   const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/api/products?${query}=${value}&exceptId=${exceptId}`,
+    `${process.env.REACT_APP_BASE_URL}/api/products?${query}=${value}${id}`,
   );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
@@ -41,5 +42,3 @@ export const filterProducts = async (queryString = '') => {
   }
   return response.json();
 };
-
-
