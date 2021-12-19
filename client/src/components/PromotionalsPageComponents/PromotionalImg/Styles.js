@@ -3,10 +3,34 @@ import theme from '../../../services/theme/theme';
 
 export const StyledCardMediaWrapper = styled('div')(() => ({
   position: 'relative',
-  minHeight: '170px',
+  minHeight: '163px',
   width: '100%',
   height: '100%',
   // marginBottom: '20px',
+  [theme.breakpoints.up('sr')]: {
+    minHeight: '216px',
+  },
+  [theme.breakpoints.up('ds')]: {
+    minHeight: '260px',
+  },
+  [theme.breakpoints.up('530')]: {
+    minHeight: '280px',
+  },
+  [theme.breakpoints.up('sm')]: {
+    minHeight: '320px',
+  },
+  [theme.breakpoints.up('dm')]: {
+    minHeight: '166px',
+  },
+  [theme.breakpoints.up('bm')]: {
+    minHeight: '190px',
+  },
+  [theme.breakpoints.up('md')]: {
+    minHeight: '240px',
+  },
+  [theme.breakpoints.up('dl')]: {
+    minHeight: '265px',
+  },
 }));
 
 export const StyledCardMediaBox = styled('div')`
@@ -34,9 +58,9 @@ export const StyledCardMedia = styled('img')(() => ({
   maxHeight: '100%',
   objectFit: 'scale-down',
   // objectPosition: 'center bottom',
-  [theme.breakpoints.up('ds')]: {
-    objectFit: 'cover',
-  },
+  // [theme.breakpoints.up('ds')]: {
+  //   objectFit: 'cover',
+  // },
   // [theme.breakpoints.up('530')]: {
   //   objectFit: 'cover',
   // },
