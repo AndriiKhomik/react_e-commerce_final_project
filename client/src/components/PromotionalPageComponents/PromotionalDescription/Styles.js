@@ -9,7 +9,7 @@ export const StyledDescriptionTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '16px',
     fontFamily: 'CeraPro Bold',
-    color: `${theme.palette.primary.main}`,
+    color: `${theme.palette.text.main}`,
   },
   [theme.breakpoints.up('sm')]: {
     fontSize: '18px',
