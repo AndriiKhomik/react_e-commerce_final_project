@@ -17,7 +17,6 @@ const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const changeMenu = useMediaQuery(theme.breakpoints.down('md'));
-  const changeLogo = useMediaQuery(theme.breakpoints.down('sm'));
 
   const toggleDrawer = (value) => (event) => {
     if (
@@ -38,7 +37,9 @@ const Navbar = () => {
         sx={{ marginBottom: '36px' }}
       >
         <StyledBox>
-          <StyledLogoBox>{changeLogo ? 'LG' : <Logo />}</StyledLogoBox>
+          <StyledLogoBox>
+            <Logo />
+          </StyledLogoBox>
 
           {changeMenu ? (
             <DrawerComponent

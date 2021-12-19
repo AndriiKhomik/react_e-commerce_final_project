@@ -70,7 +70,9 @@ const ItemButtons = ({ book }) => {
         disabled={!quantity}
         style={{ opacity: isAvailable }}
       >
-        <StyledButtonText>Add to cart</StyledButtonText>
+        <StyledButtonText>
+          {quantity > 0 ? 'Add to cart' : 'Unavailable'}
+        </StyledButtonText>
       </StyledCartButton>
       <StyledFavoriteBtnBox>
         <StyledFavoriteBtn onClick={onFavoriteClick}>

@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <StyledBox>
       <StyledLink as={Link} to='/'>
-        Logo
+        <img src='/images/logo.png' alt='logo' width='30px' height='30px' />
         <StyledLogoText>bookstore</StyledLogoText>
       </StyledLink>
     </StyledBox>
