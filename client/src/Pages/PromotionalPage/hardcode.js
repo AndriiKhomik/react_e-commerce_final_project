@@ -38,7 +38,7 @@ export const offer3 = {
 export const promotionals = [
   {
     promoId: '1',
-    imgUrl: '/images/heroBanners/banner1M.png',
+    imgUrl: '/images/heroBanners/banner1S.png',
     title: 'Girl power',
     expTime: '31-12-2021',
     subtitle:
@@ -50,7 +50,7 @@ export const promotionals = [
   },
   {
     promoId: '2',
-    imgUrl: '/images/heroBanners/banner2M.png',
+    imgUrl: '/images/heroBanners/banner2S.png',
     title: 'Reading is always in trend',
     expTime: '15-04-2022',
     subtitle: '25% discount for all inspirational book',
@@ -61,7 +61,7 @@ export const promotionals = [
   },
   {
     promoId: '3',
-    imgUrl: '/images/heroBanners/banner3M.png',
+    imgUrl: '/images/heroBanners/banner3S.png',
     title: 'Wonderful books for children',
     expTime: '31-01-2022',
     subtitle: '15% discount for wonderful books for childen',

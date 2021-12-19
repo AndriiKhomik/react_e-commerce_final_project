@@ -9,25 +9,25 @@ export const StyledList = styled('ul')(() => ({
 
   [theme.breakpoints.up('xs')]: {
     justifyContent: 'center',
-    columnGap: '30px',
+    columnGap: '40px',
   },
   [theme.breakpoints.up('sm')]: {
     // gridTemplateColumns: 'repeat(auto-fill, 550px)',
     justifyContent: 'space-between',
-    columnGap: '30px',
+    columnGap: '50px',
   },
   [theme.breakpoints.up('dm')]: {
     // gridTemplateColumns: 'repeat(auto-fill, 600px)',
     justifyContent: 'start',
-    columnGap: '20px',
+    columnGap: '50px',
   },
   [theme.breakpoints.up('bm')]: {
     gridTemplateColumns: '1fr 1fr',
     justifyContent: 'space-between',
-    columnGap: '20px',
+    columnGap: '60px',
   },
   [theme.breakpoints.up('lg')]: {
-    columnGap: '20px',
+    columnGap: '70px',
     // gridTemplateColumns: 'repeat(auto-fill, 550px)',
   },
 }));
