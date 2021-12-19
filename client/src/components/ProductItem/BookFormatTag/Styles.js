@@ -2,7 +2,6 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledFormatParagraph = styled('p')(() => ({
-  opacity: '0',
   position: 'absolute',
   zIndex: '2',
   bottom: '15px',
