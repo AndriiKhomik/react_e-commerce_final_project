@@ -63,7 +63,7 @@ export const StyledBox = styled(Box)(() => ({
 
 export const StyledTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
-    color: '#3d3d3d',
+    color: `${theme.palette.text.main}`,
     paddingBottom: '18px',
     paddingTop: '18px',
     fontSize: '16px',
@@ -77,7 +77,7 @@ export const StyledTitle = styled('h3')(() => ({
 }));
 
 export const StyledText = styled('span')(() => ({
-  color: '#727272',
+  color: `${theme.palette.text.primary}`,
   paddingTop: '17px',
   fontSize: '13px',
   lineHeight: '22px',
