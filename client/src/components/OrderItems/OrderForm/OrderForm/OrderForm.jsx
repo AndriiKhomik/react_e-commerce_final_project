@@ -22,9 +22,9 @@ import { StyledErrorMessage } from './Styles';
 import { StyledTitle } from '../../Styles';
 import { postOrder } from '../../../../api/order';
 import { clearCart } from '../../../../store/cart/actions';
+import { placeOrderLetter } from './placeOrderLetter';
 
 const letterSubject = 'Good news from the Bookstore! Thank you for order!';
-const letterHtml = <h1>Your order is placed. OrderNo is 023689452.</h1>;
 
 const OrderForm = ({ bindSubmitForm }) => {
   const formRef = useRef();
@@ -117,7 +117,7 @@ const OrderForm = ({ bindSubmitForm }) => {
       shipping: shippingCharge,
       paymentInfo: 'Сash to the courier',
       letterSubject,
-      letterHtml,
+      letterHtml: placeOrderLetter,
       email: values.email,
       mobile: values.tel,
     };

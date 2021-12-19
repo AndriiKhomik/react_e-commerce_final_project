@@ -18,7 +18,10 @@ const CartBtn = ({ onAddedToCart, isAvailable, showOpacity }) => {
 CartBtn.propTypes = {
   onAddedToCart: PropTypes.func.isRequired,
   isAvailable: PropTypes.bool.isRequired,
-  showOpacity: PropTypes.string.isRequired,
+  showOpacity: PropTypes.number,
 };
 
+CartBtn.defaultProps = {
+  showOpacity: 1,
+};
 export default CartBtn;
