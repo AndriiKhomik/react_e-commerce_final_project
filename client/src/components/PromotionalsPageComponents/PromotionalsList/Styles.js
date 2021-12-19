@@ -12,13 +12,6 @@ export const StyledList = styled('ul')(() => ({
     columnGap: '40px',
   },
 
-  [theme.breakpoints.up('ds')]: {
-    // display: 'grid',
-    // gridTemplateColumns: '1fr',
-    // rowGap: '50px',
-    // marginBottom: '45px',
-  },
-
   [theme.breakpoints.up('sm')]: {
     justifyContent: 'space-between',
     columnGap: '50px',
@@ -29,7 +22,6 @@ export const StyledList = styled('ul')(() => ({
     columnGap: '50px',
   },
   [theme.breakpoints.up('930')]: {
-    // gridTemplateColumns: '1fr 1fr',
     justifyContent: 'space-between',
     columnGap: '60px',
     rowGap: '30px',

@@ -5,12 +5,10 @@ import { StyledBookNameText } from '../../ProductItem/BookName/Styles';
 
 export const StyledPromoTitle = styled(StyledBookNameText)(() => ({
   marginBottom: '10px',
-  // -webkit-line-clamp: '1',
   minHeight: 'auto',
   fontSize: '20px',
   lineHeight: '22px',
   overflow: 'visible',
-  // margin: 0 auto;
   color: [theme.palette.text.main],
   [theme.breakpoints.up('ds')]: {
     fontSize: '24px',

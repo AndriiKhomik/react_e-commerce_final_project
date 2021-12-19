@@ -6,7 +6,6 @@ export const StyledCardMediaWrapper = styled('div')(() => ({
   minHeight: '163px',
   width: '100%',
   height: '100%',
-  // marginBottom: '20px',
   [theme.breakpoints.up('sr')]: {
     minHeight: '216px',
   },
@@ -57,20 +56,4 @@ export const StyledCardMedia = styled('img')(() => ({
   minHeight: '100%',
   maxHeight: '100%',
   objectFit: 'scale-down',
-  // objectPosition: 'center bottom',
-  // [theme.breakpoints.up('ds')]: {
-  //   objectFit: 'cover',
-  // },
-  // [theme.breakpoints.up('530')]: {
-  //   objectFit: 'cover',
-  // },
-  // [theme.breakpoints.up('sm')]: {
-  //   objectFit: 'scale-down',
-  // },
-  // [theme.breakpoints.up('bm')]: {
-  //   objectFit: 'cover',
-  // },
-  // [theme.breakpoints.up('dl')]: {
-  //   objectFit: 'cover',
-  // },
 }));
