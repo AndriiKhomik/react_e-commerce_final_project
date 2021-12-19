@@ -3,7 +3,7 @@ import theme from '../../../services/theme/theme';
 
 export const StyledCardMediaWrapper = styled('div')(() => ({
   position: 'relative',
-  minHeight: '243px',
+  minHeight: '170px',
   width: '100%',
   height: '100%',
   // marginBottom: '20px',
@@ -32,21 +32,21 @@ export const StyledCardMedia = styled('img')(() => ({
   maxWidth: '100%',
   minHeight: '100%',
   maxHeight: '100%',
-  objectFit: 'contain',
-  objectPosition: 'center bottom',
+  objectFit: 'scale-down',
+  // objectPosition: 'center bottom',
   [theme.breakpoints.up('ds')]: {
-    objectFit: 'scale-down',
-  },
-  [theme.breakpoints.up('530')]: {
     objectFit: 'cover',
   },
-  [theme.breakpoints.up('sm')]: {
-    objectFit: 'scale-down',
-  },
-  [theme.breakpoints.up('bm')]: {
-    objectFit: 'contain',
-  },
-  [theme.breakpoints.up('dl')]: {
-    objectFit: 'cover',
-  },
+  // [theme.breakpoints.up('530')]: {
+  //   objectFit: 'cover',
+  // },
+  // [theme.breakpoints.up('sm')]: {
+  //   objectFit: 'scale-down',
+  // },
+  // [theme.breakpoints.up('bm')]: {
+  //   objectFit: 'cover',
+  // },
+  // [theme.breakpoints.up('dl')]: {
+  //   objectFit: 'cover',
+  // },
 }));

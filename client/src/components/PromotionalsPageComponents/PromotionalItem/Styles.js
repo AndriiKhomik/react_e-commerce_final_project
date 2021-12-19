@@ -3,16 +3,19 @@ import { Link } from 'react-router-dom';
 import theme from '../../../services/theme/theme';
 import { StyledBookNameText } from '../../ProductItem/BookName/Styles';
 
-export const StyledPromoTitle = styled(StyledBookNameText)`
-  margin-bottom: 10px;
-  -webkit-line-clamp: 1;
-  min-height: auto;
-  font-size: 24px;
-  line-height: 24px;
-  overflow: visible;
+export const StyledPromoTitle = styled(StyledBookNameText)(() => ({
+  marginBottom: '10px',
+  // -webkit-line-clamp: '1',
+  minHeight: 'auto',
+  fontSize: '22px',
+  lineHeight: '24px',
+  overflow: 'visible',
   // margin: 0 auto;
-  color: ${theme.palette.text.main};
-`;
+  color: [theme.palette.text.main],
+  [theme.breakpoints.up('ds')]: {
+    fontSize: '24px',
+  },
+}));
 
 export const StyledImageLink = styled(Link)`
   margin-bottom: 20px;
