@@ -6,7 +6,6 @@ import { StyledBox, StyledTextField, StyledButton } from './Styles';
 const SubscribeForm = () => {
   const onClick = (event) => {
     event.preventDefault();
-    console.log('click');
   };
 
   return (

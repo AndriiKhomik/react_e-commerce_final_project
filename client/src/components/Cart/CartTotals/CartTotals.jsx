@@ -19,7 +19,7 @@ const CartTotals = () => {
           id='outlined-basic'
           variant='outlined'
           size='small'
-          placeholder='Enter coupon code here...'
+          placeholder='Apply coupon'
         />
         <StyledButton type='submit'>Apply</StyledButton>
       </Box>

@@ -1,7 +1,7 @@
 import React from 'react';
 import CartTotals from '../../components/Cart/CartTotals/CartTotals';
-import Products from '../../components/Cart/Products';
-import { RelatedBooksList } from '../../components/ProductsList';
+import CartProducts from '../../components/Cart/CartProducts';
+import { SalesBooksList } from '../../components/ProductsList';
 import { checkoutPageTitles } from './CheckoutpageTitles';
 import SectionTitles from '../../components/SectionTitles/SectionTitles';
 
@@ -12,10 +12,10 @@ const ShoppingCart = () => {
     <>
       <SectionTitles titles={checkoutPageTitles} />
       <StyledBox>
-        <Products />
+        <CartProducts />
         <CartTotals />
       </StyledBox>
-      <RelatedBooksList />
+      <SalesBooksList />
     </>
   );
 };
