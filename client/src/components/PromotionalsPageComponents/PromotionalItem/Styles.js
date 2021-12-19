@@ -7,6 +7,9 @@ export const StyledPromoTitle = styled(StyledBookNameText)`
   margin-bottom: 10px;
   -webkit-line-clamp: 1;
   min-height: auto;
+  font-size: 24px;
+  line-height: 24px;
+  overflow: visible;
 `;
 
 export const StyledImageLink = styled(Link)`
