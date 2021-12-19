@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledItem = styled('div')`
+  position: relative;
   &:hover .MuiCardActions-root {
     opacity: 1;
   }

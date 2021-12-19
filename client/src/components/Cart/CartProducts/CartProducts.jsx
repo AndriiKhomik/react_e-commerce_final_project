@@ -1,45 +1,26 @@
 import React from 'react';
-import { TableHead, Table, TableBody, useMediaQuery } from '@mui/material';
+import {
+  TableHead,
+  Table,
+  TableBody,
+  useMediaQuery,
+  TableRow,
+} from '@mui/material';
+import { useSelector } from 'react-redux';
+import CartItem from '../CartItem/CartItem';
 import {
   StyledTableCellHead,
   StyledTableContainer,
   StyledTableRow,
+  StyledTableTitle,
 } from './Styled';
 import theme from '../../../services/theme/theme';
 // import Ebook from '../../icons/ElBookIcon';
 // import CartonBook from '../../icons/PaperBookIcon';
 // import AudioBook from '../../icons/AudioBookIcon';
-import ProductItem from '../ProductItem/ProductItem';
 
-// Test data
-const rows = [
-  {
-    id: 1,
-    cover: 'img',
-    number: 'long number',
-    name: 'Harry Potter',
-    price: 15,
-    quantity: 1,
-  },
-  {
-    id: 2,
-    cover: 'img',
-    number: 'long number',
-    name: 'Harry Potter',
-    price: 15,
-    quantity: 2,
-  },
-  {
-    id: 3,
-    cover: 'img',
-    number: 'long number',
-    name: 'Harry Potter',
-    price: 15,
-    quantity: 1,
-  },
-];
-
-const Products = () => {
+const CartProducts = () => {
+  const orders = useSelector((data) => data.shoppingCart);
   // const [img, setImg] = useState(
   //   <Ebook width='24px' height='28px' fill='#000000' />,
   // );
@@ -58,7 +39,9 @@ const Products = () => {
   //   }
   // };
 
-  const items = rows.map((row) => <ProductItem row={row} key={row.id} />);
+  const items = orders.map((cartItem) => (
+    <CartItem cartItem={cartItem} key={cartItem.itemNo} />
+  ));
 
   return (
     <StyledTableContainer>
@@ -76,17 +59,27 @@ const Products = () => {
             {collapseTableColumn && (
               <StyledTableCellHead align='center'>Price</StyledTableCellHead>
             )}
-            <StyledTableCellHead sx={{ minWidth: '70px' }} align='center'>
+            <StyledTableCellHead sx={{ minWidth: '80px' }} align='center'>
               Quantity
             </StyledTableCellHead>
             <StyledTableCellHead align='center'>Total</StyledTableCellHead>
             <StyledTableCellHead align='center'>Delete</StyledTableCellHead>
           </StyledTableRow>
         </TableHead>
-        <TableBody>{items}</TableBody>
+        <TableBody>
+          {orders.length ? (
+            items
+          ) : (
+            <TableRow sx={{ position: 'relative' }}>
+              <StyledTableTitle colSpan={5}>
+                Your shopping cart is empty
+              </StyledTableTitle>
+            </TableRow>
+          )}
+        </TableBody>
       </Table>
     </StyledTableContainer>
   );
 };
 
-export default Products;
+export default CartProducts;

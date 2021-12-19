@@ -27,7 +27,6 @@ const FilterAuthorsInput = () => {
     }
   }, []);
 
-
   useEffect(() => {
     if (value !== 'all-authors') {
       return dispatch(setSelectedAuthor(value));

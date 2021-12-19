@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import CheckoutEditBtn from '../CheckoutEditBtn';
 import FormButton from '../OrderForm/FormButton';
 import {
@@ -11,6 +12,21 @@ import {
 import { StyledBox, StyledSubtitleSpan, StyledYellowSpan } from '../Styles';
 
 const OrderTotals = ({ isSubmiting, submitForm }) => {
+  const cartItems = useSelector((data) => data.shoppingCart);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  useEffect(() => {
+    let total = 0;
+    cartItems.map((item) => {
+      total += item.price * item.cartQuantity;
+      return setTotalAmount(() => total);
+    });
+  }, [cartItems]);
+
+  const shipping = (totalAmount * 0.02).toFixed(2);
+  const orderTotalWithShipping =
+    +totalAmount + +(totalAmount * 0.02).toFixed(2);
+
   return (
     <>
       <StyledOutBox>
@@ -18,7 +34,7 @@ const OrderTotals = ({ isSubmiting, submitForm }) => {
       </StyledOutBox>
       <StyledBox>
         <span>Subtotal</span>
-        <StyledSpan>$48.00</StyledSpan>
+        <StyledSpan>${totalAmount}</StyledSpan>
       </StyledBox>
       <StyledBox>
         <span>Coupon Discount</span>
@@ -26,12 +42,12 @@ const OrderTotals = ({ isSubmiting, submitForm }) => {
       </StyledBox>
       <StyledBox>
         <span>Shipping</span>
-        <StyledSpan>$16.00</StyledSpan>
+        <StyledSpan>${shipping}</StyledSpan>
       </StyledBox>
       <StyledDivider />
       <StyledBox>
         <StyledSubtitleSpan>Total</StyledSubtitleSpan>
-        <StyledYellowSpan>$64.00</StyledYellowSpan>
+        <StyledYellowSpan>${orderTotalWithShipping}</StyledYellowSpan>
       </StyledBox>
       <StyledBtnBox>
         <FormButton
