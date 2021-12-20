@@ -30,7 +30,7 @@ export const Backdrop = styled('div')`
 
 export const StyledBox = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
-    width: '300px',
+    maxWidth: '280px',
     backgroundColor: `${theme.palette.text.light}`,
     borderBottom: `10px solid ${theme.palette.primary.dark}`,
     position: 'relative',
