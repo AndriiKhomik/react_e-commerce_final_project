@@ -118,7 +118,6 @@ exports.placeOrder = async (req, res, next) => {
             message: `Error happened on server: "${err}" `
           })
         );
-      console.log(newOrder);
     }
   } catch (err) {
     res.status(400).json({

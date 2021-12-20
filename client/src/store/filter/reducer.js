@@ -8,7 +8,7 @@ import {
   SET_SELECTED_AUTHOR,
   SET_SELECTED_AUTHOR_ID,
   SET_TOTAL_COUNT_OF_PAGES,
-  SET_CURRENT_PAGE
+  SET_CURRENT_PAGE,
 } from './types';
 
 const initialState = {

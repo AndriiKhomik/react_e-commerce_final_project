@@ -960,6 +960,7 @@ module.exports = productsData = [
     name: "The House with the Golden Door",
     _id: "619e65cc03b90d2ed4ab125e",
     itemNo: rand(),
+    imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637523116/books/9781838933579_cnsqfb.jpg"],
     quantity: 100,
     author: "619a9cd662e0d8e5a0da8cae",
     categories: "ebooks",
@@ -974,6 +975,7 @@ module.exports = productsData = [
   {
     name: "The House with the Golden Door",
     _id: "61b93b71066965081a500049",
+    imageUrls: ["https://res.cloudinary.com/dsdzwg97f/image/upload/v1637523116/books/9781838933579_cnsqfb.jpg"],
     itemNo: rand(),
     quantity: 100,
     author: "619a9cd662e0d8e5a0da8cae",

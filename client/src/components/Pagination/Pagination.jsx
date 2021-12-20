@@ -14,6 +14,10 @@ const PaginationRounded = () => {
 
   const handleChange = (event, value) => {
     dispatch(setCurrentPage(value));
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
