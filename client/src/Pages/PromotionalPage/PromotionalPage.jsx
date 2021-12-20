@@ -13,7 +13,6 @@ let obj = {};
 
 const PromotionalPage = ({ match }) => {
   // const date = Date(Date.now()).toString();
-  // console.log(date);
   switch (match.url) {
     case '/promotions/1':
       obj = offer;
@@ -25,10 +24,8 @@ const PromotionalPage = ({ match }) => {
       obj = offer3;
       break;
     default:
-      console.log('123');
   }
   const { description, title, imgUrl, terms, subtitle } = obj;
-  console.log(match.url);
   return (
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />

@@ -9,6 +9,8 @@ import { StyledItem, StyledList } from './Styles';
 import {
   setSelectedGenre,
   setSelectedAuthorId,
+  setCurrentPage,
+  setTotalCountOfPages,
 } from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
@@ -17,11 +19,14 @@ const CatalogList = ({ query }) => {
   const products = useSelector((data) => data.bookList);
   const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
   const selectedAuthorId = useSelector(({ filter }) => filter.authorId);
+  const currentPage = useSelector(({ filter }) => filter.currentPage);
 
   const updateBooksList = (queryString = query) => {
-    filterProducts(queryString)
+    filterProducts(queryString, currentPage)
       .then((data) => {
         dispatch(setBooks(data.products));
+        dispatch(setCurrentPage(data.currentPage));
+        dispatch(setTotalCountOfPages(data.totalCountOfPages));
       })
       .finally(() => setIsLoading(false));
   };
@@ -36,15 +41,27 @@ const CatalogList = ({ query }) => {
   }, []);
 
   useEffect(() => {
-    if (query) updateBooksList();
+    if (query) {
+      updateBooksList();
+    }
   }, [query]);
 
   useEffect(() => {
-    if (selectedGenre) updateBooksList(`genre=${selectedGenre}`);
+    updateBooksList();
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (selectedGenre) {
+      dispatch(setCurrentPage(1));
+      updateBooksList(`genre=${selectedGenre}`);
+    }
   }, [selectedGenre]);
 
   useEffect(() => {
-    if (selectedAuthorId) updateBooksList(`author=${selectedAuthorId}`);
+    if (selectedAuthorId) {
+      dispatch(setCurrentPage(1));
+      updateBooksList(`author=${selectedAuthorId}`);
+    }
   }, [selectedAuthorId]);
 
   const productsElements = products.map(
