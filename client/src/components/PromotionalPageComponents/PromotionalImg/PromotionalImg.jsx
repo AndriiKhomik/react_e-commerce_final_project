@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledCardMediaBox, StyledCardMedia } from './Styles';
-
 import defaultimg from '../../../img/missing_image.jpg';
 
 const PromotionalImg = ({ img, name }) => {

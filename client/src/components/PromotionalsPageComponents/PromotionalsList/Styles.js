@@ -4,12 +4,12 @@ import theme from '../../../services/theme/theme';
 export const StyledList = styled('ul')(() => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
-  rowGap: '30px',
   marginBottom: '45px',
 
   [theme.breakpoints.up('xs')]: {
     justifyContent: 'center',
     columnGap: '40px',
+    rowGap: '30px',
   },
 
   [theme.breakpoints.up('sm')]: {

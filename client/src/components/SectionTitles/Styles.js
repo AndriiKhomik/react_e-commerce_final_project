@@ -55,6 +55,9 @@ export const StyledCurrentPage = styled('p')(() => ({
   fontSize: '13px',
   color: [theme.palette.text.main],
   textDecoration: 'none',
+  [theme.breakpoints.up('xs')]: {
+    lineHeight: '17px',
+  },
   [theme.breakpoints.up('ds')]: {
     fontSize: '16px',
   },

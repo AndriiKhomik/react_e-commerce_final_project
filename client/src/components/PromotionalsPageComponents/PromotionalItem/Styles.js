@@ -18,10 +18,16 @@ export const StyledPromoTitle = styled(StyledBookNameText)(() => ({
   },
 }));
 
-export const StyledImageLink = styled(Link)`
-  margin-bottom: 20px;
-  display: block;
-`;
+export const StyledImageLink = styled(Link)(() => ({
+  marginBottom: '10px',
+  display: 'block',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '20px',
+  },
+  [theme.breakpoints.up('dl')]: {
+    marginBottom: '20px',
+  },
+}));
 
 export const StyledBooksLink = styled(Link)(() => ({
   color: [theme.palette.primary.main],
@@ -39,5 +45,5 @@ export const StyledItem = styled('li')`
 
 export const StyledParagraph = styled('p')`
   color: ${theme.palette.text.primary};
-  // margin: 0 auto;
+  line-height: 22px;
 `;

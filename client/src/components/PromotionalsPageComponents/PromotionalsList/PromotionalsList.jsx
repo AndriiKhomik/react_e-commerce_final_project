@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from 'react';
 import React from 'react';
 import PromotionalItem from '../PromotionalItem/PromotionalItem';
 import { StyledList } from './Styles';
