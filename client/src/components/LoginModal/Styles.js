@@ -14,6 +14,7 @@ export const StyledModal = styled(ModalUnstyled)`
   align-items: center;
   justify-content: center;
   font-family: ${theme.typography.fontFamily};
+  overflow: scroll;
 `;
 
 export const Backdrop = styled('div')`
