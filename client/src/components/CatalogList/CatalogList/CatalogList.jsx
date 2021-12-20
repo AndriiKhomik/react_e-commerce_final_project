@@ -47,13 +47,15 @@ const CatalogList = ({ query }) => {
   }, [query]);
 
   useEffect(() => {
-    updateBooksList();
+    if (!selectedGenre && !selectedAuthorId) {
+      updateBooksList();
+    }
   }, [currentPage]);
 
   useEffect(() => {
     if (selectedGenre) {
-      dispatch(setCurrentPage(1));
       updateBooksList(`genre=${selectedGenre}`);
+      dispatch(setCurrentPage(1));
     }
   }, [selectedGenre]);
 
