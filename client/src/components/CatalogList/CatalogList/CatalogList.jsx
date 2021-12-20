@@ -35,7 +35,6 @@ const CatalogList = ({ query }) => {
   useEffect(() => {
     dispatch(setSelectedGenre(''));
     dispatch(setSelectedAuthorId(''));
-    // dispatch(setCurrentPage(1));
     if (!selectedGenre && !query && !selectedAuthorId) {
       updateBooksList();
     }
@@ -43,15 +42,12 @@ const CatalogList = ({ query }) => {
 
   useEffect(() => {
     if (query) {
-      // dispatch(setCurrentPage(1));
       updateBooksList();
     }
   }, [query]);
 
   useEffect(() => {
-    // if (!selectedGenre && !query && !selectedAuthorId) {
     updateBooksList();
-    // }
   }, [currentPage]);
 
   useEffect(() => {
@@ -63,7 +59,7 @@ const CatalogList = ({ query }) => {
 
   useEffect(() => {
     if (selectedAuthorId) {
-      // dispatch(setCurrentPage(1));
+      dispatch(setCurrentPage(1));
       updateBooksList(`author=${selectedAuthorId}`);
     }
   }, [selectedAuthorId]);

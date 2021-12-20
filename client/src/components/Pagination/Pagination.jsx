@@ -11,7 +11,6 @@ const PaginationRounded = () => {
   const totalCountOfPages = useSelector(
     ({ filter }) => filter.totalCountOfPages,
   );
-  console.log(currentPage, totalCountOfPages);
 
   const handleChange = (event, value) => {
     dispatch(setCurrentPage(value));
