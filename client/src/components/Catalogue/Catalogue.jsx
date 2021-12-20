@@ -14,6 +14,8 @@ const Catalogue = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [isEmpty, setIsEmpty] = useState(false);
+  const [authorValue, setAuthorValue] = useState('');
+  const author = useSelector((data) => data.filter.authorId);
   const products = useSelector((data) => data.bookList);
   const firstRender = useFirstRender();
 
@@ -33,7 +35,11 @@ const Catalogue = () => {
       setQuery(queryString);
     }
   };
-
+  useEffect(() => {
+    if (author) {
+      setAuthorValue(author);
+    }
+  }, []);
   return (
     <>
       <SectionTitles titles={pageTitles.slice(0, 2)} />
@@ -43,10 +49,15 @@ const Catalogue = () => {
       <StyledFilterContainer
         anchor='left'
         open={open}
+        // variant='persistent'
         onClose={() => setOpen(false)}
       >
         <CloseFilterBtn onClick={handleFilterClose} />
-        <HiddenFilter onClick={handleFilterClose} />
+        <HiddenFilter
+          onClick={handleFilterClose}
+          authorValue={authorValue}
+          setAuthorValue={setAuthorValue}
+        />
       </StyledFilterContainer>
     </>
   );

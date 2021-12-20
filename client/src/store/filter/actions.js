@@ -34,10 +34,9 @@ export const setSearchString = (searchString) => ({
   payload: searchString,
 });
 
-export const setSelectedGenre = (genre) => ({
-  type: SET_SELECTED_GENRE,
-  payload: genre,
-});
+export const setSelectedGenre = (genre) => {
+  return { type: SET_SELECTED_GENRE, payload: genre };
+};
 
 export const setSelectedAuthor = (author) => ({
   type: SET_SELECTED_AUTHOR,

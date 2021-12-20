@@ -28,7 +28,10 @@ const CatalogList = ({ query }) => {
 
   // initial render without updating query, genre and author!
   useEffect(() => {
-    dispatch(setSelectedGenre(''));
+    if (!selectedGenre || !selectedAuthorId) {
+      dispatch(setSelectedGenre(''));
+      dispatch(setSelectedAuthorId(''));
+    }
     dispatch(setSelectedAuthorId(''));
     if (!selectedGenre && !query && !selectedAuthorId) {
       updateBooksList();

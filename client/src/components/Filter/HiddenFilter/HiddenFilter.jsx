@@ -12,7 +12,7 @@ import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
 
-const HiddenFilter = ({ onClick }) => {
+const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
   const filtersValues = useSelector((data) => data.filter);
 
   const applyFilter = () => {
@@ -28,7 +28,10 @@ const HiddenFilter = ({ onClick }) => {
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <StyledDivider />
-      <FilterAuthorsInput />
+      <FilterAuthorsInput
+        authorValue={authorValue}
+        setAuthorValue={setAuthorValue}
+      />
       <StyledDivider />
       <FilterSubtitle text='Format' />
       <FilterList groupTitle='formats' items={formats} />
@@ -39,5 +42,11 @@ const HiddenFilter = ({ onClick }) => {
 
 HiddenFilter.propTypes = {
   onClick: PropTypes.func.isRequired,
+  authorValue: PropTypes.string,
+  setAuthorValue: PropTypes.func.isRequired,
+};
+
+HiddenFilter.defaultProps = {
+  authorValue: '',
 };
 export default HiddenFilter;
