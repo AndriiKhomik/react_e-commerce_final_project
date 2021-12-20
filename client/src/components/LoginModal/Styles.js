@@ -62,7 +62,7 @@ export const StyledTitleDelimiter = styled('div')`
 `;
 
 export const StyledFormWrapper = styled('div')`
-  margin-top: 30px;
+  margin-top: 15px;
   display: grid;
   row-gap: 30px;
   height: 70%;
