@@ -14,13 +14,17 @@ const ItemPrice = ({
   //  reviews,
   //   value,
   salePrice,
+  quantity,
 }) => {
   const fixedPrice = (sum) => Number(sum).toFixed(2);
+  const isAvailable = quantity ? '#f8a300' : '#A5A5A5';
 
   return (
     <StyledPriceWrapper>
       <div>
-        <StyledPrice>${fixedPrice(price)}</StyledPrice>
+        <StyledPrice style={{ color: isAvailable }}>
+          ${fixedPrice(price)}
+        </StyledPrice>
         {salePrice && (
           <StyledPreviousPrice>
             &#36;{fixedPrice(salePrice)}
@@ -45,6 +49,7 @@ const ItemPrice = ({
 ItemPrice.propTypes = {
   price: PropTypes.number,
   salePrice: PropTypes.number,
+  quantity: PropTypes.number.isRequired,
   // reviews: PropTypes.number,
   // value: PropTypes.number,
 };

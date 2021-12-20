@@ -97,24 +97,21 @@ exports.placeOrder = async (req, res, next) => {
       newOrder
         .save()
         .then(async order => {
-          // const mailResult = await sendMail(
-          //   subscriberMail,
-          //   letterSubject,
-          //   letterHtml,
-          //   res
-          // );
-
           for (item of order.products) {
             const id = item.product._id;
             const product = await Product.findOne({ _id: id });
             const productQuantity = product.quantity;
-            await Product.findOneAndUpdate({ _id: id }, { quantity: productQuantity - item.product.quantity }, { new: true })
+            await Product.findOneAndUpdate({ _id: id }, { quantity: productQuantity - item.cartQuantity }, { new: true })
           }
-          console.log(order);
-          res.json({ order });
-          // must be this line when fix email
-          // res.json({ order, mailResult });
 
+          const mailResult = await sendMail(
+            subscriberMail,
+            letterSubject,
+            letterHtml,
+            res
+          );
+
+          res.json({ order, mailResult });
         })
         .catch(err =>
           res.status(400).json({
@@ -140,15 +137,15 @@ exports.updateOrder = (req, res, next) => {
       const order = _.cloneDeep(req.body);
 
       if (req.body.deliveryAddress) {
-        order.deliveryAddress = JSON.parse(req.body.deliveryAddress);
+        order.deliveryAddress = req.body.deliveryAddress;
       }
 
       if (req.body.shipping) {
-        order.shipping = JSON.parse(req.body.shipping);
+        order.shipping = req.body.shipping;
       }
 
       if (req.body.paymentInfo) {
-        order.paymentInfo = JSON.parse(req.body.paymentInfo);
+        order.paymentInfo = req.body.paymentInfo;
       }
 
       if (req.body.customerId) {
@@ -156,7 +153,7 @@ exports.updateOrder = (req, res, next) => {
       }
 
       if (req.body.products) {
-        order.products = JSON.parse(req.body.products);
+        order.products = req.body.products;
 
         order.totalSum = order.products.reduce(
           (sum, cartItem) =>

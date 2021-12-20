@@ -172,12 +172,10 @@ exports.getProductsFilterParams = async (req, res, next) => {
 
   try {
     if (req.query.searchString) {
-      console.log(req.query.searchString);
       query = req.query.searchString
         .toLowerCase()
         .trim()
         .replace("+", " ");
-      console.log(query);
       findResult = {
         ...mongooseQuery,
         ...{ 'name': { $regex: ".*" + query + ".*", $options: "$i" } }

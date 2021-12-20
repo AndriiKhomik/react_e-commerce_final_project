@@ -8,7 +8,7 @@ export const registerUser = async (user) => {
     },
   );
   if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
+    return response.json();
   }
   return response.json();
 };
@@ -23,7 +23,6 @@ export const loginUser = async (loginData) => {
     },
   );
   if (!response.ok) {
-    // throw new Error(`Error - ${response.status}`);
     return response.json();
   }
   return response.json();
