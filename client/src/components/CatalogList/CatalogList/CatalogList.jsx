@@ -33,14 +33,13 @@ const CatalogList = ({ query }) => {
 
   // initial render without updating query, genre and author!
   useEffect(() => {
-    if (!selectedGenre || !selectedAuthorId) {
-      dispatch(setSelectedGenre(''));
-      dispatch(setSelectedAuthorId(''));
-    }
-    dispatch(setSelectedAuthorId(''));
     if (!selectedGenre && !query && !selectedAuthorId) {
       updateBooksList();
     }
+    return function cleanup() {
+      dispatch(setSelectedGenre(''));
+      dispatch(setSelectedAuthorId(''));
+    };
   }, []);
 
   useEffect(() => {
