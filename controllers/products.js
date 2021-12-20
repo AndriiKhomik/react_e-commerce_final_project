@@ -165,7 +165,7 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const mongooseQuery = filterParser(req.query);
   const perPage = Number(req.query.perPage);
   const startPage = Number(req.query.startPage);
-  const sort = req.query.sort;
+  const sort = { "currentPrice": Number(req.query.sort) };
 
   let query = '';
   let findResult = '';
@@ -176,10 +176,9 @@ exports.getProductsFilterParams = async (req, res, next) => {
         .toLowerCase()
         .trim()
         .replace("+", " ");
-      console.log(query);
       findResult = {
         ...mongooseQuery,
-        ...{ $text: { $search: query } }
+        ...{ 'name': { $regex: ".*" + query + ".*", $options: "$i" } }
       };
     } else {
       findResult = { ...mongooseQuery }
@@ -191,9 +190,6 @@ exports.getProductsFilterParams = async (req, res, next) => {
       // temporarily limited directly
       .limit(12)
       .sort(sort);
-
-    console.log(mongooseQuery);
-    console.log('saerchString', req.query.searchString);
 
     res.json({ products, productsQuantity: products.length });
   } catch (err) {

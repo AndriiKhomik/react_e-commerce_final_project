@@ -33,6 +33,9 @@ export const StyledTextField = styled(TextField)(() => ({
     border: `1px solid ${theme.palette.primary.main}`,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
+    '&:hover': {
+      border: '1px solid transparent',
+    },
   },
   '& .MuiOutlinedInput-notchedOutline': {
     borderColor: `${theme.palette.text.light}`,
@@ -40,6 +43,14 @@ export const StyledTextField = styled(TextField)(() => ({
   '& .css-t0uf6-MuiFormControl-root-MuiTextField-root .MuiInputBase-formControl':
     {
       borderColor: 'transparent',
+    },
+  '& .css-1blzztw-MuiFormControl-root-MuiTextField-root .MuiInputBase-formControl:hover':
+    {
+      border: '1px solid #ffac0c',
+    },
+  '& .css-6uc8ib-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+    {
+      borderColor: '#ffac0c',
     },
 }));
 

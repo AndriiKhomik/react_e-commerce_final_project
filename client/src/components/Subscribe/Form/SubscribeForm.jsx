@@ -6,7 +6,6 @@ import { StyledBox, StyledTextField, StyledButton } from './Styles';
 const SubscribeForm = () => {
   const onClick = (event) => {
     event.preventDefault();
-    console.log('click');
   };
 
   return (
@@ -14,11 +13,11 @@ const SubscribeForm = () => {
       <FormTitle title='Would you like to join newsletters?' />
       <form>
         <StyledTextField
-          id='filled-basic'
+          // id='filled-basic'
           placeholder='Enter to search'
-          variant='outlined'
+          // variant='outlined'
           style={{ backgroundColor: '#fff' }}
-          size='small'
+          // size='small'
         />
         <StyledButton
           type='submit'
@@ -27,7 +26,7 @@ const SubscribeForm = () => {
           sx={{
             fontFamily: 'CeraPro Bold',
           }}
-          size='small'
+          // size='small'
           onClick={onClick}
         >
           Join

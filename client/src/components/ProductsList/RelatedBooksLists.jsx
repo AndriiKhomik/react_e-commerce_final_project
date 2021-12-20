@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getProductsByQuery } from '../../api/products';
 import BooksList from './BooksList';
+import ListLoader from '../ListLoader/ListLoader';
 
 const RelatedBooksList = ({ genre, itemNo }) => {
   const [products, setProducts] = useState([]);
@@ -13,17 +14,23 @@ const RelatedBooksList = ({ genre, itemNo }) => {
         setProducts(data);
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [itemNo]);
 
   return isLoading ? (
-    'Loading'
+    <ListLoader />
   ) : (
     <BooksList items={products} text='Related products' />
   );
 };
 
 RelatedBooksList.propTypes = {
-  genre: PropTypes.string.isRequired,
-  itemNo: PropTypes.string.isRequired,
+  genre: PropTypes.string,
+  itemNo: PropTypes.string,
 };
+
+RelatedBooksList.defaultProps = {
+  genre: 'children-literature',
+  itemNo: null,
+};
+
 export default RelatedBooksList;
