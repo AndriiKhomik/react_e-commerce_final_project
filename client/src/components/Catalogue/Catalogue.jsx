@@ -50,7 +50,6 @@ const Catalogue = () => {
       <StyledFilterContainer
         anchor='left'
         open={open}
-        // variant='persistent'
         onClose={() => setOpen(false)}
       >
         <CloseFilterBtn onClick={handleFilterClose} />
