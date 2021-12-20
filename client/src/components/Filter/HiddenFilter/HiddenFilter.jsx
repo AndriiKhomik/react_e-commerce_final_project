@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
@@ -11,11 +11,14 @@ import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
+import { setCurrentPage } from '../../../store/filter/actions';
 
 const HiddenFilter = ({ onClick }) => {
   const filtersValues = useSelector((data) => data.filter);
+  const dispatch = useDispatch();
 
   const applyFilter = () => {
+    dispatch(setCurrentPage(1));
     onClick(makeQueryString(filtersValues));
   };
 
