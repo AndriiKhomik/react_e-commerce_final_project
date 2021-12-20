@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import { Link } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledPriceWrapper = styled('div')(() => ({
@@ -7,13 +6,6 @@ export const StyledPriceWrapper = styled('div')(() => ({
     marginTop: '15px',
     display: 'flex',
     justifyContent: 'space-between',
-  },
-}));
-
-export const StyledReviewsWrapper = styled('div')(() => ({
-  [theme.breakpoints.up('xs')]: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
 }));
 
@@ -48,24 +40,5 @@ export const StyledPreviousPrice = styled('p')(() => ({
   },
   [theme.breakpoints.up('dm')]: {
     fontSize: '22px',
-  },
-}));
-
-export const StyledReviews = styled(Link)(() => ({
-  [theme.breakpoints.up('xs')]: {
-    marginLeft: '20px',
-    fontSize: '14px',
-    textDecoration: 'none',
-    color: `${theme.palette.primary.main}`,
-    '&:hover': {
-      color: `${theme.palette.primary.deepdark}`,
-      textDecoration: 'underline',
-    },
-  },
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '15px',
-  },
-  [theme.breakpoints.up('dm')]: {
-    fontSize: '16px',
   },
 }));
