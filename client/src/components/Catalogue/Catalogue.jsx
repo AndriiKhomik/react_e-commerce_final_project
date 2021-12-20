@@ -40,7 +40,11 @@ const Catalogue = () => {
       <RowFilter onClick={handleFilterOpen} />
       <CatalogList query={query} />
       {isEmpty && <EmptyCatalogueNote />}
-      <StyledFilterContainer variant='persistent' anchor='left' open={open}>
+      <StyledFilterContainer
+        anchor='left'
+        open={open}
+        onClose={() => setOpen(false)}
+      >
         <CloseFilterBtn onClick={handleFilterClose} />
         <HiddenFilter onClick={handleFilterClose} />
       </StyledFilterContainer>
