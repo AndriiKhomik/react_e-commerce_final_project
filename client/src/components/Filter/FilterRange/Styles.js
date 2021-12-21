@@ -10,7 +10,8 @@ export const StyledSlider = styled(Slider)(() => ({
 
 export const StyledPriceTag = styled('p')(() => ({
     marginBottom: '22px',
-    marginLeft: '16px'
+    marginLeft: '16px',
+    fontFamily: 'CeraPro Regular',
 }));
 
 

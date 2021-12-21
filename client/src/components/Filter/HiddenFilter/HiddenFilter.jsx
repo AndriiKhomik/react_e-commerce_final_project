@@ -15,6 +15,8 @@ import {
   setCurrentPage,
   setSelectedGenre,
   setSelectedAuthorId,
+  setSearchString,
+  setSelectedAuthor,
 } from '../../../store/filter/actions';
 
 const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
@@ -25,6 +27,8 @@ const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
     dispatch(setSelectedGenre(''));
     dispatch(setSelectedAuthorId(''));
     dispatch(setCurrentPage(1));
+    dispatch(setSearchString(''));
+    dispatch(setSelectedAuthor(''));
     onClick(makeQueryString(filtersValues));
   };
 
