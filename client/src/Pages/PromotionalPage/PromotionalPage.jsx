@@ -13,6 +13,7 @@ let obj = {};
 
 const PromotionalPage = ({ match }) => {
   // const date = Date(Date.now()).toString();
+
   switch (match.url) {
     case '/promotions/1':
       obj = offer;
