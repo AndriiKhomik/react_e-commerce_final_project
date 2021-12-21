@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  TableHead,
-  Table,
-  TableBody,
-  useMediaQuery,
-  TableRow,
-} from '@mui/material';
+import { TableHead, Table, TableBody, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import CartItem from '../CartItem/CartItem';
 import {
   StyledTableCellHead,
   StyledTableContainer,
   StyledTableRow,
-  StyledTableTitle,
 } from './Styled';
 import theme from '../../../services/theme/theme';
 // import Ebook from '../../icons/ElBookIcon';
@@ -66,17 +59,7 @@ const CartProducts = () => {
             <StyledTableCellHead align='center'>Delete</StyledTableCellHead>
           </StyledTableRow>
         </TableHead>
-        <TableBody>
-          {orders.length ? (
-            items
-          ) : (
-            <TableRow sx={{ position: 'relative' }}>
-              <StyledTableTitle colSpan={5}>
-                Your shopping cart is empty
-              </StyledTableTitle>
-            </TableRow>
-          )}
-        </TableBody>
+        <TableBody>{items}</TableBody>
       </Table>
     </StyledTableContainer>
   );

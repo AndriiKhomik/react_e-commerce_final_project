@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
@@ -11,11 +11,20 @@ import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
+import {
+  setCurrentPage,
+  setSelectedGenre,
+  setSelectedAuthorId,
+} from '../../../store/filter/actions';
 
-const HiddenFilter = ({ onClick }) => {
+const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
   const filtersValues = useSelector((data) => data.filter);
+  const dispatch = useDispatch();
 
   const applyFilter = () => {
+    dispatch(setSelectedGenre(''));
+    dispatch(setSelectedAuthorId(''));
+    dispatch(setCurrentPage(1));
     onClick(makeQueryString(filtersValues));
   };
 
@@ -28,7 +37,10 @@ const HiddenFilter = ({ onClick }) => {
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <StyledDivider />
-      <FilterAuthorsInput />
+      <FilterAuthorsInput
+        authorValue={authorValue}
+        setAuthorValue={setAuthorValue}
+      />
       <StyledDivider />
       <FilterSubtitle text='Format' />
       <FilterList groupTitle='formats' items={formats} />
@@ -39,5 +51,11 @@ const HiddenFilter = ({ onClick }) => {
 
 HiddenFilter.propTypes = {
   onClick: PropTypes.func.isRequired,
+  authorValue: PropTypes.string,
+  setAuthorValue: PropTypes.func.isRequired,
+};
+
+HiddenFilter.defaultProps = {
+  authorValue: '',
 };
 export default HiddenFilter;

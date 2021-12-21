@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Reset } from 'styled-reset';
 import { ThemeProvider } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { useRoutes } from '../../routes';
 import Header from '../Header';
 import Footer from '../Footer/Footer';
@@ -9,6 +10,7 @@ import Subscribe from '../Subscribe/SubscribeMain/Subscribe';
 import theme from '../../services/theme/theme';
 import { StyledContainer } from './Styles';
 import { setIsLoginFalse, setIsLoginTrue } from '../../store/login/actions';
+import ScrollToTop from '../ScrollToTop';
 
 const App = () => {
   const routes = useRoutes();
@@ -21,15 +23,19 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Reset />
-      <StyledContainer maxWidth='lg'>
-        <Header />
-        {routes}
-        <Subscribe />
-        <Footer />
-      </StyledContainer>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Reset />
+        <StyledContainer maxWidth='lg'>
+          <ScrollToTop>
+            <Header />
+            {routes}
+            <Subscribe />
+            <Footer />
+          </ScrollToTop>
+        </StyledContainer>
+      </ThemeProvider>
+    </Router>
   );
 };
 
