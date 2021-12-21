@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { getAuthors } from '../../../api/authors';
 import { setSelectedAuthor } from '../../../store/filter/actions';
 import { StyledFormControl } from './Styles';
 
-const FilterAuthorsInput = () => {
+const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
   const [authors, setAuthors] = useState([]);
-  const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const author = useSelector((data) => data.filter.authorId);
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setAuthorValue(event.target.value);
   };
 
   useEffect(() => {
@@ -22,24 +22,18 @@ const FilterAuthorsInput = () => {
   }, []);
 
   useEffect(() => {
-    if (author) {
-      setValue(author);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (value !== 'all-authors') {
-      return dispatch(setSelectedAuthor(value));
+    if (authorValue !== 'all-authors') {
+      return dispatch(setSelectedAuthor(authorValue));
     }
     return dispatch(setSelectedAuthor(''));
-  }, [value]);
+  }, [authorValue]);
 
   return (
     <StyledFormControl>
       <InputLabel id='authors-filter-input'>Authors:</InputLabel>
       <Select
         labelId='authors-filter-input'
-        value={value}
+        value={authorValue}
         label='Authors'
         onChange={handleChange}
       >
@@ -54,6 +48,11 @@ const FilterAuthorsInput = () => {
       </Select>
     </StyledFormControl>
   );
+};
+
+FilterAuthorsInput.propTypes = {
+  setAuthorValue: PropTypes.func.isRequired,
+  authorValue: PropTypes.string.isRequired,
 };
 
 export default FilterAuthorsInput;
