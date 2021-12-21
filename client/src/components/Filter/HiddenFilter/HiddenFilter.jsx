@@ -11,13 +11,19 @@ import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
-import { setCurrentPage } from '../../../store/filter/actions';
+import {
+  setCurrentPage,
+  setSelectedGenre,
+  setSelectedAuthorId,
+} from '../../../store/filter/actions';
 
 const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
   const filtersValues = useSelector((data) => data.filter);
   const dispatch = useDispatch();
 
   const applyFilter = () => {
+    dispatch(setSelectedGenre(''));
+    dispatch(setSelectedAuthorId(''));
     dispatch(setCurrentPage(1));
     onClick(makeQueryString(filtersValues));
   };
