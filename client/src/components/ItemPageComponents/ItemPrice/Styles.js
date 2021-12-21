@@ -5,7 +5,7 @@ export const StyledPriceWrapper = styled('div')(() => ({
   [theme.breakpoints.up('xs')]: {
     marginTop: '15px',
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
 }));
 

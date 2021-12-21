@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormTitle from './FormTitle';
 import FormDescription from './FormDescription';
 import { StyledBox, StyledTextField, StyledButton } from './Styles';
 
 const SubscribeForm = () => {
+  const [value, setValue] = useState('');
   const onClick = (event) => {
     event.preventDefault();
+    setValue('');
+  };
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
 
   return (
@@ -13,11 +19,10 @@ const SubscribeForm = () => {
       <FormTitle title='Would you like to join newsletters?' />
       <form>
         <StyledTextField
-          // id='filled-basic'
-          placeholder='Enter to search'
-          // variant='outlined'
+          value={value}
+          placeholder='Enter your email'
           style={{ backgroundColor: '#fff' }}
-          // size='small'
+          onChange={handleChange}
         />
         <StyledButton
           type='submit'
@@ -26,7 +31,6 @@ const SubscribeForm = () => {
           sx={{
             fontFamily: 'CeraPro Bold',
           }}
-          // size='small'
           onClick={onClick}
         >
           Join
