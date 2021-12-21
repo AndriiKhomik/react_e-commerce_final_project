@@ -17,7 +17,6 @@ export const StyledStack = styled(Stack)`
     background-color: ${[theme.palette.primary.main]};
     color: ${[theme.palette.text.light]};
   }
-
   & .css-c1alij-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
     background-color: ${[theme.palette.primary.main]};
   }
