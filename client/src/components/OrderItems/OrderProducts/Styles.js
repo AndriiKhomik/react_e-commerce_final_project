@@ -10,7 +10,7 @@ export const StyledDivider = styled(Divider)(() => ({
 
 export const StyledLink = styled(Link)(() => ({
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'flex-start',
   alignItems: 'center',
   textDecoration: 'none',
   '&:hover': {
