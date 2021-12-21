@@ -16,7 +16,6 @@ const ItemReviewsBlock = ({ fullDescription }) => {
     <StyledReviewsWrapper>
       <StyledReviewsTitleWrapper>
         <StyledReviewsTitle>Annotation</StyledReviewsTitle>
-        {/* <StyledReviewsTitle>Reviews ({reviews})</StyledReviewsTitle> */}
       </StyledReviewsTitleWrapper>
       <StyledAnnotation dangerouslySetInnerHTML={annotation()} />
     </StyledReviewsWrapper>
@@ -25,12 +24,10 @@ const ItemReviewsBlock = ({ fullDescription }) => {
 
 ItemReviewsBlock.propTypes = {
   fullDescription: PropTypes.string,
-  // reviews: PropTypes.number,
 };
 
 ItemReviewsBlock.defaultProps = {
   fullDescription: '',
-  // reviews: 0,
 };
 
 export default ItemReviewsBlock;

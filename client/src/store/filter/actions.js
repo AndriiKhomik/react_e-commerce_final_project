@@ -7,6 +7,8 @@ import {
   SET_SELECTED_GENRE,
   SET_SELECTED_AUTHOR,
   SET_SELECTED_AUTHOR_ID,
+  SET_TOTAL_COUNT_OF_PAGES,
+  SET_CURRENT_PAGE,
 } from './types';
 
 export const setGenres = (genre) => ({
@@ -34,10 +36,9 @@ export const setSearchString = (searchString) => ({
   payload: searchString,
 });
 
-export const setSelectedGenre = (genre) => ({
-  type: SET_SELECTED_GENRE,
-  payload: genre,
-});
+export const setSelectedGenre = (genre) => {
+  return { type: SET_SELECTED_GENRE, payload: genre };
+};
 
 export const setSelectedAuthor = (author) => ({
   type: SET_SELECTED_AUTHOR,
@@ -47,4 +48,14 @@ export const setSelectedAuthor = (author) => ({
 export const setSelectedAuthorId = (author) => ({
   type: SET_SELECTED_AUTHOR_ID,
   payload: author,
+});
+
+export const setCurrentPage = (currentPage) => ({
+  type: SET_CURRENT_PAGE,
+  payload: currentPage,
+});
+
+export const setTotalCountOfPages = (totalCountOfPages) => ({
+  type: SET_TOTAL_COUNT_OF_PAGES,
+  payload: totalCountOfPages,
 });

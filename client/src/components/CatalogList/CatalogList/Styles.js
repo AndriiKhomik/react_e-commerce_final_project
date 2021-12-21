@@ -9,7 +9,7 @@ export const StyledList = styled('ul')(() => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, 163px)',
   rowGap: '50px',
-  marginBottom: '45px',
+  marginBottom: '60px',
 
   [theme.breakpoints.up('xs')]: {
     justifyContent: 'center',
