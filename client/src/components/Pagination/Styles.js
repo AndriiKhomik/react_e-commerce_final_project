@@ -12,11 +12,11 @@ export const StyledStack = styled(Stack)`
   & .MuiPaginationItem-outlined:hover {
     background-color: ${[theme.palette.primary.light]};
   }
-  & .css-c1alij-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  & .css-c1alij-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected,
+  .Mui-selected {
     background-color: ${[theme.palette.primary.main]};
     color: ${[theme.palette.text.light]};
   }
-
   & .css-c1alij-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
     background-color: ${[theme.palette.primary.main]};
   }
