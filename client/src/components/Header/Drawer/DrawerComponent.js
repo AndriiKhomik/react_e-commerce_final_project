@@ -24,7 +24,11 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
         <StyledListItem>
           <ListItemIcon>
             <ListItemText>
-              <StyledLink exact to='/products' activeClassName='selected'>
+              <StyledLink
+                exact
+                to='/products?startPage=1&sort=1'
+                activeClassName='selected'
+              >
                 Catalogue
               </StyledLink>
             </ListItemText>

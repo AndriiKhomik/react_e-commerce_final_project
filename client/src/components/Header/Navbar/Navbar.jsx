@@ -54,7 +54,11 @@ const Navbar = () => {
                 </StyledLink>
               </Typography>
               <Typography aria-controls='basic-menu' area-haspopup='true'>
-                <StyledLink exact to='/products' activeClassName='selected'>
+                <StyledLink
+                  exact
+                  to='/products?startPage=1&sort=1'
+                  activeClassName='selected'
+                >
                   Catalogue
                 </StyledLink>
               </Typography>

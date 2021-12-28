@@ -7,7 +7,7 @@ const ItemTitle = ({ name, genre }) => {
   return (
     <StyledTitleWrapper>
       <StyledTitle>{name}</StyledTitle>
-      <StyledGenre to={`/products?genre=${genre}&startPage=1`}>
+      <StyledGenre to={`/products?genre=${genre}&startPage=1&sort=1`}>
         {toCapitaleCase(genre)}
       </StyledGenre>
     </StyledTitleWrapper>

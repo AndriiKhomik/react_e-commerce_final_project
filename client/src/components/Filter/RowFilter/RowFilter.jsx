@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { useMediaQuery } from '@mui/material';
 import theme from '../../../services/theme/theme';
 import FilterBtn from '../FilterBtn';
-import { StyledBox, StyledFilterListIcon, StyledFilterBtnBox } from './Styles';
+import FilterSortList from '../FilterSortList';
+import FilterSortInput from '../FilterSortInput';
+import {
+  StyledBox,
+  StyledFilterListIcon,
+  StyledFilterBtnBox,
+  StyledSortingBox,
+} from './Styles';
 
 const RowFilter = ({ onClick }) => {
   const mediumScreen = useMediaQuery(theme.breakpoints.up('sm'));
@@ -16,6 +23,10 @@ const RowFilter = ({ onClick }) => {
           svg={<StyledFilterListIcon />}
         />
       </StyledFilterBtnBox>
+      <StyledSortingBox>
+        <FilterSortList />
+        <FilterSortInput />
+      </StyledSortingBox>
     </StyledBox>
   );
 };

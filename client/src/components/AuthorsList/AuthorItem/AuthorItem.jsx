@@ -27,7 +27,10 @@ const AuthorItem = ({ name, authorUrl, id }) => {
       >
         {name}
       </StyledAuthorName>
-      <StyledBooksLink as={Link} to={`/products?author=${id}&startPage=1`}>
+      <StyledBooksLink
+        as={Link}
+        to={`/products?author=${id}&startPage=1&sort=1`}
+      >
         Look books
       </StyledBooksLink>
     </StyledItem>

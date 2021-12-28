@@ -26,11 +26,6 @@ const CatalogList = ({ query }) => {
   };
 
   useEffect(() => {
-    updateBooksList();
-    return function cleanup() {};
-  }, []);
-
-  useEffect(() => {
     updateBooksList(search.slice(1));
   }, [search]);
 

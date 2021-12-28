@@ -12,15 +12,17 @@ import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
+import useQuery from '../../../services/hooks/useQuery';
 
 const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
   const filtersValues = useSelector((data) => data.filter);
   const history = useHistory();
+  const query = useQuery();
 
   const applyFilter = () => {
     onClick();
     const filterQuery = makeQueryString(filtersValues);
-    history.push(`?${filterQuery}&startPage=1`);
+    history.push(`?${filterQuery}&startPage=1&sort=${query.get('sort')}`);
   };
 
   return (

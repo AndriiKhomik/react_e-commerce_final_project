@@ -5,7 +5,7 @@ import { StyledButtonsWrapper, StyledButtonText, StyledButton } from './Styles';
 const AuthorButton = ({ id }) => {
   return (
     <StyledButtonsWrapper>
-      <StyledButton to={`/products?author=${id}&startPage=1`}>
+      <StyledButton to={`/products?author=${id}&startPage=1&sort=1`}>
         <StyledButtonText>Show all books</StyledButtonText>
       </StyledButton>
     </StyledButtonsWrapper>
