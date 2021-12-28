@@ -15,7 +15,7 @@ const initialState = {
   genres: [],
   formats: [],
   minPrice: 0,
-  maxPrice: 0,
+  maxPrice: 500,
   searchString: '',
   selectedGenre: '',
   author: '',
