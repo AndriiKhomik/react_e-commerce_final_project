@@ -8,6 +8,7 @@ export const StyledDescriptionWrapper = styled('div')`
 export const StyledDescriptionTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
     fontSize: '16px',
+    lineHeight: '20px',
     fontFamily: 'CeraPro Bold',
     color: `${theme.palette.text.main}`,
   },
@@ -16,6 +17,7 @@ export const StyledDescriptionTitle = styled('h3')(() => ({
   },
   [theme.breakpoints.up('dm')]: {
     fontSize: '20px',
+    lineHeight: '22px',
   },
 }));
 

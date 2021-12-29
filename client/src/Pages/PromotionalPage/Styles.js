@@ -4,8 +4,8 @@ import theme from '../../services/theme/theme';
 
 export const StyledContainer = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
-    marginBottom: '50px',
-    marginTop: '40px',
+    marginBottom: '20px',
+    marginTop: '20px',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -13,7 +13,6 @@ export const StyledContainer = styled(Box)(() => ({
     marginBottom: '25px',
   },
   [theme.breakpoints.up('md')]: {
-    // flexDirection: 'row',
     marginBottom: '35px',
   },
 }));
