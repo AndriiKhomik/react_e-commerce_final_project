@@ -1,36 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import { useSelector } from 'react-redux';
 import { StyledStack } from './Styles';
+import useQuery from '../../services/hooks/useQuery';
 
 const PaginationRounded = () => {
   const history = useHistory();
   const { search } = useLocation();
-  const [currentPage, setCurrentPage] = useState(1);
+  const query = useQuery();
 
   const totalCountOfPages = useSelector(
     ({ filter }) => filter.totalCountOfPages,
   );
 
   const handleChange = (event, value) => {
-    setCurrentPage(value);
-    const query = search
-      ? search.replace(/startPage=[0-9]+/, `startPage=${value}`)
-      : `?startPage=${value}`;
-    console.log(query);
-
-    history.push(query);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
+
+    const filterQuery = search.replace(
+      /startPage=[0-9]+/,
+      `startPage=${value}`,
+    );
+
+    history.push(filterQuery);
   };
 
   return (
     <StyledStack spacing={2}>
       <Pagination
-        page={+currentPage}
+        page={+query.get('startPage')}
         count={totalCountOfPages}
         siblingCount={0}
         boundaryCount={2}

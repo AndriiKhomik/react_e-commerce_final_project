@@ -33,7 +33,6 @@ export const StyledTagsItem = styled('li')(() => ({
 export const StyledLink = styled('p')(() => ({
   padding: '0',
   cursor: 'pointer',
-  color: [theme.palette.text.main],
   textDecoration: 'none',
   transition: '0.3s linear',
   '&:hover': {
