@@ -18,7 +18,7 @@ import LoginModal from '../../LoginModal/LoginModal';
 import { setIsLoginFalse } from '../../../store/login/actions';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
-  const totalCount = useSelector((data) => data.shoppingCart);
+  const addedBooks = useSelector((data) => data.shoppingCart);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const isLoggedIn = useSelector((data) => data.login.isLogin);
 
@@ -32,6 +32,10 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const redirectToCart = () => {
     toShoppingCart.push('/shoppingcart');
   };
+
+  const addBooks = addedBooks.reduce((acc, item) => {
+    return acc + item.cartQuantity;
+  }, 0);
 
   // const handleSearchInput = () => {
   //   setshowSearchInput(!showSearchInput);
@@ -72,7 +76,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
         </IconButton>
       )}
       <IconButton onClick={redirectToCart} sx={{ marginRight: '8px' }}>
-        <StyledBadge badgeContent={totalCount.length} showZero color='warning'>
+        <StyledBadge badgeContent={addBooks} showZero color='warning'>
           <CartIcon color='action' fill='#727272' height='22px' width='22px' />
         </StyledBadge>
       </IconButton>

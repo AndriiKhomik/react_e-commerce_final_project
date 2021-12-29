@@ -14,6 +14,7 @@ export const StyledModal = styled(ModalUnstyled)`
   align-items: center;
   justify-content: center;
   font-family: ${theme.typography.fontFamily};
+  overflow: scroll;
 `;
 
 export const Backdrop = styled('div')`
@@ -29,7 +30,7 @@ export const Backdrop = styled('div')`
 
 export const StyledBox = styled(Box)(() => ({
   [theme.breakpoints.up('xs')]: {
-    width: '300px',
+    maxWidth: '280px',
     backgroundColor: `${theme.palette.text.light}`,
     borderBottom: `10px solid ${theme.palette.primary.dark}`,
     position: 'relative',
@@ -61,7 +62,7 @@ export const StyledTitleDelimiter = styled('div')`
 `;
 
 export const StyledFormWrapper = styled('div')`
-  margin-top: 30px;
+  margin-top: 15px;
   display: grid;
   row-gap: 30px;
   height: 70%;

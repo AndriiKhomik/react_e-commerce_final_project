@@ -163,7 +163,7 @@ exports.getProductById = (req, res, next) => {
 
 exports.getProductsFilterParams = async (req, res, next) => {
   const mongooseQuery = filterParser(req.query);
-  const perPage = Number(req.query.perPage);
+  const perPage = Number(req.query.perPage) || 12;
   const startPage = Number(req.query.startPage);
   const sort = { "currentPrice": Number(req.query.sort) };
 
@@ -183,15 +183,16 @@ exports.getProductsFilterParams = async (req, res, next) => {
     } else {
       findResult = { ...mongooseQuery }
     }
+    const productsCount = await Product.find(findResult).populate('author').count();
 
     const products = await Product.find(findResult).populate('author')
       .skip(startPage * perPage - perPage)
-      // .limit(perPage)
-      // temporarily limited directly
-      .limit(12)
+      .limit(perPage)
       .sort(sort);
 
-    res.json({ products, productsQuantity: products.length });
+    const totalCountOfPages = Math.ceil(productsCount / perPage);
+
+    res.json({ products, productsQuantity: products.length, totalCountOfPages, currentPage: startPage });
   } catch (err) {
     res.status(400).json({
       message: `Error happened on server: "${err}" `

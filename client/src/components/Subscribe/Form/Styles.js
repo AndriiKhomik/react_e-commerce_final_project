@@ -50,6 +50,11 @@ export const StyledButton = styled(Button)(() => ({
     height: '2.5rem',
     paddingTop: '8px',
     paddingBottom: '8px',
+    textTransform: 'capitalize',
+  },
+  '&:hover': {
+    boxShadow: 'none',
+    backgroundColor: [theme.palette.primary.deepdark],
   },
 }));
 

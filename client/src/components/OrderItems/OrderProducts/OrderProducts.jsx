@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { List } from '@mui/material';
 import {
+  StyledLink,
+  StyledImg,
   StyledSpan,
   SryledListItem,
   StyledSmallSpan,
@@ -30,14 +32,16 @@ const OrderProducts = () => {
       <List>
         {products.map(({ url, name, price, cartQuantity, itemNo }) => (
           <SryledListItem key={itemNo}>
-            <img width='42px' height='64px' src={url} alt='book cover' />
-            <p>
-              <StyledBookNameSpan>{name}</StyledBookNameSpan>
-              <StyledSmallSpan>
-                <StyledBookCodeSpan>SKU </StyledBookCodeSpan>
-                {itemNo}
-              </StyledSmallSpan>
-            </p>
+            <StyledLink to={`/products/${itemNo}`}>
+              <StyledImg width='42' height='64' src={url} alt='book cover' />
+              <p>
+                <StyledBookNameSpan>{name}</StyledBookNameSpan>
+                <StyledSmallSpan>
+                  <StyledBookCodeSpan>SKU </StyledBookCodeSpan>
+                  {itemNo}
+                </StyledSmallSpan>
+              </p>
+            </StyledLink>
             <StyledSmallSpan>(x{cartQuantity})</StyledSmallSpan>
             <StyledYellowSpan sx={{ width: '50px' }}>
               &#36; {price * cartQuantity}

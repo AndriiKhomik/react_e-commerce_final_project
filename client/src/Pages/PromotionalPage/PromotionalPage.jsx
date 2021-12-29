@@ -13,7 +13,10 @@ let obj = {};
 
 const PromotionalPage = ({ match }) => {
   // const date = Date(Date.now()).toString();
-  // console.log(date);
+  // <<<<<<< HEAD
+  //   // console.log(date);
+  // =======
+
   switch (match.url) {
     case '/promotions/1':
       obj = offer;
@@ -25,17 +28,24 @@ const PromotionalPage = ({ match }) => {
       obj = offer3;
       break;
     default:
-      console.log('123');
+    // <<<<<<< HEAD
+    //       console.log('123');
+    //   }
+    //   const { description, title, srcS, srcM, srcL, terms, subtitle } = obj;
+    //   console.log(match.url);
+    // =======
   }
-  const { description, title, srcS, srcM, srcL, terms, subtitle } = obj;
-  console.log(match.url);
+  const { description, title, imgUrl, terms, subtitle } = obj;
   return (
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />
       <StyledContainer>
         <PromotionalTitle name={title} />
         <StyledDescription>
+          {/* <<<<<<< HEAD
           <PromotionalImg srcS={srcS} srcM={srcM} srcL={srcL} />
+======= */}
+          <PromotionalImg img={imgUrl} name={title} />
           <PromotionalDescription
             description={description}
             terms={terms}

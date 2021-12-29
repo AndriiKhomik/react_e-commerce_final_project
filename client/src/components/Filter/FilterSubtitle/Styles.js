@@ -6,4 +6,5 @@ export const StyledSubtitle = styled('p')(() => ({
     fontSize: '18px',
     fontWeight: '700',
     color: [theme.palette.text.main],
+    fontFamily: 'CeraPro Regular',
 }));

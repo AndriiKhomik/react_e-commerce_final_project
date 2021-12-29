@@ -18,8 +18,8 @@ export const contacts = [
         component: (
             <EmailIcon fill='none' stroke='#FFAC0C' width='15' height='16' />
         ),
-        text: 'contact@bookstore.com',
-        link: 'mailto:contact@bookstore.com',
+        text: 'bookstoredanit@gmail.com',
+        link: 'mailto:bookstoredanit@gmail.com',
         label: 'Send email',
     },
     {
