@@ -11,3 +11,10 @@ export const StyledBox = styled(Box)(({ theme }) => ({
     gap: '5%',
   },
 }));
+
+export const StyledTableTitle = styled(Box)`
+  padding-top: 20px;
+  font-size: calc(10px + 1vw);
+  text-align: center;
+  border: none;
+`;

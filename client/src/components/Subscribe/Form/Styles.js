@@ -3,22 +3,24 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
 export const StyledTextField = styled(TextField)(() => ({
-  '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
-    {
-      borderColor: [theme.palette.primary.main],
-    },
+  // '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+  //   {
+  //     borderColor: [theme.palette.primary.main],
+  //   },
+
   '& .MuiOutlinedInput-root': {
     borderRadius: '6px',
     borderBottomRightRadius: '0',
     borderTopRightRadius: '0',
+    height: '2.5em',
   },
 
-  '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: [theme.palette.primary.main],
-  },
-  '& .css-i4bv87-MuiSvgIcon-root': {
-    fill: [theme.palette.text.gray],
-  },
+  // '& .MuiOutlinedInput-notchedOutline': {
+  //   borderColor: [theme.palette.primary.main],
+  // },
+  // '& .css-i4bv87-MuiSvgIcon-root': {
+  //   fill: [theme.palette.text.gray],
+  // },
 
   [theme.breakpoints.up('xs')]: {
     width: '60%',
@@ -45,9 +47,14 @@ export const StyledButton = styled(Button)(() => ({
     borderBottomLeftRadius: '0',
     borderTopLeftRadius: '0',
     boxShadow: 'none',
-    height: '100%',
+    height: '2.5rem',
     paddingTop: '8px',
     paddingBottom: '8px',
+    textTransform: 'capitalize',
+  },
+  '&:hover': {
+    boxShadow: 'none',
+    backgroundColor: [theme.palette.primary.deepdark],
   },
 }));
 
@@ -61,7 +68,7 @@ export const StyledBox = styled(Box)(() => ({
 
 export const StyledTitle = styled('h3')(() => ({
   [theme.breakpoints.up('xs')]: {
-    color: '#3d3d3d',
+    color: `${theme.palette.text.main}`,
     paddingBottom: '18px',
     paddingTop: '18px',
     fontSize: '16px',
@@ -75,7 +82,7 @@ export const StyledTitle = styled('h3')(() => ({
 }));
 
 export const StyledText = styled('span')(() => ({
-  color: '#727272',
+  color: `${theme.palette.text.primary}`,
   paddingTop: '17px',
   fontSize: '13px',
   lineHeight: '22px',

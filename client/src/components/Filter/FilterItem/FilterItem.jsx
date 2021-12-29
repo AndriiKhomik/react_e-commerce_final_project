@@ -10,7 +10,6 @@ const FilterItem = ({ name, count, groupTitle }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
   const checkedGenre = useSelector((data) => data.filter.selectedGenre);
-
   const clickHandler = () => {
     setIsChecked(!isChecked);
   };
