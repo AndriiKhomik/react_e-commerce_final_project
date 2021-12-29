@@ -14,7 +14,7 @@ import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
 import useQuery from '../../../services/hooks/useQuery';
 
-const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
+const HiddenFilter = ({ onClick }) => {
   const filtersValues = useSelector((data) => data.filter);
   const history = useHistory();
   const query = useQuery();
@@ -34,10 +34,7 @@ const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <StyledDivider />
-      <FilterAuthorsInput
-        authorValue={authorValue}
-        setAuthorValue={setAuthorValue}
-      />
+      <FilterAuthorsInput />
       <StyledDivider />
       <FilterSubtitle text='Format' />
       <FilterList groupTitle='formats' items={formats} />
@@ -48,11 +45,6 @@ const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
 
 HiddenFilter.propTypes = {
   onClick: PropTypes.func.isRequired,
-  authorValue: PropTypes.string,
-  setAuthorValue: PropTypes.func.isRequired,
 };
 
-HiddenFilter.defaultProps = {
-  authorValue: '',
-};
 export default HiddenFilter;
