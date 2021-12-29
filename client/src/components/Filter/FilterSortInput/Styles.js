@@ -4,7 +4,7 @@ import { styled, FormControl, Select } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledFormControl = styled(FormControl)(() => ({
-  width: '163px',
+  width: '144px',
   '& .MuiInputBase-input': {
     fontSize: '15px',
     color: [theme.palette.text.main],

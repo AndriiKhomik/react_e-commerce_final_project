@@ -5,9 +5,12 @@ export const StyledTagsList = styled('ul')(() => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: '18px',
   [theme.breakpoints.up('ds')]: {
     marginBottom: '0',
+    marginRight: '20px',
+  },
+  [theme.breakpoints.down('ds')]: {
+    display: 'none',
   },
 }));
 
