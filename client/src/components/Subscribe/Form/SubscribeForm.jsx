@@ -19,18 +19,10 @@ const SubscribeForm = () => {
       <FormTitle title='Would you like to join newsletters?' />
       <form>
         <StyledTextField
-<<<<<<< HEAD
-          // id='filled-basic'
-          placeholder='Enter to search'
-          // variant='outlined'
-          style={{ backgroundColor: '#fff' }}
-          // size='small'
-=======
           value={value}
           placeholder='Enter your email'
           style={{ backgroundColor: '#fff' }}
           onChange={handleChange}
->>>>>>> dev
         />
         <StyledButton
           type='submit'
@@ -39,10 +31,6 @@ const SubscribeForm = () => {
           sx={{
             fontFamily: 'CeraPro Bold',
           }}
-<<<<<<< HEAD
-          // size='small'
-=======
->>>>>>> dev
           onClick={onClick}
         >
           Join
