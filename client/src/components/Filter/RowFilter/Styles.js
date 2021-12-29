@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Box, styled } from '@mui/material';
-// import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import DeleteIcon from '@mui/icons-material/Delete';
 import theme from '../../../services/theme/theme';
 
 export const StyledBox = styled(Box)(() => ({
@@ -36,7 +35,7 @@ export const StyledFilterListIcon = styled(FilterListIcon)(() => ({
   },
 }));
 
-export const StyledClearFilterIcon = styled(DeleteIcon)(() => ({
+export const StyledClearFilterIcon = styled(HighlightOffIcon)(() => ({
   [theme.breakpoints.up('dm')]: {
     marginRight: '10px',
   },
