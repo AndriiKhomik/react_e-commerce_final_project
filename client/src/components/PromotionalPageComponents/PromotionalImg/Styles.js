@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import theme from '../../../services/theme/theme';
 
 export const StyledCardMediaBox = styled('div')(() => ({
@@ -13,26 +14,8 @@ export const StyledCardMediaBox = styled('div')(() => ({
   },
 }));
 
-export const StyledCardMedia = styled('img')(() => ({
-  [theme.breakpoints.up('xs')]: {
-    // height: '400px',
-    padding: '0',
-    // margin: 'auto',
-    display: 'block',
-    objectFit: 'cover',
-    borderRadius: '5px',
-    maxWidth: '100%',
-  },
-  // [theme.breakpoints.up('ds')]: {
-  //   // height: '500px',
-  //   maxWidth: '400px',
-  // },
-  // [theme.breakpoints.up('sm')]: {
-  //   // height: '500px',
-  //   maxWidth: '550px',
-  // },
-  // [theme.breakpoints.up('md')]: {
-  //   // height: '500px',
-  //   maxWidth: '700px',
-  // },
-}));
+export const StyledImageWrapper = styled(Box)`
+  & img {
+    width: 100%;
+  }
+`;

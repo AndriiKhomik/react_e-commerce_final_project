@@ -27,7 +27,7 @@ const PromotionalPage = ({ match }) => {
     default:
       console.log('123');
   }
-  const { description, title, imgUrl, terms, subtitle } = obj;
+  const { description, title, srcS, srcM, srcL, terms, subtitle } = obj;
   console.log(match.url);
   return (
     <>
@@ -35,7 +35,7 @@ const PromotionalPage = ({ match }) => {
       <StyledContainer>
         <PromotionalTitle name={title} />
         <StyledDescription>
-          <PromotionalImg img={imgUrl} name={title} />
+          <PromotionalImg srcS={srcS} srcM={srcM} srcL={srcL} />
           <PromotionalDescription
             description={description}
             terms={terms}
