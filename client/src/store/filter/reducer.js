@@ -4,11 +4,8 @@ import {
   SET_MIN_PRICE,
   SET_MAX_PRICE,
   SET_SEARCH_STRING,
-  SET_SELECTED_GENRE,
   SET_SELECTED_AUTHOR,
-  SET_SELECTED_AUTHOR_ID,
   SET_TOTAL_COUNT_OF_PAGES,
-  SET_CURRENT_PAGE,
 } from './types';
 
 const initialState = {
@@ -19,9 +16,7 @@ const initialState = {
   searchString: '',
   selectedGenre: '',
   author: '',
-  authorId: '',
   totalCountOfPages: 1,
-  currentPage: 1,
 };
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -60,20 +55,11 @@ export const filterReducer = (state = initialState, action) => {
     case SET_SEARCH_STRING:
       return { ...state, searchString: action.payload };
 
-    case SET_SELECTED_GENRE:
-      return { ...state, selectedGenre: action.payload };
-
     case SET_SELECTED_AUTHOR:
       return { ...state, author: action.payload };
 
-    case SET_SELECTED_AUTHOR_ID:
-      return { ...state, authorId: action.payload };
-
     case SET_TOTAL_COUNT_OF_PAGES:
       return { ...state, totalCountOfPages: action.payload };
-
-    case SET_CURRENT_PAGE:
-      return { ...state, currentPage: action.payload };
 
     default:
       return state;
