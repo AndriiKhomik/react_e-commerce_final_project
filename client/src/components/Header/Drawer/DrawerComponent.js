@@ -52,7 +52,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem> */}
-        <StyledListItem button>
+        <StyledListItem>
           <ListItemIcon>
             <ListItemText>
               <StyledLink exact to='/authors' activeClassName='selected'>
