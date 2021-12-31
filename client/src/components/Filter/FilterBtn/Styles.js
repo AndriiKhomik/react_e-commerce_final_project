@@ -14,9 +14,4 @@ export const StyledButton = styled(Button)(() => ({
     backgroundColor: [theme.palette.primary.deepdark],
     boxShadow: 'none',
   },
-  [theme.breakpoints.down('dm')]: {
-    width: '50px',
-    height: '45px',
-    minWidth: 'auto',
-  },
 }));

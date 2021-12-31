@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 import theme from '../../../services/theme/theme';
-import FilterBtn from '../FilterBtn';
 import FilterSortList from '../FilterSortList';
 import FilterSortInput from '../FilterSortInput';
 import ClearFilterBtn from '../ClearFilterBtn';
@@ -13,6 +12,7 @@ import {
   StyledFilterBtnBox,
   StyledSortingBox,
   StyledClearFilterIcon,
+  StyledButton,
 } from './Styles';
 
 const RowFilter = ({ onClick }) => {
@@ -27,11 +27,15 @@ const RowFilter = ({ onClick }) => {
   return (
     <StyledBox>
       <StyledFilterBtnBox>
-        <FilterBtn
-          text={mediumScreen ? 'Show filter' : ''}
+        <StyledButton
           onClick={onClick}
-          svg={<StyledFilterListIcon />}
-        />
+          type='submit'
+          variant='contained'
+          aria-label='Show filter'
+        >
+          <StyledFilterListIcon />
+          {mediumScreen ? 'Show filter' : ''}
+        </StyledButton>
         {search !== '?startPage=1&sort=1' && (
           <ClearFilterBtn
             text={mediumScreen ? 'Clear filter' : ''}

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Drawer, List, ListItemIcon, ListItemText } from '@mui/material';
-import { StyledLink, StyledListItem } from './Styles';
+import { ListItemIcon, ListItemText, List } from '@mui/material';
+import { StyledLink, StyledListItem, StyledDrawer } from './Styles';
 
 const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
   return (
-    <Drawer
+    <StyledDrawer
       anchor='left'
       open={openDrawer}
       onClose={() => setOpenDrawer(false)}
@@ -62,7 +62,7 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
           </ListItemIcon>
         </StyledListItem>
       </List>
-    </Drawer>
+    </StyledDrawer>
   );
 };
 

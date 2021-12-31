@@ -12,7 +12,7 @@ import {
 
 const ProductImg = ({ url, name, categories, itemNo, salePrice }) => {
   return (
-    <LightToolTip title={name} placement='top'>
+    <LightToolTip title={name} placement='top' sx={{ zIndex: 5 }}>
       <StyledCardMediaWrapper>
         <StyledCardMediaBox>
           <StyledCardMedia height='243' src={url} alt={name} />
