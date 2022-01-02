@@ -1,2 +1,4 @@
 export const SET_ISLOGIN_TRUE = 'SET_ISLOGIN_TRUE';
 export const SET_ISLOGIN_FALSE = 'SET_ISLOGIN_FALSE';
+export const SET_EMAIL = 'SET_EMAIL';
+export const REMOVE_EMAIL = 'REMOVE_EMAIL';

@@ -5,7 +5,7 @@ import { Grid, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { validationSchema } from './validationSchema';
 import { loginFormData } from './loginFormData';
-import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
+import ErrorMessage from '../../CommonFormComponents/ErrorMessage';
 import {
   StyledFormWrapper,
   StyledServerError,
@@ -13,7 +13,7 @@ import {
 } from '../Styles';
 import { loginUser } from '../../../api/user';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
-import { setIsLoginTrue } from '../../../store/login/actions';
+import { setIsLoginTrue, setEmail } from '../../../store/login/actions';
 
 const LoginForm = ({ handleClose }) => {
   const [error, setError] = useState('');
@@ -23,6 +23,7 @@ const LoginForm = ({ handleClose }) => {
     loginUser(e).then((data) => {
       if (data.token) {
         dispatch(setIsLoginTrue());
+        dispatch(setEmail(e.loginOrEmail));
         const { token } = data;
         const currentToken = token.replace(/Bearer /i, '');
         localStorage.setItem('token', currentToken);
@@ -54,7 +55,7 @@ const LoginForm = ({ handleClose }) => {
                 variant='outlined'
                 fullWidth
               />
-              <StyledErrorMessage component='div' name={name} />
+              <ErrorMessage name={name} />
             </Grid>
           ))}
           <StyledServerErrorWrapper

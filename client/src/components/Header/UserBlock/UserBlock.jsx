@@ -15,7 +15,7 @@ import {
 import theme from '../../../services/theme/theme';
 import CartIcon from '../../icons/CartIcon';
 import LoginModal from '../../LoginModal/LoginModal';
-import { setIsLoginFalse } from '../../../store/login/actions';
+import { setIsLoginFalse, removeEmail } from '../../../store/login/actions';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const addedBooks = useSelector((data) => data.shoppingCart);
@@ -27,10 +27,14 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   // const [showSearchInput, setshowSearchInput] = useState(false);
 
   const matchesButtonQuery = useMediaQuery(theme.breakpoints.up('ds'));
-  const toShoppingCart = useHistory();
+  const toDirectPage = useHistory();
 
   const redirectToCart = () => {
-    toShoppingCart.push('/shoppingcart');
+    toDirectPage.push('/shoppingcart');
+  };
+
+  const redirectToProfile = () => {
+    toDirectPage.push('/profile');
   };
 
   const addBooks = addedBooks.reduce((acc, item) => {
@@ -50,6 +54,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const handleLogout = () => {
     if (isLoggedIn) {
       dispatch(setIsLoginFalse());
+      dispatch(removeEmail());
       localStorage.removeItem('token');
     }
   };
@@ -71,7 +76,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
         <SearchIcon />
       </IconButton> */}
       {isLoggedIn && (
-        <IconButton>
+        <IconButton onClick={redirectToProfile}>
           <PersonOutlineIcon />
         </IconButton>
       )}

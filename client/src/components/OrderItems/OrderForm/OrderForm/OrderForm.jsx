@@ -15,11 +15,11 @@ import {
 import { Form, Formik, Field } from 'formik';
 import { formValues } from './formData';
 import { validationSchema } from './validationSchema';
-import InputLabel from '../InputLabel';
+import InputLabel from '../../../CommonFormComponents/InputLabel';
 import FormTextarea from '../FormTextarea';
-import FormNumberInput from '../FormNumberInput';
-import { StyledErrorMessage } from './Styles';
-import { StyledTitle } from '../../Styles';
+import FormNumberInput from '../../../CommonFormComponents/FormNumberInput';
+import ErrorMessage from '../../../CommonFormComponents/ErrorMessage';
+import FormTitle from '../../../CommonFormComponents/FormTitle';
 import { postOrder } from '../../../../api/order';
 import { clearCart } from '../../../../store/cart/actions';
 import { placeOrderLetter } from './placeOrderLetter';
@@ -139,7 +139,7 @@ const OrderForm = ({ bindSubmitForm }) => {
 
   return (
     <>
-      <StyledTitle>Billing Address</StyledTitle>
+      <FormTitle text='Billing Address' />
       <Formik
         initialValues={{
           fullName: '',
@@ -179,7 +179,7 @@ const OrderForm = ({ bindSubmitForm }) => {
                       />
                     )}
 
-                    <StyledErrorMessage component='div' name={name} />
+                    <ErrorMessage name={name} />
                   </Grid>
                 ))}
                 <FormTextarea />
