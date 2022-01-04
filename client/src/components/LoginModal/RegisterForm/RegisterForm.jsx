@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Formik, Field } from 'formik';
 import { Grid, TextField } from '@mui/material';
+import { useDispatch } from 'react-redux';
 import { validationSchema } from './validationSchema';
 import { registerFormData } from './registerFormData';
 import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
@@ -12,9 +13,12 @@ import {
 } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
 import { registerUser } from '../../../api/user';
+import { submitLogin } from '../LoginForm/submitLogin';
+import { setIsLoginTrue } from '../../../store/login/actions';
 
 const RegisterForm = ({ handleClose }) => {
   const [error, setError] = useState('');
+  const dispatch = useDispatch();
 
   const submitRegister = (e) => {
     const user = { ...e };
@@ -24,7 +28,13 @@ const RegisterForm = ({ handleClose }) => {
       if (!data.customerNo) {
         setError(Object.values(data).toString());
       } else {
-        handleClose();
+        const loginData = {};
+        loginData.loginOrEmail = user.email;
+        loginData.password = user.password;
+        submitLogin(loginData, handleClose, setError);
+        if (!error) {
+          dispatch(setIsLoginTrue());
+        }
       }
     });
   };
