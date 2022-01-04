@@ -12,7 +12,6 @@ import PromotionalDescription from '../../components/PromotionalPageComponents/P
 let obj = {};
 
 const PromotionalPage = ({ match }) => {
-  // const date = Date(Date.now()).toString();
   switch (match.url) {
     case '/promotions/1':
       obj = offer;
@@ -24,15 +23,18 @@ const PromotionalPage = ({ match }) => {
       obj = offer3;
       break;
     default:
+      console.log('123');
   }
-  const { description, title, imgUrl, terms, subtitle } = obj;
+  const { description, title, srcS, srcM, srcL, terms, subtitle } = obj;
+  console.log(match.url);
+
   return (
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />
       <StyledContainer>
         <PromotionalTitle name={title} />
         <StyledDescription>
-          <PromotionalImg img={imgUrl} name={title} />
+          <PromotionalImg srcS={srcS} srcM={srcM} srcL={srcL} />
           <PromotionalDescription
             description={description}
             terms={terms}
@@ -47,7 +49,6 @@ const PromotionalPage = ({ match }) => {
     </>
   );
 };
-
 PromotionalPage.propTypes = {
   match: PropTypes.shape({
     isExact: PropTypes.bool,
