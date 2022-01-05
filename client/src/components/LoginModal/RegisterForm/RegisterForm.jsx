@@ -21,6 +21,7 @@ const RegisterForm = ({ handleClose }) => {
   const dispatch = useDispatch();
 
   const submitRegister = (e) => {
+    setError('');
     const user = { ...e };
     delete user.confirmPassword;
     user.login = user.email.slice(0, user.email.indexOf('@'));
