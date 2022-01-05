@@ -8,11 +8,21 @@ const SliderSchema = new Schema(
       required: true
     },
     title: String,
-    imageUrl: {
+    subtitle: String,
+    imageUrlS: {
+      type: String,
+      required: true
+    },
+    imageUrlM: {
+      type: String,
+      required: true
+    },
+    imageUrlL: {
       type: String,
       required: true
     },
     description: String,
+    terms: String,
     htmlContent: String,
     product: {
       type: Schema.Types.ObjectId,

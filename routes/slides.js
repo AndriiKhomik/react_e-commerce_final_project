@@ -7,7 +7,8 @@ const {
   addSlide,
   updateSlide,
   deleteSlide,
-  getSlides
+  getSlides,
+  getSlideById
 } = require("../controllers/slides");
 
 // @route   POST /slides
@@ -41,5 +42,10 @@ router.delete(
 // @desc    GET existing slides
 // @access  Public
 router.get("/", getSlides);
+
+// @route   GET /slides/:id
+// @desc    GET existing slide by id
+// @access  Public
+router.get("/:id", getSlideById);
 
 module.exports = router;
