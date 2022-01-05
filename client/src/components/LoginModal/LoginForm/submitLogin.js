@@ -2,6 +2,7 @@ import { loginUser } from '../../../api/user';
 
 export const submitLogin = (e, handleClose, setError) => {
   loginUser(e).then((data) => {
+    setError('');
     if (data.token) {
       const { token } = data;
       const currentToken = token.replace(/Bearer /i, '');
