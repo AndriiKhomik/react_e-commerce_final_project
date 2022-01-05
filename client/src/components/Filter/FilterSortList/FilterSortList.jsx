@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { sortItems } from './sortItems';
 import { StyledTagsList, StyledTagsItem, StyledLink } from './Styles';
@@ -21,6 +21,12 @@ const FilterSortList = () => {
 
     history.push(query);
   };
+
+  useEffect(() => {
+    if (filterQuery.get('sale') !== activeTag) {
+      setActiveTag(currentTag);
+    }
+  }, [filterQuery]);
 
   const tags = sortItems.map(({ id, name }) => {
     const tagColor =

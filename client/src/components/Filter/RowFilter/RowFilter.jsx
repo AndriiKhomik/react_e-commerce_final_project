@@ -14,15 +14,20 @@ import {
   StyledClearFilterIcon,
   StyledButton,
 } from './Styles';
+import useQuery from '../../../services/hooks/useQuery';
 
 const RowFilter = ({ onClick }) => {
   const history = useHistory();
+  const filterQuery = useQuery();
   const { search } = useLocation();
   const mediumScreen = useMediaQuery(theme.breakpoints.up('dm'));
 
   const clearFilterHandler = () => {
-    history.push('?startPage=1&sort=1');
+    const currentSort = filterQuery.get('sort');
+    history.push(`?startPage=1&sort=${currentSort}`);
   };
+  const isClearFilterBtnVisible =
+    search !== '?startPage=1&sort=1' && search !== '?startPage=1&sort=-1';
 
   return (
     <StyledBox>
@@ -36,7 +41,7 @@ const RowFilter = ({ onClick }) => {
           <StyledFilterListIcon />
           {mediumScreen ? 'Show filter' : ''}
         </StyledButton>
-        {search !== '?startPage=1&sort=1' && (
+        {isClearFilterBtnVisible && (
           <ClearFilterBtn
             text={mediumScreen ? 'Clear filter' : ''}
             onClick={clearFilterHandler}

@@ -25,9 +25,12 @@ const FilterItem = ({ name, groupTitle }) => {
   }, [isChecked]);
 
   useEffect(() => {
+    const selectedGenres = query.get('genre')?.split(',');
+    const selectedCategories = query.get('categories')?.split(',');
+
     if (
-      query.get('genre') === modifyCheckboxName(name) ||
-      query.get('categories') === modifyCheckboxName(name)
+      selectedGenres?.includes(modifyCheckboxName(name)) ||
+      selectedCategories?.includes(modifyCheckboxName(name))
     ) {
       setIsChecked(true);
     }

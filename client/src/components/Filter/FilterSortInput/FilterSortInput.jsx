@@ -11,10 +11,13 @@ const FilterSortInput = () => {
   const [value, setValue] = useState(1);
 
   const handleChange = (event) => {
-    setValue(event.target.value);
-    const query = search.replace(/sort=[1,-1]+/, `sort=${-value}`);
-    history.push(query);
+    if (+value !== event.target.value) {
+      setValue(event.target.value);
+      const query = search.replace(/sort=[1,-1]+/, `sort=${-value}`);
+      history.push(query);
+    }
   };
+
   useEffect(() => {
     if (filterQuery.get('sort') !== value) {
       setValue(filterQuery.get('sort'));
