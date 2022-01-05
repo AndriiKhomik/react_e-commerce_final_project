@@ -6,9 +6,11 @@ import { InputLabel, MenuItem, Select } from '@mui/material';
 import { getAuthors } from '../../../api/authors';
 import { setSelectedAuthor } from '../../../store/filter/actions';
 import { StyledFormControl } from './Styles';
+import ErrorIndicator from '../../ErrorIndicator/ErrorIndicator';
 
 const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
   const [authors, setAuthors] = useState([]);
+  const [hasError, setHasError] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -16,9 +18,13 @@ const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
   };
 
   useEffect(() => {
-    getAuthors().then((data) => {
-      setAuthors(data);
-    });
+    getAuthors()
+      .then((data) => {
+        setAuthors(data);
+      })
+      .catch(() => {
+        setHasError(true);
+      });
   }, []);
 
   useEffect(() => {
@@ -29,24 +35,27 @@ const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
   }, [authorValue]);
 
   return (
-    <StyledFormControl>
-      <InputLabel id='authors-filter-input'>Authors:</InputLabel>
-      <Select
-        labelId='authors-filter-input'
-        value={authorValue}
-        label='Authors'
-        onChange={handleChange}
-      >
-        <MenuItem key='1' value='all-authors'>
-          All authors
-        </MenuItem>
-        {authors.map(({ name, _id }) => (
-          <MenuItem key={_id} value={_id}>
-            {name}
+    <>
+      {hasError && <ErrorIndicator />}
+      <StyledFormControl>
+        <InputLabel id='authors-filter-input'>Authors:</InputLabel>
+        <Select
+          labelId='authors-filter-input'
+          value={authorValue}
+          label='Authors'
+          onChange={handleChange}
+        >
+          <MenuItem key='1' value='all-authors'>
+            All authors
           </MenuItem>
-        ))}
-      </Select>
-    </StyledFormControl>
+          {authors.map(({ name, _id }) => (
+            <MenuItem key={_id} value={_id}>
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </StyledFormControl>
+    </>
   );
 };
 

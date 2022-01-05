@@ -43,7 +43,7 @@ const App = () => {
 export default withErrorBoundary(App, {
   fallback: (
     <StyledError as='h3'>
-      Oops!Something went wrong,{' '}
+      Oops! Something went wrong,{' '}
       <span>please go back to the previous page and try again</span>
     </StyledError>
   ),
