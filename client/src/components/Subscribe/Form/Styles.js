@@ -1,45 +1,17 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button } from '@mui/material';
+import { Field, ErrorMessage, Form } from 'formik';
 import { styled } from '@mui/material/styles';
 import theme from '../../../services/theme/theme';
 
-export const StyledTextField = styled(TextField)(() => ({
-  // '& .css-ily0j5-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
-  //   {
-  //     borderColor: [theme.palette.primary.main],
-  //   },
-
-  '& .MuiOutlinedInput-root': {
-    borderRadius: '6px',
-    borderBottomRightRadius: '0',
-    borderTopRightRadius: '0',
-    height: '2.5em',
-  },
-
-  // '& .MuiOutlinedInput-notchedOutline': {
-  //   borderColor: [theme.palette.primary.main],
-  // },
-  // '& .css-i4bv87-MuiSvgIcon-root': {
-  //   fill: [theme.palette.text.gray],
-  // },
-
-  [theme.breakpoints.up('xs')]: {
-    width: '60%',
-  },
-  [theme.breakpoints.up('sm')]: {
-    width: '50%',
-  },
-  [theme.breakpoints.up('dm')]: {
-    width: '65%',
-  },
-  [theme.breakpoints.up('bm')]: {
-    width: '77%',
-  },
-  [theme.breakpoints.up('md')]: {
-    width: '75%',
-  },
-  [theme.breakpoints.up('lg')]: {
-    width: '83%',
-  },
+export const StyledTextField = styled(Field)(() => ({
+  borderRadius: '4px',
+  outline: 'none',
+  fontFamily: 'CeraPro Regular',
+  color: [theme.palette.text.main],
+  fontSize: '14px',
+  padding: '10px',
+  width: '100%',
+  border: `1px solid ${[theme.palette.text.gray]}`,
 }));
 
 export const StyledButton = styled(Button)(() => ({
@@ -47,10 +19,13 @@ export const StyledButton = styled(Button)(() => ({
     borderBottomLeftRadius: '0',
     borderTopLeftRadius: '0',
     boxShadow: 'none',
-    height: '2.5rem',
     paddingTop: '8px',
     paddingBottom: '8px',
     textTransform: 'capitalize',
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
   '&:hover': {
     boxShadow: 'none',
@@ -59,10 +34,25 @@ export const StyledButton = styled(Button)(() => ({
 }));
 
 export const StyledBox = styled(Box)(() => ({
+  position: 'relative',
   [theme.breakpoints.up('xs')]: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+  },
+}));
+
+export const StyledForm = styled(Form)(() => ({
+  position: 'relative',
+  display: 'flex',
+  [theme.breakpoints.up('xs')]: {
+    width: '100%',
+  },
+  [theme.breakpoints.up('ds')]: {
+    width: '60%',
+  },
+  [theme.breakpoints.up('dm')]: {
+    width: '100%',
   },
 }));
 
@@ -81,10 +71,23 @@ export const StyledTitle = styled('h3')(() => ({
   },
 }));
 
-export const StyledText = styled('span')(() => ({
+export const StyledText = styled('p')(() => ({
   color: `${theme.palette.text.primary}`,
-  paddingTop: '17px',
+  paddingTop: '20px',
   fontSize: '13px',
   lineHeight: '22px',
   fontFamily: 'CeraPro Regular',
+  [theme.breakpoints.down('dm')]: {
+    maxWidth: '70%',
+  },
+  [theme.breakpoints.down('ds')]: {
+    maxWidth: '100%',
+  },
+}));
+
+export const StyledErrorMessage = styled(ErrorMessage)(() => ({
+  position: 'absolute',
+  bottom: '-18px',
+  fontSize: '13px',
+  color: [theme.palette.primary.accent],
 }));
