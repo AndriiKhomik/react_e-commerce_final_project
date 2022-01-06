@@ -18,6 +18,7 @@ import { validationSchema } from './validationSchema';
 import InputLabel from '../InputLabel';
 import FormTextarea from '../FormTextarea';
 import FormNumberInput from '../FormNumberInput';
+import ErrorIndicator from '../../../ErrorIndicator';
 import { StyledErrorMessage } from './Styles';
 import { StyledTitle } from '../../Styles';
 import { postOrder } from '../../../../api/order';
@@ -34,6 +35,7 @@ const OrderForm = ({ bindSubmitForm }) => {
   const shoppingCart = useSelector((data) => data.shoppingCart);
   const toHomePage = useHistory();
   const [open, setOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -122,16 +124,20 @@ const OrderForm = ({ bindSubmitForm }) => {
       mobile: values.tel,
     };
 
-    postOrder(newOrder).then((data) => {
-      if (data.message && data.message.includes('Some of your products')) {
-        handleClickOpen();
-        return;
-      }
-      localStorage.removeItem('shoppingCart');
-      dispatch(clearCart([]));
-      resetForm({});
-      toHomePage.push('/');
-    });
+    postOrder(newOrder)
+      .then((data) => {
+        if (data.message && data.message.includes('Some of your products')) {
+          handleClickOpen();
+          return;
+        }
+        localStorage.removeItem('shoppingCart');
+        dispatch(clearCart([]));
+        resetForm({});
+        toHomePage.push('/');
+      })
+      .catch(() => {
+        setHasError(true);
+      });
     setSubmitting(false);
   };
 
@@ -139,6 +145,7 @@ const OrderForm = ({ bindSubmitForm }) => {
 
   return (
     <>
+      {hasError && <ErrorIndicator />}
       <StyledTitle>Billing Address</StyledTitle>
       <Formik
         initialValues={{

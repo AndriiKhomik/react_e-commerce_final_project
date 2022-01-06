@@ -20,13 +20,20 @@ const RegisterForm = ({ handleClose }) => {
     const user = { ...e };
     delete user.confirmPassword;
     user.login = user.email.slice(0, user.email.indexOf('@'));
-    registerUser(user).then((data) => {
-      if (!data.customerNo) {
-        setError(Object.values(data).toString());
-      } else {
-        handleClose();
-      }
-    });
+    registerUser(user)
+      .then((data) => {
+        if (!data.customerNo) {
+          setError(Object.values(data).toString());
+        } else {
+          handleClose();
+        }
+      })
+      .catch((err) => {
+        const errMessage = err.response.data.message;
+        if (errMessage.includes('already exists')) {
+          setError(errMessage);
+        }
+      });
   };
 
   return (

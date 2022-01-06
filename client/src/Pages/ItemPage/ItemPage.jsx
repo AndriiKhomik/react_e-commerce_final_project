@@ -6,6 +6,7 @@ import ItemImg from '../../components/ItemPageComponents/ItemImg/ItemImg';
 import ItemInfo from '../../components/ItemPageComponents/ItemInfo/ItemInfo';
 import ItemPrice from '../../components/ItemPageComponents/ItemPrice/ItemPrice';
 import ItemTitle from '../../components/ItemPageComponents/ItemTitle/ItemTitle';
+import ErrorIndicator from '../../components/ErrorIndicator';
 import { getItemProduct } from '../../api/products';
 import { StyledContainer, StyledDescription } from './Styles';
 import SectionTitles from '../../components/SectionTitles/SectionTitles';
@@ -17,6 +18,7 @@ import ListLoader from '../../components/ListLoader/ListLoader';
 const ItemPage = ({ match }) => {
   const [book, setBook] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const {
     name,
@@ -41,39 +43,47 @@ const ItemPage = ({ match }) => {
       .then((data) => {
         setBook(data);
       })
+      .catch(() => {
+        setHasError(true);
+      })
       .finally(() => setIsLoading(false));
   }, [match.url]);
 
-  return isLoading ? (
-    <ListLoader />
-  ) : (
+  return (
     <>
-      <SectionTitles titles={bookPageTitles} itemTitle={name} />
-      <StyledContainer>
-        <ItemImg img={imageUrls} name={name} categories={categories} />
-        <StyledDescription>
-          <ItemTitle name={name} genre={genre} />
-          <ItemPrice
-            price={currentPrice}
-            salePrice={previousPrice}
-            value={3}
-            quantity={quantity}
-          />
-          <ItemDescription shortDescription={shortDescription} />
-          <ItemInfo
-            author={author}
-            publisher={publisher}
-            yearOfPublish={new Date(yearOfPublishing).getFullYear()}
-            pages={numberOfPages}
-            duration={duration}
-            genre={genre}
-            categories={categories}
-          />
-          <ItemButtons book={book} />
-        </StyledDescription>
-      </StyledContainer>
-      <ItemReviewsBlock fullDescription={fullDescription} />
-      <RelatedBooksList genre={genre} itemNo={itemNo} />
+      {hasError && <ErrorIndicator />}
+      {isLoading ? (
+        <ListLoader />
+      ) : (
+        <>
+          <SectionTitles titles={bookPageTitles} itemTitle={name} />
+          <StyledContainer>
+            <ItemImg img={imageUrls} name={name} categories={categories} />
+            <StyledDescription>
+              <ItemTitle name={name} genre={genre} />
+              <ItemPrice
+                price={currentPrice}
+                salePrice={previousPrice}
+                value={3}
+                quantity={quantity}
+              />
+              <ItemDescription shortDescription={shortDescription} />
+              <ItemInfo
+                author={author}
+                publisher={publisher}
+                yearOfPublish={new Date(yearOfPublishing).getFullYear()}
+                pages={numberOfPages}
+                duration={duration}
+                genre={genre}
+                categories={categories}
+              />
+              <ItemButtons book={book} />
+            </StyledDescription>
+          </StyledContainer>
+          <ItemReviewsBlock fullDescription={fullDescription} />
+          <RelatedBooksList genre={genre} itemNo={itemNo} />
+        </>
+      )}
     </>
   );
 };
