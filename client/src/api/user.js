@@ -1,5 +1,3 @@
-
-
 export const registerUser = async (user) => {
   const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/api/customers`,

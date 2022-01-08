@@ -15,7 +15,7 @@ import {
 import theme from '../../../services/theme/theme';
 import CartIcon from '../../icons/CartIcon';
 import LoginModal from '../../LoginModal/LoginModal';
-import { setIsLoginFalse, removeEmail } from '../../../store/login/actions';
+import { setIsLoginFalse } from '../../../store/login/actions';
 
 const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const addedBooks = useSelector((data) => data.shoppingCart);
@@ -54,8 +54,8 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const handleLogout = () => {
     if (isLoggedIn) {
       dispatch(setIsLoginFalse());
-      dispatch(removeEmail());
       localStorage.removeItem('token');
+      localStorage.removeItem('email');
     }
   };
   const handleClose = () => setIsLoginModalOpen(false);

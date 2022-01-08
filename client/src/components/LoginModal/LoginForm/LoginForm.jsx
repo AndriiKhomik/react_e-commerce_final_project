@@ -13,7 +13,7 @@ import {
 } from '../Styles';
 import { loginUser } from '../../../api/user';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
-import { setIsLoginTrue, setEmail } from '../../../store/login/actions';
+import { setIsLoginTrue } from '../../../store/login/actions';
 
 const LoginForm = ({ handleClose }) => {
   const [error, setError] = useState('');
@@ -23,11 +23,10 @@ const LoginForm = ({ handleClose }) => {
     loginUser(e).then((data) => {
       if (data.token) {
         dispatch(setIsLoginTrue());
-        dispatch(setEmail(e.loginOrEmail));
         const { token } = data;
         const currentToken = token.replace(/Bearer /i, '');
         localStorage.setItem('token', currentToken);
-
+        localStorage.setItem('email', e.loginOrEmail);
         handleClose();
       } else {
         setError(Object.values(data).toString());
@@ -76,6 +75,6 @@ LoginForm.propTypes = {
 };
 
 LoginForm.defaultProps = {
-  handleClose: () => {},
+  handleClose: () => { },
 };
 export default LoginForm;
