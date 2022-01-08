@@ -22,7 +22,7 @@ exports.placeOrder = async (req, res, next) => {
     }
 
     if (req.body.shipping) {
-      order.shipping = req.body.shipping;
+      order.shipping = req.body.shipping.toFixed(2);
     }
 
     if (req.body.paymentInfo) {
@@ -35,7 +35,10 @@ exports.placeOrder = async (req, res, next) => {
       cartProducts = await subtractProductsFromCart(order.customerId);
     }
 
-    if ((!req.body.products || req.body.products.length < 1) && cartProducts.length < 1) {
+    if (
+      (!req.body.products || req.body.products.length < 1) &&
+      cartProducts.length < 1
+    ) {
       res
         .status(400)
         .json({ message: "The list of products is required, but absent!" });
@@ -46,12 +49,15 @@ exports.placeOrder = async (req, res, next) => {
     } else {
       order.products = req.body.products;
     }
+    const subtotal = order.products
+      .reduce(
+        (sum, cartItem) =>
+          sum + cartItem.product.currentPrice * cartItem.cartQuantity,
+        0
+      )
+      .toFixed(2);
 
-    order.totalSum = order.products.reduce(
-      (sum, cartItem) =>
-        sum + cartItem.product.currentPrice * cartItem.cartQuantity,
-      0
-    );
+    order.totalSum = (+subtotal + +order?.shipping).toFixed(2);
 
     const productAvailibilityInfo = await productAvailibilityChecker(
       order.products
@@ -60,12 +66,24 @@ exports.placeOrder = async (req, res, next) => {
     if (!productAvailibilityInfo.productsAvailibilityStatus) {
       res.json({
         message: "Some of your products are unavailable for now",
-        productAvailibilityInfo
+        productAvailibilityInfo,
       });
     } else {
       const subscriberMail = req.body.email;
       const letterSubject = req.body.letterSubject;
       const letterHtml = req.body.letterHtml;
+
+      const currentDay = new Date();
+      const dateOfOrder = "d.m.Y"
+        .replace("Y", currentDay.getFullYear())
+        .replace("m", (`0${currentDay.getMonth() + 1}`).slice(-2))
+        .replace("d", `0${currentDay.getDate()}`.slice(-2));
+
+      const updateHtmlLetter = letterHtml
+        .replace(/SubtotalValue!/gi, subtotal)
+        .replace(/OrderTotalSum!/gi, order.totalSum)
+        .replace("DateOfOrder!", dateOfOrder)
+        .replace("NumberOfOrder!", order.orderNo);
 
       const { errors, isValid } = validateOrderForm(req.body);
 
@@ -77,14 +95,14 @@ exports.placeOrder = async (req, res, next) => {
       if (!letterSubject) {
         return res.status(400).json({
           message:
-            "This operation involves sending a letter to the client. Please provide field 'letterSubject' for the letter."
+            "This operation involves sending a letter to the client. Please provide field 'letterSubject' for the letter.",
         });
       }
 
       if (!letterHtml) {
         return res.status(400).json({
           message:
-            "This operation involves sending a letter to the client. Please provide field 'letterHtml' for the letter."
+            "This operation involves sending a letter to the client. Please provide field 'letterHtml' for the letter.",
         });
       }
 
@@ -96,38 +114,42 @@ exports.placeOrder = async (req, res, next) => {
 
       newOrder
         .save()
-        .then(async order => {
+        .then(async (order) => {
           for (item of order.products) {
             const id = item.product._id;
             const product = await Product.findOne({ _id: id });
             const productQuantity = product.quantity;
-            await Product.findOneAndUpdate({ _id: id }, { quantity: productQuantity - item.cartQuantity }, { new: true })
+            await Product.findOneAndUpdate(
+              { _id: id },
+              { quantity: productQuantity - item.cartQuantity },
+              { new: true }
+            );
           }
 
           const mailResult = await sendMail(
             subscriberMail,
             letterSubject,
-            letterHtml,
+            updateHtmlLetter,
             res
           );
 
           res.json({ order, mailResult });
         })
-        .catch(err =>
+        .catch((err) =>
           res.status(400).json({
-            message: `Error happened on server: "${err}" `
+            message: `Error happened on server: "${err}" `,
           })
         );
     }
   } catch (err) {
     res.status(400).json({
-      message: `Error happened on server: "${err}" `
+      message: `Error happened on server: "${err}" `,
     });
   }
 };
 
 exports.updateOrder = (req, res, next) => {
-  Order.findOne({ _id: req.params.id }).then(async currentOrder => {
+  Order.findOne({ _id: req.params.id }).then(async (currentOrder) => {
     if (!currentOrder) {
       return res
         .status(400)
@@ -167,7 +189,7 @@ exports.updateOrder = (req, res, next) => {
         if (!productAvailibilityInfo.productsAvailibilityStatus) {
           res.json({
             message: "Some of your products are unavailable for now",
-            productAvailibilityInfo
+            productAvailibilityInfo,
           });
         }
       }
@@ -186,14 +208,14 @@ exports.updateOrder = (req, res, next) => {
       if (!letterSubject) {
         return res.status(400).json({
           message:
-            "This operation involves sending a letter to the client. Please provide field 'letterSubject' for the letter."
+            "This operation involves sending a letter to the client. Please provide field 'letterSubject' for the letter.",
         });
       }
 
       if (!letterHtml) {
         return res.status(400).json({
           message:
-            "This operation involves sending a letter to the client. Please provide field 'letterHtml' for the letter."
+            "This operation involves sending a letter to the client. Please provide field 'letterHtml' for the letter.",
         });
       }
 
@@ -203,7 +225,7 @@ exports.updateOrder = (req, res, next) => {
         { new: true }
       )
         .populate("customerId")
-        .then(async order => {
+        .then(async (order) => {
           const mailResult = await sendMail(
             subscriberMail,
             letterSubject,
@@ -213,9 +235,9 @@ exports.updateOrder = (req, res, next) => {
 
           res.json({ order, mailResult });
         })
-        .catch(err =>
+        .catch((err) =>
           res.status(400).json({
-            message: `Error happened on server: "${err}" `
+            message: `Error happened on server: "${err}" `,
           })
         );
     }
@@ -223,7 +245,7 @@ exports.updateOrder = (req, res, next) => {
 };
 
 exports.cancelOrder = (req, res, next) => {
-  Order.findOne({ _id: req.params.id }).then(async currentOrder => {
+  Order.findOne({ _id: req.params.id }).then(async (currentOrder) => {
     if (!currentOrder) {
       return res
         .status(400)
@@ -243,14 +265,14 @@ exports.cancelOrder = (req, res, next) => {
       if (!letterSubject) {
         return res.status(400).json({
           message:
-            "This operation involves sending a letter to the client. Please provide field 'letterSubject' for the letter."
+            "This operation involves sending a letter to the client. Please provide field 'letterSubject' for the letter.",
         });
       }
 
       if (!letterHtml) {
         return res.status(400).json({
           message:
-            "This operation involves sending a letter to the client. Please provide field 'letterHtml' for the letter."
+            "This operation involves sending a letter to the client. Please provide field 'letterHtml' for the letter.",
         });
       }
 
@@ -260,7 +282,7 @@ exports.cancelOrder = (req, res, next) => {
         { new: true }
       )
         .populate("customerId")
-        .then(async order => {
+        .then(async (order) => {
           const mailResult = await sendMail(
             subscriberMail,
             letterSubject,
@@ -270,16 +292,16 @@ exports.cancelOrder = (req, res, next) => {
 
           res.json({ order, mailResult });
         })
-        .catch(err =>
+        .catch((err) =>
           res.status(400).json({
-            message: `Error happened on server: "${err}" `
+            message: `Error happened on server: "${err}" `,
           })
         );
     }
   });
 };
 exports.deleteOrder = (req, res, next) => {
-  Order.findOne({ _id: req.params.id }).then(async order => {
+  Order.findOne({ _id: req.params.id }).then(async (order) => {
     if (!order) {
       return res
         .status(400)
@@ -288,14 +310,14 @@ exports.deleteOrder = (req, res, next) => {
       const orderToDelete = await Order.findOne({ _id: req.params.id });
 
       Order.deleteOne({ _id: req.params.id })
-        .then(deletedCount =>
+        .then((deletedCount) =>
           res.status(200).json({
-            message: `Order witn id "${orderToDelete._id}" is successfully deletes from DB. Order Details: ${orderToDelete}`
+            message: `Order witn id "${orderToDelete._id}" is successfully deletes from DB. Order Details: ${orderToDelete}`,
           })
         )
-        .catch(err =>
+        .catch((err) =>
           res.status(400).json({
-            message: `Error happened on server: "${err}" `
+            message: `Error happened on server: "${err}" `,
           })
         );
     }
@@ -305,10 +327,10 @@ exports.deleteOrder = (req, res, next) => {
 exports.getOrders = (req, res, next) => {
   Order.find({ customerId: req.user.id })
     .populate("customerId")
-    .then(orders => res.json(orders))
-    .catch(err =>
+    .then((orders) => res.json(orders))
+    .catch((err) =>
       res.status(400).json({
-        message: `Error happened on server: "${err}" `
+        message: `Error happened on server: "${err}" `,
       })
     );
 };
@@ -316,10 +338,10 @@ exports.getOrders = (req, res, next) => {
 exports.getOrder = (req, res, next) => {
   Order.findOne({ orderNo: req.params.orderNo })
     .populate("customerId")
-    .then(order => res.json(order))
-    .catch(err =>
+    .then((order) => res.json(order))
+    .catch((err) =>
       res.status(400).json({
-        message: `Error happened on server: "${err}" `
+        message: `Error happened on server: "${err}" `,
       })
     );
 };
