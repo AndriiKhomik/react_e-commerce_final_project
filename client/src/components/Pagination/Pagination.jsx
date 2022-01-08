@@ -33,8 +33,8 @@ const PaginationRounded = () => {
       <Pagination
         page={+query.get('startPage')}
         count={totalCountOfPages}
-        siblingCount={0}
-        boundaryCount={2}
+        siblingCount={1}
+        boundaryCount={0}
         variant='outlined'
         shape='rounded'
         onChange={handleChange}
