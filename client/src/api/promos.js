@@ -7,7 +7,9 @@ export const getPromos = async () => {
 };
 
 export const getPromo = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api${id}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/api/slides/${id}`,
+  );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);
   }
