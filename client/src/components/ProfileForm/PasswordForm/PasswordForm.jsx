@@ -21,7 +21,17 @@ const PasswordForm = () => {
         newPassword: values.newPassword,
       },
       token,
-    );
+    )
+      .then((data) => {
+        if (data.customer) {
+          console.log("Good password");
+
+        } else {
+          console.log("Incorrect password");
+        }
+
+      });
+    console.log(values);
   };
   return (
     <Formik
