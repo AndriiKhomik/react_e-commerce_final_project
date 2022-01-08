@@ -1,26 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledCardMediaBox, StyledCardMedia } from './Styles';
-import defaultimg from '../../../img/missing_image.jpg';
 
-const PromotionalImg = ({ img, name }) => {
+import { StyledCardMediaBox, StyledImageWrapper } from './Styles';
+import { Picture } from './Pictire';
+
+const PromotionalImg = ({ srcS, srcL, srcM }) => {
   return (
     <StyledCardMediaBox>
-      <StyledCardMedia src={img} alt={name} />
+      <StyledImageWrapper>
+        <Picture srcS={srcS} srcM={srcM} srcL={srcL} />
+      </StyledImageWrapper>
     </StyledCardMediaBox>
   );
 };
 
 PromotionalImg.propTypes = {
-  name: PropTypes.string.isRequired,
-  img: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]),
-};
-
-PromotionalImg.defaultProps = {
-  img: defaultimg,
+  srcS: PropTypes.string.isRequired,
+  srcL: PropTypes.string.isRequired,
+  srcM: PropTypes.string.isRequired,
 };
 
 export default PromotionalImg;
