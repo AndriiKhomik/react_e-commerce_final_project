@@ -1,5 +1,4 @@
 import React from 'react';
-// import DateCountdown from 'react-date-countdown-timer';
 import PropTypes from 'prop-types';
 import PromotionalTitle from '../../components/PromotionalPageComponents/PromotionalTitle/PromotionalTitle';
 import { pageTitles } from './pageTitles';
@@ -41,10 +40,6 @@ const PromotionalPage = ({ match }) => {
             subtitle={subtitle}
           />
         </StyledDescription>
-        {/* <DateCountdown
-          dateTo='January 01, 2023 00:00:00 GMT+03:00'
-          callback={() => alert('Hello')}
-        /> */}
       </StyledContainer>
     </>
   );
