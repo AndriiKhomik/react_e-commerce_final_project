@@ -25,8 +25,8 @@ const PaginationRounded = () => {
       <Pagination
         page={+currentPage}
         count={totalCountOfPages}
-        siblingCount={0}
-        boundaryCount={2}
+        siblingCount={1}
+        boundaryCount={0}
         variant='outlined'
         shape='rounded'
         onChange={handleChange}
