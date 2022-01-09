@@ -1,8 +1,8 @@
 import React from 'react';
 import { TextField, Grid } from '@mui/material';
 import { Field } from 'formik';
-import InputLabel from '../InputLabel';
-import { StyledErrorMessage } from './Styles';
+import InputLabel from '../../../CommonFormComponents/InputLabel';
+import ErrorMessage from '../../../CommonFormComponents/ErrorMessage';
 
 const FormTextarea = () => {
   return (
@@ -17,7 +17,7 @@ const FormTextarea = () => {
         rowsmax={5}
         fullWidth
       />
-      <StyledErrorMessage component='div' name='comment' />
+      <ErrorMessage name='comment' />
     </Grid>
   );
 };
