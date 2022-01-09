@@ -30,7 +30,6 @@ const PromotionalPage = ({ match }) => {
     terms,
     subtitle,
   } = promo;
-  console.log(match.url);
 
   return isLoading ? (
     <ListLoader />
