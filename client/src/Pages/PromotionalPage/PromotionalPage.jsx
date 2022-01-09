@@ -1,50 +1,51 @@
-import React from 'react';
-// import DateCountdown from 'react-date-countdown-timer';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import PromotionalTitle from '../../components/PromotionalPageComponents/PromotionalTitle/PromotionalTitle';
 import { pageTitles } from './pageTitles';
+import { getPromo } from '../../api/promos';
 import SectionTitles from '../../components/SectionTitles';
 import { StyledContainer, StyledDescription } from './Styles';
-import { offer, offer2, offer3 } from './hardcode';
 import PromotionalImg from '../../components/PromotionalPageComponents/PromotionalImg';
 import PromotionalDescription from '../../components/PromotionalPageComponents/PromotionalDescription';
-// import Loader from '../../components/ItemPageComponents/Loader/Loader';
-let obj = {};
+import ListLoader from '../../components/ListLoader/ListLoader';
 
 const PromotionalPage = ({ match }) => {
-  switch (match.url) {
-    case '/promotions/1':
-      obj = offer;
-      break;
-    case '/promotions/2':
-      obj = offer2;
-      break;
-    case '/promotions/3':
-      obj = offer3;
-      break;
-    default:
-      console.log('123');
-  }
-  const { description, title, srcS, srcM, srcL, terms, subtitle } = obj;
-  console.log(match.url);
+  const [promo, setPromo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  useEffect(() => {
+    getPromo(match.params[0])
+      .then((data) => {
+        setPromo(data);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  const {
+    description,
+    title,
+    imageUrlS,
+    imageUrlM,
+    imageUrlL,
+    terms,
+    subtitle,
+  } = promo;
+
+  return isLoading ? (
+    <ListLoader />
+  ) : (
     <>
       <SectionTitles titles={pageTitles} itemTitle={title} />
       <StyledContainer>
         <PromotionalTitle name={title} />
         <StyledDescription>
-          <PromotionalImg srcS={srcS} srcM={srcM} srcL={srcL} />
+          <PromotionalImg srcS={imageUrlS} srcM={imageUrlM} srcL={imageUrlL} />
           <PromotionalDescription
             description={description}
             terms={terms}
             subtitle={subtitle}
           />
         </StyledDescription>
-        {/* <DateCountdown
-          dateTo='January 01, 2023 00:00:00 GMT+03:00'
-          callback={() => alert('Hello')}
-        /> */}
       </StyledContainer>
     </>
   );
