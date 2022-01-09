@@ -27,10 +27,14 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   // const [showSearchInput, setshowSearchInput] = useState(false);
 
   const matchesButtonQuery = useMediaQuery(theme.breakpoints.up('ds'));
-  const toShoppingCart = useHistory();
+  const toDirectPage = useHistory();
 
   const redirectToCart = () => {
-    toShoppingCart.push('/shoppingcart');
+    toDirectPage.push('/shoppingcart');
+  };
+
+  const redirectToProfile = () => {
+    toDirectPage.push('/profile');
   };
 
   const addBooks = addedBooks.reduce((acc, item) => {
@@ -51,6 +55,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
     if (isLoggedIn) {
       dispatch(setIsLoginFalse());
       localStorage.removeItem('token');
+      localStorage.removeItem('email');
     }
   };
   const handleClose = () => setIsLoginModalOpen(false);
@@ -71,7 +76,7 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
         <SearchIcon />
       </IconButton> */}
       {isLoggedIn && (
-        <IconButton>
+        <IconButton onClick={redirectToProfile}>
           <PersonOutlineIcon />
         </IconButton>
       )}
