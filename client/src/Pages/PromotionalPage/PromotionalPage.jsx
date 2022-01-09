@@ -23,10 +23,8 @@ const PromotionalPage = ({ match }) => {
       obj = offer3;
       break;
     default:
-      console.log('123');
   }
   const { description, title, srcS, srcM, srcL, terms, subtitle } = obj;
-  console.log(match.url);
 
   return (
     <>
