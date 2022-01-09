@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import { Pagination, Autoplay } from 'swiper';
+import ListLoader from '../ListLoader';
+import { getPromos } from '../../api/promos';
 import 'swiper/swiper.scss';
 import 'swiper/modules/pagination/pagination.scss';
 import {
@@ -11,22 +13,38 @@ import {
   StyledContainer,
 } from './Styles';
 import { AdaptivePicture } from './AdaptivePicture';
-import { bannersArray } from './banners';
 
 const HeroSlider = () => {
-  const slides = bannersArray.map(({ id, srcS, srcM, srcL }) => {
+  const [promos, setPromos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getPromos()
+      .then((data) => {
+        setPromos(data);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  const slides = promos.map(({ _id, imageUrlS, imageUrlM, imageUrlL }) => {
     return (
-      <SwiperSlide key={`slide-${id}`} tag='li'>
-        <StyledLink as={Link} to={`/promotions/${id}`}>
+      <SwiperSlide key={`slide-${_id}`} tag='li'>
+        <StyledLink as={Link} to={`/promotions/${_id}`}>
           <StyledImageWrapper>
-            <AdaptivePicture srcS={srcS} srcM={srcM} srcL={srcL} />
+            <AdaptivePicture
+              srcS={imageUrlS}
+              srcM={imageUrlM}
+              srcL={imageUrlL}
+            />
           </StyledImageWrapper>
         </StyledLink>
       </SwiperSlide>
     );
   });
 
-  return (
+  return isLoading ? (
+    <ListLoader />
+  ) : (
     <StyledContainer>
       <SliderWrapper>
         <Swiper
