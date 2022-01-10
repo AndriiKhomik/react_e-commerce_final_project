@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getPromos } from '../../../api/promos';
+import ListLoader from '../../ListLoader';
 import PromotionalItem from '../PromotionalItem/PromotionalItem';
 import { StyledList } from './Styles';
-import { promotionals } from '../../../Pages/PromotionalPage/hardcode';
 
 const PromotionalsList = () => {
-  const promoElements = promotionals.map(
-    ({ title, promoId, imgUrl, subtitle }) => {
-      return (
-        <PromotionalItem
-          key={promoId}
-          title={title}
-          imgUrl={imgUrl}
-          promoId={promoId}
-          subtitle={subtitle}
-        />
-      );
-    },
-  );
+  const [promos, setPromos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  return <StyledList>{promoElements}</StyledList>;
+  useEffect(() => {
+    getPromos()
+      .then((data) => {
+        setPromos(data);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  const promoElements = promos.map(({ title, _id, imageUrlS, subtitle }) => {
+    return (
+      <PromotionalItem
+        key={_id}
+        title={title}
+        imgUrl={imageUrlS}
+        promoId={_id}
+        subtitle={subtitle}
+      />
+    );
+  });
+
+  return isLoading ? <ListLoader /> : <StyledList>{promoElements}</StyledList>;
 };
 
 export default PromotionalsList;
