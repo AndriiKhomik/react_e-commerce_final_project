@@ -21,9 +21,10 @@ const LoginForm = ({ handleClose }) => {
 
   const onSubmitLogin = (e) => {
     setError('');
-    submitLogin(e, handleClose, setError);
+    submitLogin(e, setError);
     if (!error) {
       dispatch(setIsLoginTrue());
+      handleClose();
     }
   };
   return (

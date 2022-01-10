@@ -83,10 +83,9 @@ const formValidationRules = [
   },
   {
     field: "login",
-    method: "matches",
+    method: "isEmail",
     validWhen: true,
-    args: [/^[a-zA-Z0-9\.]+$/],
-    message: "Allowed characters for login is a-z, A-Z, 0-9.",
+    message: "That is not a valid email.",
   },
   {
     field: "login",

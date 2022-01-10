@@ -24,17 +24,20 @@ const RegisterForm = ({ handleClose }) => {
     setError('');
     const user = { ...e };
     delete user.confirmPassword;
-    user.login = user.email.slice(0, user.email.indexOf('@'));
+    user.login = user.email;
     registerUser(user).then((data) => {
       if (!data.customerNo) {
         setError(Object.values(data).toString());
       } else {
+        setError('');
         const loginData = {};
         loginData.loginOrEmail = user.email;
         loginData.password = user.password;
-        submitLogin(loginData, handleClose, setError);
+        submitLogin(loginData, setError);
+
         if (!error) {
           dispatch(setIsLoginTrue());
+          handleClose();
         }
       }
     });
