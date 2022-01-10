@@ -166,7 +166,7 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const perPage = Number(req.query.perPage) || 12;
   const startPage = Number(req.query.startPage);
   const sort = { "currentPrice": Number(req.query.sort) };
-
+  const sale = req.query.sale && { 'previousPrice': { $exists: true } };
   let query = '';
   let findResult = '';
 
@@ -178,10 +178,11 @@ exports.getProductsFilterParams = async (req, res, next) => {
         .replace("+", " ");
       findResult = {
         ...mongooseQuery,
-        ...{ 'name': { $regex: ".*" + query + ".*", $options: "$i" } }
+        ...{ 'name': { $regex: ".*" + query + ".*", $options: "$i" } },
+        ...sale
       };
     } else {
-      findResult = { ...mongooseQuery }
+      findResult = { ...mongooseQuery, ...sale }
     }
     const productsCount = await Product.find(findResult).populate('author').count();
 

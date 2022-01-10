@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { StyledDivider } from './Styles';
 import SearchInput from '../SearchInput';
 import FilterSubtitle from '../FilterSubtitle';
@@ -11,25 +12,17 @@ import FilterAuthorsInput from '../FilterAuthorsInput';
 import { genres } from './filterGenresValues';
 import { formats } from './filterFormatsValues';
 import { makeQueryString } from './makeQueryString';
-import {
-  setCurrentPage,
-  setSelectedGenre,
-  setSelectedAuthorId,
-  setSearchString,
-  setSelectedAuthor,
-} from '../../../store/filter/actions';
+import useQuery from '../../../services/hooks/useQuery';
 
-const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
+const HiddenFilter = ({ onClick }) => {
   const filtersValues = useSelector((data) => data.filter);
-  const dispatch = useDispatch();
+  const history = useHistory();
+  const query = useQuery();
 
   const applyFilter = () => {
-    dispatch(setSelectedGenre(''));
-    dispatch(setSelectedAuthorId(''));
-    dispatch(setCurrentPage(1));
-    dispatch(setSearchString(''));
-    dispatch(setSelectedAuthor(''));
-    onClick(makeQueryString(filtersValues));
+    onClick();
+    const filterQuery = makeQueryString(filtersValues);
+    history.push(`?${filterQuery}&startPage=1&sort=${query.get('sort')}`);
   };
 
   return (
@@ -41,10 +34,7 @@ const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
       <FilterSubtitle text='Price Range' />
       <FilterRange />
       <StyledDivider />
-      <FilterAuthorsInput
-        authorValue={authorValue}
-        setAuthorValue={setAuthorValue}
-      />
+      <FilterAuthorsInput />
       <StyledDivider />
       <FilterSubtitle text='Format' />
       <FilterList groupTitle='formats' items={formats} />
@@ -55,11 +45,6 @@ const HiddenFilter = ({ onClick, authorValue, setAuthorValue }) => {
 
 HiddenFilter.propTypes = {
   onClick: PropTypes.func.isRequired,
-  authorValue: PropTypes.string,
-  setAuthorValue: PropTypes.func.isRequired,
 };
 
-HiddenFilter.defaultProps = {
-  authorValue: '',
-};
 export default HiddenFilter;

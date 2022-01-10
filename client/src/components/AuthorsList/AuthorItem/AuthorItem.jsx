@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import AuthorImg from '../AuthorImg';
 import defaultimg from '../../../img/noImgAuthor.png';
-import { setSelectedAuthorId } from '../../../store/filter/actions';
 import {
   StyledAuthorName,
   StyledBooksLink,
@@ -13,12 +11,6 @@ import {
 } from './Styles';
 
 const AuthorItem = ({ name, authorUrl, id }) => {
-  const dispatch = useDispatch();
-
-  const onClickHandler = () => {
-    dispatch(setSelectedAuthorId(id));
-  };
-
   return (
     <StyledItem>
       <StyledImageLink
@@ -35,7 +27,10 @@ const AuthorItem = ({ name, authorUrl, id }) => {
       >
         {name}
       </StyledAuthorName>
-      <StyledBooksLink onClick={onClickHandler} as={Link} to='/products'>
+      <StyledBooksLink
+        as={Link}
+        to={`/products?author=${id}&startPage=1&sort=1`}
+      >
         Look books
       </StyledBooksLink>
     </StyledItem>
