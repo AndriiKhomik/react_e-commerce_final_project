@@ -13,6 +13,7 @@ import Authors from './Pages/Authors';
 import AuthorPage from './Pages/AuthorPage/AuthorPage';
 import PromotionalPage from './Pages/PromotionalPage/PromotionalPage';
 import PromotionalsPage from './Pages/PromotionalsPage/PromotionalsPage';
+import ProfilePage from './Pages/ProfilePage/ProfilePage';
 
 export const useRoutes = () => {
   return (
@@ -29,6 +30,7 @@ export const useRoutes = () => {
       <Route path='/promotionals' component={PromotionalsPage} />
       <Route path='/promotions/*' component={PromotionalPage} />
       <Route exact path='/checkout' component={CheckoutPage} />
+      <Route exact path='/profile' component={ProfilePage} />
       <Route exact path='*' component={NotFoundPage} />
     </Switch>
   );

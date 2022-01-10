@@ -5,7 +5,7 @@ import { Grid, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { validationSchema } from './validationSchema';
 import { registerFormData } from './registerFormData';
-import { StyledErrorMessage } from '../../OrderItems/OrderForm/OrderForm/Styles';
+import ErrorMessage from '../../CommonFormComponents/ErrorMessage';
 import {
   StyledFormWrapper,
   StyledServerError,
@@ -69,7 +69,7 @@ const RegisterForm = ({ handleClose }) => {
                 fullWidth
               />
 
-              <StyledErrorMessage component='div' name={name} />
+              <ErrorMessage component='div' name={name} />
             </Grid>
           ))}
           <StyledServerErrorWrapper

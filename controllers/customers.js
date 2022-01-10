@@ -231,9 +231,9 @@ exports.updatePassword = (req, res) => {
   Customer.findOne({ _id: req.user.id }, (err, customer) => {
     let oldPassword = req.body.password;
 
-    customer.comparePassword(oldPassword, function(err, isMatch) {
+    customer.comparePassword(oldPassword, function (err, isMatch) {
       if (!isMatch) {
-        errors.password = "Password does not match";
+        errors.password = "Current password is incorrect.";
         res.json(errors);
       } else {
         let newPassword = req.body.newPassword;

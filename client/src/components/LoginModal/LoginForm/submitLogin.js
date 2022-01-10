@@ -6,6 +6,7 @@ export const submitLogin = (e, setError) => {
       const { token } = data;
       const currentToken = token.replace(/Bearer /i, '');
       localStorage.setItem('token', currentToken);
+      localStorage.setItem('email', e.loginOrEmail);
       setError('');
     } else {
       setError(Object.values(data).toString());
