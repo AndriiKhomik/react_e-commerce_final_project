@@ -1,72 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { filterProducts } from '../../../api/products';
 import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
+// import useQuery from './useQuery';
 import { StyledItem, StyledList } from './Styles';
-import {
-  setSelectedGenre,
-  setSelectedAuthorId,
-  setCurrentPage,
-  setTotalCountOfPages,
-} from '../../../store/filter/actions';
+import { setTotalCountOfPages } from '../../../store/filter/actions';
 
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector((data) => data.bookList);
-  const selectedGenre = useSelector(({ filter }) => filter.selectedGenre);
-  const selectedAuthorId = useSelector(({ filter }) => filter.authorId);
-  const currentPage = useSelector(({ filter }) => filter.currentPage);
+  const { search } = useLocation();
 
   const updateBooksList = (queryString = query) => {
-    filterProducts(queryString, currentPage)
+    filterProducts(queryString)
       .then((data) => {
         dispatch(setBooks(data.products));
-        dispatch(setCurrentPage(data.currentPage));
         dispatch(setTotalCountOfPages(data.totalCountOfPages));
       })
       .finally(() => setIsLoading(false));
   };
 
-  // initial render without updating query, genre and author!
   useEffect(() => {
-    if (!selectedGenre && !query && !selectedAuthorId) {
-      updateBooksList();
-    }
-    return function cleanup() {
-      dispatch(setSelectedGenre(''));
-      dispatch(setSelectedAuthorId(''));
-    };
-  }, []);
-
-  useEffect(() => {
-    if (query) {
-      updateBooksList();
-    }
-  }, [query]);
-
-  useEffect(() => {
-    if (!selectedGenre && !selectedAuthorId) {
-      updateBooksList();
-    }
-  }, [currentPage]);
-
-  useEffect(() => {
-    if (selectedGenre) {
-      updateBooksList(`genre=${selectedGenre}`);
-      dispatch(setCurrentPage(1));
-    }
-  }, [selectedGenre]);
-
-  useEffect(() => {
-    if (selectedAuthorId) {
-      dispatch(setCurrentPage(1));
-      updateBooksList(`author=${selectedAuthorId}`);
-    }
-  }, [selectedAuthorId]);
+    updateBooksList(search.slice(1));
+  }, [search]);
 
   const productsElements = products.map(
     ({

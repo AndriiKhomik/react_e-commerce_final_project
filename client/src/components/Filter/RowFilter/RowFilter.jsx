@@ -1,21 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 import theme from '../../../services/theme/theme';
-import FilterBtn from '../FilterBtn';
-import { StyledBox, StyledFilterListIcon, StyledFilterBtnBox } from './Styles';
+import FilterSortList from '../FilterSortList';
+import FilterSortInput from '../FilterSortInput';
+import ClearFilterBtn from '../ClearFilterBtn';
+import {
+  StyledBox,
+  StyledFilterListIcon,
+  StyledFilterBtnBox,
+  StyledSortingBox,
+  StyledClearFilterIcon,
+  StyledButton,
+} from './Styles';
+import useQuery from '../../../services/hooks/useQuery';
 
 const RowFilter = ({ onClick }) => {
-  const mediumScreen = useMediaQuery(theme.breakpoints.up('sm'));
+  const history = useHistory();
+  const filterQuery = useQuery();
+  const { search } = useLocation();
+  const mediumScreen = useMediaQuery(theme.breakpoints.up('dm'));
+
+  const clearFilterHandler = () => {
+    const currentSort = filterQuery.get('sort');
+    history.push(`?startPage=1&sort=${currentSort}`);
+  };
+  const isClearFilterBtnVisible =
+    search !== '?startPage=1&sort=1' && search !== '?startPage=1&sort=-1';
+
   return (
     <StyledBox>
       <StyledFilterBtnBox>
-        <FilterBtn
-          text={mediumScreen ? 'Show filter' : ''}
+        <StyledButton
           onClick={onClick}
-          svg={<StyledFilterListIcon />}
-        />
+          type='submit'
+          variant='contained'
+          aria-label='Show filter'
+        >
+          <StyledFilterListIcon />
+          {mediumScreen ? 'Show filter' : ''}
+        </StyledButton>
+        {isClearFilterBtnVisible && (
+          <ClearFilterBtn
+            text={mediumScreen ? 'Clear filter' : ''}
+            onClick={clearFilterHandler}
+            svg={<StyledClearFilterIcon />}
+          />
+        )}
       </StyledFilterBtnBox>
+      <StyledSortingBox>
+        <FilterSortList />
+        <FilterSortInput />
+      </StyledSortingBox>
     </StyledBox>
   );
 };
