@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 import { StyledButtonsWrapper, StyledButtonText, StyledButton } from './Styles';
-import { setSelectedAuthorId } from '../../../store/filter/actions';
 
 const AuthorButton = ({ id }) => {
-  const dispatch = useDispatch();
-
-  const onClick = () => {
-    dispatch(setSelectedAuthorId(id));
-  };
-
   return (
     <StyledButtonsWrapper>
-      <StyledButton onClick={onClick} to='/products'>
+      <StyledButton to={`/products?author=${id}&startPage=1&sort=1`}>
         <StyledButtonText>Show all books</StyledButtonText>
       </StyledButton>
     </StyledButtonsWrapper>

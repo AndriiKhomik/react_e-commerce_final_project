@@ -44,7 +44,7 @@ const OrderDetails = () => {
   };
 
   const handleContinueShopping = () => {
-    toStore.push('/products');
+    toStore.push('/products?startPage=1&sort=1');
   };
 
   const orderTotal = (totalAmount * 0.02).toFixed(2);

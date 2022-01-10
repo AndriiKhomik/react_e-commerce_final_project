@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useFirstRender } from './useFirstRender';
 import HiddenFilter from '../Filter/HiddenFilter';
 import RowFilter from '../Filter/RowFilter';
@@ -10,17 +10,13 @@ import SectionTitles from '../SectionTitles';
 import { pageTitles } from '../SectionTitles/pageTitles';
 import PaginationRounded from '../Pagination';
 import { StyledFilterContainer } from './Styles';
-import { setSelectedAuthor } from '../../store/filter/actions';
 
 const Catalogue = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [isEmpty, setIsEmpty] = useState(false);
-  const [authorValue, setAuthorValue] = useState('');
-  const author = useSelector((data) => data.filter.authorId);
   const products = useSelector((data) => data.bookList);
   const firstRender = useFirstRender();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     return !firstRender && !products.length
@@ -33,8 +29,6 @@ const Catalogue = () => {
   };
 
   const handleFilterClear = () => {
-    dispatch(setSelectedAuthor(''));
-    setAuthorValue('all-authors');
     setOpen(false);
   };
 
@@ -43,14 +37,7 @@ const Catalogue = () => {
     if (typeof queryString === 'string') {
       setQuery(queryString);
     }
-    handleFilterClear();
   };
-
-  useEffect(() => {
-    if (author) {
-      setAuthorValue(author);
-    }
-  }, []);
 
   return (
     <>
@@ -64,11 +51,7 @@ const Catalogue = () => {
         onClose={handleFilterClear}
       >
         <CloseFilterBtn onClick={handleFilterClose} />
-        <HiddenFilter
-          onClick={handleFilterClose}
-          authorValue={authorValue}
-          setAuthorValue={setAuthorValue}
-        />
+        <HiddenFilter onClick={handleFilterClose} />
       </StyledFilterContainer>
       {isEmpty ? '' : <PaginationRounded />}
     </>

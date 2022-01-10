@@ -13,7 +13,8 @@ export const StyledStack = styled(Stack)`
     background-color: ${[theme.palette.primary.light]};
   }
   & .css-c1alij-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected,
-  .Mui-selected {
+  & .css-nlo01p.Mui-selected,
+  & .Mui-selected {
     background-color: ${[theme.palette.primary.main]};
     color: ${[theme.palette.text.light]};
   }
