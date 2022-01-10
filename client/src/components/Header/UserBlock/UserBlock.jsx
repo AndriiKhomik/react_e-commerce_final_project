@@ -56,6 +56,9 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
       dispatch(setIsLoginFalse());
       localStorage.removeItem('token');
       localStorage.removeItem('email');
+      if (window.location.pathname === '/profile') {
+        toDirectPage.push('/');
+      }
     }
   };
   const handleClose = () => setIsLoginModalOpen(false);

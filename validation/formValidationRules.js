@@ -87,13 +87,7 @@ const formValidationRules = [
     validWhen: true,
     message: "That is not a valid email.",
   },
-  {
-    field: "login",
-    method: "isLength",
-    validWhen: true,
-    args: [{ min: 3, max: 25 }],
-    message: "Login must be between 3 and 25 characters",
-  },
+
   {
     field: "loginOrEmail",
     method: FormValidator.isEmpty,
