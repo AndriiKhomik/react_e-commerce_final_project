@@ -18,7 +18,6 @@ import { validationSchema } from './validationSchema';
 import InputLabel from '../../../CommonFormComponents/InputLabel';
 import FormTextarea from '../FormTextarea';
 import ErrorIndicator from '../../../ErrorIndicator';
-import { StyledTitle } from '../../Styles';
 import FormNumberInput from '../../../CommonFormComponents/FormNumberInput';
 import ErrorMessage from '../../../CommonFormComponents/ErrorMessage';
 import FormTitle from '../../../CommonFormComponents/FormTitle';
@@ -161,7 +160,6 @@ const OrderForm = ({ bindSubmitForm }) => {
   return (
     <>
       {hasError && <ErrorIndicator />}
-      <StyledTitle>Billing Address</StyledTitle>
       <FormTitle text='Billing Address' />
       <Formik
         initialValues={{
