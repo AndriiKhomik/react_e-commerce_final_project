@@ -1,15 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useFirstRender } from './useFirstRender';
-import HiddenFilter from '../Filter/HiddenFilter';
-import RowFilter from '../Filter/RowFilter';
-import CloseFilterBtn from '../Filter/CloseFilterBtn';
-import CatalogList from '../CatalogList/CatalogList';
-import EmptyCatalogueNote from '../EmptyCatalogueNote';
-import SectionTitles from '../SectionTitles';
-import { pageTitles } from '../SectionTitles/pageTitles';
-import PaginationRounded from '../Pagination';
-import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useFirstRender } from './useFirstRender';
 import HiddenFilter from '../Filter/HiddenFilter';
