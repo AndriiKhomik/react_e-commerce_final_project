@@ -12,8 +12,7 @@ import {
   StyledServerErrorWrapper,
 } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
-import { registerUser } from '../../../api/user';
-import { submitLogin } from '../LoginForm/submitLogin';
+import { loginUser, registerUser } from '../../../api/user';
 import { setIsLoginTrue } from '../../../store/login/actions';
 
 const RegisterForm = ({ handleClose }) => {
@@ -33,12 +32,18 @@ const RegisterForm = ({ handleClose }) => {
         const loginData = {};
         loginData.loginOrEmail = user.email;
         loginData.password = user.password;
-        submitLogin(loginData, setError);
-
-        if (!error) {
-          dispatch(setIsLoginTrue());
-          handleClose();
-        }
+        loginUser(loginData).then((userData) => {
+          if (userData.token) {
+            const { token } = userData;
+            const currentToken = token.replace(/Bearer /i, '');
+            localStorage.setItem('token', currentToken);
+            localStorage.setItem('email', loginData.loginOrEmail);
+            dispatch(setIsLoginTrue());
+            handleClose();
+          } else {
+            setError(Object.values(userData).toString());
+          }
+        });
       }
     });
   };

@@ -12,20 +12,27 @@ import {
   StyledServerErrorWrapper,
 } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
-import { submitLogin } from './submitLogin';
+// import { submitLogin } from './submitLogin';
 import { setIsLoginTrue } from '../../../store/login/actions';
+import { loginUser } from '../../../api/user';
 
 const LoginForm = ({ handleClose }) => {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
 
   const onSubmitLogin = (e) => {
-    setError('');
-    submitLogin(e, setError);
-    if (!error) {
-      dispatch(setIsLoginTrue());
-      handleClose();
-    }
+    loginUser(e).then((data) => {
+      if (data.token) {
+        const { token } = data;
+        const currentToken = token.replace(/Bearer /i, '');
+        localStorage.setItem('token', currentToken);
+        localStorage.setItem('email', e.loginOrEmail);
+        dispatch(setIsLoginTrue());
+        handleClose();
+      } else {
+        setError(Object.values(data).toString());
+      }
+    });
   };
   return (
     <Formik
