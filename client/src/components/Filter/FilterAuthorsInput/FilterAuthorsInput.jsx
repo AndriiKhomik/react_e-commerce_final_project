@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { getAuthors } from '../../../api/authors';
 import { setSelectedAuthor } from '../../../store/filter/actions';
 import { StyledFormControl } from './Styles';
 import ErrorIndicator from '../../ErrorIndicator/ErrorIndicator';
+import useQuery from '../../../services/hooks/useQuery';
 
-const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
+const FilterAuthorsInput = () => {
+  const query = useQuery();
   const [authors, setAuthors] = useState([]);
   const [hasError, setHasError] = useState(false);
+  const [currentAuthor, setCurrentAuthor] = useState(
+    query.get('author') || 'all-authors',
+  );
+
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    setAuthorValue(event.target.value);
+    setCurrentAuthor(event.target.value);
   };
 
   useEffect(() => {
@@ -28,12 +32,17 @@ const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
   }, []);
 
   useEffect(() => {
-    if (authorValue !== 'all-authors') {
-      return dispatch(setSelectedAuthor(authorValue));
+    if (currentAuthor !== 'all-authors') {
+      return dispatch(setSelectedAuthor(currentAuthor));
     }
     return dispatch(setSelectedAuthor(''));
-  }, [authorValue]);
+  }, [currentAuthor]);
 
+  useEffect(() => {
+    if (query.get('author') === currentAuthor) {
+      setCurrentAuthor(currentAuthor);
+    }
+  }, [query]);
   return (
     <>
       {hasError && <ErrorIndicator />}
@@ -41,12 +50,16 @@ const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
         <InputLabel id='authors-filter-input'>Authors:</InputLabel>
         <Select
           labelId='authors-filter-input'
-          value={authorValue}
+          value={currentAuthor}
           label='Authors'
           onChange={handleChange}
         >
           <MenuItem key='1' value='all-authors'>
             All authors
+            {/* </MenuItem>
+        {authors.map(({ name, _id }) => (
+          <MenuItem key={_id} value={_id}>
+            {name} */}
           </MenuItem>
           {authors.map(({ name, _id }) => (
             <MenuItem key={_id} value={_id}>
@@ -57,11 +70,6 @@ const FilterAuthorsInput = ({ authorValue, setAuthorValue }) => {
       </StyledFormControl>
     </>
   );
-};
-
-FilterAuthorsInput.propTypes = {
-  setAuthorValue: PropTypes.func.isRequired,
-  authorValue: PropTypes.string.isRequired,
 };
 
 export default FilterAuthorsInput;

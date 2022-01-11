@@ -7,9 +7,23 @@ export const StyledBox = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  width: '100%',
   padding: '18px 0',
   borderBottom: `1px solid ${theme.palette.primary.main}`,
+  backgroundColor: `${theme.palette.text.light}`,
+  position: 'fixed',
+  zIndex: '100',
+  top: 0,
+  maxWidth: '1152px',
+  boxShadow: '0px 8px 7px -5px rgb(180, 175, 175, 30%)',
+  left: '16px',
+  right: '16px',
+  [theme.breakpoints.up('sm')]: {
+    left: '24px',
+    right: '24px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    margin: '0 auto',
+  },
 }));
 
 export const StyledLogoBox = styled(Box)(() => ({

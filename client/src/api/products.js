@@ -26,9 +26,9 @@ export const getProductsByQuery = async (
   return response.data;
 };
 
-export const filterProducts = async (queryString = '', startPage = 2) => {
+export const filterProducts = async (queryString = '') => {
   const response = await axios.get(
-    `${process.env.REACT_APP_BASE_URL}/api/products/filter?perPage=12&startPage=${startPage}&${queryString}`,
+    `${process.env.REACT_APP_BASE_URL}/api/products/filter?perPage=12&${queryString}`,
   );
   return response.data;
 };

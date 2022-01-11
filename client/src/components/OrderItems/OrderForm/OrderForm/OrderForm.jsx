@@ -25,6 +25,7 @@ import FormTitle from '../../../CommonFormComponents/FormTitle';
 import { postOrder } from '../../../../api/order';
 import { clearCart } from '../../../../store/cart/actions';
 import { createOrderConfirmationLetter } from './placeOrderLetter';
+import NotificationModal from '../../../NotificationModal';
 
 const letterSubject = 'Good news from the Bookstore! Thank you for order!';
 
@@ -37,6 +38,8 @@ const OrderForm = ({ bindSubmitForm }) => {
   const toHomePage = useHistory();
   const [open, setOpen] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -44,6 +47,10 @@ const OrderForm = ({ bindSubmitForm }) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleModalClose = (isOpen) => {
+    setIsNotificationModalOpen(isOpen);
+    toHomePage.push('/');
   };
 
   useEffect(() => {
@@ -130,9 +137,10 @@ const OrderForm = ({ bindSubmitForm }) => {
       email: values.email,
       mobile: values.tel,
     };
-
+    setIsLoading(true);
     postOrder(newOrder)
       .then((data) => {
+        setIsLoading(false);
         if (data.message && data.message.includes('Some of your products')) {
           handleClickOpen();
           return;
@@ -140,7 +148,7 @@ const OrderForm = ({ bindSubmitForm }) => {
         localStorage.removeItem('shoppingCart');
         dispatch(clearCart([]));
         resetForm({});
-        toHomePage.push('/');
+        setIsNotificationModalOpen(true);
       })
       .catch(() => {
         setHasError(true);
@@ -239,6 +247,13 @@ const OrderForm = ({ bindSubmitForm }) => {
           <Button onClick={handleClose}>Ok</Button>
         </DialogActions>
       </Dialog>
+      <NotificationModal
+        isOpen={isNotificationModalOpen}
+        isLoading={isLoading}
+        handleModalClose={handleModalClose}
+        text='Your order was successfully added. Please, review your order on email.'
+        isResponseSuccess
+      />
     </>
   );
 };
