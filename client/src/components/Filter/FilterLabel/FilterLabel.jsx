@@ -7,14 +7,12 @@ const FilterLabel = ({ name }) => {
   return (
     <>
       <StyledLabelItem>{name}</StyledLabelItem>
-      {/* <span>({count})</span> */}
     </>
   );
 };
 
 FilterLabel.propTypes = {
   name: PropTypes.string.isRequired,
-  // count: PropTypes.number.isRequired,
 };
 
 export default FilterLabel;

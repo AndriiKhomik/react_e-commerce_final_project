@@ -18,13 +18,3 @@ export const StyledImageWrapper = styled(Box)`
     width: 100%;
   }
 `;
-
-// export const StyledCardMedia = styled('img')(() => ({
-//   [theme.breakpoints.up('xs')]: {
-//     padding: '0',
-//     display: 'block',
-//     objectFit: 'cover',
-//     borderRadius: '5px',
-//     maxWidth: '100%',
-//   },
-// }));

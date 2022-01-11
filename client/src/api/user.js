@@ -17,37 +17,29 @@ export const loginUser = async (loginData) => {
 };
 
 export const updateUser = async (userData, token) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/api/customers`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(userData),
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
+  };
+  const response = await axios.put(
+    `${process.env.REACT_APP_BASE_URL}/api/customers`,
+    userData,
+    config,
   );
-  if (!response.ok) {
-    return response.json();
-  }
-  return response.json();
+  return response.data;
 };
 
 export const updatePassword = async (passwordData, token) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/api/customers/password`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(passwordData),
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
+  };
+  const response = await axios.put(
+    `${process.env.REACT_APP_BASE_URL}/api/customers/password`,
+    passwordData,
+    config,
   );
-  if (!response.ok) {
-    return response.json();
-  }
-  return response.json();
+  return response.data;
 };

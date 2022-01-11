@@ -6,21 +6,25 @@ import { filterProducts } from '../../../api/products';
 import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
-// import useQuery from './useQuery';
 import { StyledItem, StyledList } from './Styles';
 import { setTotalCountOfPages } from '../../../store/filter/actions';
+import ErrorIndicator from '../../ErrorIndicator';
 
 const CatalogList = ({ query }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector((data) => data.bookList);
   const { search } = useLocation();
+  const [hasError, setHasError] = useState(false);
 
   const updateBooksList = (queryString = query) => {
     filterProducts(queryString)
       .then((data) => {
         dispatch(setBooks(data.products));
         dispatch(setTotalCountOfPages(data.totalCountOfPages));
+      })
+      .catch(() => {
+        setHasError(true);
       })
       .finally(() => setIsLoading(false));
   };
@@ -75,10 +79,11 @@ const CatalogList = ({ query }) => {
     },
   );
 
-  return isLoading ? (
-    <ListLoader />
-  ) : (
-    <StyledList>{productsElements}</StyledList>
+  return (
+    <>
+      {hasError && <ErrorIndicator />}
+      {isLoading ? <ListLoader /> : <StyledList>{productsElements}</StyledList>}
+    </>
   );
 };
 

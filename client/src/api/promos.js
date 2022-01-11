@@ -1,17 +1,15 @@
+import axios from 'axios';
+
 export const getPromos = async () => {
-  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/slides`);
-  if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
-  }
-  return response.json();
+  const response = await axios.get(
+    `${process.env.REACT_APP_BASE_URL}/api/slides`,
+  );
+  return response.data;
 };
 
 export const getPromo = async (id) => {
-  const response = await fetch(
+  const response = await axios.get(
     `${process.env.REACT_APP_BASE_URL}/api/slides/${id}`,
   );
-  if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
-  }
-  return response.json();
+  return response.data;
 };
