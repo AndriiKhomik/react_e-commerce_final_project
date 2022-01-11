@@ -17,6 +17,7 @@ import { formValues } from './formData';
 import { validationSchema } from './validationSchema';
 import InputLabel from '../../../CommonFormComponents/InputLabel';
 import FormTextarea from '../FormTextarea';
+import ErrorIndicator from '../../../ErrorIndicator';
 import FormNumberInput from '../../../CommonFormComponents/FormNumberInput';
 import ErrorMessage from '../../../CommonFormComponents/ErrorMessage';
 import FormTitle from '../../../CommonFormComponents/FormTitle';
@@ -35,8 +36,10 @@ const OrderForm = ({ bindSubmitForm }) => {
   const shoppingCart = useSelector((data) => data.shoppingCart);
   const toHomePage = useHistory();
   const [open, setOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -134,17 +137,21 @@ const OrderForm = ({ bindSubmitForm }) => {
       mobile: values.tel,
     };
     setIsLoading(true);
-    postOrder(newOrder).then((data) => {
-      setIsLoading(false);
-      if (data.message && data.message.includes('Some of your products')) {
-        handleClickOpen();
-        return;
-      }
-      localStorage.removeItem('shoppingCart');
-      dispatch(clearCart([]));
-      resetForm({});
-      setIsNotificationModalOpen(true);
-    });
+    postOrder(newOrder)
+      .then((data) => {
+        setIsLoading(false);
+        if (data.message && data.message.includes('Some of your products')) {
+          handleClickOpen();
+          return;
+        }
+        localStorage.removeItem('shoppingCart');
+        dispatch(clearCart([]));
+        resetForm({});
+        setIsNotificationModalOpen(true);
+      })
+      .catch(() => {
+        setHasError(true);
+      });
     setSubmitting(false);
   };
 
@@ -152,6 +159,7 @@ const OrderForm = ({ bindSubmitForm }) => {
 
   return (
     <>
+      {hasError && <ErrorIndicator />}
       <FormTitle text='Billing Address' />
       <Formik
         initialValues={{

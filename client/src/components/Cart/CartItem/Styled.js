@@ -26,18 +26,6 @@ export const StyledTableImgCell = styled(TableCell)(() => ({
   },
 }));
 
-// export const StyledSelect = styled(Select)`
-//   height: 28px;
-//   font-size: 14px;
-//   margin: 4px 4px;
-//   fieldset {
-//     right: 5px;
-//     left: 5px;
-//     top: -3px;
-//     bottom: 2px;
-//   }
-// `;
-
 export const StyledDiv = styled('div')(() => ({
   display: 'inline-block',
   backgroundColor: `${theme.palette.primary.dark}`,

@@ -19,12 +19,8 @@ export const StyledTitle = styled(Typography)(() => ({
   fontWeight: 'bold',
   padding: '8px 0 6px',
   borderBottom: `1px solid ${theme.palette.primary.main}`,
+  marginBottom: '12px',
 }));
-
-export const StyledParagraph = styled(Typography)`
-  padding: 12px 0 10px;
-  font-size: 14px;
-`;
 
 export const StyledTextField = styled(TextField)(() => ({
   flex: 1,
