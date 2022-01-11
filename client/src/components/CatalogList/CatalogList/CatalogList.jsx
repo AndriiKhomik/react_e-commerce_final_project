@@ -6,7 +6,6 @@ import { filterProducts } from '../../../api/products';
 import ProductItem from '../../ProductItem/ProductItem';
 import ListLoader from '../../ListLoader';
 import { setBooks } from '../../../store/bookList/actions';
-// import useQuery from './useQuery';
 import { StyledItem, StyledList } from './Styles';
 import { setTotalCountOfPages } from '../../../store/filter/actions';
 

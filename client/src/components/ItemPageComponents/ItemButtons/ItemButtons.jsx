@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {
@@ -11,14 +11,22 @@ import {
   StyledFavoriteBtn,
 } from './Styles';
 import { bookAddedToCart } from '../../../store/cart/actions';
+import {
+  removeFromFavorites,
+  setFavorites,
+} from '../../../store/favorites/actions';
 
 const ItemButtons = ({ book }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
+  const selectedFavoriteItems = useSelector((state) => state.favorites);
 
   const onFavoriteClick = (e) => {
     e.preventDefault();
-    setIsFavorite(!isFavorite);
+    if (!selectedFavoriteItems.includes(book.itemNo)) {
+      dispatch(setFavorites(book.itemNo));
+    } else {
+      dispatch(removeFromFavorites(book.itemNo));
+    }
   };
 
   const {
@@ -76,7 +84,7 @@ const ItemButtons = ({ book }) => {
       </StyledCartButton>
       <StyledFavoriteBtnBox>
         <StyledFavoriteBtn onClick={onFavoriteClick}>
-          {isFavorite ? (
+          {selectedFavoriteItems.includes(itemNo) ? (
             <FavoriteIcon aria-label='remove from favorites books' />
           ) : (
             <FavoriteBorderIcon aria-label='add to favorites books' />

@@ -42,3 +42,15 @@ export const filterProducts = async (queryString = '') => {
   }
   return response.json();
 };
+
+export const getFavoriteProducts = async (listOfFavorites = '') => {
+  const favorites =
+    listOfFavorites.length > 0 ? `?favorites=${listOfFavorites.join(',')}` : '';
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/api/products/favorites${favorites}`,
+  );
+  if (!response.ok) {
+    throw new Error(`Error - ${response.status}`);
+  }
+  return response.json();
+};
