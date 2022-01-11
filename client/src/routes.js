@@ -14,6 +14,7 @@ import AuthorPage from './Pages/AuthorPage/AuthorPage';
 import PromotionalPage from './Pages/PromotionalPage/PromotionalPage';
 import PromotionalsPage from './Pages/PromotionalsPage/PromotionalsPage';
 import ProfilePage from './Pages/ProfilePage/ProfilePage';
+import Favorites from './Pages/Favorites';
 
 export const useRoutes = () => {
   return (
@@ -24,6 +25,7 @@ export const useRoutes = () => {
       <Route exact path='/adminpanel' component={AdminPanel} />
       <Route exact path='/shoppingcart' component={ShoppingCart} />
       <Route exact path='/authors' component={Authors} />
+      <Route exact path='/favorites' component={Favorites} />
       <Route exact path='/registration' component={RegistrationPage} />
       <Route path='/products/:itemNo' component={ItemPage} />
       <Route path='/authors/:_id' component={AuthorPage} />
