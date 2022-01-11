@@ -61,6 +61,15 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
             </ListItemText>
           </ListItemIcon>
         </StyledListItem>
+        <StyledListItem>
+          <ListItemIcon>
+            <ListItemText>
+              <StyledLink exact to='/favorites' activeClassName='selected'>
+                Favorites
+              </StyledLink>
+            </ListItemText>
+          </ListItemIcon>
+        </StyledListItem>
       </List>
     </StyledDrawer>
   );

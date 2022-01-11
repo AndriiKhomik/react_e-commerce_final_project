@@ -71,6 +71,11 @@ const Navbar = () => {
                 Authors
               </StyledLink>
             </Typography>
+            <Typography>
+              <StyledLink exact to='/favorites' activeClassName='selected'>
+                Favorites
+              </StyledLink>
+            </Typography>
           </StyledLinkBox>
         )}
         <StyledUserBox>

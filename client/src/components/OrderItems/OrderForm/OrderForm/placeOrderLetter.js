@@ -381,10 +381,6 @@ ${list}
   )}</td>
 </tr>
 <tr style="border-collapse:collapse">
-<td style="padding:0;Margin:0;text-align:right;font-size:16px;line-height:24px">Discount:</td>
-<td style="padding:0;Margin:0;text-align:right;font-size:16px;line-height:24px">$0.00</td>
-</tr>
-<tr style="border-collapse:collapse">
 <td style="padding:0;Margin:0;text-align:right;font-size:16px;line-height:24px"><strong>Order Total:</strong></td>
 <td style="padding:0;Margin:0;text-align:right;font-size:16px;line-height:24px;color:#feb431"><strong>$OrderTotalSum!</strong></td>
 </tr>
