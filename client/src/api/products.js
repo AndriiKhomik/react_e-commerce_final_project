@@ -1,21 +1,17 @@
+import axios from 'axios';
+
 export const getProducts = async () => {
-  const response = await fetch(
+  const response = await axios.get(
     `${process.env.REACT_APP_BASE_URL}/api/products`,
   );
-  if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
-  }
-  return response.json();
+  return response.data;
 };
 
 export const getItemProduct = async (itemNo) => {
-  const response = await fetch(
+  const response = await axios.get(
     `${process.env.REACT_APP_BASE_URL}/api${itemNo}`,
   );
-  if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
-  }
-  return response.json();
+  return response.data;
 };
 
 export const getProductsByQuery = async (
@@ -24,18 +20,24 @@ export const getProductsByQuery = async (
   exceptId = '',
 ) => {
   const id = exceptId ? `&exceptId=${exceptId}` : '';
-  const response = await fetch(
+  const response = await axios.get(
     `${process.env.REACT_APP_BASE_URL}/api/products?${query}=${value}${id}`,
   );
-  if (!response.ok) {
-    throw new Error(`Error - ${response.status}`);
-  }
-  return response.json();
+  return response.data;
 };
 
-export const filterProducts = async (queryString = '', startPage = 2) => {
+export const filterProducts = async (queryString = '') => {
+  const response = await axios.get(
+    `${process.env.REACT_APP_BASE_URL}/api/products/filter?perPage=12&${queryString}`,
+  );
+  return response.data;
+};
+
+export const getFavoriteProducts = async (listOfFavorites = '') => {
+  const favorites =
+    listOfFavorites.length > 0 ? `?favorites=${listOfFavorites.join(',')}` : '';
   const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/api/products/filter?perPage=12&startPage=${startPage}&${queryString}`,
+    `${process.env.REACT_APP_BASE_URL}/api/products/favorites${favorites}`,
   );
   if (!response.ok) {
     throw new Error(`Error - ${response.status}`);

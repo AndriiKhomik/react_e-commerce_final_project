@@ -8,12 +8,12 @@ const _ = require("lodash");
 exports.addImages = (req, res, next) => {
   if (req.files.length > 0) {
     res.json({
-      message: "Photos are received"
+      message: "Photos are received",
     });
   } else {
     res.json({
       message:
-        "Something wrong with receiving photos at server. Please, check the path folder"
+        "Something wrong with receiving photos at server. Please, check the path folder",
     });
   }
 };
@@ -35,7 +35,7 @@ exports.addProduct = (req, res, next) => {
     // productFields.imageUrls = _.cloneDeep(imageUrls);
   } catch (err) {
     res.status(400).json({
-      message: `Error happened on server: "${err}" `
+      message: `Error happened on server: "${err}" `,
     });
   }
 
@@ -43,26 +43,25 @@ exports.addProduct = (req, res, next) => {
 
   const newProduct = new Product(updatedProduct);
 
-  newProduct
-    .populate("author")
-    .execPopulate();
+  newProduct.populate("author").execPopulate();
 
   newProduct
     .save()
-    .then(product => res.json(product))
-    .catch(err =>
+    .then((product) => res.json(product))
+    .catch((err) =>
       res.status(400).json({
-        message: `Error happened on server: "${err}" `
+        message: `Error happened on server: "${err}" `,
       })
     );
 };
 
 exports.updateProduct = (req, res, next) => {
-  Product.findOne({ _id: req.params.id }).populate('author')
-    .then(product => {
+  Product.findOne({ _id: req.params.id })
+    .populate("author")
+    .then((product) => {
       if (!product) {
         return res.status(400).json({
-          message: `Product with id "${req.params.id}" is not found.`
+          message: `Product with id "${req.params.id}" is not found.`,
         });
       } else {
         const productFields = _.cloneDeep(req.body);
@@ -74,7 +73,7 @@ exports.updateProduct = (req, res, next) => {
             .replace(/\s\s+/g, " ");
         } catch (err) {
           res.status(400).json({
-            message: `Error happened on server: "${err}" `
+            message: `Error happened on server: "${err}" `,
           });
         }
 
@@ -85,17 +84,17 @@ exports.updateProduct = (req, res, next) => {
           { $set: updatedProduct },
           { new: true }
         )
-          .then(product => res.json(product))
-          .catch(err =>
+          .then((product) => res.json(product))
+          .catch((err) =>
             res.status(400).json({
-              message: `Error happened on server: "${err}" `
+              message: `Error happened on server: "${err}" `,
             })
           );
       }
     })
-    .catch(err =>
+    .catch((err) =>
       res.status(400).json({
-        message: `Error happened on server: "${err}" `
+        message: `Error happened on server: "${err}" `,
       })
     );
 };
@@ -106,57 +105,60 @@ exports.getProducts = (req, res, next) => {
   const sort = req.query.sort;
   let products;
   if (req.query.sales) {
-    products = Product.find({ 'previousPrice': { $exists: true } }).populate('author')
-  }
-  else if (req.query.isRecommended) {
-    products = Product.find({ 'isRecommended': { $exists: true } }).populate('author')
-  }
-  else if (req.query.genre) {
+    products = Product.find({ previousPrice: { $exists: true } }).populate(
+      "author"
+    );
+  } else if (req.query.isRecommended) {
+    products = Product.find({ isRecommended: { $exists: true } }).populate(
+      "author"
+    );
+  } else if (req.query.genre) {
     products = Product.find({
-      $and:
-        [{ 'genre': req.query.genre },
+      $and: [
+        { genre: req.query.genre },
         {
-          'itemNo': {
-            $ne: req.query.exceptId
-          }
-        }]
-    }).populate('author')
-  }
-  else {
-    products = Product.find({}).populate('author')
+          itemNo: {
+            $ne: req.query.exceptId,
+          },
+        },
+      ],
+    }).populate("author");
+  } else {
+    products = Product.find({})
+      .populate("author")
       .skip(startPage * perPage - perPage)
       // temporarily limited directly
       // .limit(perPage)
       .limit(12)
-      .sort(sort)
+      .sort(sort);
   }
 
   products
-    .then(products => res.send(products))
-    .catch(err =>
+    .then((products) => res.send(products))
+    .catch((err) =>
       res.status(400).json({
-        message: `Error happened on server: "${err}" `
+        message: `Error happened on server: "${err}" `,
       })
     );
-
 };
 
 exports.getProductById = (req, res, next) => {
   Product.findOne({
-    itemNo: req.params.itemNo
-  }).populate('author')
-    .then(product => {
+    itemNo: req.params.itemNo,
+  })
+    .populate("author")
+    .then((product) => {
       if (!product) {
         res.status(400).json({
-          message: `Product with itemNo ${req.params.itemNo} is not found`
+          message: `Product with itemNo ${req.params.itemNo} is not found`,
         });
       } else {
         res.json(product);
       }
     })
-    .catch(err =>
+    .catch((err) =>
       res.status(400).json({
-        message: `Error happened on server: "${err}" `
+        message: `Error happened on server: "${err}" `,
       })
     );
 };
@@ -165,37 +167,43 @@ exports.getProductsFilterParams = async (req, res, next) => {
   const mongooseQuery = filterParser(req.query);
   const perPage = Number(req.query.perPage) || 12;
   const startPage = Number(req.query.startPage);
-  const sort = { "currentPrice": Number(req.query.sort) };
-
-  let query = '';
-  let findResult = '';
+  const sort = { currentPrice: Number(req.query.sort) };
+  const sale = req.query.sale && { previousPrice: { $exists: true } };
+  let query = "";
+  let findResult = "";
 
   try {
     if (req.query.searchString) {
-      query = req.query.searchString
-        .toLowerCase()
-        .trim()
-        .replace("+", " ");
+      query = req.query.searchString.toLowerCase().trim().replace("+", " ");
       findResult = {
         ...mongooseQuery,
-        ...{ 'name': { $regex: ".*" + query + ".*", $options: "$i" } }
+        ...{ name: { $regex: ".*" + query + ".*", $options: "$i" } },
+        ...sale,
       };
     } else {
-      findResult = { ...mongooseQuery }
+      findResult = { ...mongooseQuery, ...sale };
     }
-    const productsCount = await Product.find(findResult).populate('author').count();
+    const productsCount = await Product.find(findResult)
+      .populate("author")
+      .count();
 
-    const products = await Product.find(findResult).populate('author')
+    const products = await Product.find(findResult)
+      .populate("author")
       .skip(startPage * perPage - perPage)
       .limit(perPage)
       .sort(sort);
 
     const totalCountOfPages = Math.ceil(productsCount / perPage);
 
-    res.json({ products, productsQuantity: products.length, totalCountOfPages, currentPage: startPage });
+    res.json({
+      products,
+      productsQuantity: products.length,
+      totalCountOfPages,
+      currentPage: startPage,
+    });
   } catch (err) {
     res.status(400).json({
-      message: `Error happened on server: "${err}" `
+      message: `Error happened on server: "${err}" `,
     });
   }
 };
@@ -216,8 +224,26 @@ exports.searchProducts = async (req, res, next) => {
 
   // Finding ALL products, that have at least one match
   let matchedProducts = await Product.find({
-    $text: { $search: query }
+    $text: { $search: query },
   });
 
   res.send(matchedProducts);
+};
+
+exports.getFavoriteProducts = async (req, res, next) => {
+  try {
+    if (req.query.favorites) {
+      const favoritesList = req.query.favorites.split(",");
+
+      const products = await Product.find({
+        itemNo: { $in: favoritesList },
+      }).populate("author");
+
+      res.json({ products });
+    }
+  } catch (err) {
+    res.status(400).json({
+      message: `Error happened on server: "${err}" `,
+    });
+  }
 };

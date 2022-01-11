@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconButton, Box, useMediaQuery } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-// import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { useHistory } from 'react-router-dom';
 import {
@@ -23,23 +22,21 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
   const isLoggedIn = useSelector((data) => data.login.isLogin);
 
   const dispatch = useDispatch();
-  // const totalCount = useSelector((data) => data.shoppingCart.orderTotal);
-  // const [showSearchInput, setshowSearchInput] = useState(false);
 
   const matchesButtonQuery = useMediaQuery(theme.breakpoints.up('ds'));
-  const toShoppingCart = useHistory();
+  const toDirectPage = useHistory();
 
   const redirectToCart = () => {
-    toShoppingCart.push('/shoppingcart');
+    toDirectPage.push('/shoppingcart');
+  };
+
+  const redirectToProfile = () => {
+    toDirectPage.push('/profile');
   };
 
   const addBooks = addedBooks.reduce((acc, item) => {
     return acc + item.cartQuantity;
   }, 0);
-
-  // const handleSearchInput = () => {
-  //   setshowSearchInput(!showSearchInput);
-  // };
 
   const handleLogin = () => {
     if (!isLoggedIn) {
@@ -51,27 +48,19 @@ const UserBlock = ({ changeMenu, setOpenDrawer }) => {
     if (isLoggedIn) {
       dispatch(setIsLoginFalse());
       localStorage.removeItem('token');
+      localStorage.removeItem('email');
+      if (window.location.pathname === '/profile') {
+        toDirectPage.push('/');
+      }
     }
   };
   const handleClose = () => setIsLoginModalOpen(false);
 
   return (
     <>
-      {/* {showSearchInput && (
-        <Input
-          sx={{
-            border: '1px solid grey',
-            paddingLeft: '4px',
-            borderRadius: '5px',
-          }}
-        />
-      )} */}
       <Box component='form' />
-      {/* <IconButton onClick={handleSearchInput}>
-        <SearchIcon />
-      </IconButton> */}
       {isLoggedIn && (
-        <IconButton>
+        <IconButton onClick={redirectToProfile}>
           <PersonOutlineIcon />
         </IconButton>
       )}

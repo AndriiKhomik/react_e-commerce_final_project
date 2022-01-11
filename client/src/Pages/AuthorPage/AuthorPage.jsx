@@ -11,36 +11,46 @@ import { StyledContainer, StyledDescription } from './Styles';
 import AuthorButton from '../../components/AuthorPageComponents/AuthorButton';
 import BooksList from '../../components/ProductsList/BooksList';
 import ListLoader from '../../components/ListLoader/ListLoader';
+import ErrorIndicator from '../../components/ErrorIndicator/ErrorIndicator';
 
 const AuthorPage = ({ match }) => {
   const [auth, setAuth] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     getAuthor(match.url)
       .then((data) => {
         setAuth(data);
       })
+      .catch(() => {
+        setHasError(true);
+      })
       .finally(() => setIsLoading(false));
   }, []);
 
   const { books, name, authorUrl, biography, dateOfBirth, _id } = auth;
 
-  return isLoading ? (
-    <ListLoader />
-  ) : (
+  return (
     <>
-      <SectionTitles titles={pageTitles} itemTitle={name} />
-      <StyledContainer>
-        <AuthorImg img={authorUrl} name={name} />
-        <StyledDescription>
-          <AuthorTitle name={name} />
-          <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
-          <AuthorDescription biography={biography} />
-        </StyledDescription>
-      </StyledContainer>
-      <BooksList authorName={name} items={books} text='Books' fromAuthor />
-      <AuthorButton id={_id} />
+      {hasError && <ErrorIndicator />}
+      {isLoading ? (
+        <ListLoader />
+      ) : (
+        <>
+          <SectionTitles titles={pageTitles} itemTitle={name} />
+          <StyledContainer>
+            <AuthorImg img={authorUrl} name={name} />
+            <StyledDescription>
+              <AuthorTitle name={name} />
+              <AuthorDateOfBirth dateOfBirth={dateOfBirth.slice(0, 4)} />
+              <AuthorDescription biography={biography} />
+            </StyledDescription>
+          </StyledContainer>
+          <BooksList authorName={name} items={books} text='Books' fromAuthor />
+          <AuthorButton id={_id} />
+        </>
+      )}
     </>
   );
 };

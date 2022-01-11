@@ -8,29 +8,11 @@ import {
   StyledTableRow,
 } from './Styled';
 import theme from '../../../services/theme/theme';
-// import Ebook from '../../icons/ElBookIcon';
-// import CartonBook from '../../icons/PaperBookIcon';
-// import AudioBook from '../../icons/AudioBookIcon';
 
 const CartProducts = () => {
   const orders = useSelector((data) => data.shoppingCart);
-  // const [img, setImg] = useState(
-  //   <Ebook width='24px' height='28px' fill='#000000' />,
-  // );
 
   const collapseTableColumn = useMediaQuery(theme.breakpoints.up('md'));
-
-  // const handleChange = (value) => {
-  //   if (value.target.value === 1) {
-  //     setImg(<Ebook width='24px' height='28px' fill='#000000' />);
-  //   }
-  //   if (value.target.value === 2) {
-  //     setImg(<CartonBook width='24px' height='28px' fill='#000000' />);
-  //   }
-  //   if (value.target.value === 3) {
-  //     setImg(<AudioBook width='24px' height='28px' fill='#000000' />);
-  //   }
-  // };
 
   const items = orders.map((cartItem) => (
     <CartItem cartItem={cartItem} key={cartItem.itemNo} />
@@ -46,9 +28,6 @@ const CartProducts = () => {
         <TableHead sx={{ borderCollapse: 'separate' }}>
           <StyledTableRow>
             <StyledTableCellHead align='left'>Products</StyledTableCellHead>
-            {/* {collapseTableColumn && (
-              <StyledTableCellHead align='center'>Format</StyledTableCellHead>
-            )} */}
             {collapseTableColumn && (
               <StyledTableCellHead align='center'>Price</StyledTableCellHead>
             )}

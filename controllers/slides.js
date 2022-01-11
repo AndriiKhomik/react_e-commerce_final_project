@@ -1,6 +1,7 @@
 const Slider = require("../models/Slider");
 const queryCreator = require("../commonHelpers/queryCreator");
 const _ = require("lodash");
+const ObjectId = require('mongodb').ObjectId;
 
 exports.addSlide = (req, res, next) => {
   Slider.findOne({ customId: req.body.customId }).then(slide => {
@@ -97,6 +98,20 @@ exports.getSlides = (req, res, next) => {
     .populate("category")
     .populate("customer")
     .then(slides => res.status(200).json(slides))
+    .catch(err =>
+      res.status(400).json({
+        message: `Error happened on server: "${err}" `
+      })
+    );
+};
+exports.getSlideById = (req, res, next) => {
+  Slider.findOne({
+    _id: new ObjectId(req.params.id)
+  })
+    .populate("product")
+    .populate("category")
+    .populate("customer")
+    .then(slide => res.status(200).json(slide))
     .catch(err =>
       res.status(400).json({
         message: `Error happened on server: "${err}" `
