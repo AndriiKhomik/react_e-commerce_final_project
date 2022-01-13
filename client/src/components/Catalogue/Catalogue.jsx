@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useFirstRender } from './useFirstRender';
 import HiddenFilter from '../Filter/HiddenFilter';
 import RowFilter from '../Filter/RowFilter';
