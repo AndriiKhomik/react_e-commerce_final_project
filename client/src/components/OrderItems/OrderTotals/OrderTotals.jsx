@@ -37,10 +37,6 @@ const OrderTotals = ({ isSubmiting, submitForm }) => {
         <StyledSpan>${totalAmount}</StyledSpan>
       </StyledBox>
       <StyledBox>
-        <span>Coupon Discount</span>
-        <span>(-) 00.00</span>
-      </StyledBox>
-      <StyledBox>
         <span>Shipping</span>
         <StyledSpan>${shipping}</StyledSpan>
       </StyledBox>

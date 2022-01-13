@@ -14,6 +14,5 @@ export const addSubscriber = async (subscriber) => {
   } catch (err) {
     throw err(`Could not fetch`);
   }
-
   return response && response.json();
 };
