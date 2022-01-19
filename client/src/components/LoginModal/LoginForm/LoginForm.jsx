@@ -12,7 +12,6 @@ import {
   StyledServerErrorWrapper,
 } from '../Styles';
 import FormButton from '../../OrderItems/OrderForm/FormButton';
-// import { submitLogin } from './submitLogin';
 import { setIsLoginTrue } from '../../../store/login/actions';
 import { loginUser } from '../../../api/user';
 
