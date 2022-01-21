@@ -6,6 +6,7 @@ import {
   SET_SEARCH_STRING,
   SET_SELECTED_AUTHOR,
   SET_TOTAL_COUNT_OF_PAGES,
+  CLEAR_FILTER_VALUES,
 } from './types';
 
 const initialState = {
@@ -60,6 +61,9 @@ export const filterReducer = (state = initialState, action) => {
 
     case SET_TOTAL_COUNT_OF_PAGES:
       return { ...state, totalCountOfPages: action.payload };
+
+    case CLEAR_FILTER_VALUES:
+      return initialState;
 
     default:
       return state;
