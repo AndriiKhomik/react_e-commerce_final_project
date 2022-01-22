@@ -6,6 +6,7 @@ import {
   SET_SEARCH_STRING,
   SET_SELECTED_AUTHOR,
   SET_TOTAL_COUNT_OF_PAGES,
+  CLEAR_FILTER_VALUES,
 } from './types';
 
 export const setGenres = (genre) => ({
@@ -41,4 +42,8 @@ export const setSelectedAuthor = (author) => ({
 export const setTotalCountOfPages = (totalCountOfPages) => ({
   type: SET_TOTAL_COUNT_OF_PAGES,
   payload: totalCountOfPages,
+});
+
+export const clearFilterValues = () => ({
+  type: CLEAR_FILTER_VALUES,
 });

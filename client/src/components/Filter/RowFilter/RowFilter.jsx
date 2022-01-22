@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
@@ -15,16 +16,18 @@ import {
   StyledButton,
 } from './Styles';
 import useQuery from '../../../services/hooks/useQuery';
+import { clearFilterValues } from '../../../store/filter/actions';
 
 const RowFilter = ({ onClick }) => {
   const history = useHistory();
   const filterQuery = useQuery();
   const { search } = useLocation();
   const mediumScreen = useMediaQuery(theme.breakpoints.up('dm'));
-
+  const dispatch = useDispatch();
   const clearFilterHandler = () => {
     const currentSort = filterQuery.get('sort');
     history.push(`?startPage=1&sort=${currentSort}`);
+    dispatch(clearFilterValues());
   };
   const isClearFilterBtnVisible =
     search !== '?startPage=1&sort=1' && search !== '?startPage=1&sort=-1';

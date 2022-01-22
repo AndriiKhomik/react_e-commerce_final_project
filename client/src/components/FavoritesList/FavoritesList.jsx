@@ -12,9 +12,13 @@ const FavoritesList = () => {
   const favoritesItemNoList = useSelector((data) => data.favorites);
 
   useEffect(() => {
-    getFavoriteProducts(favoritesItemNoList).then((data) => {
-      setFavoriteBooks(data?.products);
-    });
+    if (favoritesItemNoList.length > 0) {
+      getFavoriteProducts(favoritesItemNoList).then((data) => {
+        setFavoriteBooks(data?.products);
+      });
+    } else {
+      setFavoriteBooks([]);
+    }
     return !favoritesItemNoList.length ? setIsEmpty(true) : setIsEmpty(false);
   }, [favoritesItemNoList.length]);
 

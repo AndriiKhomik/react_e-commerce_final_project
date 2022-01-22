@@ -1,19 +1,33 @@
 import axios from 'axios';
 
 export const registerUser = async (user) => {
-  const response = await axios.post(
+  const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/api/customers`,
-    user,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    },
   );
-  return response.data;
+  if (!response.ok) {
+    return response.json();
+  }
+  return response.json();
 };
 
 export const loginUser = async (loginData) => {
-  const response = await axios.post(
+  const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/api/customers/login`,
-    loginData,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(loginData),
+    },
   );
-  return response.data;
+  if (!response.ok) {
+    return response.json();
+  }
+  return response.json();
 };
 
 export const updateUser = async (userData, token) => {
